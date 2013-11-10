@@ -6,15 +6,16 @@
 #include "display.h"
 #include "clock_time.h"
 
-void check_button();
-
 enum CLOCK_MODE {
     DATE_MODE,
     TIME_MODE,
     MODE_CNT
 };
 
-int clock_mode = DATE_MODE;
+void check_button();
+
+int clock_mode = TIME_MODE;
+extern int hour_format;
 
 void setup()
 {
@@ -31,9 +32,12 @@ void setup()
     
     pinMode(display_enable_gate, OUTPUT);
     
-    pinMode(btn_mode_pin, INPUT);
+    pinMode(btn_time_mode, INPUT);
+    pinMode(btn_display_mode, INPUT);
     
     setSyncProvider(RTC.get);
+    
+    Serial.begin(115200);
 }
 
 void loop()
@@ -46,8 +50,8 @@ void check_button()
 {  
     int read_val;
     
-    //Check the mode switch button
-    read_val = digitalRead(btn_mode_pin);
+    /* Check the mode switch button */
+    read_val = digitalRead(btn_time_mode);
     if(read_val == HIGH) {
         clock_mode++;
     }
@@ -55,9 +59,22 @@ void check_button()
     //Waiting for user release the button
     while(read_val == HIGH) {
       display_time(clock_mode - 1);
-      read_val = digitalRead(btn_mode_pin);
+      read_val = digitalRead(btn_time_mode);
     }
-        
+    
+    /* Check the display mode switch button */
+    read_val = digitalRead(btn_display_mode);
+    if(read_val == HIGH) {
+        hour_format++;
+        hour_format %= 2;
+    }
+    
+    //Waiting for user release the button
+    while(read_val == HIGH) {
+      display_time(clock_mode);
+      read_val = digitalRead(btn_display_mode);
+    }
+    
     if(clock_mode == MODE_CNT)
         clock_mode = DATE_MODE;
 }

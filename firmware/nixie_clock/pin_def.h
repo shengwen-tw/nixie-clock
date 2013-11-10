@@ -10,6 +10,6 @@ extern int digit_pinA, digit_pinB, digit_pinC;
 //Display work status gate
 extern int display_enable_gate;
 //Button pin
-extern int btn_mode_pin;
+extern int btn_time_mode, btn_display_mode;
 
 #endif

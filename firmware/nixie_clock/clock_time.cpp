@@ -12,6 +12,8 @@
 #define DATE_MODE 0
 #define TIME_MODE 1
 
+int hour_format = FORMAT_24HR;
+
 typedef struct {
     int year;
     int month;
@@ -26,7 +28,7 @@ void read_time(time *cur_time)
     cur_time->year = year();
     cur_time->month = month();
     cur_time->day = day();
-    cur_time->hour = hour();
+    hour_format ? cur_time->hour = hour() : cur_time->hour = hourFormat12();
     cur_time->minute = minute();
     cur_time->second = second();
 }

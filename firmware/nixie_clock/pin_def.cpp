@@ -7,4 +7,4 @@ int digit_pinA = 8, digit_pinB = 7, digit_pinC = 6;
 //Display work status gate
 int display_enable_gate = 5;
 //Button pin
-int btn_mode_pin = 4;
+int btn_time_mode = 4, btn_display_mode = 3;
