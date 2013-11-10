@@ -9,6 +9,9 @@
 
 #define EMPTY_DIGIT -1
 
+#define DATE_MODE 0
+#define TIME_MODE 1
+
 typedef struct {
     int year;
     int month;
@@ -32,15 +35,15 @@ void sort_to_digit(time *cur_time, int *date_data, int *time_data)
 {
     /* Year */
     date_data[7] = cur_time->year / 1000;
-    date_data[6] = cur_time->year / 100;
-    date_data[5] = cur_time->year / 10;
+    date_data[6] = (cur_time->year / 100) % 10;
+    date_data[5] = (cur_time->year / 10) % 100;
     date_data[4] = cur_time->year % 10;
     /* Month */
-    date_data[3] = cur_time->minute / 10;
-    date_data[2] = cur_time->minute % 10;
+    date_data[3] = cur_time->month / 10;
+    date_data[2] = cur_time->month % 10;
     /* Day */
-    date_data[1] = cur_time->second / 10;
-    date_data[0] = cur_time->second % 10;
+    date_data[1] = cur_time->day / 10;
+    date_data[0] = cur_time->day % 10;
     
     /* Hour */
     time_data[7] = cur_time->hour / 10;
