@@ -14,6 +14,9 @@
 
 int hour_format = FORMAT_24HR;
 
+int blink_time = 0;
+int blink_digit = -1;
+
 typedef struct {
     int year;
     int month;
@@ -61,6 +64,11 @@ void sort_to_digit(time *cur_time, int *date_data, int *time_data)
     time_data[2] = -1;
 }
 
+void set_blink_digit(int digit)
+{
+    blink_digit = digit;
+}
+
 void display_time(int flag)
 {
     if(timeStatus() != timeSet)
@@ -74,10 +82,19 @@ void display_time(int flag)
     
     for(int i = 0; i < 8; i++) {
             if(flag == DATE_MODE) {
-                show_number(date_data[i], i);
+                //If the blink digit is set, start blinking
+                if(blink_time < BLINK_DUTY  && i == blink_digit)
+                    continue; //Switch off the light for half duty cycle
+                else
+                    show_number(date_data[i], i);
             } else if(flag == TIME_MODE) {
-                if(time_data[i] != -1)
-                    show_number(time_data[i], i);
+                if(time_data[i] != -1) {
+                    //If the blink digit is set, start blinking
+                    if(blink_time < BLINK_DUTY  && i == blink_digit)
+                        continue; //Switch off the light for half duty cycle
+                    else
+                        show_number(time_data[i], i);
+                }
             } else {
                 return;
             }

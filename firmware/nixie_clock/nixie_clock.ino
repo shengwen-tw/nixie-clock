@@ -13,15 +13,15 @@ enum CLOCK_MODE {
 };
 
 /* Button event handler */
-void btn_clockMode_event();
-void btn_displayMode_event();
+void btn_search_event();
+void btn_adjust_event();
+void btn_mode_event();
 
-//Flag of the hour format, which provide FORMAT_24HR and FORMAT_12HR two options
-extern int hour_format;
 int clock_mode = TIME_MODE; //Current clock mode
 int isr_count = 0; //The counter of Timer
 int btnTime_record_flg = 0; //The flag of program should record the time of  button press down or not
 int btn_hold_time = 0; //Record the time of user press down the button
+int cur_blink_digit = 0; //
 
 void setup()
 {
@@ -39,8 +39,8 @@ void setup()
     //Display enable gate
     pinMode(display_enable_gate, OUTPUT);
     //Buttons
-    pinMode(btn_time_mode, INPUT);
-    pinMode(btn_display_mode, INPUT);
+    pinMode(btn_search, INPUT);
+    pinMode(btn_adjust, INPUT);
     
     /* Initial the real time clock */
     setSyncProvider(RTC.get);
@@ -65,9 +65,16 @@ ISR (TIMER1_OVF_vect)
     isr_count++;
     
     if(isr_count == 244) {
-        if(btnTime_record_flg == 1)
-            btn_hold_time++;
+  
+        blink_time++;
+        
+        //Clean up for next duty cycle
+        if(blink_time > BLINK_DUTY )
+            blink_time = 0;
             
+        if(btnTime_record_flg == 1) {
+            btn_hold_time++;
+        }
             isr_count = 0;
     }
 }
@@ -83,17 +90,18 @@ void loop()
     }
     
     /* Check the status of the button */
-    btn_clockMode_event();
-    btn_displayMode_event();
+    btn_search_event();
+    btn_adjust_event();
+    btn_mode_event();
 }
 
-//Clock mode switch button handler
-void btn_clockMode_event()
+//Search button handler
+void btn_search_event()
 {
     int read_val;
     
-    /* Check the mode switch button */
-    read_val = digitalRead(btn_time_mode);
+    /* Check search button */
+    read_val = digitalRead(btn_search);
     if(read_val == HIGH) {
         clock_mode++;
     }
@@ -101,21 +109,41 @@ void btn_clockMode_event()
     //Waiting for user release the button
     while(read_val == HIGH) {
         display_time(clock_mode - 1);
-        read_val = digitalRead(btn_time_mode);
+        read_val = digitalRead(btn_search);
     }
     
     if(clock_mode == MODE_CNT)
         clock_mode = DATE_MODE;
 }
 
-//Display mode switch button handler
-void btn_displayMode_event()
+//Adjust button handler
+void btn_adjust_event()
 {
-    int read_val;
+    int read_val = digitalRead(btn_adjust);;
 
-    /* Check the display mode switch button */
-    read_val = digitalRead(btn_display_mode);
-    if(read_val == HIGH) {
+    //Waiting for user release the button
+    while(read_val == HIGH) {
+        btnTime_record_flg = 1;
+        
+        if(btn_hold_time >= 1) {
+            //TODO: Switch to setting mode
+            if(blink_digit == -1) {
+                /* Fisrt time long press the button, switch to the setting mode */
+                cur_blink_digit = 7;
+                set_blink_digit(cur_blink_digit);
+            } else {
+                /* Second time long press the button, switch back to the normal mode */
+                cur_blink_digit = -1;
+                set_blink_digit(cur_blink_digit);
+            }
+        }
+        
+        display_time(clock_mode);
+        read_val = digitalRead(btn_adjust);
+    }
+    
+    //btnTime_record_flg means the button had been pressed
+    if(btnTime_record_flg) {
         switch(clock_mode) {
               case TIME_MODE:
                 hour_format++;
@@ -124,20 +152,33 @@ void btn_displayMode_event()
         }
     }
     
-    //Waiting for user release the button
-    while(read_val == HIGH) {
-        btnTime_record_flg = 1;
-        
-        if(btn_hold_time >= 2) {
-            display_time(clock_mode);
-            //TODO: Switch to setting mode
-        } else {
-            display_time(clock_mode);
-        }
-        read_val = digitalRead(btn_display_mode);
-    }
-    
     btnTime_record_flg = 0;
     btn_hold_time = 0;
+}
+
+void btn_mode_event()
+{
+    int read_val;
+    
+    /* Check mode button */
+    read_val = digitalRead(btn_mode);
+    
+    if(read_val == HIGH) {
+        if(blink_digit < 8 && cur_blink_digit != -1) {
+            cur_blink_digit++;
+            //FIXME
+            set_blink_digit(cur_blink_digit);
+        } else {
+            cur_blink_digit = -1;
+            //FIXME
+            set_blink_digit(cur_blink_digit);
+        }
+    }
+    
+    //Waiting for user release the button
+    while(read_val == HIGH) {
+        read_val = digitalRead(btn_mode);
+        display_time(clock_mode);
+    }
 }
 
