@@ -81,12 +81,14 @@ void display_time(int flag)
     sort_to_digit(&cur_time, date_data, time_data);
     
     for(int i = 0; i < 8; i++) {
+            /* Date mode */
             if(flag == DATE_MODE) {
                 //If the blink digit is set, start blinking
                 if(blink_time < BLINK_DUTY  && i == blink_digit)
                     continue; //Switch off the light for half duty cycle
                 else
                     show_number(date_data[i], i);
+             /* Time mode */
             } else if(flag == TIME_MODE) {
                 if(time_data[i] != -1) {
                     //If the blink digit is set, start blinking
@@ -94,11 +96,14 @@ void display_time(int flag)
                         continue; //Switch off the light for half duty cycle
                     else
                         show_number(time_data[i], i);
+                } else {
+                    show_dot(i);
                 }
+            /* Unknown mode */
             } else {
                 return;
             }
             
-        delay(1);
+            delay(1);
     }
 }
