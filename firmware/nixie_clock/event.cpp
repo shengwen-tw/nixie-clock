@@ -21,6 +21,9 @@ void btn_search_event()
             case CLOCK_TIME:
                 time_mode++;
                 break;
+            case CLOCK_SETTING:
+                digit_num_inc(cur_blink_digit, time_mode ? time_digit : date_digit, time_mode);
+                break;
         }
     }
     
@@ -54,6 +57,7 @@ void btn_adjust_event()
                 set_blink_digit(cur_blink_digit);
                 //Set the clock mode back to the time mode 
                 clock_mode = CLOCK_TIME; 
+                time_mode = TIME_MODE;
                 break;
         }
     }

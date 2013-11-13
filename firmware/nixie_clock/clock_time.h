@@ -30,8 +30,11 @@ extern int cur_blink_digit; //Record the current digit which is blinking
 /* Mode */
 extern int clock_mode; //Current clock mode
 extern int time_mode; //Current display mode of time
+/* Digits data of time*/
+extern int date_digit[8], time_digit[8];
 
 void set_blink_digit(int digit);
 void display_time(int flag);
+void digit_num_inc(int digit, int *data, int type_mode);
 
 #endif
