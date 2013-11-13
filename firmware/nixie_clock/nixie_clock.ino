@@ -5,33 +5,9 @@
 #include "pin_def.h"
 #include "display.h"
 #include "clock_time.h"
+#include "event.h"
 
-enum CLOCK_MODE {
-    CLOCK_TIME,
-    CLOCK_ALARM,
-    CLOCK_SETTING,
-    CLOCK_MODE_CNT
-};
-
-enum TIME_MODE {
-    DATE_MODE,
-    TIME_MODE,
-    TIME_MODE_CNT
-};
-
-/* Button event handler */
-void btn_search_event();
-void btn_adjust_event();
-void btn_mode_event();
-
-/* Mode */
-int clock_mode = CLOCK_TIME; //Current clock mode
-int time_mode = TIME_MODE; //Current display mode of time
-/* Timer */
 int isr_count = 0; //The counter of Timer
-int btnTime_record_flg = 0; //The flag of program should record the time of  button press down or not
-int btn_hold_time = 0; //Record the time of user press down the button
-int cur_blink_digit = 0; //Record the current digit which is blinking
 
 void setup()
 {
@@ -106,103 +82,4 @@ void loop()
     btn_search_event();
     btn_adjust_event();
     btn_mode_event();
-}
-
-//Search button handler
-void btn_search_event()
-{
-    int read_val;
-    
-    /* Check search button */
-    read_val = digitalRead(btn_search);
-    if(read_val == HIGH) {
-        time_mode++;
-    }
-    
-    //Waiting for user release the button
-    while(read_val == HIGH) {
-        display_time(time_mode - 1);
-        read_val = digitalRead(btn_search);
-    }
-    
-    if(time_mode == TIME_MODE_CNT)
-        time_mode = DATE_MODE;
-}
-
-//Adjust button handler
-void btn_adjust_event()
-{
-    int read_val = digitalRead(btn_adjust);;
-
-    if(read_val == HIGH) {
-        if(clock_mode == CLOCK_SETTING) {
-                cur_blink_digit = -1;
-                set_blink_digit(cur_blink_digit);
-                
-                //Set the clock mode back to the time mode 
-                clock_mode = CLOCK_TIME; 
-                return;
-        }
-    }
-
-    //Waiting for user release the button
-    while(read_val == HIGH) {
-        btnTime_record_flg = 1;
-        
-        if(btn_hold_time >= 1) {
-            //TODO: Switch to setting mode
-            clock_mode = CLOCK_SETTING; //Set the clock mode to time setting mode
-            
-            if(blink_digit == -1) {
-                cur_blink_digit = 7;
-                set_blink_digit(cur_blink_digit);
-            }
-        }
-        
-        display_time(time_mode);
-        read_val = digitalRead(btn_adjust);
-    }
-    
-    //btnTime_record_flg means the button had been pressed
-    if(btnTime_record_flg && clock_mode == CLOCK_TIME) {
-        switch(time_mode) {
-              case TIME_MODE:
-                hour_format++;
-                hour_format %= 2;
-                break;
-        }
-    }
-    
-    btnTime_record_flg = 0;
-    btn_hold_time = 0;
-}
-
-//Mode button handler
-void btn_mode_event()
-{
-    int read_val;
-    
-    /* Check mode button */
-    read_val = digitalRead(btn_mode);
-    
-    if(read_val == HIGH) {
-        if(blink_digit > 0 && cur_blink_digit != -1) {
-            //Avoid the digit with empty font
-            if(time_mode == TIME_MODE  && ( cur_blink_digit == 3 || cur_blink_digit == 6) )
-                cur_blink_digit -= 2;
-            else
-                cur_blink_digit--; 
-           
-            set_blink_digit(cur_blink_digit);
-        } else {
-            cur_blink_digit = -1;
-            set_blink_digit(cur_blink_digit);
-        }
-    }
-    
-    //Waiting for user release the button
-    while(read_val == HIGH) {
-        read_val = digitalRead(btn_mode);
-        display_time(time_mode);
-    }
 }

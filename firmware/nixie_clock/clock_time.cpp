@@ -12,10 +12,19 @@
 #define DATE_MODE 0
 #define TIME_MODE 1
 
+/* Time format */
 int hour_format = FORMAT_24HR;
 
+/* Blink */
 int blink_time = 0;
 int blink_digit = -1;
+int cur_blink_digit = 0; //Record the current digit which is blinking
+
+/* Mode */
+int clock_mode = CLOCK_TIME; //Current clock mode
+int time_mode = TIME_MODE; //Current display mode of time
+
+/* Time settin*/
 
 typedef struct {
     int year;
@@ -84,10 +93,13 @@ void display_time(int flag)
             /* Date mode */
             if(flag == DATE_MODE) {
                 //If the blink digit is set, start blinking
-                if(blink_time < BLINK_DUTY  && i == blink_digit)
+                if(blink_time < BLINK_DUTY  && i == blink_digit) {
                     continue; //Switch off the light for half duty cycle
-                else
+                }else {
                     show_number(date_data[i], i);
+                    if(i == 2 || i == 4)
+                        show_dot(i);
+                }
              /* Time mode */
             } else if(flag == TIME_MODE) {
                 if(time_data[i] != -1) {
