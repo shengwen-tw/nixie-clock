@@ -23,6 +23,7 @@ void btn_search_event()
                 break;
             case CLOCK_SETTING:
                 digit_num_inc(cur_blink_digit, time_mode ? time_digit : date_digit, time_mode);
+                blink_time = BLINK_DUTY; //Interrupt blinking
                 break;
         }
     }
