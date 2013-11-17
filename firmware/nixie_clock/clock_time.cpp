@@ -75,6 +75,17 @@ void sort_to_digit(time *cur_time, int *date_digit, int *time_digit)
     time_digit[2] = -1;
 }
 
+int is_blink_digit(int cur_digit, int *blink_digit_list)
+{
+    int i;
+    for(i = 0; i < 8; i++) {
+        if(cur_digit == blink_digit_list[i])
+            return 1; //Is blink digit
+}
+  
+    return 0; //No digit set to blink
+}
+
 void set_blink_digit(int digit)
 {
     blink_digit = digit;
