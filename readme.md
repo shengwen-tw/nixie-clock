@@ -18,4 +18,4 @@ Welcome to contact with me to share your ideas!
 * rm -rf DS1307RTC
 * unzip DS1307RTC.zip
 * mv /tmp/Time/ **Your_arduino_path/libraries/**
-*mv /tmp/DS1307RTC/ **Your_arduino_path/libraries/**
+* mv /tmp/DS1307RTC/ **Your_arduino_path/libraries/**
