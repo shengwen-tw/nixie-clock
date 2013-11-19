@@ -7,6 +7,8 @@
 #include "clock_time.h"
 #include "event.h"
 
+clock_time clock;
+
 int isr_count = 0; //The counter of Timer
 
 void setup()
@@ -51,35 +53,9 @@ void setup()
 
 ISR (TIMER1_OVF_vect)
 {  
-    isr_count++;
-    
-    if(isr_count == 244) {
-  
-        blink_time++;
-        
-        //Clean up for next duty cycle
-        if(blink_time > BLINK_DUTY )
-            blink_time = 0;
-            
-        if(btnTime_record_flg == 1) {
-            btn_hold_time++;
-        }
-            isr_count = 0;
-    }
 }
 
 void loop()
 {
-    /* Handle the action of the each clock mode*/
-    switch(time_mode) {
-        case DATE_MODE:
-        case TIME_MODE:
-            display_time(time_mode);
-            break;
-    }
-
-    /* Check the status of the button */
-    btn_search_event();
-    btn_adjust_event();
-    btn_mode_event();
+      clock.display_time();
 }

@@ -1,10 +1,15 @@
+#include <Arduino.h>
+#include <Wire.h>
+#include <Time.h>
+#include <DS1307RTC.h>
+
 #ifndef __CLOCK_TIME_H__
 #define __CLOCK_TIME_H__
 
 #define FORMAT_24HR 1
 #define FORMAT_12HR 0
 
-#define BLINK_DUTY  1
+#define EMPTY_DIGIT -1
 
 /* Clock mode provide user have multiple functions like: time, alarm, timer... etc */
 enum CLOCK_MODE {
@@ -21,20 +26,35 @@ enum TIME_MODE {
     TIME_MODE_CNT
 };
 
-/* Flag of the hour format, which provide FORMAT_24HR and FORMAT_12HR two options */
-extern int hour_format;
-/* Blink */
-extern int blink_time;
-extern int blink_digit;
-extern int cur_blink_digit; //Record the current digit which is blinking
-/* Mode */
-extern int clock_mode; //Current clock mode
-extern int time_mode; //Current display mode of time
-/* Digits data of time*/
-extern int date_digit[8], time_digit[8];
-
-void set_blink_digit(int digit);
-void display_time(int flag);
-void digit_num_inc(int digit, int *data, int type_mode);
+class clock_time {
+  private:
+      int blink_time;
+      /* Time display mode and format*/
+      int clock_mode;
+      int time_mode;
+      int hour_format;
+      /* Time data */
+      int _year;
+      int _month;
+      int _day;
+      int _hour;
+      int _minute;
+      int _second;
+      /* Time data in digits */
+      int date_digit[8];
+      int time_digit[8];
+      /* Internal functions */
+      void read_time();
+      void sort_to_digit();
+      int is_blink_digit();
+  public:
+      clock_time();
+      /* Digit blink related functions */
+      void set_blink_digit();
+      void clear_blink_digit();
+      /* Time display functions */
+      void display_time();
+      /* Time setting functons */
+};
 
 #endif
