@@ -6,10 +6,15 @@
 #ifndef __CLOCK_TIME_H__
 #define __CLOCK_TIME_H__
 
+#define ENABLE 1
+#define DISABLE 0
+
 #define FORMAT_24HR 1
 #define FORMAT_12HR 0
 
 #define EMPTY_DIGIT -1
+
+#define BLINK_DUTY  1
 
 /* Clock mode provide user have multiple functions like: time, alarm, timer... etc */
 enum CLOCK_MODE {
@@ -28,7 +33,6 @@ enum TIME_MODE {
 
 class clock_time {
   private:
-      int blink_time;
       /* Time display mode and format*/
       int clock_mode;
       int time_mode;
@@ -43,14 +47,25 @@ class clock_time {
       /* Time data in digits */
       int date_digit[8];
       int time_digit[8];
+      /* Digit blink */
+      int blink_time;
+      bool blink_digit[8];
+      
       /* Internal functions */
       void read_time();
       void sort_to_digit();
-      int is_blink_digit();
+      bool is_blink_digit(int digit);
+      
   public:
+      /* Digit blink */
+      static const int blink_duty = BLINK_DUTY;
+  
+      /* Class constructor */
       clock_time();
       /* Digit blink related functions */
-      void set_blink_digit();
+      int get_blink_time();
+      void set_blink_time(int time);
+      void set_blink_digit(int digit, int status);
       void clear_blink_digit();
       /* Time display functions */
       void display_time();

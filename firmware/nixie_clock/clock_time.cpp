@@ -7,12 +7,56 @@
 #include "display.h"
 #include "clock_time.h"
 
+#define NO_DS1307
+
 clock_time::clock_time()
 {
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
     hour_format = FORMAT_24HR;
+#ifdef NO_DS1307
+    for(int i = 0; i < 8; i++) {
+        time_digit[i] = 0;
+        date_digit[i] = 0;
+    }
+    
+    time_digit[2] = EMPTY_DIGIT;
+    time_digit[5] = EMPTY_DIGIT;
+#endif
 }
 
+/* Digit blink related functions */
+int clock_time::get_blink_time()
+{
+    return blink_time;
+}
+
+void clock_time::set_blink_time(int time)
+{
+    blink_time = time;
+}
+
+void clock_time::set_blink_digit(int digit, int status)
+{
+    status ? blink_digit[digit] = true : blink_digit[digit] = false;
+}
+  
+void clock_time::clear_blink_digit()
+{
+    for(int i = 0; i < 8; i++)
+        blink_digit[i] = false;
+}
+
+bool clock_time::is_blink_digit(int digit)
+{
+    for(int i = 0; i < 8; i++) {
+          if(blink_digit[digit] == true)
+              return true;
+    }
+    
+    return false;
+}
+
+/* Time display functions */
 void clock_time::read_time()
 {
     _year = year();
@@ -53,6 +97,7 @@ void clock_time::sort_to_digit()
 
 void clock_time::display_time()
 {
+#ifndef NO_DS1307
     /* If the RTC is not finished Initializing, stop actions */
     if(timeStatus() != timeSet)
         return;
@@ -62,16 +107,28 @@ void clock_time::display_time()
         read_time();
         sort_to_digit();
     }
+#endif
     
     for(int i = 0; i < 8; i++) {
         /* Date mode */
         if(time_mode == DATE_MODE) {
-            show_number(date_digit[i], i);
-            if(i == 2 || i == 4)
-                show_dot(i);
+            if(get_blink_time() < blink_duty && is_blink_digit(i)) {
+                continue;
+            } else {
+                show_number(date_digit[i], i);
+                if(i == 2 || i == 4)
+                    show_dot(i);
+            }
         /* Time mode */
         } else if(time_mode == TIME_MODE) {
-            show_number(time_digit[i], i);
+            if(time_digit[i] != EMPTY_DIGIT) {
+                if(get_blink_time() < blink_duty && is_blink_digit(i))
+                    continue;
+                else
+                    show_number(time_digit[i], i);
+            } else {
+                    show_dot(i);
+            }
         /* Unknown mode */
         } else {
         }

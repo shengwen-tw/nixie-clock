@@ -52,10 +52,25 @@ void setup()
 }
 
 ISR (TIMER1_OVF_vect)
-{  
+{
+    isr_count++;
+    
+    if(isr_count == 244) {
+        clock.set_blink_time(clock.get_blink_time() + 1);
+        
+        //Reset the blink time for next duty
+        if(clock.get_blink_time() > clock.blink_duty)
+            clock.set_blink_time(0);
+        
+        isr_count = 0;
+    }
 }
 
 void loop()
 {
+      //Test:Set digit 7 and 6 of the display to blink
+      clock.set_blink_digit(7, ENABLE);
+      clock.set_blink_digit(6, ENABLE);
+      //Show the time on the display
       clock.display_time();
 }
