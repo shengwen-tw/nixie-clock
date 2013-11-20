@@ -3,7 +3,7 @@
 * Developer : Shengwen (l1996812@gmail.com)
 * Platform : Arduino
 
-#Description:
+#Description
 This is a little project to implement a clock.
 The display of the clock is select to use IN-14 Nixie tube.
 
@@ -16,3 +16,10 @@ Welcome to contact with me to share your ideas!
 * unzip Time.zip
 * mv /tmp/Time/ **Your_arduino_path/libraries/**
 * mv /tmp/DS1307RTC/ **Your_arduino_path/libraries/**
+
+#Circuit
+All the circuit was drawing under the KiCad, Kicad is a strong circuit CAD software, to install it, you can type:
+* sudo apt-get install kicad
+
+After finished installing the Kicad, you can type the following command to read the circuits:
+* kicad **Your_clone_path**/circuit/ 
