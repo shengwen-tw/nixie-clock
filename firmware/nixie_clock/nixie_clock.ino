@@ -7,7 +7,12 @@
 #include "clock_time.h"
 #include "event.h"
 
+/* Clock core */
 clock_time clock;
+/* Create the buttons */
+searchButton btn_search(btn_search_pin, &clock);
+adjustButton btn_adjust(btn_adjust_pin, &clock);
+modeButton btn_mode(btn_mode_pin, &clock);
 
 int isr_count = 0; //The counter of Timer
 
@@ -27,8 +32,9 @@ void setup()
     //Display enable gate
     pinMode(display_enable_gate, OUTPUT);
     //Buttons
-    pinMode(btn_search, INPUT);
-    pinMode(btn_adjust, INPUT);
+    pinMode(btn_search_pin, INPUT);
+    pinMode(btn_adjust_pin, INPUT);
+    pinMode(btn_mode_pin, INPUT);
     
     /* Enable the display */
     digitalWrite(display_enable_gate, HIGH);
@@ -73,4 +79,9 @@ void loop()
       clock.set_blink_digit(6, ENABLE);
       //Show the time on the display
       clock.display_time();
+      
+      //Check the status of the button and do the proper actions
+      btn_search.button_click();
+      btn_adjust.button_click();
+      btn_mode.button_click();
 }
