@@ -7,6 +7,13 @@
 #include "clock_time.h"
 #include "event.h"
 
+/* Clock core */
+clock_time clock;
+/* Create the buttons */
+searchButton btn_search(btn_search_pin, &clock);
+adjustButton btn_adjust(btn_adjust_pin, &clock);
+modeButton btn_mode(btn_mode_pin, &clock);
+
 int isr_count = 0; //The counter of Timer
 
 void setup()
@@ -25,8 +32,9 @@ void setup()
     //Display enable gate
     pinMode(display_enable_gate, OUTPUT);
     //Buttons
-    pinMode(btn_search, INPUT);
-    pinMode(btn_adjust, INPUT);
+    pinMode(btn_search_pin, INPUT);
+    pinMode(btn_adjust_pin, INPUT);
+    pinMode(btn_mode_pin, INPUT);
     
     /* Enable the display */
     digitalWrite(display_enable_gate, HIGH);
@@ -50,36 +58,32 @@ void setup()
 }
 
 ISR (TIMER1_OVF_vect)
-{  
+{
     isr_count++;
     
     if(isr_count == 244) {
-  
-        blink_time++;
+        clock.set_blink_time(clock.get_blink_time() + 1);
         
-        //Clean up for next duty cycle
-        if(blink_time > BLINK_DUTY )
-            blink_time = 0;
+        //Reset the blink time for next duty
+        if(clock.get_blink_time() > clock.blink_duty)
+            clock.set_blink_time(0);
             
-        if(btnTime_record_flg == 1) {
-            btn_hold_time++;
-        }
-            isr_count = 0;
+        //If the timer flag of the button is set to be enabled, start to increase the time 
+        btn_search.hold_time_inc();
+        btn_adjust.hold_time_inc();
+        btn_mode.hold_time_inc();
+        
+        isr_count = 0;
     }
 }
 
 void loop()
 {
-    /* Handle the action of the each clock mode*/
-    switch(time_mode) {
-        case DATE_MODE:
-        case TIME_MODE:
-            display_time(time_mode);
-            break;
-    }
-
-    /* Check the status of the button */
-    btn_search_event();
-    btn_adjust_event();
-    btn_mode_event();
+      //Show the time on the display
+      clock.display_time();
+      
+      //Check the status of the button and do the proper actions
+      btn_search.button_click();
+      btn_adjust.button_click();
+      btn_mode.button_click();
 }

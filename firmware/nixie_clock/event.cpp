@@ -5,131 +5,127 @@
 #include "clock_time.h"
 #include "event.h"
 
-/* Timer */
-int btnTime_record_flg = 0; //The flag of program should record the time of  button press down or not
-int btn_hold_time = 0; //Record the time of user press down the button
-
-//Search button handler
-void btn_search_event()
+buttonBase::buttonBase(int button_pin, clock_time *clock)
 {
-    int read_val;
-    
-    /* Check search button */
-    read_val = digitalRead(btn_search);
-    if(read_val == HIGH) {
-        switch(clock_mode) {
-            case CLOCK_TIME:
-                time_mode++;
-                break;
-            case CLOCK_SETTING:
-                digit_num_inc(cur_blink_digit, time_mode ? time_digit : date_digit, time_mode);
-                blink_time = BLINK_DUTY; //Interrupt blinking
-                break;
-        }
-    }
-    
-    //Waiting for user release the button
-    while(read_val == HIGH) {
-        switch(clock_mode) {
-            case CLOCK_TIME:
-                display_time(time_mode - 1);
-                break;
-            case CLOCK_SETTING:
-                display_time(time_mode);
-                break;
-        }
-        
-        read_val = digitalRead(btn_search);
-    }
-    
-    if(time_mode == TIME_MODE_CNT)
-        time_mode = DATE_MODE;
+    hold_time = 0, time_record_flag = false;
+    this->button_pin = button_pin;
+    this->clock = clock; 
 }
 
-//Adjust button handler
-void btn_adjust_event()
+bool buttonBase::get_timer_flag()
 {
-    int read_val = digitalRead(btn_adjust);;
+    return time_record_flag;
+}
 
+void buttonBase::timer_enable()
+{
+    time_record_flag = true;
+}
+
+void buttonBase::timer_disable()
+{
+    hold_time = 0;
+    time_record_flag = false;
+}
+
+void buttonBase::hold_time_inc()
+{
+    if(time_record_flag)
+        hold_time++;
+}
+
+/* Button on-click event override */
+void searchButton::button_click()
+{
+    int read_val = digitalRead(button_pin);
+    
+    //If the user press the button
     if(read_val == HIGH) {
-        switch(clock_mode) {
-            case CLOCK_SETTING:        
-                cur_blink_digit = -1;
-                set_blink_digit(cur_blink_digit);
-                //Set the clock mode back to the time mode 
-                clock_mode = CLOCK_TIME; 
-                time_mode = TIME_MODE;
-                break;
+        switch(clock->get_clock_mode()) {
+          case CLOCK_TIME:
+               //Switch the mode between time and date
+               clock->set_time_mode((clock->get_time_mode() + 1) % 2);
+              break;
+          case CLOCK_SETTING:
+              //TODO:Switch the setting content to the next
+              clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
+              break;
         }
     }
-
-    //Waiting for user release the button
+    
+    //Waiting for the user release the button
     while(read_val == HIGH) {
-        btnTime_record_flg = 1;
-        
-        if(btn_hold_time >= 2) {
-            switch(clock_mode) {
-                case CLOCK_TIME:
-                    //TODO: Switch to setting mode
-                    clock_mode = CLOCK_SETTING; //Set the clock mode to time setting mode
-                    time_mode = TIME_MODE;            
-
-                    if(blink_digit == -1) {
-                        cur_blink_digit = 7;
-                        set_blink_digit(cur_blink_digit);
-                    }
-                    break;
-            }
+        switch(clock->get_clock_mode()) {
+            case CLOCK_TIME:
+                /* Not to switch the mode before user release the button */
+                clock->set_time_mode((clock->get_time_mode() + 1) % 2); //Restore the previous time mode setting
+                clock->display_time();
+                clock->set_time_mode((clock->get_time_mode() + 1) % 2); //Set back the time mode setting
+                break;
+            case CLOCK_SETTING:
+                clock->display_time();
+                break;
         }
         
-        display_time(time_mode);
-        read_val = digitalRead(btn_adjust);
+        read_val = digitalRead(button_pin);
+    }
+}
+
+void adjustButton::button_click()
+{
+    int read_val = digitalRead(button_pin);
+    
+    //If the user press the button
+    if(read_val == HIGH) {
+    }
+    
+    //Waiting for the user release the button
+    while(read_val == HIGH) {
+        timer_enable();
+        
+        switch(clock->get_clock_mode()) {
+          case CLOCK_TIME:
+              break;
+          case CLOCK_SETTING:
+              if(!(hold_time >= 2))
+                  break;
+              //TODO:Switch the clock mode to setting mode
+              break; 
+        }
+        
+        timer_disable();
+        clock->display_time();
+        read_val = digitalRead(button_pin);
     }
     
     //btnTime_record_flg is true means the button had been pressed
-    if(btnTime_record_flg == 1 && clock_mode == CLOCK_TIME) {
-        switch(time_mode) {
-              case TIME_MODE:
-                hour_format++;
-                hour_format %= 2;
-                break;
-        }
+    if(clock->get_clock_mode() == CLOCK_TIME && clock->get_time_mode() == TIME_MODE) {
+        if(time_record_flag == false)
+            return;
+        clock->set_hour_format( ( clock->get_hour_format() + 1 ) % 2 );
     }
-    
-    btnTime_record_flg = 0;
-    btn_hold_time = 0;
+      
+    read_val = digitalRead(button_pin);
 }
 
-//Mode button handler
-void btn_mode_event()
+void modeButton::button_click()
 {
-    int read_val;
+    int read_val = digitalRead(button_pin);
     
-    /* Check mode button */
-    read_val = digitalRead(btn_mode);
-    
+    //If the user press the button
     if(read_val == HIGH) {
-        if(cur_blink_digit != -1) {
-            if(blink_digit > 0) {
-                //Avoid the digit with empty font
-                if(time_mode == TIME_MODE  && ( cur_blink_digit == 3 || cur_blink_digit == 6) )
-                    cur_blink_digit -= 2;
-                else
-                    cur_blink_digit--; 
-                set_blink_digit(cur_blink_digit);
-            } else {
-                time_mode++;
-                if(time_mode == TIME_MODE_CNT)
-                    time_mode %= 2;
-                cur_blink_digit = 7;
-                set_blink_digit(cur_blink_digit);
-            }
+        switch(clock->get_clock_mode()) {
+          case CLOCK_TIME:
+              break;
+          case CLOCK_SETTING:
+              break;
         }
     }
     
-    //Waiting for user release the button
+    //Waiting for the user release the button
     while(read_val == HIGH) {
-        read_val = digitalRead(btn_mode);
-        display_time(time_mode);
+        clock->display_time();   
+      
+        read_val = digitalRead(button_pin);
     }
 }
