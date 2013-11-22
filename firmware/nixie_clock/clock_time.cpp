@@ -56,6 +56,37 @@ bool clock_time::is_blink_digit(int digit)
     return false;
 }
 
+/* Clock mode functions */
+int clock_time::get_clock_mode()
+{
+    return clock_mode;
+}
+
+void clock_time::set_clock_mode(int mode)
+{
+    clock_mode = mode;
+}
+
+int clock_time::get_time_mode()
+{
+    return time_mode;
+}
+
+void clock_time::set_time_mode(int mode)
+{
+    time_mode = mode;
+}
+
+int clock_time::get_hour_format()
+{
+    return hour_format;
+}
+
+void clock_time::set_hour_format(int format)
+{
+    format ? hour_format = FORMAT_24HR : hour_format =  FORMAT_12HR;
+}
+
 /* Time display functions */
 void clock_time::read_time()
 {

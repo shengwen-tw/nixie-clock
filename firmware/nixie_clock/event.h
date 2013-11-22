@@ -5,12 +5,19 @@
 class buttonBase {
   protected:
       int button_pin;
-      int hold_time;
       clock_time *clock;
+      /* Timer related variable */
+      int hold_time;
+      bool time_record_flag;
       
   public:
       /* Class constructor */
       buttonBase(int button_pin, clock_time *clock);
+      /* Timer related functions */
+      bool get_timer_flag();
+      void timer_enable();
+      void timer_disable();
+      void hold_time_inc();
       /* Button event handler */
       virtual void button_click() = 0;
 };

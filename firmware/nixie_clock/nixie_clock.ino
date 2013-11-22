@@ -67,6 +67,11 @@ ISR (TIMER1_OVF_vect)
         //Reset the blink time for next duty
         if(clock.get_blink_time() > clock.blink_duty)
             clock.set_blink_time(0);
+            
+        //If the timer flag of the button is set to be enabled, start to increase the time 
+        btn_search.hold_time_inc();
+        btn_adjust.hold_time_inc();
+        btn_mode.hold_time_inc();
         
         isr_count = 0;
     }
@@ -74,9 +79,6 @@ ISR (TIMER1_OVF_vect)
 
 void loop()
 {
-      //Test:Set digit 7 and 6 of the display to blink
-      clock.set_blink_digit(7, ENABLE);
-      clock.set_blink_digit(6, ENABLE);
       //Show the time on the display
       clock.display_time();
       

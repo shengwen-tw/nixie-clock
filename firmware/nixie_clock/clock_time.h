@@ -67,7 +67,14 @@ class clock_time {
       void set_blink_time(int time);
       void set_blink_digit(int digit, int status);
       void clear_blink_digit();
+      /* Clock mode functions */
+      int get_clock_mode();
+      void set_clock_mode(int mode);
+      int get_time_mode();
+      void set_time_mode(int mode);
       /* Time display functions */
+      int get_hour_format();
+      void set_hour_format(int format);
       void display_time();
       /* Time setting functons */
 };
