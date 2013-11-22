@@ -22,4 +22,4 @@ All the circuit was drawing under the KiCad, Kicad is a strong circuit CAD softw
 * sudo apt-get install kicad
 
 After finished installing the Kicad, you can type the following command to read the circuits:
-* kicad **Your_clone_path**/circuit/ 
+* kicad **Your_clone_path**/circuit/nixie-clock.pro
