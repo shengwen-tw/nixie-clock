@@ -16,6 +16,8 @@
 
 #define BLINK_DUTY  1
 
+#define isleap(year) (((year) % 4) == 0 && (((year) % 100) != 0 || ((year) % 400) == 0))
+
 /* Clock mode provide user have multiple functions like: time, alarm, timer... etc */
 enum CLOCK_MODE {
     CLOCK_TIME,
@@ -65,6 +67,8 @@ class clock_time {
       /* Internal functions */
       void read_time();
       void sort_to_digit();
+      void inc_in_range(int *num, int lower, int upper);
+      void initial_time();
       bool is_blink_digit(int digit);
       
   public:
@@ -88,8 +92,9 @@ class clock_time {
       void set_hour_format(int format);
       void display_time();
       /* Time setting functons */
-      int get_setting_digit();
+      int get_now_setting();
       void set_setting_digit(int time);
+      void inc_cur_time();
 };
 
 #endif

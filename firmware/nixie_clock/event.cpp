@@ -49,6 +49,7 @@ void searchButton::button_click()
           case CLOCK_SETTING:
               /* TODO:increase the time until to maximum. 
                    if the time achieve the maximum, reset the time */
+              clock->inc_cur_time();
               clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;
         }
@@ -133,12 +134,12 @@ void modeButton::button_click()
               clock->clear_blink_digit();
               
               /* Switch the mode for setting first */
-              if(((clock->get_setting_digit() + 1) % TIME_CNT) == YEAR)
+              if(((clock->get_now_setting() + 1) % TIME_CNT) == YEAR)
                   clock->set_time_mode(DATE_MODE);
-              else if(((clock->get_setting_digit() + 1) % TIME_CNT) == HOUR)
+              else if(((clock->get_now_setting() + 1) % TIME_CNT) == HOUR)
                   clock->set_time_mode(TIME_MODE);
                       
-              clock->set_setting_digit((clock->get_setting_digit() + 1) % TIME_CNT); //Set the digits to blink
+              clock->set_setting_digit((clock->get_now_setting() + 1) % TIME_CNT); //Set the digits to blink
 
               clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;

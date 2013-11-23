@@ -7,8 +7,6 @@
 #include "display.h"
 #include "clock_time.h"
 
-#define NO_DS1307
-
 clock_time::clock_time()
 {
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
@@ -129,17 +127,15 @@ void clock_time::sort_to_digit()
 
 void clock_time::display_time()
 {
-#ifndef NO_DS1307
+    /* Initial the time of the RTC if the flag of it is set to be timeNotSet */
+    if(timeStatus() == timeNotSet)
+        initial_time();
     /* If the RTC is not finished Initializing, stop actions */
-    if(timeStatus() != timeSet)
+    else if(timeStatus() == timeNeedsSync)
         return;
         
-    /* Stop reading time and sort to digits while the clock mode is set to be setting */
-    if(clock_mode != CLOCK_SETTING) {
-        read_time();
-        sort_to_digit();
-    }
-#endif
+    read_time();
+    sort_to_digit();
     
     for(int i = 0; i < 8; i++) {
         /* Date mode */
@@ -170,7 +166,12 @@ void clock_time::display_time()
 }
 
 /* Time setting functons */
-int clock_time::get_setting_digit()
+void clock_time::initial_time()
+{
+    setTime(0, 0, 1, 1, 1, 2000);
+}
+
+int clock_time::get_now_setting()
 {
     return now_set;
 }
@@ -208,4 +209,36 @@ void clock_time::set_setting_digit(int time)
           set_blink_digit(0, ENABLE);
           break;
     }
+}
+
+void clock_time::inc_in_range(int *num, int lower, int upper)
+{
+    if(*num >= lower && *num < upper)
+        (*num)++;
+    else
+        *num = lower;
+}
+
+void clock_time::inc_cur_time()
+{
+    switch(get_now_setting()) {
+      case YEAR:
+          inc_in_range(&_year, 2000, 2100);
+          break;
+      case MONTH:
+          break;
+      case DAY:
+          break;
+      case HOUR:
+          inc_in_range(&_hour, 0, 23);
+          break;
+      case MINUTE:
+          inc_in_range(&_minute, 0, 59);
+          break;
+      case SECOND:
+          inc_in_range(&_second, 0, 59);
+          break;
+    }
+    
+    setTime(_hour, _minute, _second, _day, _month, _year);
 }

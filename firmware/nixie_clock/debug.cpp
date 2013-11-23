@@ -41,5 +41,13 @@ void serialEvent()
     default:
       break;
   }
-  setTime(h, m, s, d, M, y);
+  
+  tmElements_t tm;
+  tm.Year = y - 1970; // 從1970年開始算
+  tm.Month = M;
+  tm.Day = d;
+  tm.Hour = h;
+  tm.Minute = m;
+  tm.Second = s;
+  setTime(makeTime(tm));
 }
