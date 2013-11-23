@@ -31,6 +31,16 @@ enum TIME_MODE {
     TIME_MODE_CNT
 };
 
+enum TIME {
+    YEAR,
+    MONTH,
+    DAY,
+    HOUR,
+    MINUTE,
+    SECOND,
+    TIME_CNT
+};
+
 class clock_time {
   private:
       /* Time display mode and format*/
@@ -44,6 +54,7 @@ class clock_time {
       int _hour;
       int _minute;
       int _second;
+      int now_set;
       /* Time data in digits */
       int date_digit[8];
       int time_digit[8];
@@ -77,6 +88,8 @@ class clock_time {
       void set_hour_format(int format);
       void display_time();
       /* Time setting functons */
+      int get_setting_digit();
+      void set_setting_digit(int time);
 };
 
 #endif

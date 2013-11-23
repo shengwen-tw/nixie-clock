@@ -44,10 +44,11 @@ void searchButton::button_click()
         switch(clock->get_clock_mode()) {
           case CLOCK_TIME:
                //Switch the mode between time and date
-               clock->set_time_mode((clock->get_time_mode() + 1) % 2);
+               clock->set_time_mode((clock->get_time_mode() + 1) % TIME_MODE_CNT);
               break;
           case CLOCK_SETTING:
-              //TODO:Switch the setting content to the next
+              /* TODO:increase the time until to maximum. 
+                   if the time achieve the maximum, reset the time */
               clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;
         }
@@ -74,29 +75,39 @@ void searchButton::button_click()
 void adjustButton::button_click()
 {
     int read_val = digitalRead(button_pin);
-    
-    //If the user press the button
-    if(read_val == HIGH) {
-    }
+    bool mode_changed = false;
     
     //Waiting for the user release the button
     while(read_val == HIGH) {
         timer_enable();
         
-        switch(clock->get_clock_mode()) {
-          case CLOCK_TIME:
-              break;
-          case CLOCK_SETTING:
-              if(!(hold_time >= 2))
+        /* If the user switch the mode, freeze until user release the button */
+        if(mode_changed == false) {
+            switch(clock->get_clock_mode()) {
+              case CLOCK_TIME:
+                  if(hold_time >= 2) {
+                  clock->set_clock_mode(CLOCK_SETTING);
+                  clock->set_time_mode(TIME_MODE);
+                  
+                  clock->set_blink_digit(7, ENABLE);
+                  clock->set_blink_digit(6, ENABLE);
+                  
+                  mode_changed = true;
+                  }
                   break;
-              //TODO:Switch the clock mode to setting mode
-              break; 
+              case CLOCK_SETTING:
+                  clock->set_clock_mode(CLOCK_TIME);
+                  clock->clear_blink_digit();
+                  mode_changed = true;
+                  break;
+            }
         }
         
-        timer_disable();
         clock->display_time();
         read_val = digitalRead(button_pin);
     }
+    
+    timer_disable();
     
     //btnTime_record_flg is true means the button had been pressed
     if(clock->get_clock_mode() == CLOCK_TIME && clock->get_time_mode() == TIME_MODE) {
@@ -104,8 +115,6 @@ void adjustButton::button_click()
             return;
         clock->set_hour_format( ( clock->get_hour_format() + 1 ) % 2 );
     }
-      
-    read_val = digitalRead(button_pin);
 }
 
 void modeButton::button_click()
@@ -118,6 +127,20 @@ void modeButton::button_click()
           case CLOCK_TIME:
               break;
           case CLOCK_SETTING:
+              /* Switch the setting content to the next */
+              
+              //Clean up the blink digits
+              clock->clear_blink_digit();
+              
+              /* Switch the mode for setting first */
+              if(((clock->get_setting_digit() + 1) % TIME_CNT) == YEAR)
+                  clock->set_time_mode(DATE_MODE);
+              else if(((clock->get_setting_digit() + 1) % TIME_CNT) == HOUR)
+                  clock->set_time_mode(TIME_MODE);
+                      
+              clock->set_setting_digit((clock->get_setting_digit() + 1) % TIME_CNT); //Set the digits to blink
+
+              clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;
         }
     }

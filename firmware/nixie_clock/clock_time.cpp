@@ -13,6 +13,7 @@ clock_time::clock_time()
 {
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
     hour_format = FORMAT_24HR;
+    now_set = HOUR;
 #ifdef NO_DS1307
     for(int i = 0; i < 8; i++) {
         time_digit[i] = 0;
@@ -165,5 +166,46 @@ void clock_time::display_time()
         }
         
         delay(1);
+    }
+}
+
+/* Time setting functons */
+int clock_time::get_setting_digit()
+{
+    return now_set;
+}
+
+void clock_time::set_setting_digit(int time)
+{
+    now_set = time;
+     
+    /* XXX: Hardcode can be improve! */  
+    switch(time) {
+      case YEAR:
+          set_blink_digit(7, ENABLE);
+          set_blink_digit(6, ENABLE);
+          set_blink_digit(5, ENABLE);
+          set_blink_digit(4, ENABLE);
+          break;
+      case MONTH:
+          set_blink_digit(3, ENABLE);
+          set_blink_digit(2, ENABLE);
+          break;
+      case DAY:
+          set_blink_digit(1, ENABLE);
+          set_blink_digit(0, ENABLE);
+          break;
+      case HOUR:
+          set_blink_digit(7, ENABLE);
+          set_blink_digit(6, ENABLE);
+          break;
+      case MINUTE:
+          set_blink_digit(4, ENABLE);
+          set_blink_digit(3, ENABLE);
+          break;
+      case SECOND:
+          set_blink_digit(1, ENABLE);
+          set_blink_digit(0, ENABLE);
+          break;
     }
 }
