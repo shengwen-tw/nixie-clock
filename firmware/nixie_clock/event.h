@@ -32,9 +32,11 @@ class searchButton : public buttonBase {
 };
 
 class adjustButton : public buttonBase {
+  private:
+      bool mode_changed;
   public:
       /* Class constructor */
-      adjustButton(int button_pin, clock_time *clock) : buttonBase(button_pin, clock) {}
+      adjustButton(int button_pin, clock_time *clock) : buttonBase(button_pin, clock) { mode_changed = false; }
       /* Button event handler */
       void button_click();
 };

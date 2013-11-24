@@ -76,7 +76,6 @@ void searchButton::button_click()
 void adjustButton::button_click()
 {
     int read_val = digitalRead(button_pin);
-    bool mode_changed = false;
     
     //Waiting for the user release the button
     while(read_val == HIGH) {
@@ -108,14 +107,15 @@ void adjustButton::button_click()
         read_val = digitalRead(button_pin);
     }
     
-    timer_disable();
-    
     //btnTime_record_flg is true means the button had been pressed
     if(clock->get_clock_mode() == CLOCK_TIME && clock->get_time_mode() == TIME_MODE) {
-        if(time_record_flag == false)
+        if(time_record_flag == false || mode_changed == true)
             return;
         clock->set_hour_format( ( clock->get_hour_format() + 1 ) % 2 );
     }
+    
+    timer_disable();
+    mode_changed = false;
 }
 
 void modeButton::button_click()

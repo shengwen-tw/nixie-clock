@@ -226,8 +226,22 @@ void clock_time::inc_cur_time()
           inc_in_range(&_year, 2000, 2100);
           break;
       case MONTH:
+          inc_in_range(&_month, 1, 12);
           break;
       case DAY:
+          /*  If the current month is set to be february */
+          if(_month == 2) {
+              if(isleap(_year))
+                  inc_in_range(&_day, 1, 29); //Is the leap year
+              else
+                  inc_in_range(&_day, 1, 28); //Not the leap year
+          /*  These month contain 30 days */
+          } else if(_month == 2 || _month == 4 || _month == 6 || _month == 9 || _month == 11){
+              inc_in_range(&_day, 1, 30);
+          /* These month contain 31 days */
+          } else {
+              inc_in_range(&_day, 1, 31);
+          }
           break;
       case HOUR:
           inc_in_range(&_hour, 0, 23);
