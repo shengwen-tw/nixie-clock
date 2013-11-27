@@ -22,8 +22,7 @@
 enum CLOCK_MODE {
     CLOCK_TIME,
     CLOCK_ALARM,
-    CLOCK_SETTING,
-    CLOCK_MODE_CNT
+    CLOCK_SETTING
 };
 
 /* Time mode provide date and time */
@@ -43,6 +42,16 @@ enum TIME {
     TIME_CNT
 };
 
+/* Time structure */
+struct time{
+    int year;
+    int month;  
+    int day;
+    int hour;
+    int minute;
+    int second;
+};
+
 class clock_time {
   private:
       /* Time display mode and format*/
@@ -50,12 +59,8 @@ class clock_time {
       int time_mode;
       int hour_format;
       /* Time data */
-      int _year;
-      int _month;
-      int _day;
-      int _hour;
-      int _minute;
-      int _second;
+      time cur_time;
+      time alarm_time;
       int now_set;
       /* Time data in digits */
       int date_digit[8];
@@ -66,7 +71,7 @@ class clock_time {
       
       /* Internal functions */
       void read_time();
-      void sort_to_digit();
+      void sort_to_digit(time *_time);
       void inc_in_range(int *num, int lower, int upper);
       void initial_time();
       bool is_blink_digit(int digit);
@@ -95,6 +100,8 @@ class clock_time {
       int get_now_setting();
       void set_setting_digit(int time);
       void inc_cur_time();
+      /* Alarm related functions */
+      void set_alarm_time(int hour, int minute, int second);
 };
 
 #endif

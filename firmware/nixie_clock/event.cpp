@@ -126,6 +126,9 @@ void modeButton::button_click()
     if(read_val == HIGH) {
         switch(clock->get_clock_mode()) {
           case CLOCK_TIME:
+          case CLOCK_ALARM:
+              //Switch the clock mode between time mode and the alarm mode
+              clock->set_clock_mode((clock->get_clock_mode() + 1) % CLOCK_SETTING);
               break;
           case CLOCK_SETTING:
               /* Switch the setting content to the next */

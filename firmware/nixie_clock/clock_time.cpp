@@ -12,15 +12,6 @@ clock_time::clock_time()
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
     hour_format = FORMAT_24HR;
     now_set = HOUR;
-#ifdef NO_DS1307
-    for(int i = 0; i < 8; i++) {
-        time_digit[i] = 0;
-        date_digit[i] = 0;
-    }
-    
-    time_digit[2] = EMPTY_DIGIT;
-    time_digit[5] = EMPTY_DIGIT;
-#endif
 }
 
 /* Digit blink related functions */
@@ -89,37 +80,37 @@ void clock_time::set_hour_format(int format)
 /* Time display functions */
 void clock_time::read_time()
 {
-    _year = year();
-    _month = month();
-    _day = day();
-    hour_format ? _hour = hour() : _hour = hourFormat12();
-    _minute = minute();
-    _second = second();
+    cur_time.year = year();
+    cur_time.month = month();
+    cur_time.day = day();
+    hour_format ? cur_time.hour = hour() : cur_time.hour = hourFormat12();
+    cur_time.minute = minute();
+    cur_time.second = second();
 }
 
-void clock_time::sort_to_digit()
+void clock_time::sort_to_digit(time *_time)
 {
     /* Year */
-    date_digit[7] = _year / 1000;
-    date_digit[6] = (_year / 100) % 10;
-    date_digit[5] = (_year / 10) % 100;
-    date_digit[4] = _year % 10;
+    date_digit[7] = _time->year / 1000;
+    date_digit[6] = (_time->year / 100) % 10;
+    date_digit[5] = (_time->year / 10) % 100;
+    date_digit[4] = _time->year % 10;
     /* Month */
-    date_digit[3] = _month / 10;
-    date_digit[2] = _month % 10;
+    date_digit[3] = _time->month / 10;
+    date_digit[2] = _time->month % 10;
     /* Day */
-    date_digit[1] = _day / 10;
-    date_digit[0] = _day % 10;
+    date_digit[1] = _time->day / 10;
+    date_digit[0] = _time->day % 10;
     
     /* Hour */
-    time_digit[7] = _hour / 10;
-    time_digit[6] = _hour % 10;
+    time_digit[7] = _time->hour / 10;
+    time_digit[6] = _time->hour % 10;
     /* Minute*/
-    time_digit[4] = _minute / 10;
-    time_digit[3] = _minute % 10;
+    time_digit[4] = _time->minute / 10;
+    time_digit[3] = _time->minute % 10;
     /* Second */
-    time_digit[1] = _second / 10;
-    time_digit[0] = _second % 10;
+    time_digit[1] = _time->second / 10;
+    time_digit[0] = _time->second % 10;
     /* Empty */
     time_digit[5] = EMPTY_DIGIT;
     time_digit[2] = EMPTY_DIGIT;
@@ -134,8 +125,13 @@ void clock_time::display_time()
     else if(timeStatus() == timeNeedsSync)
         return;
         
-    read_time();
-    sort_to_digit();
+    if(get_clock_mode() == CLOCK_ALARM) {
+        sort_to_digit(&alarm_time);
+        set_time_mode(TIME_MODE); //Turn to the time mode
+    } else {   
+        read_time();
+        sort_to_digit(&cur_time);
+    }
     
     for(int i = 0; i < 8; i++) {
         /* Date mode */
@@ -168,7 +164,8 @@ void clock_time::display_time()
 /* Time setting functons */
 void clock_time::initial_time()
 {
-    setTime(0, 0, 1, 1, 1, 2000);
+    setTime(0, 0, 1, 1, 1, 2000); //Initial the time with 2000/1/1 - 0:0:1
+    set_alarm_time(0, 0, 1); //Set the alarm at 0:0:1
 }
 
 int clock_time::get_now_setting()
@@ -223,36 +220,44 @@ void clock_time::inc_cur_time()
 {
     switch(get_now_setting()) {
       case YEAR:
-          inc_in_range(&_year, 2000, 2100);
+          inc_in_range(&cur_time.year, 2000, 2100);
           break;
       case MONTH:
-          inc_in_range(&_month, 1, 12);
+          inc_in_range(&cur_time.month, 1, 12);
           break;
       case DAY:
           /*  If the current month is set to be february */
-          if(_month == 2) {
-              if(isleap(_year))
-                  inc_in_range(&_day, 1, 29); //Is the leap year
+          if(cur_time.month == 2) {
+              if(isleap(cur_time.year))
+                  inc_in_range(&cur_time.day, 1, 29); //Is the leap year
               else
-                  inc_in_range(&_day, 1, 28); //Not the leap year
+                  inc_in_range(&cur_time.day, 1, 28); //Not the leap year
           /*  These month contain 30 days */
-          } else if(_month == 2 || _month == 4 || _month == 6 || _month == 9 || _month == 11){
-              inc_in_range(&_day, 1, 30);
+          } else if(cur_time.month == 2 || cur_time.month == 4 || cur_time.month == 6 || cur_time.month == 9 || cur_time.month == 11){
+              inc_in_range(&cur_time.day, 1, 30);
           /* These month contain 31 days */
           } else {
-              inc_in_range(&_day, 1, 31);
+              inc_in_range(&cur_time.day, 1, 31);
           }
           break;
       case HOUR:
-          inc_in_range(&_hour, 0, 23);
+          inc_in_range(&cur_time.hour, 0, 23);
           break;
       case MINUTE:
-          inc_in_range(&_minute, 0, 59);
+          inc_in_range(&cur_time.minute, 0, 59);
           break;
       case SECOND:
-          inc_in_range(&_second, 0, 59);
+          inc_in_range(&cur_time.second, 0, 59);
           break;
     }
     
-    setTime(_hour, _minute, _second, _day, _month, _year);
+    setTime(cur_time.hour, cur_time.minute, cur_time.second, cur_time.day, cur_time.month, cur_time.year);
+}
+
+/* Alarm related functions */
+void clock_time::set_alarm_time(int hour, int minute, int second)
+{
+    alarm_time.hour = hour;
+    alarm_time.minute = minute;
+    alarm_time.second = second;
 }
