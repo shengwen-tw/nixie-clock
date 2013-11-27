@@ -1,7 +1,7 @@
 #Information
 * Project name : Nixie Clock
 * Developer : Shengwen (l1996812@gmail.com)
-* Platform : Arduino
+* Platform : Arduino UNO (ATmega328 microcontoller)
 
 #Description
 This is a little project to implement a clock.
@@ -18,7 +18,7 @@ Welcome to contact with me to share your ideas!
 * mv /tmp/DS1307RTC/ **Your_arduino_path/libraries/**
 
 #Circuit
-All the circuit was drawing under the KiCad, Kicad is a strong circuit CAD software, to install it, you can type:
+All the circuit was drawing under the KiCad, KiCad is a strong circuit CAD software, to install it, you can type:
 * sudo apt-get install kicad
 
 After finished installing the Kicad, you can type the following command to read the circuits:
