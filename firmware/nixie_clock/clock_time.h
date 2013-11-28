@@ -22,7 +22,8 @@
 enum CLOCK_MODE {
     CLOCK_TIME,
     CLOCK_ALARM,
-    CLOCK_SETTING
+    CLOCK_TIME_SETTING,
+    CLOCK_ALARM_SETTING
 };
 
 /* Time mode provide date and time */
@@ -33,12 +34,12 @@ enum TIME_MODE {
 };
 
 enum TIME {
-    YEAR,
-    MONTH,
-    DAY,
     HOUR,
     MINUTE,
     SECOND,
+    YEAR,
+    MONTH,
+    DAY,
     TIME_CNT
 };
 
@@ -99,7 +100,7 @@ class clock_time {
       /* Time setting functons */
       int get_now_setting();
       void set_setting_digit(int time);
-      void inc_cur_time();
+      void inc_time(int clock_mode);
       /* Alarm related functions */
       void set_alarm_time(int hour, int minute, int second);
 };

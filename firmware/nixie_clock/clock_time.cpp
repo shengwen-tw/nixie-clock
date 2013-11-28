@@ -125,7 +125,7 @@ void clock_time::display_time()
     else if(timeStatus() == timeNeedsSync)
         return;
         
-    if(get_clock_mode() == CLOCK_ALARM) {
+    if(get_clock_mode() == CLOCK_ALARM || get_clock_mode() == CLOCK_ALARM_SETTING) {
         sort_to_digit(&alarm_time);
         set_time_mode(TIME_MODE); //Turn to the time mode
     } else {   
@@ -216,38 +216,44 @@ void clock_time::inc_in_range(int *num, int lower, int upper)
         *num = lower;
 }
 
-void clock_time::inc_cur_time()
+void clock_time::inc_time(int clock_mode)
 {
+    time *_time;
+    if(clock_mode == CLOCK_TIME)
+        _time = &cur_time;
+    else if(clock_mode == CLOCK_ALARM)
+        _time = &alarm_time;
+    
     switch(get_now_setting()) {
       case YEAR:
-          inc_in_range(&cur_time.year, 2000, 2100);
+          inc_in_range(&_time->year, 2000, 2100);
           break;
       case MONTH:
-          inc_in_range(&cur_time.month, 1, 12);
+          inc_in_range(&_time->month, 1, 12);
           break;
       case DAY:
           /*  If the current month is set to be february */
           if(cur_time.month == 2) {
-              if(isleap(cur_time.year))
-                  inc_in_range(&cur_time.day, 1, 29); //Is the leap year
+              if(isleap(_time->year))
+                  inc_in_range(&_time->day, 1, 29); //Is the leap year
               else
-                  inc_in_range(&cur_time.day, 1, 28); //Not the leap year
+                  inc_in_range(&_time->day, 1, 28); //Not the leap year
           /*  These month contain 30 days */
           } else if(cur_time.month == 2 || cur_time.month == 4 || cur_time.month == 6 || cur_time.month == 9 || cur_time.month == 11){
-              inc_in_range(&cur_time.day, 1, 30);
+              inc_in_range(&_time->day, 1, 30);
           /* These month contain 31 days */
           } else {
-              inc_in_range(&cur_time.day, 1, 31);
+              inc_in_range(&_time->day, 1, 31);
           }
           break;
       case HOUR:
-          inc_in_range(&cur_time.hour, 0, 23);
+          inc_in_range(&_time->hour, 0, 23);
           break;
       case MINUTE:
-          inc_in_range(&cur_time.minute, 0, 59);
+          inc_in_range(&_time->minute, 0, 59);
           break;
       case SECOND:
-          inc_in_range(&cur_time.second, 0, 59);
+          inc_in_range(&_time->second, 0, 59);
           break;
     }
     

@@ -46,12 +46,17 @@ void searchButton::button_click()
                //Switch the mode between time and date
                clock->set_time_mode((clock->get_time_mode() + 1) % TIME_MODE_CNT);
               break;
-          case CLOCK_SETTING:
-              /* TODO:increase the time until to maximum. 
-                   if the time achieve the maximum, reset the time */
-              clock->inc_cur_time();
+          case CLOCK_TIME_SETTING:
+              /* increase the time until to maximum. 
+                  if the time achieve the maximum, reset the time */
+              clock->inc_time(CLOCK_TIME);
               clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;
+          case CLOCK_ALARM_SETTING:
+              /* increase the time until to maximum. 
+                  if the time achieve the maximum, reset the time */
+              clock->inc_time(CLOCK_ALARM);
+              clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
         }
     }
     
@@ -64,7 +69,8 @@ void searchButton::button_click()
                 clock->display_time();
                 clock->set_time_mode((clock->get_time_mode() + 1) % 2); //Set back the time mode setting
                 break;
-            case CLOCK_SETTING:
+            /* Mode : CLOCK_ALARM, CLOCK_TIME_SETTING, CLOCK_ALARM_SETTING */
+            default:
                 clock->display_time();
                 break;
         }
@@ -86,17 +92,31 @@ void adjustButton::button_click()
             switch(clock->get_clock_mode()) {
               case CLOCK_TIME:
                   if(hold_time >= 2) {
-                  clock->set_clock_mode(CLOCK_SETTING);
-                  clock->set_time_mode(TIME_MODE);
+                      clock->set_clock_mode(CLOCK_TIME_SETTING);
+                      clock->set_time_mode(TIME_MODE);
                   
-                  clock->set_blink_digit(7, ENABLE);
-                  clock->set_blink_digit(6, ENABLE);
+                      clock->set_blink_digit(7, ENABLE);
+                      clock->set_blink_digit(6, ENABLE);
                   
-                  mode_changed = true;
+                      mode_changed = true;
                   }
                   break;
-              case CLOCK_SETTING:
+              case CLOCK_ALARM:
+                  if(hold_time >= 2) {
+                      clock->set_clock_mode(CLOCK_ALARM_SETTING);
+                      clock->set_blink_digit(7, ENABLE);
+                      clock->set_blink_digit(6, ENABLE);
+                  
+                      mode_changed = true;
+                  }                  
+                  break;
+              case CLOCK_TIME_SETTING:
                   clock->set_clock_mode(CLOCK_TIME);
+                  clock->clear_blink_digit();
+                  mode_changed = true;
+                  break;
+              case CLOCK_ALARM_SETTING:
+                  clock->set_clock_mode(CLOCK_ALARM);
                   clock->clear_blink_digit();
                   mode_changed = true;
                   break;
@@ -128,13 +148,11 @@ void modeButton::button_click()
           case CLOCK_TIME:
           case CLOCK_ALARM:
               //Switch the clock mode between time mode and the alarm mode
-              clock->set_clock_mode((clock->get_clock_mode() + 1) % CLOCK_SETTING);
+              clock->set_clock_mode((clock->get_clock_mode() + 1) % CLOCK_TIME_SETTING);
               break;
-          case CLOCK_SETTING:
+          case CLOCK_TIME_SETTING:
               /* Switch the setting content to the next */
-              
-              //Clean up the blink digits
-              clock->clear_blink_digit();
+              clock->clear_blink_digit(); //Clean up the blink digits
               
               /* Switch the mode for setting first */
               if(((clock->get_now_setting() + 1) % TIME_CNT) == YEAR)
@@ -143,7 +161,12 @@ void modeButton::button_click()
                   clock->set_time_mode(TIME_MODE);
                       
               clock->set_setting_digit((clock->get_now_setting() + 1) % TIME_CNT); //Set the digits to blink
-
+              clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
+              break;
+          case CLOCK_ALARM_SETTING:
+              /* Switch the setting content to the next */
+              clock->clear_blink_digit(); //Clean up the blink digits
+              clock->set_setting_digit((clock->get_now_setting() + 1) % YEAR); //Set the digits to blink
               clock->set_blink_time(BLINK_DUTY); //Interrupt blinking
               break;
         }
