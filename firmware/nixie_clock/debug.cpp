@@ -9,51 +9,67 @@
 #include <Garan.h>
 #include <SoftwareSerial.h>
 
+extern Garan player;
+extern SoftwareSerial garanSerial;
+
 void serialEvent()
 {
-  int t = Serial.read();
-  int v = 0;
-  int temp;
-  while((temp = Serial.read()) != -1){
-    v = v * 10 + (temp - '0');
+  if (Serial.available()) {
+    switch(Serial.read()) {
+      case '1':
+        player.singlePlay(1);
+        break;
+      case '2':
+        player.sequencePlay(2);
+        break;
+      case '3':
+        player.singlePlay(3);
+        break;
+      case '4':
+        player.singlePlayName("00000001.mp3");
+        break;
+      case '5':
+        player.sequencePlayName("00000001.mp3");
+        break;
+      case '6':
+        player.singleLoopName("00000001.mp3");
+        break;
+      case '9':
+        player.setVolume(15);
+        break;
+      case '0':
+        player.setVolume(0);
+        break;      
+      case 'f':
+        player.feedbackAtEnd();
+        break;
+      case 'n':
+        player.next();
+        break;
+      case 'p':
+        player.prev();
+        break;
+      case 't':
+        player.getMusicNumbers();
+        break;
+      case 'v':
+        player.getVersion();
+        break;
+      case ']':
+        player.volumeUp();
+        break;
+      case '[':
+        player.volumeDown();
+        break; 
+      default:
+        Serial.println("This key maps to none.");     
+    }
   }
-  
-  int y = year();
-  int M = month();
-  int d = day();
-  int h = hour();
-  int m = minute();
-  int s = second();
-  
-  switch(t){
-    case 'y':
-      y = v;
-      break;
-    case 'M':
-      M = v;
-      break;
-    case 'd':
-      d = v;
-      break;
-    case 'h':
-      h = v;
-      break;
-    case 'm':
-      m = v;
-      break;
-    case 's':
-      s = v;
-      break;
-    default:
-      break;
+
+  if (garanSerial.available()) {
+    unsigned char recvByte = garanSerial.read();
+    if (recvByte == 0x24) Serial.println();
+
+    Serial.print(String(recvByte, HEX) + " ");
   }
-  
-  tmElements_t tm;
-  tm.Year = y - 1970; // 從1970年開始算
-  tm.Month = M;
-  tm.Day = d;
-  tm.Hour = h;
-  tm.Minute = m;
-  tm.Second = s;
-  setTime(makeTime(tm));
 }

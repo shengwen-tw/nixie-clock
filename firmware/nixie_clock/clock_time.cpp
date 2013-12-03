@@ -22,8 +22,6 @@ clock_time::clock_time()
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
     hour_format = FORMAT_24HR;
     now_set = HOUR;
-    
-    player.setVolume(15);
 }
 
 /* Digit blink related functions */
@@ -273,9 +271,11 @@ void clock_time::inc_time(int clock_mode)
 }
 
 /* Music functions */
-void play_music(char *music_name)
+void clock_time::play_music(char *music_name)
 {
-    player.singlePlayName("alarm.mp3");
+    player.setVolume(5); //FIXME:The volume should be initialized at other place
+    player.singlePlay(1);
+    //player.singlePlayName(music_name); //FIXME:Dosen't work
 }
 
 void stop_music()

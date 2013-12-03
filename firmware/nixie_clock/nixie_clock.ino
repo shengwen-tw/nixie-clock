@@ -82,7 +82,7 @@ ISR (TIMER1_OVF_vect)
                 
         //Check time of the alarm
         if(clock.check_alarm_time() == true) {
-            Serial.print("!");
+            clock.play_music("alarm.mp3");
         }
         
         isr_count = 0;
