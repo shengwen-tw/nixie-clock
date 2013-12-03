@@ -175,7 +175,7 @@ void clock_time::display_time()
 void clock_time::initial_time()
 {
     setTime(0, 0, 1, 1, 1, 2000); //Initial the time with 2000/1/1 - 0:0:1
-    set_alarm_time(0, 0, 1); //Set the alarm at 0:0:1
+    set_alarm_time(12, 0, 0); //Set the alarm at 0:0:1
 }
 
 int clock_time::get_now_setting()
