@@ -8,3 +8,5 @@ int digit_pinA = 8, digit_pinB = 7, digit_pinC = 6;
 int display_enable_gate = 5;
 //Button pin
 int btn_search_pin = 4, btn_adjust_pin = 3, btn_mode_pin = 2;
+//Bargan music player module
+int bargan_tx = 16, bargan_rx = 17;

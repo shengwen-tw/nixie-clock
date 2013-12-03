@@ -1,17 +1,29 @@
 #include <Arduino.h>
 #include <Wire.h>
+
+/* RTC Clock  */
 #include <Time.h>
 #include <DS1307RTC.h>
+
+/* Music player module */
+#include <Garan.h>
+#include <SoftwareSerial.h>
 
 #include "pin_def.h"
 #include "display.h"
 #include "clock_time.h"
+
+SoftwareSerial garanSerial(bargan_rx, bargan_tx);
+Garan player(garanSerial);
+
 
 clock_time::clock_time()
 {
     clock_mode = CLOCK_TIME, time_mode = TIME_MODE;
     hour_format = FORMAT_24HR;
     now_set = HOUR;
+    
+    player.setVolume(15);
 }
 
 /* Digit blink related functions */
@@ -260,10 +272,26 @@ void clock_time::inc_time(int clock_mode)
     setTime(cur_time.hour, cur_time.minute, cur_time.second, cur_time.day, cur_time.month, cur_time.year);
 }
 
+/* Music functions */
+void play_music(char *music_name)
+{
+    player.singlePlayName("alarm.mp3");
+}
+
+void stop_music()
+{
+}
+
 /* Alarm related functions */
 void clock_time::set_alarm_time(int hour, int minute, int second)
 {
     alarm_time.hour = hour;
     alarm_time.minute = minute;
     alarm_time.second = second;
+}
+
+bool clock_time::check_alarm_time()
+{
+    //If the current time minus the alarm time equal means time's up
+    return !(bool)(cur_time.hour - alarm_time.hour + cur_time.minute - alarm_time.minute + cur_time.second - alarm_time.second);
 }

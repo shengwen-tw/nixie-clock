@@ -1,6 +1,13 @@
+#include <Arduino.h>
 #include <Wire.h>
+
+/* RTC Clock  */
 #include <Time.h>
 #include <DS1307RTC.h>
+
+/* Music player module */
+#include <Garan.h>
+#include <SoftwareSerial.h>
 
 #include "pin_def.h"
 #include "display.h"
@@ -72,6 +79,11 @@ ISR (TIMER1_OVF_vect)
         btn_search.hold_time_inc();
         btn_adjust.hold_time_inc();
         btn_mode.hold_time_inc();
+                
+        //Check time of the alarm
+        if(clock.check_alarm_time() == true) {
+            Serial.print("!");
+        }
         
         isr_count = 0;
     }

@@ -1,7 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
+
+/* RTC Clock  */
 #include <Time.h>
 #include <DS1307RTC.h>
+
+/* Music player module */
+#include <Garan.h>
+#include <SoftwareSerial.h>
 
 void serialEvent()
 {

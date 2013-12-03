@@ -1,7 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
+
+/* RTC Clock  */
 #include <Time.h>
 #include <DS1307RTC.h>
+
+/* Music player module */
+#include <Garan.h>
+#include <SoftwareSerial.h>
 
 #ifndef __CLOCK_TIME_H__
 #define __CLOCK_TIME_H__
@@ -87,6 +93,7 @@ class clock_time {
       int get_blink_time();
       void set_blink_time(int time);
       void set_blink_digit(int digit, int status);
+      void blink_all_digit();
       void clear_blink_digit();
       /* Clock mode functions */
       int get_clock_mode();
@@ -101,8 +108,12 @@ class clock_time {
       int get_now_setting();
       void set_setting_digit(int time);
       void inc_time(int clock_mode);
+      /* Music functions */
+      void play_music(char *music_name);
+      void stop_music();
       /* Alarm related functions */
       void set_alarm_time(int hour, int minute, int second);
+      bool check_alarm_time();
 };
 
 #endif

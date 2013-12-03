@@ -11,5 +11,7 @@ extern int digit_pinA, digit_pinB, digit_pinC;
 extern int display_enable_gate;
 //Button pin
 extern int btn_search_pin, btn_adjust_pin, btn_mode_pin;
+//Bargan music player module
+extern int bargan_tx, bargan_rx;
 
 #endif
