@@ -17,8 +17,8 @@ Welcome to contact with me to share your ideas!
 * unzip Time.zip
 * mv /tmp/Time/ **Your_arduino_path/libraries/**
 * mv /tmp/DS1307RTC/ **Your_arduino_path/libraries/**
-###Music module
-**[Garan MP3/WMA](http://www.mcuapps.com/products/garan-audio-module/)**
+
+###Music module (**[Garan MP3/WMA](http://www.mcuapps.com/products/garan-audio-module/)**)
 * cd /tmp/
 * git clone https://github.com/mcuapps/Garan-Arduino.git
 * mv ./Garan-Arduino/libraries/Garan/ **Your_arduino_path/libraries/**
