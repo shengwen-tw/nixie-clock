@@ -1,0 +1,115 @@
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = 2014年02月02日 (週日) 00時03分03秒
+
+BeginCmp
+TimeStamp = /52ECE0A1;
+Reference = 2SB647;
+ValeurCmp = PNP;
+IdModule  = TO92;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECDF19;
+Reference = 2SK2611;
+ValeurCmp = MOSFET-N;
+IdModule  = bornier3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE01C;
+Reference = C1;
+ValeurCmp = 100uf/16v;
+IdModule  = C1V7;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE02C;
+Reference = C2;
+ValeurCmp = 1500pf;
+IdModule  = QMONTRE;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE0D9;
+Reference = C3;
+ValeurCmp = 33v/250v;
+IdModule  = C2V10;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE0DF;
+Reference = C4;
+ValeurCmp = 33uf/250v;
+IdModule  = C2V10;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE0D3;
+Reference = D1;
+ValeurCmp = 1N4148;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE0D1;
+Reference = D2;
+ValeurCmp = FR157;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE276;
+Reference = L1;
+ValeurCmp = 220uh;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE279;
+Reference = L2;
+ValeurCmp = 22uh;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE101;
+Reference = R1;
+ValeurCmp = 1k_ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE0FB;
+Reference = R2;
+ValeurCmp = 1k_ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE103;
+Reference = R3;
+ValeurCmp = 620_ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE106;
+Reference = R4;
+ValeurCmp = 100k_ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECE108;
+Reference = R5;
+ValeurCmp = 760_ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52ECDE52;
+Reference = U1;
+ValeurCmp = MCS34063A;
+IdModule  = DIP-8__300;
+EndCmp
+
+EndListe

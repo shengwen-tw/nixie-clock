@@ -1,100 +1,104 @@
-# EESchema Netlist Version 1.1 created  2014年02月01日 (週六) 21時55分49秒
+# EESchema Netlist Version 1.1 created  2014年02月02日 (週日) 00時03分03秒
 (
- ( /52ECE279 $noname  L2 22uh {Lib=INDUCTOR}
-  (    1 N-000004 )
-  (    2 +170V )
+ ( /52ECE0A1 TO92 2SB647 PNP
+  ( 1 N-000009 )
+  ( 2 N-000010 )
+  ( 3 GNDPWR )
  )
- ( /52ECE276 $noname  L1 220uh {Lib=INDUCTOR}
-  (    1 +12V )
-  (    2 N-000008 )
+ ( /52ECDF19 bornier3 2SK2611 MOSFET-N
+  ( D N-000008 )
+  ( G N-000009 )
+  ( S GNDPWR )
  )
- ( /52ECE108 $noname  R5 760_ohm {Lib=R}
-  (    1 N-000011 )
-  (    2 GNDPWR )
+ ( /52ECE01C C1V7 C1 100uf/16v
+  ( 1 +12V )
+  ( 2 GNDPWR )
  )
- ( /52ECE106 $noname  R4 100k_ohm {Lib=R}
-  (    1 N-000004 )
-  (    2 N-000011 )
+ ( /52ECE02C QMONTRE C2 1500pf
+  ( 1 N-000007 )
+  ( 2 GNDPWR )
  )
- ( /52ECE103 $noname  R3 620_ohm {Lib=R}
-  (    1 +12V )
-  (    2 N-000006 )
+ ( /52ECE0D9 C2V10 C3 33v/250v
+  ( 1 N-000004 )
+  ( 2 GNDPWR )
  )
- ( /52ECE101 $noname  R1 1k_ohm {Lib=R}
-  (    1 ? )
-  (    2 N-000002 )
+ ( /52ECE0DF C2V10 C4 33uf/250v
+  ( 1 +170V )
+  ( 2 GNDPWR )
  )
- ( /52ECE0FB $noname  R2 1k_ohm {Lib=R}
-  (    1 N-000010 )
-  (    2 GNDPWR )
+ ( /52ECE0D3 D3 D1 1N4148
+  ( 1 N-000010 )
+  ( 2 N-000009 )
  )
- ( /52ECE0DF $noname  C4 33uf/250v {Lib=CP1}
-  (    1 +170V )
-  (    2 GNDPWR )
+ ( /52ECE0D1 D3 D2 FR157
+  ( 1 N-000008 )
+  ( 2 N-000004 )
  )
- ( /52ECE0D9 $noname  C3 33v/250v {Lib=CP1}
-  (    1 N-000004 )
-  (    2 GNDPWR )
+ ( /52ECE276 PIN_ARRAY_2X1 L1 220uh
+  ( 1 +12V )
+  ( 2 N-000008 )
  )
- ( /52ECE0D3 $noname  D1 1N4148 {Lib=DIODE}
-  (    1 N-000010 )
-  (    2 N-000009 )
+ ( /52ECE279 PIN_ARRAY_2X1 L2 22uh
+  ( 1 N-000004 )
+  ( 2 +170V )
  )
- ( /52ECE0D1 $noname  D2 FR157 {Lib=DIODE}
-  (    1 N-000008 )
-  (    2 N-000004 )
+ ( /52ECE101 R1 R1 1k_ohm
+  ( 1 ? )
+  ( 2 N-000002 )
  )
- ( /52ECE0A1 $noname  2SB647 PNP {Lib=PNP}
-  (    1 N-000009 )
-  (    2 N-000010 )
-  (    3 GNDPWR )
+ ( /52ECE0FB R1 R2 1k_ohm
+  ( 1 N-000010 )
+  ( 2 GNDPWR )
  )
- ( /52ECE02C $noname  C2 1500pf {Lib=C}
-  (    1 N-000007 )
-  (    2 GNDPWR )
+ ( /52ECE103 R1 R3 620_ohm
+  ( 1 +12V )
+  ( 2 N-000006 )
  )
- ( /52ECE01C $noname  C1 100uf/16v {Lib=CP1}
-  (    1 +12V )
-  (    2 GNDPWR )
+ ( /52ECE106 R1 R4 100k_ohm
+  ( 1 N-000004 )
+  ( 2 N-000011 )
  )
- ( /52ECDF19 $noname  2SK2611 MOSFET-N {Lib=MOS_N}
-  (    D N-000008 )
-  (    G N-000009 )
-  (    S GNDPWR )
+ ( /52ECE108 R1 R5 760_ohm
+  ( 1 N-000011 )
+  ( 2 GNDPWR )
  )
- ( /52ECDE52 $noname  U1 MCS34063A {Lib=MCS34063A}
-  (    1 N-000002 )
-  (    2 N-000010 )
-  (    3 N-000007 )
-  (    4 GNDPWR )
-  (    5 N-000011 )
-  (    6 +12V )
-  (    7 +12V )
-  (    8 N-000006 )
+ ( /52ECDE52 DIP-8__300 U1 MCS34063A
+  ( 1 N-000002 )
+  ( 2 N-000010 )
+  ( 3 N-000007 )
+  ( 4 GNDPWR )
+  ( 5 N-000011 )
+  ( 6 +12V )
+  ( 7 +12V )
+  ( 8 N-000006 )
  )
 )
 *
 { Allowed footprints by component:
-$component R5
- R?
- SM0603
- SM0805
- R?-*
- SM1206
+$component C1
+ CP*
+ SM*
 $endlist
-$component R4
- R?
- SM0603
- SM0805
- R?-*
- SM1206
+$component C2
+ SM*
+ C?
+ C1-1
 $endlist
-$component R3
- R?
- SM0603
- SM0805
- R?-*
- SM1206
+$component C3
+ CP*
+ SM*
+$endlist
+$component C4
+ CP*
+ SM*
+$endlist
+$component D1
+ D?
+ S*
+$endlist
+$component D2
+ D?
+ S*
 $endlist
 $component R1
  R?
@@ -110,83 +114,26 @@ $component R2
  R?-*
  SM1206
 $endlist
-$component C4
- CP*
- SM*
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
 $endlist
-$component C3
- CP*
- SM*
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
 $endlist
-$component D1
- D?
- S*
-$endlist
-$component D2
- D?
- S*
-$endlist
-$component C2
- SM*
- C?
- C1-1
-$endlist
-$component C1
- CP*
- SM*
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
 $endlist
 $endfootprintlist
 }
-{ Pin List by Nets
-Net 1 "GNDPWR" "GNDPWR"
- C3 2
- C4 2
- U1 4
- 2SK2611 S
- 2SB647 3
- C2 2
- C1 2
- R2 2
- R5 2
-Net 2 "" ""
- U1 1
- R1 2
-Net 4 "" ""
- C3 1
- D2 2
- R4 1
- L2 1
-Net 5 "+170V" "+170V"
- C4 1
- L2 2
-Net 6 "" ""
- R3 2
- U1 8
-Net 7 "" ""
- U1 3
- C2 1
-Net 8 "" ""
- D2 1
- L1 2
- 2SK2611 D
-Net 9 "" ""
- D1 2
- 2SB647 1
- 2SK2611 G
-Net 10 "" ""
- D1 1
- 2SB647 2
- U1 2
- R2 1
-Net 11 "" ""
- U1 5
- R5 1
- R4 2
-Net 12 "+12V" "+12V"
- L1 1
- U1 6
- U1 7
- C1 1
- R3 1
-}
-#End
