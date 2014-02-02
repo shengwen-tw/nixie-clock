@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = 2014年02月02日 (週日) 00時03分03秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月02日 (週日) 16時26分25秒
 
 BeginCmp
 TimeStamp = /52ECE0A1;
@@ -11,7 +11,7 @@ BeginCmp
 TimeStamp = /52ECDF19;
 Reference = 2SK2611;
 ValeurCmp = MOSFET-N;
-IdModule  = bornier3;
+IdModule  = TO-247_Horizontal_FET-GDS;
 EndCmp
 
 BeginCmp
@@ -73,35 +73,35 @@ EndCmp
 BeginCmp
 TimeStamp = /52ECE101;
 Reference = R1;
-ValeurCmp = 1k_ohm;
+ValeurCmp = 1k ohm;
 IdModule  = R1;
 EndCmp
 
 BeginCmp
 TimeStamp = /52ECE0FB;
 Reference = R2;
-ValeurCmp = 1k_ohm;
+ValeurCmp = 1k ohm;
 IdModule  = R1;
 EndCmp
 
 BeginCmp
 TimeStamp = /52ECE103;
 Reference = R3;
-ValeurCmp = 620_ohm;
+ValeurCmp = 620 ohm;
 IdModule  = R1;
 EndCmp
 
 BeginCmp
 TimeStamp = /52ECE106;
 Reference = R4;
-ValeurCmp = 100k_ohm;
+ValeurCmp = 100k ohm;
 IdModule  = R1;
 EndCmp
 
 BeginCmp
 TimeStamp = /52ECE108;
 Reference = R5;
-ValeurCmp = 760_ohm;
+ValeurCmp = 760 ohm;
 IdModule  = R1;
 EndCmp
 
