@@ -46,127 +46,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L GNDPWR #PWR01
-U 1 1 52ECFBB9
-P 2600 5000
-F 0 "#PWR01" H 2600 5050 40  0001 C CNN
-F 1 "GNDPWR" H 2600 4920 40  0000 C CNN
-F 2 "" H 2600 5000 60  0001 C CNN
-F 3 "" H 2600 5000 60  0001 C CNN
-	1    2600 5000
-	0    1    1    0   
-$EndComp
-$Comp
-L +12V #PWR02
-U 1 1 52ECFBAD
-P 2600 3100
-F 0 "#PWR02" H 2600 3050 20  0001 C CNN
-F 1 "+12V" H 2600 3200 30  0000 C CNN
-F 2 "" H 2600 3100 60  0001 C CNN
-F 3 "" H 2600 3100 60  0001 C CNN
-	1    2600 3100
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	2600 5000 8700 5000
-Wire Wire Line
-	3350 4350 3350 4000
-Wire Wire Line
-	3350 4000 4050 4000
-Wire Wire Line
-	2850 2900 5600 2900
-Wire Wire Line
-	2850 4000 2850 2900
-Connection ~ 2850 5000
-Wire Wire Line
-	8900 3100 8700 3100
-Connection ~ 2850 3100
-Wire Wire Line
-	5600 2900 5600 4000
-Wire Wire Line
-	5600 4000 5200 4000
-Connection ~ 7650 5000
-Wire Wire Line
-	8100 4250 8100 5000
-Wire Wire Line
-	5200 4150 5500 4150
-Wire Wire Line
-	5500 4150 5500 4750
-Wire Wire Line
-	5500 4750 7300 4750
-Wire Wire Line
-	7300 4750 7300 4100
-Connection ~ 7650 4100
-Wire Wire Line
-	7300 4100 7650 4100
-Connection ~ 6950 5000
-Wire Wire Line
-	6950 5000 6950 3800
-Wire Wire Line
-	3850 4500 3850 3850
-Wire Wire Line
-	3850 3850 4050 3850
-Connection ~ 5400 3100
-Wire Wire Line
-	5200 3850 5400 3850
-Wire Wire Line
-	5400 3850 5400 3100
-Connection ~ 6400 3600
-Wire Wire Line
-	6400 3900 6400 3600
-Connection ~ 6950 3100
-Wire Wire Line
-	6950 3400 6950 3100
-Connection ~ 7650 3100
-Wire Wire Line
-	7650 3450 7650 3100
-Wire Wire Line
-	8100 3100 8100 3850
-Wire Wire Line
-	7100 3100 6550 3100
-Wire Wire Line
-	7500 3100 8100 3100
-Wire Wire Line
-	8700 3100 8700 3850
-Wire Wire Line
-	7650 4250 7650 3950
-Wire Wire Line
-	6250 3600 6650 3600
-Wire Wire Line
-	6100 4100 5850 4100
-Wire Wire Line
-	5200 3600 5200 3700
-Wire Wire Line
-	7650 5000 7650 4750
-Wire Wire Line
-	4050 4150 3800 4150
-Wire Wire Line
-	3800 4150 3800 5000
-Connection ~ 4200 5000
-Wire Wire Line
-	6400 5000 6400 4300
-Connection ~ 6400 5000
-Wire Wire Line
-	5850 4500 5850 3600
-Wire Wire Line
-	3850 4500 5850 4500
-Connection ~ 4200 4500
-Connection ~ 5850 4100
-Connection ~ 8100 5000
-Connection ~ 3800 5000
-Wire Wire Line
-	2850 5000 2850 4400
-Connection ~ 3350 5000
-Wire Wire Line
-	4050 3600 4050 3700
-Wire Wire Line
-	8700 5000 8700 4250
-Connection ~ 8700 5000
-Wire Wire Line
-	5950 3100 2600 3100
-Wire Wire Line
-	3350 4750 3350 5000
-$Comp
 L INDUCTOR L2
 U 1 1 52ECE279
 P 8400 3100
@@ -188,8 +67,6 @@ F 3 "" H 6250 3100 60  0001 C CNN
 	1    6250 3100
 	0    -1   -1   0   
 $EndComp
-Text GLabel 8900 3100 2    60   Output ~ 0
-+170V
 $Comp
 L R R5
 U 1 1 52ECE108
@@ -344,6 +221,137 @@ F 3 "" H 4600 4050 60  0001 C CNN
 	1    4600 4050
 	1    0    0    -1  
 $EndComp
+$Comp
+L BATTERY BT1
+U 1 1 52EF418D
+P 2350 4100
+F 0 "BT1" H 2350 4300 50  0000 C CNN
+F 1 "BATTERY" H 2350 3910 50  0000 C CNN
+F 2 "" H 2350 4100 60  0000 C CNN
+F 3 "" H 2350 4100 60  0000 C CNN
+	1    2350 4100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2350 5000 9350 5000
+Wire Wire Line
+	3350 4350 3350 4000
+Wire Wire Line
+	3350 4000 4050 4000
+Wire Wire Line
+	2850 2900 5600 2900
+Wire Wire Line
+	2850 2900 2850 4000
+Connection ~ 2850 5000
+Wire Wire Line
+	8700 3100 9350 3100
+Connection ~ 2850 3100
+Wire Wire Line
+	5600 2900 5600 4000
+Wire Wire Line
+	5600 4000 5200 4000
+Connection ~ 7650 5000
+Wire Wire Line
+	8100 4250 8100 5000
+Wire Wire Line
+	5200 4150 5500 4150
+Wire Wire Line
+	5500 4150 5500 4750
+Wire Wire Line
+	5500 4750 7300 4750
+Wire Wire Line
+	7300 4750 7300 4100
+Connection ~ 7650 4100
+Wire Wire Line
+	7300 4100 7650 4100
+Connection ~ 6950 5000
+Wire Wire Line
+	6950 5000 6950 3800
+Wire Wire Line
+	3850 4500 3850 3850
+Wire Wire Line
+	3850 3850 4050 3850
+Connection ~ 5400 3100
+Wire Wire Line
+	5200 3850 5400 3850
+Wire Wire Line
+	5400 3850 5400 3100
+Connection ~ 6400 3600
+Wire Wire Line
+	6400 3900 6400 3600
+Connection ~ 6950 3100
+Wire Wire Line
+	6950 3400 6950 3100
+Connection ~ 7650 3100
+Wire Wire Line
+	7650 3450 7650 3100
+Wire Wire Line
+	8100 3100 8100 3850
+Wire Wire Line
+	6550 3100 7100 3100
+Wire Wire Line
+	7500 3100 8100 3100
+Wire Wire Line
+	8700 3100 8700 3850
+Wire Wire Line
+	7650 3950 7650 4250
+Wire Wire Line
+	6250 3600 6650 3600
+Wire Wire Line
+	6100 4100 5850 4100
+Wire Wire Line
+	5200 3600 5200 3700
+Wire Wire Line
+	7650 5000 7650 4750
+Wire Wire Line
+	4050 4150 3800 4150
+Wire Wire Line
+	3800 4150 3800 5000
+Connection ~ 4200 5000
+Wire Wire Line
+	6400 5000 6400 4300
+Connection ~ 6400 5000
+Wire Wire Line
+	5850 4500 5850 3600
+Wire Wire Line
+	3850 4500 5850 4500
+Connection ~ 4200 4500
+Connection ~ 5850 4100
+Connection ~ 8100 5000
+Connection ~ 3800 5000
+Wire Wire Line
+	2850 5000 2850 4400
+Connection ~ 3350 5000
+Wire Wire Line
+	4050 3600 4050 3700
+Wire Wire Line
+	8700 5000 8700 4250
+Connection ~ 8700 5000
+Wire Wire Line
+	2350 3100 5950 3100
+Wire Wire Line
+	3350 4750 3350 5000
 Connection ~ 5200 3100
 Connection ~ 4050 3100
+Wire Wire Line
+	2350 3800 2350 3100
+Wire Wire Line
+	2350 4400 2350 5000
+Connection ~ 2350 3800
+Connection ~ 2350 4400
+$Comp
+L CONN_2 P1
+U 1 1 52EF4378
+P 9700 4100
+F 0 "P1" V 9650 4100 40  0000 C CNN
+F 1 "CONN_2" V 9750 4100 40  0000 C CNN
+F 2 "" H 9700 4100 60  0000 C CNN
+F 3 "" H 9700 4100 60  0000 C CNN
+	1    9700 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 3100 9350 4000
+Wire Wire Line
+	9350 5000 9350 4200
 $EndSCHEMATC
