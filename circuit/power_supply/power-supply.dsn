@@ -21,11 +21,11 @@
       )
     )
     (boundary
-      (rect pcb 68897.5 -49745.9 135001 -88798.4)
+      (rect pcb 115887 -89115.9 181991 -128168)
     )
     (via "Via[0-1]_889:635_um" "Via[0-1]_889:0_um")
     (rule
-      (width 900)
+      (width 1300)
       (clearance 254.1)
       (clearance 254.1 (type default_smd))
       (clearance 63.5 (type smd_smd))
@@ -33,40 +33,40 @@
   )
   (placement
     (component TO92
-      (place 2SB647 111760 -82550 front 0 (PN PNP))
+      (place 2SB647 158750 -121920 front 0 (PN PNP))
     )
     (component "TO-247_Horizontal_FET-GDS"
-      (place 2SK2611 96520 -82550 front 0 (PN "MOSFET-N"))
+      (place 2SK2611 143510 -121920 front 0 (PN "MOSFET-N"))
     )
     (component C1V7
-      (place C1 72390 -76200 front 90 (PN 100uf/16v))
+      (place C1 119380 -115570 front 90 (PN 100uf/16v))
     )
     (component QMONTRE
-      (place C2 80010 -80010 front 180 (PN 1500pf))
+      (place C2 127000 -119380 front 180 (PN 1500pf))
     )
     (component C2V10
-      (place C3 128270 -66040 front 0 (PN 33v/250v))
-      (place C4 128270 -81280 front 0 (PN 33uf/250v))
+      (place C3 175260 -105410 front 0 (PN 33v/250v))
+      (place C4 175260 -120650 front 0 (PN 33uf/250v))
     )
     (component D3
-      (place D1 85090 -62230 front 90 (PN 1N4148))
-      (place D2 111760 -59690 front 0 (PN FR157))
+      (place D1 132080 -101600 front 90 (PN 1N4148))
+      (place D2 158750 -99060 front 0 (PN FR157))
     )
     (component PIN_ARRAY_2X1
-      (place L1 111760 -53340 front 0 (PN 220uh))
-      (place L2 121920 -53340 front 0 (PN 22uh))
-      (place BT1 72390 -83820 front 90 (PN BATTERY))
-      (place P1 130810 -54610 front 90 (PN CONN_2))
+      (place L1 158750 -92710 front 0 (PN 220uh))
+      (place L2 168910 -92710 front 0 (PN 22uh))
+      (place BT1 119380 -123190 front 90 (PN BATTERY))
+      (place P1 177800 -93980 front 90 (PN CONN_2))
     )
     (component R1
-      (place R1 73660 -53340 front 180 (PN "1k ohm"))
-      (place R2 82550 -85090 front 180 (PN "1k ohm"))
-      (place R3 81280 -53340 front 0 (PN "620 ohm"))
-      (place R4 111760 -66040 front 0 (PN "100k ohm"))
-      (place R5 111760 -72390 front 0 (PN "760 ohm"))
+      (place R1 120650 -92710 front 180 (PN "1k ohm"))
+      (place R2 129540 -124460 front 180 (PN "1k ohm"))
+      (place R3 128270 -92710 front 0 (PN "620 ohm"))
+      (place R4 158750 -105410 front 0 (PN "100k ohm"))
+      (place R5 158750 -111760 front 0 (PN "760 ohm"))
     )
     (component "DIP-8__300"
-      (place U1 76200 -62230 front 270 (PN MCS34063A))
+      (place U1 123190 -101600 front 270 (PN MCS34063A))
     )
   )
   (library
@@ -270,7 +270,7 @@
         (use_via Via[0-1]_889:635_um)
       )
       (rule
-        (width 900)
+        (width 1300)
         (clearance 254.1)
       )
     )
