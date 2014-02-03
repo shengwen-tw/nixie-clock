@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月02日 (週日) 16時26分25秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月03日 (週一) 15時22分43秒
 
 BeginCmp
 TimeStamp = /52ECE0A1;
@@ -12,6 +12,13 @@ TimeStamp = /52ECDF19;
 Reference = 2SK2611;
 ValeurCmp = MOSFET-N;
 IdModule  = TO-247_Horizontal_FET-GDS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52EF418D;
+Reference = BT1;
+ValeurCmp = BATTERY;
+IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
 BeginCmp
@@ -67,6 +74,13 @@ BeginCmp
 TimeStamp = /52ECE279;
 Reference = L2;
 ValeurCmp = 22uh;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52EF4378;
+Reference = P1;
+ValeurCmp = CONN_2;
 IdModule  = PIN_ARRAY_2X1;
 EndCmp
 
