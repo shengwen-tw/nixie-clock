@@ -1,37 +1,6 @@
-update=2014年02月02日 (週日) 16時20分53秒
+update=2014年02月04日 (週二) 21時38分05秒
 version=1
-last_client=cvpcb
-[pcbnew]
-version=1
-PadDrlX=320
-PadDimH=600
-PadDimV=600
-BoardThickness=630
-TxtPcbV=800
-TxtPcbH=600
-TxtModV=600
-TxtModH=600
-TxtModW=120
-VEgarde=100
-DrawLar=150
-EdgeLar=150
-TxtLar=120
-MSegLar=150
-LastNetListRead=
-[pcbnew/libraries]
-LibName1=sockets
-LibName2=connect
-LibName3=discret
-LibName4=pin_array
-LibName5=divers
-LibName6=libcms
-LibName7=display
-LibName8=led
-LibName9=dip_sockets
-LibName10=pga_sockets
-LibName11=valves
-LibName12=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/Transistor_TO-247_RevC
-LibDir=
+last_client=pcbnew
 [general]
 version=1
 [eeschema]
@@ -102,3 +71,37 @@ version=1
 NetIExt=net
 [cvpcb/libraries]
 EquName1=devcms
+[pcbnew]
+version=1
+LastNetListRead=
+UseCmpFile=1
+PadDrill="    1.016000"
+PadDrillOvalY="    1.016000"
+PadSizeH="    1.800000"
+PadSizeV="    1.800000"
+PcbTextSizeV="    1.500000"
+PcbTextSizeH="    1.500000"
+PcbTextThickness="    0.300000"
+ModuleTextSizeV="    1.500000"
+ModuleTextSizeH="    1.500000"
+ModuleTextSizeThickness="    0.150000"
+SolderMaskClearance="    0.200000"
+SolderMaskMinWidth="    0.000000"
+DrawSegmentWidth="    0.200000"
+BoardOutlineThickness="    0.150000"
+ModuleOutlineThickness="    0.150000"
+[pcbnew/libraries]
+LibDir=
+LibName1=sockets
+LibName2=connect
+LibName3=discret
+LibName4=pin_array
+LibName5=divers
+LibName6=libcms
+LibName7=display
+LibName8=led
+LibName9=dip_sockets
+LibName10=pga_sockets
+LibName11=valves
+LibName12=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/Transistor_TO-247_RevC
+LibName13=/tmp/Nixie-Clock/circuit/extra_mod/oshw-logo-kicad-copper-10mm
