@@ -30,18 +30,280 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:nixie-custom
+LIBS:nixie-clock-cache
 EELAYER 24 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "Nixie Clock Control Board"
 Date "21 nov 2013"
 Rev ""
-Comp ""
+Comp "Sigma Lab"
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L LM7805 U?
+U 1 1 52F4EBAC
+P 3550 1650
+F 0 "U?" H 3700 1454 60  0000 C CNN
+F 1 "LM7805" H 3550 1850 60  0000 C CNN
+F 2 "" H 3550 1650 60  0000 C CNN
+F 3 "" H 3550 1650 60  0000 C CNN
+	1    3550 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L BATTERY BT?
+U 1 1 52F4EC23
+P 2400 1650
+F 0 "BT?" V 2250 1450 50  0000 C CNN
+F 1 "12V" V 2250 1850 50  0000 C CNN
+F 2 "" H 2400 1650 60  0000 C CNN
+F 3 "" H 2400 1650 60  0000 C CNN
+	1    2400 1650
+	0    1    1    0   
+$EndComp
+$Comp
+L C C?
+U 1 1 52F4EDC4
+P 3150 1950
+F 0 "C?" H 3150 2050 40  0000 L CNN
+F 1 "0.1 uf" H 3156 1865 40  0000 L CNN
+F 2 "" H 3188 1800 30  0000 C CNN
+F 3 "" H 3150 1950 60  0000 C CNN
+	1    3150 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 52F4EDD3
+P 3950 1950
+F 0 "C?" H 3950 2050 40  0000 L CNN
+F 1 "0.1 uf" H 3956 1865 40  0000 L CNN
+F 2 "" H 3988 1800 30  0000 C CNN
+F 3 "" H 3950 1950 60  0000 C CNN
+	1    3950 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 52F4EE14
+P 2800 1950
+F 0 "C?" H 2800 2050 40  0000 L CNN
+F 1 "100 uf" H 2806 1865 40  0000 L CNN
+F 2 "" H 2838 1800 30  0000 C CNN
+F 3 "" H 2800 1950 60  0000 C CNN
+	1    2800 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 52F4EF8C
+P 1550 1450
+F 0 "P?" V 1500 1450 40  0000 C CNN
+F 1 "CONN_2" V 1600 1450 40  0000 C CNN
+F 2 "" H 1550 1450 60  0000 C CNN
+F 3 "" H 1550 1450 60  0000 C CNN
+	1    1550 1450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L BATTERY BT?
+U 1 1 52F4F045
+P 1600 3000
+F 0 "BT?" V 1400 2800 50  0000 C CNN
+F 1 "170V" V 1400 3200 50  0000 C CNN
+F 2 "" H 1600 3000 60  0000 C CNN
+F 3 "" H 1600 3000 60  0000 C CNN
+	1    1600 3000
+	0    1    1    0   
+$EndComp
+Text Notes 1050 2550 0    60   ~ 0
+Nixie tube Power Supply
+Text Notes 2000 1250 0    60   ~ 0
+AC Adapter (DC12V)
+$Comp
+L ATMEGA328-P IC?
+U 1 1 52F4F352
+P 5850 2450
+F 0 "IC?" H 5100 3700 40  0000 L BNN
+F 1 "ATMEGA328-P" H 6250 1050 40  0000 L BNN
+F 2 "DIL28" H 5850 2450 30  0000 C CIN
+F 3 "" H 5850 2450 60  0000 C CNN
+	1    5850 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L CRYSTAL X?
+U 1 1 52F4F65D
+P 7900 2000
+F 0 "X?" V 8100 2150 60  0000 C CNN
+F 1 "16MHZ" V 7900 1750 60  0000 C CNN
+F 2 "" H 7900 2000 60  0000 C CNN
+F 3 "" H 7900 2000 60  0000 C CNN
+	1    7900 2000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 52F4F745
+P 8350 1700
+F 0 "C?" H 8350 1800 40  0000 L CNN
+F 1 "22pf" V 8200 1600 40  0000 L CNN
+F 2 "" H 8388 1550 30  0000 C CNN
+F 3 "" H 8350 1700 60  0000 C CNN
+	1    8350 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 52F4F754
+P 8350 2300
+F 0 "C?" H 8350 2400 40  0000 L CNN
+F 1 "22pf" V 8500 2200 40  0000 L CNN
+F 2 "" H 8388 2150 30  0000 C CNN
+F 3 "" H 8350 2300 60  0000 C CNN
+	1    8350 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SW_PUSH SW?
+U 1 1 52F4F8A1
+P 7950 2800
+F 0 "SW?" H 8100 2910 50  0000 C CNN
+F 1 "reset button" H 7950 2720 50  0000 C CNN
+F 2 "" H 7950 2800 60  0000 C CNN
+F 3 "" H 7950 2800 60  0000 C CNN
+	1    7950 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 52F4F8B0
+P 7500 2450
+F 0 "R?" V 7580 2450 40  0000 C CNN
+F 1 "10k ohm" V 7507 2451 40  0000 C CNN
+F 2 "" V 7430 2450 30  0000 C CNN
+F 3 "" H 7500 2450 30  0000 C CNN
+	1    7500 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 2300 2800 2300
+Wire Wire Line
+	2800 2300 3150 2300
+Wire Wire Line
+	3150 2300 3550 2300
+Wire Wire Line
+	3550 2300 3950 2300
+Wire Wire Line
+	3950 2300 4450 2300
+Wire Wire Line
+	2400 2300 2400 1950
+Wire Wire Line
+	3150 1350 3150 1600
+Wire Wire Line
+	3150 1600 3150 1750
+Wire Wire Line
+	3150 2150 3150 2300
+Connection ~ 3150 2300
+Wire Wire Line
+	1900 1350 2400 1350
+Wire Wire Line
+	2400 1350 2800 1350
+Wire Wire Line
+	2800 1350 3150 1350
+Connection ~ 3150 1600
+Wire Wire Line
+	3950 1050 3950 1350
+Wire Wire Line
+	3950 1350 3950 1600
+Wire Wire Line
+	3950 1600 3950 1750
+Wire Wire Line
+	3950 2300 3950 2150
+Connection ~ 3550 2300
+Wire Wire Line
+	2800 1750 2800 1350
+Connection ~ 2800 1350
+Wire Wire Line
+	2800 2150 2800 2300
+Connection ~ 2800 2300
+Wire Wire Line
+	2400 1950 1900 1950
+Wire Wire Line
+	1900 1950 1900 1550
+Connection ~ 2400 1350
+Wire Wire Line
+	3950 1350 4450 1350
+Wire Wire Line
+	4450 1350 4950 1350
+Connection ~ 3950 1600
+Wire Wire Line
+	4450 1350 4450 1650
+Connection ~ 4450 1350
+Connection ~ 4450 1650
+Wire Wire Line
+	4450 1650 4950 1650
+Connection ~ 3950 2300
+Connection ~ 4450 3650
+Wire Wire Line
+	4450 2300 4450 3550
+Wire Wire Line
+	4450 3550 4450 3650
+Wire Wire Line
+	4450 3650 4450 4050
+Wire Wire Line
+	4950 3550 4450 3550
+Connection ~ 4450 3550
+Wire Wire Line
+	4450 3650 4950 3650
+Wire Wire Line
+	3550 2300 3550 1900
+Wire Wire Line
+	7650 1700 7900 1700
+Wire Wire Line
+	7900 1700 8150 1700
+Wire Wire Line
+	7650 1700 7650 1950
+Wire Wire Line
+	7650 1950 6850 1950
+Wire Wire Line
+	6850 2050 7650 2050
+Wire Wire Line
+	7650 2050 7650 2300
+Wire Wire Line
+	7650 2300 7900 2300
+Wire Wire Line
+	7900 2300 8150 2300
+Connection ~ 7900 1700
+Connection ~ 7900 2300
+Connection ~ 8550 2300
+Wire Wire Line
+	7500 2200 7500 1050
+Wire Wire Line
+	7500 1050 3950 1050
+Connection ~ 3950 1350
+Wire Wire Line
+	7650 2800 7500 2800
+Wire Wire Line
+	7500 2800 6850 2800
+Wire Wire Line
+	7500 2800 7500 2700
+Connection ~ 7500 2800
+Wire Wire Line
+	8550 1700 8550 2300
+Wire Wire Line
+	8550 2300 8550 2800
+Wire Wire Line
+	8550 2800 8550 4050
+Wire Wire Line
+	8550 2800 8250 2800
+Wire Wire Line
+	8550 4050 4450 4050
+Connection ~ 8550 2800
 $EndSCHEMATC
