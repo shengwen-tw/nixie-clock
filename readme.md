@@ -3,11 +3,11 @@
 * Developer : Shengwen (l1996812@gmail.com)
 * Platform : Arduino UNO (ATmega328 microcontoller)
 
-#Description
-This is a little project to implement a clock.
+#Introduction
+This is a small project to make a nixie clock.
 The display of the clock is select to use IN-14 Nixie tube.
 
-The functions of the project will conatain the basic time display, alarm, music...etc.
+The functions of project conatain the basic time display, alarm, music...etc.
 
 Welcome to contact with me to share your ideas!
 
@@ -29,3 +29,6 @@ All the circuit was drawing under the KiCad, KiCad is a strong circuit CAD softw
 
 After finished installing the Kicad, you can type the following command to read the circuits:
 * kicad **Your_clone_path**/circuit/nixie-clock.pro
+
+#BOM
+To get more informations, please read the [BOM.md](https://github.com/shengwen1997/Nixie-Clock/blob/master/BOM.md)
