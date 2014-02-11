@@ -1,6 +1,6 @@
-update=2014年02月04日 (週二) 21時38分05秒
+update=2014年02月09日 (週日) 15時24分23秒
 version=1
-last_client=pcbnew
+last_client=cvpcb
 [general]
 version=1
 [eeschema]
@@ -66,11 +66,6 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=power-custom
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
 [pcbnew]
 version=1
 LastNetListRead=
@@ -91,7 +86,6 @@ DrawSegmentWidth="    0.200000"
 BoardOutlineThickness="    0.150000"
 ModuleOutlineThickness="    0.150000"
 [pcbnew/libraries]
-LibDir=
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -104,4 +98,10 @@ LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
 LibName12=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/Transistor_TO-247_RevC
-LibName13=/tmp/Nixie-Clock/circuit/extra_mod/oshw-logo-kicad-copper-10mm
+LibName13=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/oshw-logo-kicad-copper-10mm
+LibDir=
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
