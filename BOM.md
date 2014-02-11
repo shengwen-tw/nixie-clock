@@ -1,7 +1,7 @@
 Power Supply Board
 ======================
 
-** Resistor **
+**Resistor**
 
 0.5 ohm * 2
 
@@ -13,40 +13,53 @@ Power Supply Board
 
 100k ohm * 1
 
-** Electrolytic capacitor **
+**Electrolytic capacitor**
 
 100uf/16v * 1
 
 33v/250v * 2
 
-** Mylar capacitor **
+**Mylar capacitor**
 
 1500pf * 1
 
-** Inductor **
+**Inductor**
 
 22 uf * 1
 
 220 uh * 1
 
-** Diode **
+**Diode**
 
 1N4148 * 1
 
 FR157 * 1
 
-** IC **
+**IC**
 
 MC34063A * 1
 
-** Transistor **
+**Transistor**
 
 2SB647(PNP) * 1
 
-** MOSFET **
+**MOSFET**
 
 2SK2611(N-Type) * 1
 
 Display Board
 ======================
-** Nixie tube **
+
+**Nixie tube**
+
+IN-14 * 8
+
+Control Board
+======================
+
+
+**IC**
+
+LM7805 * 1
+
+ATMega328p * 1
