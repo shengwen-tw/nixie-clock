@@ -1,10 +1,10 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月11日 (週二) 12時50分04秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月11日 (週二) 22時37分29秒
 
 BeginCmp
 TimeStamp = /52ECE0A1;
 Reference = 2SB647;
 ValeurCmp = PNP;
-IdModule  = TO92-123;
+IdModule  = TO-92-Bipolar-inline-wide-ECB;
 EndCmp
 
 BeginCmp

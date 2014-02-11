@@ -1,4 +1,4 @@
-update=2014年02月09日 (週日) 15時24分23秒
+update=2014年02月11日 (週二) 22時35分48秒
 version=1
 last_client=cvpcb
 [general]
@@ -97,8 +97,8 @@ LibName8=led
 LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
-LibName12=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/Transistor_TO-247_RevC
-LibName13=/home/shengwen/workspace/project/Nixie-Clock/circuit/extra_mod/oshw-logo-kicad-copper-10mm
+LibName12=Transistor_TO-247_RevC
+LibName13=Transistor_TO-92-Bipolar-inline-wide_RevB
 LibDir=
 [cvpcb]
 version=1
