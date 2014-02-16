@@ -1,11 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月11日 (週二) 22時37分29秒
-
-BeginCmp
-TimeStamp = /52ECE0A1;
-Reference = 2SB647;
-ValeurCmp = PNP;
-IdModule  = TO-92-Bipolar-inline-wide-ECB;
-EndCmp
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年02月16日 (週日) 17時01分04秒
 
 BeginCmp
 TimeStamp = /52ECDF19;
@@ -32,7 +25,7 @@ BeginCmp
 TimeStamp = /52ECE02C;
 Reference = C2;
 ValeurCmp = 1500pf;
-IdModule  = QMONTRE;
+IdModule  = C2;
 EndCmp
 
 BeginCmp
@@ -82,6 +75,13 @@ TimeStamp = /52EF4378;
 Reference = P1;
 ValeurCmp = CONN_2;
 IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /530077A1;
+Reference = PNP1;
+ValeurCmp = 2SB647;
+IdModule  = TO92-123;
 EndCmp
 
 BeginCmp
