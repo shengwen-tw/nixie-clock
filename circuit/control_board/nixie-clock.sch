@@ -30,6 +30,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:nixie-custom
+LIBS:nixie-clock-cache
 EELAYER 24 0
 EELAYER END
 $Descr A4 11693 8268
@@ -110,9 +111,9 @@ F 3 "" H 950 1200 60  0000 C CNN
 	1    950  1200
 	-1   0    0    -1  
 $EndComp
-Text Notes 1300 2500 0    60   ~ 0
+Text Notes 850  1850 0    60   ~ 0
 Nixie tube\nPower Supply
-Text Notes 1400 1000 0    60   ~ 0
+Text Notes 850  1000 0    60   ~ 0
 AC Adapter (DC12V)
 $Comp
 L ATMEGA328-P IC?
@@ -401,7 +402,7 @@ Wire Wire Line
 Wire Wire Line
 	7950 2550 7650 2550
 Wire Wire Line
-	3850 3600 7950 3600
+	3850 3600 9100 3600
 Connection ~ 7950 2550
 Wire Wire Line
 	3750 4950 3750 5600
@@ -692,4 +693,66 @@ Wire Wire Line
 Wire Wire Line
 	5600 4450 5600 5200
 Connection ~ 3300 4450
+$Comp
+L SW_PUSH SW?
+U 1 1 539C6A40
+P 8650 1700
+F 0 "SW?" H 8800 1810 50  0000 C CNN
+F 1 "SW_PUSH" H 8650 1620 50  0000 C CNN
+F 2 "" H 8650 1700 60  0000 C CNN
+F 3 "" H 8650 1700 60  0000 C CNN
+	1    8650 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SW_PUSH SW?
+U 1 1 539C6A5A
+P 8650 2050
+F 0 "SW?" H 8800 2160 50  0000 C CNN
+F 1 "SW_PUSH" H 8650 1970 50  0000 C CNN
+F 2 "" H 8650 2050 60  0000 C CNN
+F 3 "" H 8650 2050 60  0000 C CNN
+	1    8650 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L SW_PUSH SW?
+U 1 1 539C6A69
+P 8650 2400
+F 0 "SW?" H 8800 2510 50  0000 C CNN
+F 1 "SW_PUSH" H 8650 2320 50  0000 C CNN
+F 2 "" H 8650 2400 60  0000 C CNN
+F 3 "" H 8650 2400 60  0000 C CNN
+	1    8650 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9100 3600 9100 1700
+Wire Wire Line
+	9100 1700 8950 1700
+Connection ~ 7950 3600
+Wire Wire Line
+	8950 2050 9100 2050
+Connection ~ 9100 2050
+Wire Wire Line
+	8950 2400 9100 2400
+Connection ~ 9100 2400
+Wire Wire Line
+	6250 2900 8150 2900
+Wire Wire Line
+	8150 2900 8150 1700
+Wire Wire Line
+	8150 1700 8350 1700
+Wire Wire Line
+	6250 3000 8200 3000
+Wire Wire Line
+	8200 3000 8200 2050
+Wire Wire Line
+	8200 2050 8350 2050
+Wire Wire Line
+	6250 3100 8250 3100
+Wire Wire Line
+	8250 3100 8250 2400
+Wire Wire Line
+	8250 2400 8350 2400
 $EndSCHEMATC
