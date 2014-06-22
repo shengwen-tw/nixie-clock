@@ -1,6 +1,6 @@
 #Information
 * Project name : Nixie Clock
-* Developer : Shengwen (l1996812@gmail.com)
+* Developer : Shengwen (shengwen1997.tw@gmail.com)
 * Platform : Arduino UNO (ATmega328 microcontoller)
 
 #Introduction
@@ -23,12 +23,15 @@ Welcome to contact with me to share your ideas!
 * git clone https://github.com/mcuapps/Garan-Arduino.git
 * mv ./Garan-Arduino/libraries/Garan/ **Your_arduino_path/libraries/**
 
-#Circuit
+#Circuit files
 All the circuit was drawing under the KiCad, KiCad is a strong circuit CAD software, to install it, you can type:
 * sudo apt-get install kicad
 
 After finished installing the Kicad, you can type the following command to read the circuits:
 * kicad **Your_clone_path**/circuit/nixie-clock.pro
+
+#Pinout
+![Pinout](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/pinout.png)
 
 #BOM
 To get more informations, please read the [BOM.md](https://github.com/shengwen1997/Nixie-Clock/blob/master/BOM.md)
