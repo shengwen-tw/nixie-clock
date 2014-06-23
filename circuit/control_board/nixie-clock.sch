@@ -699,7 +699,7 @@ Wire Wire Line
 Wire Wire Line
 	1800 2100 3850 2100
 Wire Wire Line
-	750  4500 5600 4500
+	750  4500 7050 4500
 Wire Wire Line
 	1950 3750 1850 3750
 Wire Wire Line
@@ -855,4 +855,39 @@ Wire Wire Line
 	4200 4400 4200 6050
 Wire Wire Line
 	4200 6050 4250 6050
+$Comp
+L CONN_4 P?
+U 1 1 53A82EF7
+P 8050 4250
+F 0 "P?" V 8000 4250 50  0000 C CNN
+F 1 "CONN_4" V 8100 4250 50  0000 C CNN
+F 2 "" H 8050 4250 60  0000 C CNN
+F 3 "" H 8050 4250 60  0000 C CNN
+	1    8050 4250
+	1    0    0    -1  
+$EndComp
+Text Notes 7700 4550 0    60   ~ 0
+Bluetooth
+Wire Wire Line
+	7700 4100 7150 4100
+Wire Wire Line
+	7150 4100 7150 2850
+Wire Wire Line
+	7150 2850 6250 2850
+Wire Wire Line
+	6250 2750 7250 2750
+Wire Wire Line
+	7250 2750 7250 4200
+Wire Wire Line
+	7250 4200 7700 4200
+Wire Wire Line
+	7050 3650 7050 4300
+Wire Wire Line
+	7050 4300 7700 4300
+Connection ~ 7050 3650
+Wire Wire Line
+	7050 4500 7050 4400
+Wire Wire Line
+	7050 4400 7700 4400
+Connection ~ 5600 4500
 $EndSCHEMATC
