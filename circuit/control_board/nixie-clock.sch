@@ -357,6 +357,56 @@ F 3 "" H 2300 3850 60  0000 C CNN
 	1    2550 3400
 	1    0    0    -1  
 $EndComp
+$Comp
+L R R?
+U 1 1 53A70A06
+P 7550 700
+F 0 "R?" V 7630 700 40  0000 C CNN
+F 1 "R" V 7557 701 40  0000 C CNN
+F 2 "" V 7480 700 30  0000 C CNN
+F 3 "" H 7550 700 30  0000 C CNN
+	1    7550 700 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R?
+U 1 1 53A70A15
+P 7550 900
+F 0 "R?" V 7630 900 40  0000 C CNN
+F 1 "R" V 7557 901 40  0000 C CNN
+F 2 "" V 7480 900 30  0000 C CNN
+F 3 "" H 7550 900 30  0000 C CNN
+	1    7550 900 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 53A70C0C
+P 8300 800
+F 0 "P?" V 8250 800 40  0000 C CNN
+F 1 "CONN_2" V 8350 800 40  0000 C CNN
+F 2 "" H 8300 800 60  0000 C CNN
+F 3 "" H 8300 800 60  0000 C CNN
+	1    8300 800 
+	1    0    0    -1  
+$EndComp
+Text Label 7800 650  0    60   ~ 0
+Tx
+Text Label 7800 850  0    60   ~ 0
+Rx
+Text Notes 7500 1100 0    60   ~ 0
+Garan MP3 module
+$Comp
+L NPN Q?
+U 1 1 53A82B75
+P 4450 6050
+F 0 "Q?" H 4450 5900 50  0000 R CNN
+F 1 "NPN" H 4450 6200 50  0000 R CNN
+F 2 "" H 4450 6050 60  0000 C CNN
+F 3 "" H 4450 6050 60  0000 C CNN
+	1    4450 6050
+	1    0    0    1   
+$EndComp
 Wire Wire Line
 	5600 4500 5600 5250
 Wire Wire Line
@@ -432,7 +482,7 @@ Wire Wire Line
 Connection ~ 4550 3650
 Connection ~ 3750 5000
 Wire Wire Line
-	4550 3650 4550 5000
+	4550 3650 4550 5850
 Connection ~ 5500 3650
 Wire Wire Line
 	5500 3650 5500 5250
@@ -568,7 +618,7 @@ Wire Wire Line
 Wire Wire Line
 	1350 5000 1350 5650
 Wire Wire Line
-	4550 5000 1350 5000
+	1350 5000 4550 5000
 Wire Wire Line
 	3750 5000 3750 5650
 Connection ~ 7950 2600
@@ -772,28 +822,6 @@ Wire Wire Line
 	6900 4300 6900 3250
 Wire Wire Line
 	6900 3250 6250 3250
-$Comp
-L R R?
-U 1 1 53A70A06
-P 7550 700
-F 0 "R?" V 7630 700 40  0000 C CNN
-F 1 "R" V 7557 701 40  0000 C CNN
-F 2 "" V 7480 700 30  0000 C CNN
-F 3 "" H 7550 700 30  0000 C CNN
-	1    7550 700 
-	0    -1   -1   0   
-$EndComp
-$Comp
-L R R?
-U 1 1 53A70A15
-P 7550 900
-F 0 "R?" V 7630 900 40  0000 C CNN
-F 1 "R" V 7557 901 40  0000 C CNN
-F 2 "" V 7480 900 30  0000 C CNN
-F 3 "" H 7550 900 30  0000 C CNN
-	1    7550 900 
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	6250 2200 6450 2200
 Wire Wire Line
@@ -806,25 +834,25 @@ Wire Wire Line
 	6600 900  6600 2300
 Wire Wire Line
 	6600 2300 6250 2300
-$Comp
-L CONN_2 P?
-U 1 1 53A70C0C
-P 8300 800
-F 0 "P?" V 8250 800 40  0000 C CNN
-F 1 "CONN_2" V 8350 800 40  0000 C CNN
-F 2 "" H 8300 800 60  0000 C CNN
-F 3 "" H 8300 800 60  0000 C CNN
-	1    8300 800 
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7800 700  7950 700 
 Wire Wire Line
 	7800 900  7950 900 
-Text Label 7800 650  0    60   ~ 0
-Tx
-Text Label 7800 850  0    60   ~ 0
-Rx
-Text Notes 7500 1100 0    60   ~ 0
-Garan MP3 module
+Wire Wire Line
+	4550 6250 4550 6350
+Wire Wire Line
+	4550 6350 4800 6350
+Wire Wire Line
+	4800 6350 4800 6800
+Connection ~ 4550 5000
+Wire Wire Line
+	6250 2000 6700 2000
+Wire Wire Line
+	6700 2000 6700 4400
+Wire Wire Line
+	6700 4400 4200 4400
+Wire Wire Line
+	4200 4400 4200 6050
+Wire Wire Line
+	4200 6050 4250 6050
 $EndSCHEMATC
