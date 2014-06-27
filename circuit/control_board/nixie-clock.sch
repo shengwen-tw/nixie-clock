@@ -316,41 +316,37 @@ $EndComp
 $Comp
 L R R?
 U 1 1 53A70A06
-P 7550 700
-F 0 "R?" V 7630 700 40  0000 C CNN
-F 1 "R" V 7557 701 40  0000 C CNN
-F 2 "" V 7480 700 30  0000 C CNN
-F 3 "" H 7550 700 30  0000 C CNN
-	1    7550 700 
+P 2100 5850
+F 0 "R?" V 2180 5850 40  0000 C CNN
+F 1 "R" V 2107 5851 40  0000 C CNN
+F 2 "" V 2030 5850 30  0000 C CNN
+F 3 "" H 2100 5850 30  0000 C CNN
+	1    2100 5850
 	0    -1   -1   0   
 $EndComp
 $Comp
 L R R?
 U 1 1 53A70A15
-P 7550 900
-F 0 "R?" V 7630 900 40  0000 C CNN
-F 1 "R" V 7557 901 40  0000 C CNN
-F 2 "" V 7480 900 30  0000 C CNN
-F 3 "" H 7550 900 30  0000 C CNN
-	1    7550 900 
+P 2100 6050
+F 0 "R?" V 2180 6050 40  0000 C CNN
+F 1 "R" V 2107 6051 40  0000 C CNN
+F 2 "" V 2030 6050 30  0000 C CNN
+F 3 "" H 2100 6050 30  0000 C CNN
+	1    2100 6050
 	0    -1   -1   0   
 $EndComp
 $Comp
 L CONN_2 P?
 U 1 1 53A70C0C
-P 8300 800
-F 0 "P?" V 8250 800 40  0000 C CNN
-F 1 "CONN_2" V 8350 800 40  0000 C CNN
-F 2 "" H 8300 800 60  0000 C CNN
-F 3 "" H 8300 800 60  0000 C CNN
-	1    8300 800 
+P 2850 5950
+F 0 "P?" V 2800 5950 40  0000 C CNN
+F 1 "CONN_2" V 2900 5950 40  0000 C CNN
+F 2 "" H 2850 5950 60  0000 C CNN
+F 3 "" H 2850 5950 60  0000 C CNN
+	1    2850 5950
 	1    0    0    -1  
 $EndComp
-Text Label 7800 650  0    60   ~ 0
-Tx
-Text Label 7800 850  0    60   ~ 0
-Rx
-Text Notes 7500 1050 0    60   ~ 0
+Text Notes 1100 5700 0    60   ~ 0
 Garan MP3 module
 $Comp
 L NPN Q?
@@ -398,13 +394,13 @@ F 3 "" H 1200 1400 60  0000 C CNN
 	1    1200 1400
 	-1   0    0    -1  
 $EndComp
-Text GLabel 3400 1350 2    60   Output ~ 0
+Text GLabel 3400 1350 2    60   UnSpc ~ 0
 5V
-Text GLabel 3400 2050 2    60   Input ~ 0
+Text GLabel 3400 2050 2    60   UnSpc ~ 0
 GND
-Text GLabel 2650 3100 2    60   Output ~ 0
+Text GLabel 2650 3100 2    60   UnSpc ~ 0
 GND
-Text GLabel 2650 2900 2    60   Output ~ 0
+Text GLabel 2650 2900 2    60   UnSpc ~ 0
 170V
 Wire Wire Line
 	2700 2050 2700 1650
@@ -432,9 +428,9 @@ Wire Wire Line
 Wire Wire Line
 	1550 2050 3400 2050
 Wire Wire Line
-	7800 700  7950 700 
+	2350 5850 2500 5850
 Wire Wire Line
-	7800 900  7950 900 
+	2350 6050 2500 6050
 Wire Wire Line
 	3100 1500 3100 1350
 Wire Wire Line
@@ -463,11 +459,11 @@ Wire Notes Line
 	3000 3250 3000 2550
 Wire Notes Line
 	3000 2550 1050 2550
-Text GLabel 1250 4000 0    60   Input ~ 0
+Text GLabel 1250 4000 0    60   UnSpc ~ 0
 5V
-Text GLabel 1250 4500 0    60   Input ~ 0
+Text GLabel 1250 4500 0    60   UnSpc ~ 0
 5V
-Text GLabel 1250 5000 0    60   Input ~ 0
+Text GLabel 1250 5000 0    60   UnSpc ~ 0
 5V
 Wire Wire Line
 	1250 4000 1450 4000
@@ -514,11 +510,11 @@ Wire Wire Line
 	2050 4500 2200 4500
 Wire Wire Line
 	2050 5000 2200 5000
-Text GLabel 2800 4000 2    60   Output ~ 0
+Text GLabel 2800 4000 2    60   UnSpc ~ 0
 GND
-Text GLabel 2800 4500 2    60   Output ~ 0
+Text GLabel 2800 4500 2    60   UnSpc ~ 0
 GND
-Text GLabel 2800 5000 2    60   Output ~ 0
+Text GLabel 2800 5000 2    60   UnSpc ~ 0
 GND
 Wire Wire Line
 	2700 4000 2800 4000
@@ -526,11 +522,11 @@ Wire Wire Line
 	2700 4500 2800 4500
 Wire Wire Line
 	2700 5000 2800 5000
-Text GLabel 2350 3750 2    60   Output ~ 0
+Text GLabel 2350 3750 2    60   UnSpc ~ 0
 Search button
-Text GLabel 2350 4250 2    60   Output ~ 0
+Text GLabel 2350 4250 2    60   UnSpc ~ 0
 Adjust button
-Text GLabel 2450 4750 2    60   Output ~ 0
+Text GLabel 2450 4750 2    60   UnSpc ~ 0
 Mode button
 Wire Wire Line
 	2350 3750 2050 3750
@@ -554,16 +550,40 @@ Wire Notes Line
 	3150 5200 1050 5200
 Wire Notes Line
 	1050 5200 1050 3550
-Text GLabel 7050 3000 2    57   Input ~ 0
+Text GLabel 7050 3000 2    57   UnSpc ~ 0
 Search button
 Wire Wire Line
 	7050 3000 6900 3000
-Text GLabel 7050 2900 2    57   Input ~ 0
+Text GLabel 7050 2900 2    57   UnSpc ~ 0
 Adjust button
 Wire Wire Line
 	7050 2900 6900 2900
-Text GLabel 7050 2800 2    57   Input ~ 0
+Text GLabel 7050 2800 2    57   UnSpc ~ 0
 Mode button
 Wire Wire Line
 	7050 2800 6900 2800
+Text GLabel 1750 5850 0    60   UnSpc ~ 0
+Bluetooth Tx
+Text GLabel 1750 6050 0    60   UnSpc ~ 0
+Bluetooth Rx
+Wire Notes Line
+	1050 5550 3050 5550
+Wire Notes Line
+	3050 5550 3050 6200
+Wire Notes Line
+	3050 6200 1050 6200
+Wire Notes Line
+	1050 6200 1050 5550
+Wire Wire Line
+	1750 5850 1850 5850
+Wire Wire Line
+	1750 6050 1850 6050
+Text GLabel 7050 2600 2    57   UnSpc ~ 0
+Bluetooth Tx
+Wire Wire Line
+	7050 2600 6900 2600
+Text GLabel 7050 2700 2    57   UnSpc ~ 0
+Bluetooth Rx
+Wire Wire Line
+	6900 2700 7050 2700
 $EndSCHEMATC
