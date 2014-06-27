@@ -1,0 +1,234 @@
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年06月27日 (週五) 15時24分21秒
+
+BeginCmp
+TimeStamp = /539C5751;
+Reference = BT1;
+ValeurCmp = 170V;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EC23;
+Reference = BT2;
+ValeurCmp = 12V;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EE14;
+Reference = C1;
+ValeurCmp = 100 uf;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EDC4;
+Reference = C2;
+ValeurCmp = 0.1 uf;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EDD3;
+Reference = C3;
+ValeurCmp = 0.1 uf;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F745;
+Reference = C4;
+ValeurCmp = 22pf;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F754;
+Reference = C5;
+ValeurCmp = 22pf;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F352;
+Reference = IC1;
+ValeurCmp = ATMEGA328-P;
+IdModule  = DIL28;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EF8C;
+Reference = P1;
+ValeurCmp = CONN_2;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C718E;
+Reference = P2;
+ValeurCmp = CONN_2;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C7194;
+Reference = P3;
+ValeurCmp = CONN_2;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C719A;
+Reference = P4;
+ValeurCmp = CONN_2;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4AAE;
+Reference = P5;
+ValeurCmp = CONN_8;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4A9F;
+Reference = P6;
+ValeurCmp = CONN_12;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A82EF7;
+Reference = P7;
+ValeurCmp = CONN_4;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A70C0C;
+Reference = P8;
+ValeurCmp = CONN_2;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A82B75;
+Reference = Q1;
+ValeurCmp = NPN;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C7026;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F8B0;
+Reference = R2;
+ValeurCmp = 10k ohm;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A70A06;
+Reference = R3;
+ValeurCmp = R;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A70A15;
+Reference = R4;
+ValeurCmp = R;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F8A1;
+Reference = SW1;
+ValeurCmp = reset button;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C6A40;
+Reference = SW2;
+ValeurCmp = SW_PUSH;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C6A5A;
+Reference = SW3;
+ValeurCmp = SW_PUSH;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C6A69;
+Reference = SW4;
+ValeurCmp = SW_PUSH;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4685;
+Reference = U1;
+ValeurCmp = TLP521;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4676;
+Reference = U2;
+ValeurCmp = TLP521;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4667;
+Reference = U3;
+ValeurCmp = TLP521;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /53A6F84A;
+Reference = U4;
+ValeurCmp = HEF42028;
+IdModule  = DIP-16__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4EBAC;
+Reference = U5;
+ValeurCmp = LM7805;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C4658;
+Reference = U6;
+ValeurCmp = TLP521;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C535D;
+Reference = U7;
+ValeurCmp = K155ID1;
+IdModule  = DIP-16__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F4F65D;
+Reference = X1;
+ValeurCmp = 16MHZ;
+IdModule  = ;
+EndCmp
+
+EndListe
