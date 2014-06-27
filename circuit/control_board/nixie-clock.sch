@@ -151,45 +151,45 @@ $EndComp
 $Comp
 L TLP521 U?
 U 1 1 539C4658
-P 7400 5500
-F 0 "U?" H 7300 6400 60  0000 C CNN
-F 1 "TLP521" V 7450 6050 60  0000 C CNN
-F 2 "" H 7450 6050 60  0000 C CNN
-F 3 "" H 7450 6050 60  0000 C CNN
-	1    7400 5500
+P 5850 5800
+F 0 "U?" H 5750 6700 60  0000 C CNN
+F 1 "TLP521" V 5900 6350 60  0000 C CNN
+F 2 "" H 5900 6350 60  0000 C CNN
+F 3 "" H 5900 6350 60  0000 C CNN
+	1    5850 5800
 	0    1    1    0   
 $EndComp
 $Comp
 L TLP521 U?
 U 1 1 539C4667
-P 6700 5500
-F 0 "U?" H 6600 6400 60  0000 C CNN
-F 1 "TLP521" V 6750 6050 60  0000 C CNN
-F 2 "" H 6750 6050 60  0000 C CNN
-F 3 "" H 6750 6050 60  0000 C CNN
-	1    6700 5500
+P 5150 5800
+F 0 "U?" H 5050 6700 60  0000 C CNN
+F 1 "TLP521" V 5200 6350 60  0000 C CNN
+F 2 "" H 5200 6350 60  0000 C CNN
+F 3 "" H 5200 6350 60  0000 C CNN
+	1    5150 5800
 	0    1    1    0   
 $EndComp
 $Comp
 L TLP521 U?
 U 1 1 539C4676
-P 6000 5500
-F 0 "U?" H 5900 6400 60  0000 C CNN
-F 1 "TLP521" V 6050 6050 60  0000 C CNN
-F 2 "" H 6050 6050 60  0000 C CNN
-F 3 "" H 6050 6050 60  0000 C CNN
-	1    6000 5500
+P 4450 5800
+F 0 "U?" H 4350 6700 60  0000 C CNN
+F 1 "TLP521" V 4500 6350 60  0000 C CNN
+F 2 "" H 4500 6350 60  0000 C CNN
+F 3 "" H 4500 6350 60  0000 C CNN
+	1    4450 5800
 	0    1    1    0   
 $EndComp
 $Comp
 L TLP521 U?
 U 1 1 539C4685
-P 5300 5500
-F 0 "U?" H 5200 6400 60  0000 C CNN
-F 1 "TLP521" V 5350 6050 60  0000 C CNN
-F 2 "" H 5350 6050 60  0000 C CNN
-F 3 "" H 5350 6050 60  0000 C CNN
-	1    5300 5500
+P 3750 5800
+F 0 "U?" H 3650 6700 60  0000 C CNN
+F 1 "TLP521" V 3800 6350 60  0000 C CNN
+F 2 "" H 3800 6350 60  0000 C CNN
+F 3 "" H 3800 6350 60  0000 C CNN
+	1    3750 5800
 	0    1    1    0   
 $EndComp
 $Comp
@@ -206,12 +206,12 @@ $EndComp
 $Comp
 L CONN_8 P?
 U 1 1 539C4AAE
-P 6850 6650
-F 0 "P?" V 6800 6650 60  0000 C CNN
-F 1 "CONN_8" V 6900 6650 60  0000 C CNN
-F 2 "" H 6850 6650 60  0000 C CNN
-F 3 "" H 6850 6650 60  0000 C CNN
-	1    6850 6650
+P 5250 7100
+F 0 "P?" V 5200 7100 60  0000 C CNN
+F 1 "CONN_8" V 5300 7100 60  0000 C CNN
+F 2 "" H 5250 7100 60  0000 C CNN
+F 3 "" H 5250 7100 60  0000 C CNN
+	1    5250 7100
 	0    1    1    0   
 $EndComp
 $Comp
@@ -294,12 +294,12 @@ $EndComp
 $Comp
 L HEF42028 U?
 U 1 1 53A6F84A
-P 4550 4500
-F 0 "U?" H 4300 4950 60  0000 C CNN
-F 1 "HEF42028" V 4550 4400 60  0000 C CNN
-F 2 "" H 4300 4950 60  0000 C CNN
-F 3 "" H 4300 4950 60  0000 C CNN
-	1    4550 4500
+P 5250 4250
+F 0 "U?" H 5000 4700 60  0000 C CNN
+F 1 "HEF42028" V 5250 4150 60  0000 C CNN
+F 2 "" H 5000 4700 60  0000 C CNN
+F 3 "" H 5000 4700 60  0000 C CNN
+	1    5250 4250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -470,6 +470,80 @@ Text GLabel 6600 2100 2    57   UnSpc ~ 0
 MP3 Tx
 Text GLabel 6600 2200 2    57   UnSpc ~ 0
 MP3 Rx
+Text GLabel 6600 2500 2    57   UnSpc ~ 0
+Reset
+Text GLabel 10050 1100 2    57   UnSpc ~ 0
+Reset
+$Comp
+L SW_PUSH SW?
+U 1 1 53AD3840
+P 9050 1350
+F 0 "SW?" H 9200 1460 50  0000 C CNN
+F 1 "SW_PUSH" H 9050 1270 50  0000 C CNN
+F 2 "" H 9050 1350 60  0000 C CNN
+F 3 "" H 9050 1350 60  0000 C CNN
+	1    9050 1350
+	1    0    0    -1  
+$EndComp
+Text GLabel 8550 1350 0    60   UnSpc ~ 0
+5V
+Text GLabel 10100 1350 2    60   UnSpc ~ 0
+GND
+Text Notes 8400 1000 0    60   ~ 0
+Reset button and crystal
+Text GLabel 10100 2150 2    60   UnSpc ~ 0
+GND
+Text GLabel 8800 1850 0    60   UnSpc ~ 0
+Crystal1
+Text GLabel 8800 2450 0    60   UnSpc ~ 0
+Crystal2
+Text GLabel 6600 1650 2    57   UnSpc ~ 0
+Crystal1
+Text GLabel 6600 1750 2    57   UnSpc ~ 0
+Crystal2
+Text GLabel 4400 3350 0    57   UnSpc ~ 0
+GND
+Text GLabel 4400 3250 0    57   UnSpc ~ 0
+GND
+Text GLabel 4400 1650 0    57   UnSpc ~ 0
+5V
+Text GLabel 4400 1350 0    57   UnSpc ~ 0
+5V
+Text GLabel 4400 1050 0    57   UnSpc ~ 0
+5V
+Text GLabel 3900 4500 2    60   UnSpc ~ 0
+GND
+Text GLabel 4550 4100 0    57   UnSpc ~ 0
+GND
+Text GLabel 4550 4000 0    57   UnSpc ~ 0
+5V
+Text GLabel 4550 4200 0    57   UnSpc ~ 0
+Digit A0
+Text GLabel 4550 4300 0    57   UnSpc ~ 0
+Digit A1
+Text GLabel 4550 4400 0    57   UnSpc ~ 0
+Digit A2
+Text GLabel 4550 4500 0    57   UnSpc ~ 0
+Digit A3
+Text GLabel 6600 1050 2    57   UnSpc ~ 0
+Digit A0
+Text GLabel 6600 3350 2    57   UnSpc ~ 0
+Digit A1
+Text GLabel 6600 3250 2    57   UnSpc ~ 0
+Digit A2
+Text GLabel 6600 3150 2    57   UnSpc ~ 0
+Digit A3
+$Comp
+L R R?
+U 1 1 53AD4213
+P 3850 4750
+F 0 "R?" V 3930 4750 40  0000 C CNN
+F 1 "R" V 3857 4751 40  0000 C CNN
+F 2 "" V 3780 4750 30  0000 C CNN
+F 3 "" H 3850 4750 30  0000 C CNN
+	1    3850 4750
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
 	2650 2100 2650 1700
 Connection ~ 3050 2100
@@ -607,29 +681,8 @@ Wire Wire Line
 	6600 2100 6450 2100
 Wire Wire Line
 	6600 2200 6450 2200
-Text GLabel 6600 2500 2    57   UnSpc ~ 0
-Reset
-Text GLabel 10050 1100 2    57   UnSpc ~ 0
-Reset
 Wire Wire Line
 	6600 2500 6450 2500
-$Comp
-L SW_PUSH SW?
-U 1 1 53AD3840
-P 9050 1350
-F 0 "SW?" H 9200 1460 50  0000 C CNN
-F 1 "SW_PUSH" H 9050 1270 50  0000 C CNN
-F 2 "" H 9050 1350 60  0000 C CNN
-F 3 "" H 9050 1350 60  0000 C CNN
-	1    9050 1350
-	1    0    0    -1  
-$EndComp
-Text GLabel 8550 1350 0    60   UnSpc ~ 0
-5V
-Text GLabel 10100 1350 2    60   UnSpc ~ 0
-GND
-Text Notes 8400 1000 0    60   ~ 0
-Reset button and crystal
 Wire Wire Line
 	8550 1350 8750 1350
 Wire Wire Line
@@ -646,19 +699,9 @@ Wire Wire Line
 	8800 2450 9500 2450
 Wire Wire Line
 	9900 1850 9900 2450
-Text GLabel 10100 2150 2    60   UnSpc ~ 0
-GND
 Wire Wire Line
 	10100 2150 9900 2150
 Connection ~ 9900 2150
-Text GLabel 8800 1850 0    60   UnSpc ~ 0
-Crystal1
-Text GLabel 8800 2450 0    60   UnSpc ~ 0
-Crystal2
-Text GLabel 6600 1650 2    57   UnSpc ~ 0
-Crystal1
-Text GLabel 6600 1750 2    57   UnSpc ~ 0
-Crystal2
 Wire Wire Line
 	6600 1650 6450 1650
 Wire Wire Line
@@ -673,24 +716,197 @@ Wire Notes Line
 	8350 2650 8350 850 
 Wire Notes Line
 	8350 850  10400 850 
-Text GLabel 4400 3350 0    57   UnSpc ~ 0
-GND
-Text GLabel 4400 3250 0    57   UnSpc ~ 0
-GND
 Wire Wire Line
 	4400 3250 4550 3250
 Wire Wire Line
 	4550 3350 4400 3350
-Text GLabel 4400 1650 0    57   UnSpc ~ 0
-5V
-Text GLabel 4400 1350 0    57   UnSpc ~ 0
-5V
-Text GLabel 4400 1050 0    57   UnSpc ~ 0
-5V
 Wire Wire Line
 	4400 1050 4550 1050
 Wire Wire Line
 	4550 1350 4400 1350
 Wire Wire Line
 	4550 1650 4400 1650
+Wire Wire Line
+	4050 5300 4050 5050
+Wire Wire Line
+	3850 5050 6450 5050
+Wire Wire Line
+	6150 5050 6150 5300
+Wire Wire Line
+	4350 5300 4350 5050
+Connection ~ 4350 5050
+Wire Wire Line
+	4750 5300 4750 5050
+Connection ~ 4750 5050
+Wire Wire Line
+	5050 5300 5050 5050
+Connection ~ 5050 5050
+Wire Wire Line
+	5450 5300 5450 5050
+Connection ~ 5450 5050
+Wire Wire Line
+	5750 5300 5750 5050
+Connection ~ 5750 5050
+Wire Wire Line
+	6450 5050 6450 5300
+Connection ~ 6150 5050
+Connection ~ 4050 5050
+Wire Wire Line
+	4200 6350 4200 6550
+Wire Wire Line
+	4200 6550 6600 6550
+Wire Wire Line
+	6600 6550 6600 6350
+Wire Wire Line
+	4500 6350 4500 6550
+Connection ~ 4500 6550
+Wire Wire Line
+	4900 6350 4900 6550
+Connection ~ 4900 6550
+Wire Wire Line
+	5200 6350 5200 6550
+Connection ~ 5200 6550
+Wire Wire Line
+	5600 6350 5600 6550
+Connection ~ 5600 6550
+Wire Wire Line
+	5900 6350 5900 6550
+Connection ~ 5900 6550
+Wire Wire Line
+	6300 6350 6300 6550
+Connection ~ 6300 6550
+Wire Wire Line
+	4050 6350 4050 6700
+Wire Wire Line
+	4050 6700 4900 6700
+Wire Wire Line
+	4900 6700 4900 6750
+Wire Wire Line
+	4350 6350 4350 6650
+Wire Wire Line
+	4350 6650 5000 6650
+Wire Wire Line
+	5000 6650 5000 6750
+Wire Wire Line
+	4750 6350 4750 6600
+Wire Wire Line
+	4750 6600 5100 6600
+Wire Wire Line
+	5100 6600 5100 6750
+Wire Wire Line
+	5050 6350 5050 6500
+Wire Wire Line
+	5050 6500 5150 6500
+Wire Wire Line
+	5150 6500 5150 6750
+Wire Wire Line
+	5150 6750 5200 6750
+Wire Wire Line
+	6450 6350 6450 6700
+Wire Wire Line
+	6450 6700 5600 6700
+Wire Wire Line
+	5600 6700 5600 6750
+Wire Wire Line
+	6150 6350 6150 6650
+Wire Wire Line
+	6150 6650 5500 6650
+Wire Wire Line
+	5500 6650 5500 6750
+Wire Wire Line
+	5750 6350 5750 6600
+Wire Wire Line
+	5750 6600 5400 6600
+Wire Wire Line
+	5400 6600 5400 6750
+Wire Wire Line
+	5450 6350 5450 6500
+Wire Wire Line
+	5450 6500 5350 6500
+Wire Wire Line
+	5350 6500 5350 6750
+Wire Wire Line
+	5350 6750 5300 6750
+Wire Wire Line
+	4650 4000 4550 4000
+Wire Wire Line
+	4650 4100 4550 4100
+Wire Wire Line
+	4650 4600 4200 4600
+Wire Wire Line
+	4200 4600 4200 5300
+Wire Wire Line
+	4650 4700 4500 4700
+Wire Wire Line
+	4500 4700 4500 5300
+Wire Wire Line
+	4900 5300 4900 5000
+Wire Wire Line
+	4900 5000 5950 5000
+Wire Wire Line
+	5950 5000 5950 4000
+Wire Wire Line
+	5950 4000 5850 4000
+Wire Wire Line
+	5850 4100 6000 4100
+Wire Wire Line
+	6000 4100 6000 4950
+Wire Wire Line
+	6000 4950 5200 4950
+Wire Wire Line
+	5200 4950 5200 5300
+Wire Wire Line
+	5850 4200 6050 4200
+Wire Wire Line
+	6050 4200 6050 4900
+Wire Wire Line
+	6050 4900 5600 4900
+Wire Wire Line
+	5600 4900 5600 5300
+Wire Wire Line
+	5850 4300 6100 4300
+Wire Wire Line
+	6100 4300 6100 5150
+Wire Wire Line
+	6100 5150 5900 5150
+Wire Wire Line
+	5900 5150 5900 5300
+Wire Wire Line
+	5850 4400 6300 4400
+Wire Wire Line
+	6300 4400 6300 5300
+Wire Wire Line
+	5850 4500 6600 4500
+Wire Wire Line
+	6600 4500 6600 5300
+Wire Wire Line
+	4550 4200 4650 4200
+Wire Wire Line
+	4550 4300 4650 4300
+Wire Wire Line
+	4550 4400 4650 4400
+Wire Wire Line
+	4550 4500 4650 4500
+Wire Wire Line
+	6600 1050 6450 1050
+Wire Wire Line
+	6600 3150 6450 3150
+Wire Wire Line
+	6600 3250 6450 3250
+Wire Wire Line
+	6600 3350 6450 3350
+Wire Wire Line
+	3900 4500 3850 4500
+Wire Wire Line
+	3850 5000 3850 5050
+Wire Notes Line
+	3750 3750 6800 3750
+Wire Notes Line
+	6800 3750 6800 7300
+Wire Notes Line
+	3750 7300 6800 7300
+Wire Notes Line
+	3750 3750 3750 7300
+Text Notes 3800 3900 0    60   ~ 0
+Nixie tube anode pin
 $EndSCHEMATC
