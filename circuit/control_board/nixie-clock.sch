@@ -30,6 +30,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:nixie-custom
+LIBS:nixie-clock-cache
 EELAYER 24 0
 EELAYER END
 $Descr A4 11693 8268
@@ -88,10 +89,10 @@ F 3 "" H 1950 1700 60  0000 C CNN
 	1    1950 1700
 	1    0    0    -1  
 $EndComp
-Text Notes 1250 2700 0    60   ~ 0
-Nixie tube\nPower Supply
-Text Notes 1550 950  0    60   ~ 0
-AC Adapter (DC12V)
+Text Notes 1100 2700 0    60   ~ 0
+Nixie tube Power Supply
+Text Notes 1100 950  0    60   ~ 0
+DC Regulator (12V -> 5V)
 $Comp
 L ATMEGA328-P IC?
 U 1 1 52F4F352
@@ -238,35 +239,35 @@ $EndComp
 $Comp
 L R R?
 U 1 1 539C7026
-P 900 3850
-F 0 "R?" V 980 3850 40  0000 C CNN
-F 1 "R" V 907 3851 40  0000 C CNN
-F 2 "" V 830 3850 30  0000 C CNN
-F 3 "" H 900 3850 30  0000 C CNN
-	1    900  3850
-	1    0    0    -1  
+P 2100 2900
+F 0 "R?" V 2180 2900 40  0000 C CNN
+F 1 "R" V 2107 2901 40  0000 C CNN
+F 2 "" V 2030 2900 30  0000 C CNN
+F 3 "" H 2100 2900 30  0000 C CNN
+	1    2100 2900
+	0    -1   -1   0   
 $EndComp
 $Comp
 L CONN_2 P?
 U 1 1 539C7194
-P 950 2600
-F 0 "P?" V 900 2600 40  0000 C CNN
-F 1 "CONN_2" V 1000 2600 40  0000 C CNN
-F 2 "" H 950 2600 60  0000 C CNN
-F 3 "" H 950 2600 60  0000 C CNN
-	1    950  2600
-	0    1    -1   0   
+P 1200 3000
+F 0 "P?" V 1150 3000 40  0000 C CNN
+F 1 "CONN_2" V 1250 3000 40  0000 C CNN
+F 2 "" H 1200 3000 60  0000 C CNN
+F 3 "" H 1200 3000 60  0000 C CNN
+	1    1200 3000
+	-1   0    0    -1  
 $EndComp
 $Comp
 L CONN_2 P?
 U 1 1 539C719A
-P 950 2600
-F 0 "P?" V 900 2600 40  0000 C CNN
-F 1 "CONN_2" V 1000 2600 40  0000 C CNN
-F 2 "" H 950 2600 60  0000 C CNN
-F 3 "" H 950 2600 60  0000 C CNN
-	1    950  2600
-	0    1    -1   0   
+P 1200 3000
+F 0 "P?" V 1150 3000 40  0000 C CNN
+F 1 "CONN_2" V 1250 3000 40  0000 C CNN
+F 2 "" H 1200 3000 60  0000 C CNN
+F 3 "" H 1200 3000 60  0000 C CNN
+	1    1200 3000
+	-1   0    0    -1  
 $EndComp
 $Comp
 L SW_PUSH SW?
@@ -304,12 +305,12 @@ $EndComp
 $Comp
 L HEF42028 U?
 U 1 1 53A6F84A
-P 2550 3400
-F 0 "U?" H 2300 3850 60  0000 C CNN
-F 1 "HEF42028" V 2550 3300 60  0000 C CNN
-F 2 "" H 2300 3850 60  0000 C CNN
-F 3 "" H 2300 3850 60  0000 C CNN
-	1    2550 3400
+P 4950 4500
+F 0 "U?" H 4700 4950 60  0000 C CNN
+F 1 "HEF42028" V 4950 4400 60  0000 C CNN
+F 2 "" H 4700 4950 60  0000 C CNN
+F 3 "" H 4700 4950 60  0000 C CNN
+	1    4950 4500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -375,6 +376,36 @@ F 3 "" H 8050 4250 60  0000 C CNN
 $EndComp
 Text Notes 7700 4550 0    60   ~ 0
 Bluetooth
+$Comp
+L CONN_2 P?
+U 1 1 53AD247D
+P 1200 1400
+F 0 "P?" V 1150 1400 40  0000 C CNN
+F 1 "CONN_2" V 1250 1400 40  0000 C CNN
+F 2 "" H 1200 1400 60  0000 C CNN
+F 3 "" H 1200 1400 60  0000 C CNN
+	1    1200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_2 P?
+U 1 1 53AD2483
+P 1200 1400
+F 0 "P?" V 1150 1400 40  0000 C CNN
+F 1 "CONN_2" V 1250 1400 40  0000 C CNN
+F 2 "" H 1200 1400 60  0000 C CNN
+F 3 "" H 1200 1400 60  0000 C CNN
+	1    1200 1400
+	-1   0    0    -1  
+$EndComp
+Text GLabel 3400 1350 2    60   Output ~ 0
+5V
+Text GLabel 3400 2050 2    60   Input ~ 0
+GND
+Text GLabel 2650 3100 2    60   Output ~ 0
+GND
+Text GLabel 2650 2900 2    60   Output ~ 0
+170V
 Wire Wire Line
 	2700 2050 2700 1650
 Connection ~ 3100 2050
@@ -401,51 +432,39 @@ Wire Wire Line
 Wire Wire Line
 	1550 2050 3400 2050
 Wire Wire Line
-	3150 3150 3350 3150
+	5550 4250 5750 4250
 Wire Wire Line
-	3150 3550 3250 3550
+	5550 4650 5650 4650
 Wire Wire Line
 	7800 700  7950 700 
 Wire Wire Line
 	7800 900  7950 900 
 Wire Wire Line
 	3100 1500 3100 1350
-$Comp
-L CONN_2 P?
-U 1 1 53AD247D
-P 1200 1400
-F 0 "P?" V 1150 1400 40  0000 C CNN
-F 1 "CONN_2" V 1250 1400 40  0000 C CNN
-F 2 "" H 1200 1400 60  0000 C CNN
-F 3 "" H 1200 1400 60  0000 C CNN
-	1    1200 1400
-	-1   0    0    -1  
-$EndComp
-$Comp
-L CONN_2 P?
-U 1 1 53AD2483
-P 1200 1400
-F 0 "P?" V 1150 1400 40  0000 C CNN
-F 1 "CONN_2" V 1250 1400 40  0000 C CNN
-F 2 "" H 1200 1400 60  0000 C CNN
-F 3 "" H 1200 1400 60  0000 C CNN
-	1    1200 1400
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	1550 1300 1550 1100
-Wire Notes Line
-	1050 800  3250 800 
-Wire Notes Line
-	3250 800  3250 2200
-Wire Notes Line
-	3250 2200 1050 2200
-Wire Notes Line
-	1050 2200 1050 800 
-Text GLabel 3400 1350 2    60   Output ~ 0
-5V
 Wire Wire Line
 	3100 1350 3400 1350
-Text GLabel 3400 2050 2    60   Input ~ 0
-GND
+Wire Wire Line
+	1850 2900 1550 2900
+Wire Wire Line
+	2350 2900 2650 2900
+Wire Wire Line
+	2650 3100 1550 3100
+Wire Notes Line
+	1050 800  3700 800 
+Wire Notes Line
+	3700 800  3700 2200
+Wire Notes Line
+	3700 2200 1050 2200
+Wire Notes Line
+	1050 2200 1050 800 
+Wire Notes Line
+	1050 2550 1050 3250
+Wire Notes Line
+	1050 3250 3000 3250
+Wire Notes Line
+	3000 3250 3000 2550
+Wire Notes Line
+	3000 2550 1050 2550
 $EndSCHEMATC
