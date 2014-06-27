@@ -96,68 +96,57 @@ DC Regulator (12V -> 5V)
 $Comp
 L ATMEGA328-P IC?
 U 1 1 52F4F352
-P 5900 2100
-F 0 "IC?" H 5150 3350 40  0000 L BNN
-F 1 "ATMEGA328-P" H 6300 700 40  0000 L BNN
-F 2 "DIL28" H 5900 2100 30  0000 C CIN
-F 3 "" H 5900 2100 60  0000 C CNN
-	1    5900 2100
+P 5450 2150
+F 0 "IC?" H 4700 3400 40  0000 L BNN
+F 1 "ATMEGA328-P" H 5850 750 40  0000 L BNN
+F 2 "DIL28" H 5450 2150 30  0000 C CIN
+F 3 "" H 5450 2150 60  0000 C CNN
+	1    5450 2150
 	1    0    0    -1  
 $EndComp
 $Comp
 L CRYSTAL X?
 U 1 1 52F4F65D
-P 10050 2400
-F 0 "X?" V 10250 2550 60  0000 C CNN
-F 1 "16MHZ" V 10050 2150 60  0000 C CNN
-F 2 "" H 10050 2400 60  0000 C CNN
-F 3 "" H 10050 2400 60  0000 C CNN
-	1    10050 2400
+P 9250 2150
+F 0 "X?" V 9450 2300 60  0000 C CNN
+F 1 "16MHZ" V 9250 1900 60  0000 C CNN
+F 2 "" H 9250 2150 60  0000 C CNN
+F 3 "" H 9250 2150 60  0000 C CNN
+	1    9250 2150
 	0    -1   -1   0   
 $EndComp
 $Comp
 L C C?
 U 1 1 52F4F745
-P 10500 2100
-F 0 "C?" H 10500 2200 40  0000 L CNN
-F 1 "22pf" V 10350 2000 40  0000 L CNN
-F 2 "" H 10538 1950 30  0000 C CNN
-F 3 "" H 10500 2100 60  0000 C CNN
-	1    10500 2100
+P 9700 1850
+F 0 "C?" H 9700 1950 40  0000 L CNN
+F 1 "22pf" V 9550 1750 40  0000 L CNN
+F 2 "" H 9738 1700 30  0000 C CNN
+F 3 "" H 9700 1850 60  0000 C CNN
+	1    9700 1850
 	0    -1   -1   0   
 $EndComp
 $Comp
 L C C?
 U 1 1 52F4F754
-P 10500 2700
-F 0 "C?" H 10500 2800 40  0000 L CNN
-F 1 "22pf" V 10650 2600 40  0000 L CNN
-F 2 "" H 10538 2550 30  0000 C CNN
-F 3 "" H 10500 2700 60  0000 C CNN
-	1    10500 2700
+P 9700 2450
+F 0 "C?" H 9700 2550 40  0000 L CNN
+F 1 "22pf" V 9850 2350 40  0000 L CNN
+F 2 "" H 9738 2300 30  0000 C CNN
+F 3 "" H 9700 2450 60  0000 C CNN
+	1    9700 2450
 	0    -1   -1   0   
-$EndComp
-$Comp
-L SW_PUSH SW?
-U 1 1 52F4F8A1
-P 10100 3200
-F 0 "SW?" H 10250 3310 50  0000 C CNN
-F 1 "reset button" H 10100 3120 50  0000 C CNN
-F 2 "" H 10100 3200 60  0000 C CNN
-F 3 "" H 10100 3200 60  0000 C CNN
-	1    10100 3200
-	1    0    0    -1  
 $EndComp
 $Comp
 L R R?
 U 1 1 52F4F8B0
-P 9650 2850
-F 0 "R?" V 9730 2850 40  0000 C CNN
-F 1 "10k ohm" V 9657 2851 40  0000 C CNN
-F 2 "" V 9580 2850 30  0000 C CNN
-F 3 "" H 9650 2850 30  0000 C CNN
-	1    9650 2850
-	1    0    0    -1  
+P 9750 1350
+F 0 "R?" V 9830 1350 40  0000 C CNN
+F 1 "10k ohm" V 9757 1351 40  0000 C CNN
+F 2 "" V 9680 1350 30  0000 C CNN
+F 3 "" H 9750 1350 30  0000 C CNN
+	1    9750 1350
+	0    -1   -1   0   
 $EndComp
 $Comp
 L TLP521 U?
@@ -402,75 +391,12 @@ Text GLabel 2600 3150 2    60   UnSpc ~ 0
 GND
 Text GLabel 2600 2950 2    60   UnSpc ~ 0
 170V
-Wire Wire Line
-	2650 2100 2650 1700
-Connection ~ 3050 2100
-Connection ~ 1500 1150
-Connection ~ 1900 2100
-Wire Wire Line
-	1900 1950 1900 2100
-Connection ~ 1900 1150
-Wire Wire Line
-	1900 1150 1900 1550
-Connection ~ 2650 2100
-Wire Wire Line
-	3050 2100 3050 1950
-Connection ~ 2250 1400
-Wire Wire Line
-	1500 1150 2250 1150
-Connection ~ 2250 2100
-Wire Wire Line
-	2250 2100 2250 1950
-Wire Wire Line
-	2250 1150 2250 1550
-Wire Wire Line
-	1500 1550 1500 2100
-Wire Wire Line
-	1500 2100 3350 2100
-Wire Wire Line
-	2150 5900 2450 5900
-Wire Wire Line
-	2150 6100 2450 6100
-Wire Wire Line
-	3050 1550 3050 1400
-Wire Wire Line
-	1500 1350 1500 1150
-Wire Wire Line
-	3050 1400 3350 1400
-Wire Wire Line
-	1800 2950 1500 2950
-Wire Wire Line
-	2300 2950 2600 2950
-Wire Wire Line
-	2600 3150 1500 3150
-Wire Notes Line
-	1000 850  3650 850 
-Wire Notes Line
-	3650 850  3650 2250
-Wire Notes Line
-	3650 2250 1000 2250
-Wire Notes Line
-	1000 2250 1000 850 
-Wire Notes Line
-	1000 2600 1000 3300
-Wire Notes Line
-	1000 3300 2950 3300
-Wire Notes Line
-	2950 3300 2950 2600
-Wire Notes Line
-	2950 2600 1000 2600
 Text GLabel 1200 4050 0    60   UnSpc ~ 0
 5V
 Text GLabel 1200 4550 0    60   UnSpc ~ 0
 5V
 Text GLabel 1200 5050 0    60   UnSpc ~ 0
 5V
-Wire Wire Line
-	1200 4050 1400 4050
-Wire Wire Line
-	1400 4550 1200 4550
-Wire Wire Line
-	1400 5050 1200 5050
 $Comp
 L R R?
 U 1 1 53AD2957
@@ -504,30 +430,133 @@ F 3 "" H 2400 5050 30  0000 C CNN
 	1    2400 5050
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	2000 4050 2150 4050
-Wire Wire Line
-	2000 4550 2150 4550
-Wire Wire Line
-	2000 5050 2150 5050
 Text GLabel 2750 4050 2    60   UnSpc ~ 0
 GND
 Text GLabel 2750 4550 2    60   UnSpc ~ 0
 GND
 Text GLabel 2750 5050 2    60   UnSpc ~ 0
 GND
-Wire Wire Line
-	2650 4050 2750 4050
-Wire Wire Line
-	2650 4550 2750 4550
-Wire Wire Line
-	2650 5050 2750 5050
 Text GLabel 2300 3800 2    60   UnSpc ~ 0
 Search button
 Text GLabel 2300 4300 2    60   UnSpc ~ 0
 Adjust button
 Text GLabel 2400 4800 2    60   UnSpc ~ 0
 Mode button
+Text Notes 1050 3750 0    60   ~ 0
+Buttons
+Text GLabel 6600 3050 2    57   UnSpc ~ 0
+Search button
+Text GLabel 6600 2950 2    57   UnSpc ~ 0
+Adjust button
+Text GLabel 6600 2850 2    57   UnSpc ~ 0
+Mode button
+Text GLabel 1650 6950 0    57   UnSpc ~ 0
+Bluetooth Tx
+Text GLabel 1650 6850 0    57   UnSpc ~ 0
+Bluetooth Rx
+Text GLabel 6600 2650 2    57   UnSpc ~ 0
+Bluetooth Tx
+Text GLabel 6600 2750 2    57   UnSpc ~ 0
+Bluetooth Rx
+Text GLabel 1650 7150 0    57   UnSpc ~ 0
+5V
+Text GLabel 1650 7050 0    57   UnSpc ~ 0
+GND
+Text GLabel 1500 5900 0    60   UnSpc ~ 0
+MP3 Tx
+Text GLabel 1500 6100 0    60   UnSpc ~ 0
+MP3 Rx
+Text GLabel 6600 2100 2    57   UnSpc ~ 0
+MP3 Tx
+Text GLabel 6600 2200 2    57   UnSpc ~ 0
+MP3 Rx
+Wire Wire Line
+	2650 2100 2650 1700
+Connection ~ 3050 2100
+Connection ~ 1500 1150
+Connection ~ 1900 2100
+Wire Wire Line
+	1900 1950 1900 2100
+Connection ~ 1900 1150
+Wire Wire Line
+	1900 1150 1900 1550
+Connection ~ 2650 2100
+Wire Wire Line
+	3050 2100 3050 1950
+Connection ~ 2250 1400
+Wire Wire Line
+	1500 1150 1900 1150
+Wire Wire Line
+	1900 1150 2250 1150
+Connection ~ 2250 2100
+Wire Wire Line
+	2250 2100 2250 1950
+Wire Wire Line
+	2250 1150 2250 1400
+Wire Wire Line
+	2250 1400 2250 1550
+Wire Wire Line
+	1500 1550 1500 2100
+Wire Wire Line
+	1500 2100 1900 2100
+Wire Wire Line
+	1900 2100 2250 2100
+Wire Wire Line
+	2250 2100 2650 2100
+Wire Wire Line
+	2650 2100 3050 2100
+Wire Wire Line
+	3050 2100 3350 2100
+Wire Wire Line
+	2150 5900 2450 5900
+Wire Wire Line
+	2150 6100 2450 6100
+Wire Wire Line
+	3050 1550 3050 1400
+Wire Wire Line
+	1500 1350 1500 1150
+Wire Wire Line
+	3050 1400 3350 1400
+Wire Wire Line
+	1800 2950 1500 2950
+Wire Wire Line
+	2300 2950 2600 2950
+Wire Wire Line
+	2600 3150 1500 3150
+Wire Notes Line
+	1000 850  3650 850 
+Wire Notes Line
+	3650 850  3650 2250
+Wire Notes Line
+	3650 2250 1000 2250
+Wire Notes Line
+	1000 2250 1000 850 
+Wire Notes Line
+	1000 2600 1000 3300
+Wire Notes Line
+	1000 3300 2950 3300
+Wire Notes Line
+	2950 3300 2950 2600
+Wire Notes Line
+	2950 2600 1000 2600
+Wire Wire Line
+	1200 4050 1400 4050
+Wire Wire Line
+	1400 4550 1200 4550
+Wire Wire Line
+	1400 5050 1200 5050
+Wire Wire Line
+	2000 4050 2150 4050
+Wire Wire Line
+	2000 4550 2150 4550
+Wire Wire Line
+	2000 5050 2150 5050
+Wire Wire Line
+	2650 4050 2750 4050
+Wire Wire Line
+	2650 4550 2750 4550
+Wire Wire Line
+	2650 5050 2750 5050
 Wire Wire Line
 	2300 3800 2000 3800
 Wire Wire Line
@@ -540,8 +569,6 @@ Wire Wire Line
 	2400 4800 2000 4800
 Wire Wire Line
 	2000 4800 2000 5050
-Text Notes 1050 3750 0    60   ~ 0
-Buttons
 Wire Notes Line
 	1000 3600 3100 3600
 Wire Notes Line
@@ -550,22 +577,12 @@ Wire Notes Line
 	3100 5250 1000 5250
 Wire Notes Line
 	1000 5250 1000 3600
-Text GLabel 7050 3000 2    57   UnSpc ~ 0
-Search button
 Wire Wire Line
-	7050 3000 6900 3000
-Text GLabel 7050 2900 2    57   UnSpc ~ 0
-Adjust button
+	6600 3050 6450 3050
 Wire Wire Line
-	7050 2900 6900 2900
-Text GLabel 7050 2800 2    57   UnSpc ~ 0
-Mode button
+	6600 2950 6450 2950
 Wire Wire Line
-	7050 2800 6900 2800
-Text GLabel 1650 6950 0    57   UnSpc ~ 0
-Bluetooth Tx
-Text GLabel 1650 6850 0    57   UnSpc ~ 0
-Bluetooth Rx
+	6600 2850 6450 2850
 Wire Notes Line
 	1000 5600 3000 5600
 Wire Notes Line
@@ -578,18 +595,10 @@ Wire Wire Line
 	1650 6950 1950 6950
 Wire Wire Line
 	1650 6850 1950 6850
-Text GLabel 7050 2600 2    57   UnSpc ~ 0
-Bluetooth Tx
 Wire Wire Line
-	7050 2600 6900 2600
-Text GLabel 7050 2700 2    57   UnSpc ~ 0
-Bluetooth Rx
+	6600 2650 6450 2650
 Wire Wire Line
-	6900 2700 7050 2700
-Text GLabel 1650 7150 0    57   UnSpc ~ 0
-5V
-Text GLabel 1650 7050 0    57   UnSpc ~ 0
-GND
+	6450 2750 6600 2750
 Wire Wire Line
 	1650 7050 1950 7050
 Wire Wire Line
@@ -602,20 +611,84 @@ Wire Notes Line
 	2450 7300 1000 7300
 Wire Notes Line
 	1000 7300 1000 6600
-Text GLabel 1500 5900 0    60   UnSpc ~ 0
-MP3 Tx
-Text GLabel 1500 6100 0    60   UnSpc ~ 0
-MP3 Rx
 Wire Wire Line
 	1650 5900 1500 5900
 Wire Wire Line
 	1650 6100 1500 6100
-Text GLabel 7050 2050 2    57   UnSpc ~ 0
-MP3 Tx
-Text GLabel 7050 2150 2    57   UnSpc ~ 0
-MP3 Rx
 Wire Wire Line
-	7050 2050 6900 2050
+	6600 2100 6450 2100
 Wire Wire Line
-	7050 2150 6900 2150
+	6600 2200 6450 2200
+Text GLabel 6600 2500 2    57   UnSpc ~ 0
+Reset
+Text GLabel 10050 1100 2    57   UnSpc ~ 0
+Reset
+Wire Wire Line
+	6600 2500 6450 2500
+$Comp
+L SW_PUSH SW?
+U 1 1 53AD3840
+P 9050 1350
+F 0 "SW?" H 9200 1460 50  0000 C CNN
+F 1 "SW_PUSH" H 9050 1270 50  0000 C CNN
+F 2 "" H 9050 1350 60  0000 C CNN
+F 3 "" H 9050 1350 60  0000 C CNN
+	1    9050 1350
+	1    0    0    -1  
+$EndComp
+Text GLabel 8550 1350 0    60   UnSpc ~ 0
+5V
+Text GLabel 10100 1350 2    60   UnSpc ~ 0
+GND
+Text Notes 8400 1000 0    60   ~ 0
+Reset button and crystal
+Wire Wire Line
+	8550 1350 8750 1350
+Wire Wire Line
+	9350 1350 9500 1350
+Wire Wire Line
+	10000 1350 10100 1350
+Wire Wire Line
+	9350 1100 10050 1100
+Wire Wire Line
+	9350 1100 9350 1350
+Wire Wire Line
+	8800 1850 9250 1850
+Wire Wire Line
+	9250 1850 9500 1850
+Wire Wire Line
+	8800 2450 9250 2450
+Wire Wire Line
+	9250 2450 9500 2450
+Wire Wire Line
+	9900 1850 9900 2150
+Wire Wire Line
+	9900 2150 9900 2450
+Text GLabel 10100 2150 2    60   UnSpc ~ 0
+GND
+Wire Wire Line
+	10100 2150 9900 2150
+Connection ~ 9900 2150
+Text GLabel 8800 1850 0    60   UnSpc ~ 0
+Crystal1
+Text GLabel 8800 2450 0    60   UnSpc ~ 0
+Crystal2
+Text GLabel 6600 1650 2    57   UnSpc ~ 0
+Crystal1
+Text GLabel 6600 1750 2    57   UnSpc ~ 0
+Crystal2
+Wire Wire Line
+	6600 1650 6450 1650
+Wire Wire Line
+	6600 1750 6450 1750
+Connection ~ 9250 1850
+Connection ~ 9250 2450
+Wire Notes Line
+	10400 850  10400 2650
+Wire Notes Line
+	10400 2650 8350 2650
+Wire Notes Line
+	8350 2650 8350 850 
+Wire Notes Line
+	8350 850  10400 850 
 $EndSCHEMATC

@@ -1,4 +1,4 @@
-update=2014年06月22日 (週日) 23時42分17秒
+update=2014年06月27日 (週五) 17時31分56秒
 version=1
 last_client=eeschema
 [cvpcb]
