@@ -485,28 +485,16 @@ Wire Wire Line
 	3050 2100 3050 1950
 Connection ~ 2250 1400
 Wire Wire Line
-	1500 1150 1900 1150
-Wire Wire Line
-	1900 1150 2250 1150
+	1500 1150 2250 1150
 Connection ~ 2250 2100
 Wire Wire Line
 	2250 2100 2250 1950
 Wire Wire Line
-	2250 1150 2250 1400
-Wire Wire Line
-	2250 1400 2250 1550
+	2250 1150 2250 1550
 Wire Wire Line
 	1500 1550 1500 2100
 Wire Wire Line
-	1500 2100 1900 2100
-Wire Wire Line
-	1900 2100 2250 2100
-Wire Wire Line
-	2250 2100 2650 2100
-Wire Wire Line
-	2650 2100 3050 2100
-Wire Wire Line
-	3050 2100 3350 2100
+	1500 2100 3350 2100
 Wire Wire Line
 	2150 5900 2450 5900
 Wire Wire Line
@@ -653,17 +641,11 @@ Wire Wire Line
 Wire Wire Line
 	9350 1100 9350 1350
 Wire Wire Line
-	8800 1850 9250 1850
+	8800 1850 9500 1850
 Wire Wire Line
-	9250 1850 9500 1850
+	8800 2450 9500 2450
 Wire Wire Line
-	8800 2450 9250 2450
-Wire Wire Line
-	9250 2450 9500 2450
-Wire Wire Line
-	9900 1850 9900 2150
-Wire Wire Line
-	9900 2150 9900 2450
+	9900 1850 9900 2450
 Text GLabel 10100 2150 2    60   UnSpc ~ 0
 GND
 Wire Wire Line
@@ -691,4 +673,24 @@ Wire Notes Line
 	8350 2650 8350 850 
 Wire Notes Line
 	8350 850  10400 850 
+Text GLabel 4400 3350 0    57   UnSpc ~ 0
+GND
+Text GLabel 4400 3250 0    57   UnSpc ~ 0
+GND
+Wire Wire Line
+	4400 3250 4550 3250
+Wire Wire Line
+	4550 3350 4400 3350
+Text GLabel 4400 1650 0    57   UnSpc ~ 0
+5V
+Text GLabel 4400 1350 0    57   UnSpc ~ 0
+5V
+Text GLabel 4400 1050 0    57   UnSpc ~ 0
+5V
+Wire Wire Line
+	4400 1050 4550 1050
+Wire Wire Line
+	4550 1350 4400 1350
+Wire Wire Line
+	4550 1650 4400 1650
 $EndSCHEMATC
