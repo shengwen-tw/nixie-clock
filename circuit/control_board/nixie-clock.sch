@@ -193,17 +193,6 @@ F 3 "" H 4000 5800 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_12 P6
-U 1 1 539C4A9F
-P 5650 2900
-F 0 "P6" V 5600 2900 60  0000 C CNN
-F 1 "CONN_12" V 5700 2900 60  0000 C CNN
-F 2 "" H 5650 2900 60  0000 C CNN
-F 3 "" H 5650 2900 60  0000 C CNN
-	1    5650 2900
-	0    1    1    0   
-$EndComp
-$Comp
 L CONN_8 P5
 U 1 1 539C4AAE
 P 5450 6550
@@ -329,12 +318,12 @@ Garan MP3 module
 $Comp
 L NPN Q1
 U 1 1 53A82B75
-P 4700 2250
-F 0 "Q1" H 4700 2100 50  0000 R CNN
-F 1 "NPN" H 4700 2400 50  0000 R CNN
-F 2 "" H 4700 2250 60  0000 C CNN
-F 3 "" H 4700 2250 60  0000 C CNN
-	1    4700 2250
+P 4700 2050
+F 0 "Q1" H 4700 1900 50  0000 R CNN
+F 1 "NPN" H 4700 2200 50  0000 R CNN
+F 2 "" H 4700 2050 60  0000 C CNN
+F 3 "" H 4700 2050 60  0000 C CNN
+	1    4700 2050
 	1    0    0    1   
 $EndComp
 $Comp
@@ -954,18 +943,10 @@ Wire Wire Line
 	4950 2050 6200 2050
 Wire Wire Line
 	6200 2050 6200 2550
-Text GLabel 4700 1850 0    60   UnSpc ~ 0
+Text GLabel 4550 1850 0    60   UnSpc ~ 0
 GND
 Wire Wire Line
-	4700 1850 4800 1850
-Wire Wire Line
-	4800 1850 4800 2050
-Wire Wire Line
-	4800 2450 4800 2500
-Wire Wire Line
-	4800 2500 5200 2500
-Wire Wire Line
-	5200 2500 5200 2550
+	4550 1850 4800 1850
 Text GLabel 9800 1750 2    57   UnSpc ~ 0
 Font A
 Text GLabel 9800 1650 2    57   UnSpc ~ 0
@@ -982,10 +963,8 @@ Wire Wire Line
 	9650 1650 9800 1650
 Wire Wire Line
 	9800 1750 9650 1750
-Text GLabel 4400 2250 0    57   UnSpc ~ 0
+Text GLabel 4500 2050 0    57   UnSpc ~ 0
 Right dot
-Wire Wire Line
-	4400 2250 4500 2250
 Text GLabel 9800 2100 2    57   UnSpc ~ 0
 Right dot
 Wire Wire Line
@@ -1149,7 +1128,6 @@ Wire Notes Line
 	1000 7250 1000 6550
 NoConn ~ 6050 4050
 NoConn ~ 6050 4150
-NoConn ~ 5100 2550
 Text GLabel 4550 6600 2    60   UnSpc ~ 0
 170V
 Wire Wire Line
@@ -1174,5 +1152,46 @@ Text GLabel 9800 1350 2    57   UnSpc ~ 0
 Brightness
 Wire Wire Line
 	9800 1350 9650 1350
-NoConn ~ 9650 2200
+$Comp
+L NPN Q3
+U 1 1 53B2D12B
+P 4700 2550
+F 0 "Q3" H 4700 2400 50  0000 R CNN
+F 1 "NPN" H 4700 2700 50  0000 R CNN
+F 2 "" H 4700 2550 60  0000 C CNN
+F 3 "" H 4700 2550 60  0000 C CNN
+	1    4700 2550
+	1    0    0    1   
+$EndComp
+Text GLabel 4500 2550 0    57   UnSpc ~ 0
+Left dot
+Text GLabel 4550 2350 0    60   UnSpc ~ 0
+GND
+Wire Wire Line
+	4550 2350 4800 2350
+$Comp
+L CONN_12 P6
+U 1 1 539C4A9F
+P 5650 2900
+F 0 "P6" V 5600 2900 60  0000 C CNN
+F 1 "CONN_12" V 5700 2900 60  0000 C CNN
+F 2 "" H 5650 2900 60  0000 C CNN
+F 3 "" H 5650 2900 60  0000 C CNN
+	1    5650 2900
+	0    1    1    0   
+$EndComp
+Text GLabel 9800 2200 2    57   UnSpc ~ 0
+Left dot
+Wire Wire Line
+	9650 2200 9800 2200
+Wire Wire Line
+	4800 2250 5200 2250
+Wire Wire Line
+	5200 2250 5200 2550
+Wire Wire Line
+	4800 2750 4950 2750
+Wire Wire Line
+	4950 2750 4950 2550
+Wire Wire Line
+	4950 2550 5100 2550
 $EndSCHEMATC
