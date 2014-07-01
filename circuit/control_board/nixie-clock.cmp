@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年06月30日 (週一) 21時58分06秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月01日 (週二) 11時04分13秒
 
 BeginCmp
 TimeStamp = /52F4EE14;
@@ -39,7 +39,7 @@ BeginCmp
 TimeStamp = /52F4F352;
 Reference = IC1;
 ValeurCmp = ATMEGA328-P;
-IdModule  = DIL28;
+IdModule  = DIP-28__300_ELL;
 EndCmp
 
 BeginCmp
@@ -102,7 +102,7 @@ BeginCmp
 TimeStamp = /53A82B75;
 Reference = Q1;
 ValeurCmp = NPN;
-IdModule  = TO92-EBC;
+IdModule  = TO92;
 EndCmp
 
 BeginCmp
@@ -200,7 +200,7 @@ BeginCmp
 TimeStamp = /53AD3840;
 Reference = SW4;
 ValeurCmp = SW_PUSH;
-IdModule  = PIN_ARRAY_2X1;
+IdModule  = SW_PUSH_SMALL;
 EndCmp
 
 BeginCmp
