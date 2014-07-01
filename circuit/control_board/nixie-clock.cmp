@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月01日 (週二) 11時04分13秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月01日 (週二) 23時28分32秒
 
 BeginCmp
 TimeStamp = /52F4EE14;
@@ -101,6 +101,20 @@ EndCmp
 BeginCmp
 TimeStamp = /53A82B75;
 Reference = Q1;
+ValeurCmp = NPN;
+IdModule  = TO92;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B2C850;
+Reference = Q2;
+ValeurCmp = NPN;
+IdModule  = TO92;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B2D12B;
+Reference = Q3;
 ValeurCmp = NPN;
 IdModule  = TO92;
 EndCmp
