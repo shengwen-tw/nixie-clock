@@ -34,7 +34,7 @@
   (setup
     (last_trace_width 0.254)
     (trace_clearance 0.254)
-    (zone_clearance 0.508)
+    (zone_clearance 1)
     (zone_45_only no)
     (trace_min 0.254)
     (segment_width 0.2)
@@ -1856,4 +1856,25 @@
     )
   )
 
+  (zone (net 0) (net_name "") (layer B.Cu) (tstamp 53B25BD0) (hatch edge 0.508)
+    (connect_pads (clearance 1))
+    (min_thickness 0.254)
+    (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 138.938 46.228) (xy 175.26 46.228) (xy 175.26 87.884) (xy 175.26 88.392) (xy 108.204 88.392)
+        (xy 73.66 88.392) (xy 73.66 48.26) (xy 73.66 46.228) (xy 139.446 46.228)
+      )
+    )
+  )
+  (zone (net 0) (net_name "") (layer F.Cu) (tstamp 53B25C1D) (hatch edge 0.508)
+    (connect_pads (clearance 1))
+    (min_thickness 0.254)
+    (fill (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 175.26 88.392) (xy 73.66 88.392) (xy 73.66 46.228) (xy 175.26 46.228)
+      )
+    )
+  )
 )
