@@ -695,7 +695,7 @@ Connection ~ 4250 4500
 Wire Wire Line
 	4400 5800 4400 6000
 Wire Wire Line
-	4400 6000 6800 6000
+	4150 6000 6800 6000
 Wire Wire Line
 	6800 6000 6800 5800
 Wire Wire Line
@@ -1150,4 +1150,11 @@ Wire Notes Line
 NoConn ~ 6050 4050
 NoConn ~ 6050 4150
 NoConn ~ 5100 2550
+Text GLabel 4250 6500 2    60   UnSpc ~ 0
+170V
+Wire Wire Line
+	4150 6000 4150 6500
+Wire Wire Line
+	4150 6500 4250 6500
+Connection ~ 4400 6000
 $EndSCHEMATC
