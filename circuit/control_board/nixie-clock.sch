@@ -1150,11 +1150,29 @@ Wire Notes Line
 NoConn ~ 6050 4050
 NoConn ~ 6050 4150
 NoConn ~ 5100 2550
-Text GLabel 4250 6500 2    60   UnSpc ~ 0
+Text GLabel 4550 6600 2    60   UnSpc ~ 0
 170V
 Wire Wire Line
-	4150 6000 4150 6500
-Wire Wire Line
-	4150 6500 4250 6500
+	4150 6600 4550 6600
 Connection ~ 4400 6000
+$Comp
+L NPN Q2
+U 1 1 53B2C850
+P 4250 6400
+F 0 "Q2" H 4250 6250 50  0000 R CNN
+F 1 "NPN" H 4250 6550 50  0000 R CNN
+F 2 "" H 4250 6400 60  0000 C CNN
+F 3 "" H 4250 6400 60  0000 C CNN
+	1    4250 6400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4150 6000 4150 6200
+Text GLabel 4450 6400 2    60   UnSpc ~ 0
+Brightness
+Text GLabel 9800 1350 2    57   UnSpc ~ 0
+Brightness
+Wire Wire Line
+	9800 1350 9650 1350
+NoConn ~ 9650 2200
 $EndSCHEMATC
