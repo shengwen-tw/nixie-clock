@@ -107,45 +107,45 @@ $EndComp
 $Comp
 L CRYSTAL X1
 U 1 1 52F4F65D
-P 8300 5300
-F 0 "X1" V 8500 5450 60  0000 C CNN
-F 1 "16MHZ" V 8300 5050 60  0000 C CNN
-F 2 "" H 8300 5300 60  0000 C CNN
-F 3 "" H 8300 5300 60  0000 C CNN
-	1    8300 5300
+P 8300 5250
+F 0 "X1" V 8500 5400 60  0000 C CNN
+F 1 "16MHZ" V 8300 5000 60  0000 C CNN
+F 2 "" H 8300 5250 60  0000 C CNN
+F 3 "" H 8300 5250 60  0000 C CNN
+	1    8300 5250
 	0    -1   -1   0   
 $EndComp
 $Comp
 L C C4
 U 1 1 52F4F745
-P 8750 5000
-F 0 "C4" H 8750 5100 40  0000 L CNN
-F 1 "22pf" V 8600 4900 40  0000 L CNN
-F 2 "" H 8788 4850 30  0000 C CNN
-F 3 "" H 8750 5000 60  0000 C CNN
-	1    8750 5000
+P 8750 4950
+F 0 "C4" H 8750 5050 40  0000 L CNN
+F 1 "22pf" V 8600 4850 40  0000 L CNN
+F 2 "" H 8788 4800 30  0000 C CNN
+F 3 "" H 8750 4950 60  0000 C CNN
+	1    8750 4950
 	0    -1   -1   0   
 $EndComp
 $Comp
 L C C5
 U 1 1 52F4F754
-P 8750 5600
-F 0 "C5" H 8750 5700 40  0000 L CNN
-F 1 "22pf" V 8900 5500 40  0000 L CNN
-F 2 "" H 8788 5450 30  0000 C CNN
-F 3 "" H 8750 5600 60  0000 C CNN
-	1    8750 5600
+P 8750 5550
+F 0 "C5" H 8750 5650 40  0000 L CNN
+F 1 "22pf" V 8900 5450 40  0000 L CNN
+F 2 "" H 8788 5400 30  0000 C CNN
+F 3 "" H 8750 5550 60  0000 C CNN
+	1    8750 5550
 	0    -1   -1   0   
 $EndComp
 $Comp
 L R R10
 U 1 1 52F4F8B0
-P 8800 4500
-F 0 "R10" V 8880 4500 40  0000 C CNN
-F 1 "10k ohm" V 8807 4501 40  0000 C CNN
-F 2 "" V 8730 4500 30  0000 C CNN
-F 3 "" H 8800 4500 30  0000 C CNN
-	1    8800 4500
+P 8800 4450
+F 0 "R10" V 8880 4450 40  0000 C CNN
+F 1 "10k ohm" V 8807 4451 40  0000 C CNN
+F 2 "" V 8730 4450 30  0000 C CNN
+F 3 "" H 8800 4450 30  0000 C CNN
+	1    8800 4450
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -283,37 +283,37 @@ $EndComp
 $Comp
 L R R6
 U 1 1 53A70A06
-P 4850 7150
-F 0 "R6" V 4930 7150 40  0000 C CNN
-F 1 "220ohm" V 4857 7151 40  0000 C CNN
-F 2 "" V 4780 7150 30  0000 C CNN
-F 3 "" H 4850 7150 30  0000 C CNN
-	1    4850 7150
+P 8500 6050
+F 0 "R6" V 8580 6050 40  0000 C CNN
+F 1 "330ohm" V 8507 6051 40  0000 C CNN
+F 2 "" V 8430 6050 30  0000 C CNN
+F 3 "" H 8500 6050 30  0000 C CNN
+	1    8500 6050
 	0    -1   -1   0   
 $EndComp
 $Comp
 L R R7
 U 1 1 53A70A15
-P 4850 7350
-F 0 "R7" V 4930 7350 40  0000 C CNN
-F 1 "220ohm" V 4857 7351 40  0000 C CNN
-F 2 "" V 4780 7350 30  0000 C CNN
-F 3 "" H 4850 7350 30  0000 C CNN
-	1    4850 7350
+P 8500 6650
+F 0 "R7" V 8580 6650 40  0000 C CNN
+F 1 "330ohm" V 8507 6651 40  0000 C CNN
+F 2 "" V 8430 6650 30  0000 C CNN
+F 3 "" H 8500 6650 30  0000 C CNN
+	1    8500 6650
 	0    -1   -1   0   
 $EndComp
 $Comp
 L CONN_2 P7
 U 1 1 53A70C0C
-P 5750 7250
-F 0 "P7" V 5700 7250 40  0000 C CNN
-F 1 "CONN_2" V 5800 7250 40  0000 C CNN
-F 2 "" H 5750 7250 60  0000 C CNN
-F 3 "" H 5750 7250 60  0000 C CNN
-	1    5750 7250
+P 9200 6350
+F 0 "P7" V 9150 6350 40  0000 C CNN
+F 1 "CONN_2" V 9250 6350 40  0000 C CNN
+F 2 "" H 9200 6350 60  0000 C CNN
+F 3 "" H 9200 6350 60  0000 C CNN
+	1    9200 6350
 	1    0    0    -1  
 $EndComp
-Text Notes 4000 7000 0    60   ~ 0
+Text Notes 7450 5900 0    60   ~ 0
 Garan MP3 module
 $Comp
 L NPN Q1
@@ -408,9 +408,9 @@ Text GLabel 9800 2850 2    57   UnSpc ~ 0
 Bluetooth/FTDI Tx
 Text GLabel 9800 2950 2    57   UnSpc ~ 0
 Bluetooth/FTDI Rx
-Text GLabel 4450 7150 0    60   UnSpc ~ 0
+Text GLabel 7900 6250 0    60   UnSpc ~ 0
 MP3 Tx
-Text GLabel 4450 7350 0    60   UnSpc ~ 0
+Text GLabel 7900 6450 0    60   UnSpc ~ 0
 MP3 Rx
 Text GLabel 9800 2300 2    57   UnSpc ~ 0
 MP3 Tx
@@ -418,30 +418,30 @@ Text GLabel 9800 2400 2    57   UnSpc ~ 0
 MP3 Rx
 Text GLabel 9800 2700 2    57   UnSpc ~ 0
 Reset
-Text GLabel 9100 4250 2    57   UnSpc ~ 0
+Text GLabel 9100 4200 2    57   UnSpc ~ 0
 Reset
 $Comp
 L SW_PUSH SW4
 U 1 1 53AD3840
-P 8100 4500
-F 0 "SW4" H 8250 4610 50  0000 C CNN
-F 1 "SW_PUSH" H 8100 4420 50  0000 C CNN
-F 2 "" H 8100 4500 60  0000 C CNN
-F 3 "" H 8100 4500 60  0000 C CNN
-	1    8100 4500
+P 8100 4450
+F 0 "SW4" H 8250 4560 50  0000 C CNN
+F 1 "SW_PUSH" H 8100 4370 50  0000 C CNN
+F 2 "" H 8100 4450 60  0000 C CNN
+F 3 "" H 8100 4450 60  0000 C CNN
+	1    8100 4450
 	1    0    0    -1  
 $EndComp
-Text GLabel 7600 4500 0    60   UnSpc ~ 0
+Text GLabel 7600 4450 0    60   UnSpc ~ 0
 5V
-Text GLabel 9150 4500 2    60   UnSpc ~ 0
+Text GLabel 9150 4450 2    60   UnSpc ~ 0
 GND
-Text Notes 7450 4150 0    60   ~ 0
+Text Notes 7450 4100 0    60   ~ 0
 Reset button and crystal
-Text GLabel 9150 5300 2    60   UnSpc ~ 0
+Text GLabel 9150 5250 2    60   UnSpc ~ 0
 GND
-Text GLabel 7850 5000 0    60   UnSpc ~ 0
+Text GLabel 7850 4950 0    60   UnSpc ~ 0
 Crystal1
-Text GLabel 7850 5600 0    60   UnSpc ~ 0
+Text GLabel 7850 5550 0    60   UnSpc ~ 0
 Crystal2
 Text GLabel 9800 1850 2    57   UnSpc ~ 0
 Crystal1
@@ -490,6 +490,174 @@ F 3 "" H 4050 4200 30  0000 C CNN
 	1    4050 4200
 	1    0    0    -1  
 $EndComp
+Text Notes 4000 3350 0    60   ~ 0
+Nixie tube anode pin
+Text GLabel 5000 1250 0    57   UnSpc ~ 0
+GND
+Text GLabel 5000 1150 0    57   UnSpc ~ 0
+5V
+Text GLabel 5000 1350 0    57   UnSpc ~ 0
+Font A
+Text GLabel 5000 1450 0    57   UnSpc ~ 0
+Font B
+Text GLabel 5000 1550 0    57   UnSpc ~ 0
+Font C
+Text GLabel 5000 1650 0    57   UnSpc ~ 0
+Font D
+Text GLabel 4550 1850 0    60   UnSpc ~ 0
+GND
+Text GLabel 9800 1750 2    57   UnSpc ~ 0
+Font A
+Text GLabel 9800 1650 2    57   UnSpc ~ 0
+Font B
+Text GLabel 9800 1550 2    57   UnSpc ~ 0
+Font C
+Text GLabel 9800 1450 2    57   UnSpc ~ 0
+Font D
+Text GLabel 4500 2050 0    57   UnSpc ~ 0
+Right dot
+Text GLabel 9800 2100 2    57   UnSpc ~ 0
+Right dot
+Text Notes 4000 950  0    57   ~ 0
+Nixie tube cathode pin
+Text Notes 7450 1000 0    57   ~ 0
+Atmega328 microcontroller
+Text GLabel 9800 2500 2    57   UnSpc ~ 0
+I2C SDA
+Text GLabel 9800 2600 2    57   UnSpc ~ 0
+I2C SCL
+Text GLabel 4400 7100 0    60   UnSpc ~ 0
+I2C SDA
+Text GLabel 4400 7300 0    60   UnSpc ~ 0
+I2C SCL
+$Comp
+L R R9
+U 1 1 53AD916F
+P 4950 7300
+F 0 "R9" V 5030 7300 40  0000 C CNN
+F 1 "4.7k ohm" V 4957 7301 40  0000 C CNN
+F 2 "" V 4880 7300 30  0000 C CNN
+F 3 "" H 4950 7300 30  0000 C CNN
+	1    4950 7300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R8
+U 1 1 53AD917C
+P 4950 7100
+F 0 "R8" V 5030 7100 40  0000 C CNN
+F 1 "4.7k ohm" V 4957 7101 40  0000 C CNN
+F 2 "" V 4880 7100 30  0000 C CNN
+F 3 "" H 4950 7100 30  0000 C CNN
+	1    4950 7100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_2 P8
+U 1 1 53AD9188
+P 5800 7200
+F 0 "P8" V 5750 7200 40  0000 C CNN
+F 1 "CONN_2" V 5850 7200 40  0000 C CNN
+F 2 "" H 5800 7200 60  0000 C CNN
+F 3 "" H 5800 7200 60  0000 C CNN
+	1    5800 7200
+	1    0    0    -1  
+$EndComp
+Text Notes 4000 6950 0    57   ~ 0
+DS1307 Clock module
+Text Notes 1050 5700 0    60   ~ 0
+FTDI module\n
+Text GLabel 1850 6100 0    57   UnSpc ~ 0
+5V
+$Comp
+L CONN_4 P3
+U 1 1 53AD90AF
+P 2500 5950
+F 0 "P3" V 2450 5950 50  0000 C CNN
+F 1 "CONN_4" V 2550 5950 50  0000 C CNN
+F 2 "" H 2500 5950 60  0000 C CNN
+F 3 "" H 2500 5950 60  0000 C CNN
+	1    2500 5950
+	1    0    0    -1  
+$EndComp
+Text GLabel 1850 5900 0    57   UnSpc ~ 0
+Bluetooth/FTDI Tx
+Text GLabel 1850 5800 0    57   UnSpc ~ 0
+Bluetooth /FTDIRx
+Text GLabel 1850 6000 0    57   UnSpc ~ 0
+GND
+Text Notes 1050 6700 0    60   ~ 0
+Bluetooth module\n
+Text GLabel 1850 7100 0    57   UnSpc ~ 0
+5V
+$Comp
+L CONN_4 P4
+U 1 1 53AD90DC
+P 2500 6950
+F 0 "P4" V 2450 6950 50  0000 C CNN
+F 1 "CONN_4" V 2550 6950 50  0000 C CNN
+F 2 "" H 2500 6950 60  0000 C CNN
+F 3 "" H 2500 6950 60  0000 C CNN
+	1    2500 6950
+	1    0    0    -1  
+$EndComp
+Text GLabel 1850 6900 0    57   UnSpc ~ 0
+Bluetooth/FTDI Tx
+Text GLabel 1850 6800 0    57   UnSpc ~ 0
+Bluetooth /FTDIRx
+Text GLabel 1850 7000 0    57   UnSpc ~ 0
+GND
+NoConn ~ 6050 4050
+NoConn ~ 6050 4150
+Text GLabel 4550 6600 2    60   UnSpc ~ 0
+170V
+$Comp
+L NPN Q2
+U 1 1 53B2C850
+P 4250 6400
+F 0 "Q2" H 4250 6250 50  0000 R CNN
+F 1 "NPN" H 4250 6550 50  0000 R CNN
+F 2 "" H 4250 6400 60  0000 C CNN
+F 3 "" H 4250 6400 60  0000 C CNN
+	1    4250 6400
+	-1   0    0    1   
+$EndComp
+Text GLabel 4450 6400 2    60   UnSpc ~ 0
+Brightness
+Text GLabel 9800 1350 2    57   UnSpc ~ 0
+Brightness
+$Comp
+L NPN Q3
+U 1 1 53B2D12B
+P 4700 2550
+F 0 "Q3" H 4700 2400 50  0000 R CNN
+F 1 "NPN" H 4700 2700 50  0000 R CNN
+F 2 "" H 4700 2550 60  0000 C CNN
+F 3 "" H 4700 2550 60  0000 C CNN
+	1    4700 2550
+	1    0    0    1   
+$EndComp
+Text GLabel 4500 2550 0    57   UnSpc ~ 0
+Left dot
+Text GLabel 4550 2350 0    60   UnSpc ~ 0
+GND
+$Comp
+L CONN_12 P6
+U 1 1 539C4A9F
+P 5650 2900
+F 0 "P6" V 5600 2900 60  0000 C CNN
+F 1 "CONN_12" V 5700 2900 60  0000 C CNN
+F 2 "" H 5650 2900 60  0000 C CNN
+F 3 "" H 5650 2900 60  0000 C CNN
+	1    5650 2900
+	0    1    1    0   
+$EndComp
+Text GLabel 9800 2200 2    57   UnSpc ~ 0
+Left dot
+Text GLabel 8950 6050 2    60   UnSpc ~ 0
+GND
+Text GLabel 8950 6650 2    60   UnSpc ~ 0
+GND
 Wire Wire Line
 	2650 2100 2650 1700
 Connection ~ 3050 2100
@@ -515,10 +683,6 @@ Wire Wire Line
 	1500 1550 1500 2100
 Wire Wire Line
 	1500 2100 3350 2100
-Wire Wire Line
-	5100 7150 5400 7150
-Wire Wire Line
-	5100 7350 5400 7350
 Wire Wire Line
 	3050 1550 3050 1400
 Wire Wire Line
@@ -592,21 +756,11 @@ Wire Wire Line
 Wire Wire Line
 	9800 3050 9650 3050
 Wire Notes Line
-	3950 6850 5950 6850
-Wire Notes Line
-	5950 6850 5950 7500
-Wire Notes Line
-	5950 7500 3950 7500
-Wire Notes Line
-	3950 7500 3950 6850
+	7400 5800 7400 6750
 Wire Wire Line
 	9800 2850 9650 2850
 Wire Wire Line
 	9650 2950 9800 2950
-Wire Wire Line
-	4600 7150 4450 7150
-Wire Wire Line
-	4600 7350 4450 7350
 Wire Wire Line
 	9800 2300 9650 2300
 Wire Wire Line
@@ -614,38 +768,38 @@ Wire Wire Line
 Wire Wire Line
 	9800 2700 9650 2700
 Wire Wire Line
-	7600 4500 7800 4500
+	7600 4450 7800 4450
 Wire Wire Line
-	8400 4500 8550 4500
+	8400 4450 8550 4450
 Wire Wire Line
-	9050 4500 9150 4500
+	9050 4450 9150 4450
 Wire Wire Line
-	8400 4250 9100 4250
+	8400 4200 9100 4200
 Wire Wire Line
-	8400 4250 8400 4500
+	8400 4200 8400 4450
 Wire Wire Line
-	7850 5000 8550 5000
+	7850 4950 8550 4950
 Wire Wire Line
-	7850 5600 8550 5600
+	7850 5550 8550 5550
 Wire Wire Line
-	8950 5000 8950 5600
+	8950 4950 8950 5550
 Wire Wire Line
-	9150 5300 8950 5300
-Connection ~ 8950 5300
+	9150 5250 8950 5250
+Connection ~ 8950 5250
 Wire Wire Line
 	9800 1850 9650 1850
 Wire Wire Line
 	9800 1950 9650 1950
-Connection ~ 8300 5000
-Connection ~ 8300 5600
+Connection ~ 8300 4950
+Connection ~ 8300 5550
 Wire Notes Line
-	9450 4000 9450 5800
+	9450 3950 9450 5750
 Wire Notes Line
-	9450 5800 7400 5800
+	9450 5750 7400 5750
 Wire Notes Line
-	7400 5800 7400 4000
+	7400 5750 7400 3950
 Wire Notes Line
-	7400 4000 9450 4000
+	7400 3950 9450 3950
 Wire Wire Line
 	7600 3450 7750 3450
 Wire Wire Line
@@ -837,24 +991,10 @@ Wire Notes Line
 	7000 6750 3950 6750
 Wire Notes Line
 	3950 6750 3950 3200
-Text Notes 4000 3350 0    60   ~ 0
-Nixie tube anode pin
-Text GLabel 5000 1250 0    57   UnSpc ~ 0
-GND
-Text GLabel 5000 1150 0    57   UnSpc ~ 0
-5V
 Wire Wire Line
 	5100 1150 5000 1150
 Wire Wire Line
 	5100 1250 5000 1250
-Text GLabel 5000 1350 0    57   UnSpc ~ 0
-Font A
-Text GLabel 5000 1450 0    57   UnSpc ~ 0
-Font B
-Text GLabel 5000 1550 0    57   UnSpc ~ 0
-Font C
-Text GLabel 5000 1650 0    57   UnSpc ~ 0
-Font D
 Wire Wire Line
 	5000 1350 5100 1350
 Wire Wire Line
@@ -943,18 +1083,8 @@ Wire Wire Line
 	4950 2050 6200 2050
 Wire Wire Line
 	6200 2050 6200 2550
-Text GLabel 4550 1850 0    60   UnSpc ~ 0
-GND
 Wire Wire Line
 	4550 1850 4800 1850
-Text GLabel 9800 1750 2    57   UnSpc ~ 0
-Font A
-Text GLabel 9800 1650 2    57   UnSpc ~ 0
-Font B
-Text GLabel 9800 1550 2    57   UnSpc ~ 0
-Font C
-Text GLabel 9800 1450 2    57   UnSpc ~ 0
-Font D
 Wire Wire Line
 	9650 1450 9800 1450
 Wire Wire Line
@@ -963,14 +1093,8 @@ Wire Wire Line
 	9650 1650 9800 1650
 Wire Wire Line
 	9800 1750 9650 1750
-Text GLabel 4500 2050 0    57   UnSpc ~ 0
-Right dot
-Text GLabel 9800 2100 2    57   UnSpc ~ 0
-Right dot
 Wire Wire Line
 	9800 2100 9650 2100
-Text Notes 4000 950  0    57   ~ 0
-Nixie tube cathode pin
 Wire Notes Line
 	3950 800  3950 3100
 Wire Notes Line
@@ -979,8 +1103,6 @@ Wire Notes Line
 	6700 3100 6700 800 
 Wire Notes Line
 	6700 800  3950 800 
-Text Notes 7450 1000 0    57   ~ 0
-Atmega328 microcontroller
 Wire Notes Line
 	7400 850  10650 850 
 Wire Notes Line
@@ -989,92 +1111,28 @@ Wire Notes Line
 	10650 3800 7400 3800
 Wire Notes Line
 	7400 3800 7400 850 
-Text GLabel 9800 2500 2    57   UnSpc ~ 0
-I2C SDA
-Text GLabel 9800 2600 2    57   UnSpc ~ 0
-I2C SCL
 Wire Wire Line
 	9650 2500 9800 2500
 Wire Wire Line
 	9800 2600 9650 2600
-Text GLabel 7850 6350 0    60   UnSpc ~ 0
-I2C SDA
-Text GLabel 7850 6550 0    60   UnSpc ~ 0
-I2C SCL
-$Comp
-L R R9
-U 1 1 53AD916F
-P 8400 6550
-F 0 "R9" V 8480 6550 40  0000 C CNN
-F 1 "4.7k ohm" V 8407 6551 40  0000 C CNN
-F 2 "" V 8330 6550 30  0000 C CNN
-F 3 "" H 8400 6550 30  0000 C CNN
-	1    8400 6550
-	0    -1   -1   0   
-$EndComp
-$Comp
-L R R8
-U 1 1 53AD917C
-P 8400 6350
-F 0 "R8" V 8480 6350 40  0000 C CNN
-F 1 "4.7k ohm" V 8407 6351 40  0000 C CNN
-F 2 "" V 8330 6350 30  0000 C CNN
-F 3 "" H 8400 6350 30  0000 C CNN
-	1    8400 6350
-	0    -1   -1   0   
-$EndComp
-$Comp
-L CONN_2 P8
-U 1 1 53AD9188
-P 9250 6450
-F 0 "P8" V 9200 6450 40  0000 C CNN
-F 1 "CONN_2" V 9300 6450 40  0000 C CNN
-F 2 "" H 9250 6450 60  0000 C CNN
-F 3 "" H 9250 6450 60  0000 C CNN
-	1    9250 6450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	8650 6350 8900 6350
+	5200 7100 5450 7100
 Wire Wire Line
-	8900 6550 8650 6550
+	5450 7300 5200 7300
 Wire Wire Line
-	8150 6350 7850 6350
+	4700 7100 4400 7100
 Wire Wire Line
-	8150 6550 7850 6550
-Text Notes 7450 6200 0    57   ~ 0
-DS1307 Clock module
+	4700 7300 4400 7300
 Wire Notes Line
-	7400 6050 7400 6700
+	3950 6800 3950 7450
 Wire Notes Line
-	7400 6700 9400 6700
+	3950 7450 5950 7450
 Wire Notes Line
-	9400 6700 9400 6050
+	5950 7450 5950 6800
 Wire Notes Line
-	9400 6050 7400 6050
-Text Notes 1050 5700 0    60   ~ 0
-FTDI module\n
-Text GLabel 1850 6100 0    57   UnSpc ~ 0
-5V
+	5950 6800 3950 6800
 Wire Wire Line
 	1850 5800 2150 5800
-$Comp
-L CONN_4 P3
-U 1 1 53AD90AF
-P 2500 5950
-F 0 "P3" V 2450 5950 50  0000 C CNN
-F 1 "CONN_4" V 2550 5950 50  0000 C CNN
-F 2 "" H 2500 5950 60  0000 C CNN
-F 3 "" H 2500 5950 60  0000 C CNN
-	1    2500 5950
-	1    0    0    -1  
-$EndComp
-Text GLabel 1850 5900 0    57   UnSpc ~ 0
-Bluetooth/FTDI Tx
-Text GLabel 1850 5800 0    57   UnSpc ~ 0
-Bluetooth /FTDIRx
-Text GLabel 1850 6000 0    57   UnSpc ~ 0
-GND
 Wire Wire Line
 	1850 5900 2150 5900
 Wire Wire Line
@@ -1089,29 +1147,8 @@ Wire Notes Line
 	2650 6250 1000 6250
 Wire Notes Line
 	1000 6250 1000 5550
-Text Notes 1050 6700 0    60   ~ 0
-Bluetooth module\n
-Text GLabel 1850 7100 0    57   UnSpc ~ 0
-5V
 Wire Wire Line
 	1850 6800 2150 6800
-$Comp
-L CONN_4 P4
-U 1 1 53AD90DC
-P 2500 6950
-F 0 "P4" V 2450 6950 50  0000 C CNN
-F 1 "CONN_4" V 2550 6950 50  0000 C CNN
-F 2 "" H 2500 6950 60  0000 C CNN
-F 3 "" H 2500 6950 60  0000 C CNN
-	1    2500 6950
-	1    0    0    -1  
-$EndComp
-Text GLabel 1850 6900 0    57   UnSpc ~ 0
-Bluetooth/FTDI Tx
-Text GLabel 1850 6800 0    57   UnSpc ~ 0
-Bluetooth /FTDIRx
-Text GLabel 1850 7000 0    57   UnSpc ~ 0
-GND
 Wire Wire Line
 	1850 6900 2150 6900
 Wire Wire Line
@@ -1126,62 +1163,15 @@ Wire Notes Line
 	2650 7250 1000 7250
 Wire Notes Line
 	1000 7250 1000 6550
-NoConn ~ 6050 4050
-NoConn ~ 6050 4150
-Text GLabel 4550 6600 2    60   UnSpc ~ 0
-170V
 Wire Wire Line
 	4150 6600 4550 6600
 Connection ~ 4400 6000
-$Comp
-L NPN Q2
-U 1 1 53B2C850
-P 4250 6400
-F 0 "Q2" H 4250 6250 50  0000 R CNN
-F 1 "NPN" H 4250 6550 50  0000 R CNN
-F 2 "" H 4250 6400 60  0000 C CNN
-F 3 "" H 4250 6400 60  0000 C CNN
-	1    4250 6400
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	4150 6000 4150 6200
-Text GLabel 4450 6400 2    60   UnSpc ~ 0
-Brightness
-Text GLabel 9800 1350 2    57   UnSpc ~ 0
-Brightness
 Wire Wire Line
 	9800 1350 9650 1350
-$Comp
-L NPN Q3
-U 1 1 53B2D12B
-P 4700 2550
-F 0 "Q3" H 4700 2400 50  0000 R CNN
-F 1 "NPN" H 4700 2700 50  0000 R CNN
-F 2 "" H 4700 2550 60  0000 C CNN
-F 3 "" H 4700 2550 60  0000 C CNN
-	1    4700 2550
-	1    0    0    1   
-$EndComp
-Text GLabel 4500 2550 0    57   UnSpc ~ 0
-Left dot
-Text GLabel 4550 2350 0    60   UnSpc ~ 0
-GND
 Wire Wire Line
 	4550 2350 4800 2350
-$Comp
-L CONN_12 P6
-U 1 1 539C4A9F
-P 5650 2900
-F 0 "P6" V 5600 2900 60  0000 C CNN
-F 1 "CONN_12" V 5700 2900 60  0000 C CNN
-F 2 "" H 5650 2900 60  0000 C CNN
-F 3 "" H 5650 2900 60  0000 C CNN
-	1    5650 2900
-	0    1    1    0   
-$EndComp
-Text GLabel 9800 2200 2    57   UnSpc ~ 0
-Left dot
 Wire Wire Line
 	9650 2200 9800 2200
 Wire Wire Line
@@ -1194,4 +1184,48 @@ Wire Wire Line
 	4950 2750 4950 2550
 Wire Wire Line
 	4950 2550 5100 2550
+Wire Wire Line
+	8750 6050 8950 6050
+Wire Wire Line
+	8750 6650 8950 6650
+$Comp
+L R R11
+U 1 1 53B3651A
+P 8500 6250
+F 0 "R11" V 8580 6250 40  0000 C CNN
+F 1 "1.8kohm" V 8507 6251 40  0000 C CNN
+F 2 "" V 8430 6250 30  0000 C CNN
+F 3 "" H 8500 6250 30  0000 C CNN
+	1    8500 6250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R12
+U 1 1 53B36520
+P 8500 6450
+F 0 "R12" V 8580 6450 40  0000 C CNN
+F 1 "1.8kohm" V 8507 6451 40  0000 C CNN
+F 2 "" V 8430 6450 30  0000 C CNN
+F 3 "" H 8500 6450 30  0000 C CNN
+	1    8500 6450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8850 6250 8750 6250
+Wire Wire Line
+	8750 6450 8850 6450
+Wire Wire Line
+	8250 6050 8250 6250
+Wire Wire Line
+	8250 6250 7900 6250
+Wire Wire Line
+	8250 6450 7900 6450
+Wire Wire Line
+	8250 6450 8250 6650
+Wire Notes Line
+	7400 5800 9350 5800
+Wire Notes Line
+	9350 5800 9350 6750
+Wire Notes Line
+	9350 6750 7400 6750
 $EndSCHEMATC

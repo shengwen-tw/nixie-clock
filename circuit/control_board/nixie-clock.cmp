@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月01日 (週二) 23時28分32秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月02日 (週三) 09時33分33秒
 
 BeginCmp
 TimeStamp = /52F4EE14;
@@ -157,14 +157,14 @@ EndCmp
 BeginCmp
 TimeStamp = /53A70A06;
 Reference = R6;
-ValeurCmp = 220ohm;
+ValeurCmp = 330ohm;
 IdModule  = R1;
 EndCmp
 
 BeginCmp
 TimeStamp = /53A70A15;
 Reference = R7;
-ValeurCmp = 220ohm;
+ValeurCmp = 330ohm;
 IdModule  = R1;
 EndCmp
 
@@ -186,6 +186,20 @@ BeginCmp
 TimeStamp = /52F4F8B0;
 Reference = R10;
 ValeurCmp = 10k ohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B3651A;
+Reference = R11;
+ValeurCmp = 1.8kohm;
+IdModule  = R1;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B36520;
+Reference = R12;
+ValeurCmp = 1.8kohm;
 IdModule  = R1;
 EndCmp
 
