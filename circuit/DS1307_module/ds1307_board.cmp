@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月02日 (週三) 19時59分54秒
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月02日 (週三) 20時03分45秒
 
 BeginCmp
 TimeStamp = /53B3EE7B;
@@ -18,7 +18,7 @@ BeginCmp
 TimeStamp = /53B3EE5C;
 Reference = P1;
 ValeurCmp = CONN_4;
-IdModule  = PIN_ARRAY_2X2;
+IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
 BeginCmp
