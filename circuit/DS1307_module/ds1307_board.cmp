@@ -1,0 +1,38 @@
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = 2014年07月02日 (週三) 19時59分54秒
+
+BeginCmp
+TimeStamp = /53B3EE7B;
+Reference = BT1;
+ValeurCmp = BATTERY;
+IdModule  = CR2032H;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B3F0BC;
+Reference = C1;
+ValeurCmp = C;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B3EE5C;
+Reference = P1;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_2X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B3EE00;
+Reference = U1;
+ValeurCmp = DS1307;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B3F00F;
+Reference = X1;
+ValeurCmp = CRYSTAL;
+IdModule  = QMONTRE;
+EndCmp
+
+EndListe
