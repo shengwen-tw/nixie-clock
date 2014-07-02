@@ -31,6 +31,7 @@ After finished installing the Kicad, you can type the following command to read 
 * kicad **Your_clone_path**/circuit/nixie-clock.pro
 
 #Pinout
+![Control board](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/control_board.png)
 ![Pinout](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/pinout.png)
 
 #BOM
