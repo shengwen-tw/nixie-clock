@@ -11,6 +11,8 @@ The functions of project conatain the basic time display, alarm, music...etc.
 
 Welcome to contact with me to share your ideas!
 
+<img src="https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/tube.jpg" width="324px" height="216px">
+
 #Import the required libraries
 ###Time(DS1307)
 * wget -c http://playground.arduino.cc/uploads/Code/Time.zip -o /tmp/Time.zip
