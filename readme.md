@@ -1,6 +1,7 @@
 #Information
 * Project name : Nixie Clock
 * Developer : Shengwen (shengwen1997.tw@gmail.com)
+* Advisor : JackABK (abkabkabkyes@gmail.com)
 * Platform : Arduino UNO (ATmega328 microcontoller)
 
 #Introduction
