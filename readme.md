@@ -33,6 +33,17 @@ All the circuit was drawing under the KiCad, KiCad is a strong circuit CAD softw
 After finished installing the Kicad, you can type the following command to read the circuits:
 * kicad **Your_clone_path**/circuit/nixie-clock.pro
 
+###Convert format svg to pdf
+
+Here provide a better way to print out the circuit (print with pdf format):
+
+* Make sure you already installed the application:
+
+  **sudo apt-get install librsvg2-bin**
+* Now, you can convert the file with command:
+
+  **rsvg-convert -f pdf -o output.pdf input.svg**
+
 #Pinout
 ![Control board](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/control_board.png)
 ![Pinout](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/pinout.png)
