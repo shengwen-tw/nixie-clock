@@ -45,6 +45,7 @@ Here provide a better way to print out the circuit (print with pdf format):
   **rsvg-convert -f pdf -o output.pdf input.svg**
 
 #Pinout
+![power supply board](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/power_supply_board.png)
 ![Control board](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/control_board.png)
 ![Pinout](https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/pinout.png)
 
