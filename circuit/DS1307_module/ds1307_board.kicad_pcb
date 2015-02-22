@@ -5,7 +5,7 @@
     (no_connects 0)
     (area 119.357372 91.548 176.104501 120.4912)
     (thickness 1.6)
-    (drawings 6)
+    (drawings 7)
     (tracks 79)
     (zones 0)
     (modules 6)
@@ -305,6 +305,9 @@
     )
   )
 
+  (gr_text "Beware of the EMI" (at 164.1348 96.5708) (layer B.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
+  )
   (gr_line (start 122.936 118.1608) (end 122.936 94.234) (angle 90) (layer Edge.Cuts) (width 0.1))
   (gr_line (start 175.9204 118.1608) (end 122.936 118.1608) (angle 90) (layer Edge.Cuts) (width 0.1))
   (gr_line (start 175.9204 94.234) (end 175.9204 118.1608) (angle 90) (layer Edge.Cuts) (width 0.1))
