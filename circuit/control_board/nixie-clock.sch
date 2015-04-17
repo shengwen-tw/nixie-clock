@@ -30,7 +30,6 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:nixie-custom
-LIBS:nixie-clock-cache
 EELAYER 24 0
 EELAYER END
 $Descr A4 11693 8268
@@ -604,7 +603,7 @@ $EndComp
 Text GLabel 1850 6900 0    57   UnSpc ~ 0
 Bluetooth/FTDI Tx
 Text GLabel 1850 6800 0    57   UnSpc ~ 0
-Bluetooth /FTDIRx
+Bluetooth/FTDI Rx
 Text GLabel 1850 7000 0    57   UnSpc ~ 0
 GND
 NoConn ~ 6050 4050
