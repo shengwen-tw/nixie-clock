@@ -5,5 +5,6 @@
 #define RIGHT_DOT 11
 
 void tube_control(int tube_number, int font);
+void set_tube_brightness(int brightness);
 
 #endif

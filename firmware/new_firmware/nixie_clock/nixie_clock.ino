@@ -17,6 +17,10 @@ void setup() {
   pinMode(pin_tube_select_a1, OUTPUT);
   pinMode(pin_tube_select_a2, OUTPUT);
   pinMode(pin_tube_select_a3, OUTPUT);
+  
+  pinMode(pin_brightness, OUTPUT);
+  
+  set_tube_brightness(100);
 }
 
 void loop() {

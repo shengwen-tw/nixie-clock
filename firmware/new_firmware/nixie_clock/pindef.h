@@ -9,4 +9,6 @@ extern int pin_font_left_dot, pin_font_right_dot;
 //HEF4028
 extern int pin_tube_select_a0, pin_tube_select_a1, pin_tube_select_a2, pin_tube_select_a3;
 
+extern int pin_brightness;
+
 #endif

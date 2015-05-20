@@ -25,11 +25,16 @@ void tube_control(int tube_number, int font)
     digitalWrite(pin_font_right_dot, LOW);
   } else if(font == RIGHT_DOT) {
     digitalWrite(pin_font_left_dot, LOW);
-    digitalWrite(pin_font_right_dot, HIGH);    
+    digitalWrite(pin_font_right_dot, HIGH);
   } else {
     digitalWrite(pin_font_a, font_table[font][0]);
     digitalWrite(pin_font_b, font_table[font][1]);
     digitalWrite(pin_font_c, font_table[font][2]);
     digitalWrite(pin_font_d, font_table[font][3]);
   }
+}
+
+void set_tube_brightness(int brightness) /* brightness value should between 0 to 100 */
+{
+  analogWrite(pin_brightness, brightness * 255 / 100);
 }
