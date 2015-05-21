@@ -1,8 +1,14 @@
+#include <Wire.h>
+#include <Time.h>
+#include <DS1307RTC.h>
+
 #include "pindef.h" 
 #include "tube_control.h"
+#include "RTC.h"
 
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   
   pinMode(pin_font_a, OUTPUT);
@@ -20,12 +26,18 @@ void setup() {
   
   pinMode(pin_brightness, OUTPUT);
   
+  RTC_init();
+  
+  RTC_set_time(2015, 5, 21, 6, 48, 0);
+  
   set_tube_brightness(100);
 }
 
-void loop() {
+void loop()
+{
   tube_control(6, RIGHT_DOT);
   
-  Serial.print("test");
+  print_time();
+  
   delay(1000);
 }
