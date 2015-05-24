@@ -5,7 +5,7 @@
 #include "pindef.h" 
 #include "tube_control.h"
 #include "RTC.h"
-
+#include "clock.h"
 
 void setup()
 {
@@ -28,16 +28,13 @@ void setup()
   
   RTC_init();
   
-  RTC_set_time(2015, 5, 21, 6, 48, 0);
+  RTC_set_time(2015, 5, 24, 23, 11, 0);
   
   set_tube_brightness(100);
 }
 
+
 void loop()
 {
-  tube_control(6, RIGHT_DOT);
-  
-  print_time();
-  
-  delay(1000);
+  clock_display(); //Loop forever inside the function
 }
