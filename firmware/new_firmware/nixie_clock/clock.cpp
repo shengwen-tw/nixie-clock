@@ -18,7 +18,7 @@ void clock_display()
 
     RTC_read_time(&time);
 
-    time_digit_sort(tube, &time);
+    tube_digit_sort(tube, &time, clock_mode);
 
     tube_control(tube_index, tube[tube_index]); 
 

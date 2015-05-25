@@ -3,6 +3,7 @@
 #include "pindef.h"
 #include "tube_control.h"
 #include "RTC.h"
+#include "clock.h"
 
 
 int tube_select_table[8][4] = {{LOW, LOW, LOW, LOW}, {HIGH, LOW, LOW, LOW},
@@ -56,30 +57,36 @@ void set_tube_brightness(int brightness) /* brightness value should between 0 to
   digitalWrite(pin_brightness, HIGH);
 }
 
-void time_digit_sort(int tube_font[8], rtc_time_t *time)
-{/*
-    //Year
-    tube_font[7] = time->year / 1000;
-    tube_font[6] = (time->year / 100) % 10;
-    tube_font[5] = (time->year / 10) % 100;
-    tube_font[4] = time->year % 10;
-    //Month
-    tube_font[3] = time->month / 10;
-    tube_font[2] = time->month % 10;
-    //Day
-    tube_font[1] = time->day / 10;
-    tube_font[0] = time->day % 10;
-   */ 
-    //Hour
-    tube_font[7] = time->hour / 10;
-    tube_font[6] = time->hour % 10;
-    //Minute
-    tube_font[4] = time->minute / 10;
-    tube_font[3] = time->minute % 10;
-    //Second
-    tube_font[1] = time->second / 10;
-    tube_font[0] = time->second % 10;
-    //Empty
-    tube_font[5] = EMPTY_FONT;
-    tube_font[2] = EMPTY_FONT;
+void tube_digit_sort(int tube_font[8], rtc_time_t *time, ClockMode clock_mode)
+{
+  switch(clock_mode) {
+    case DATE_MODE:
+      //Year
+      tube_font[7] = time->year / 1000;
+      tube_font[6] = (time->year / 100) % 10;
+      tube_font[5] = (time->year / 10) % 100;
+      tube_font[4] = time->year % 10;
+      //Month
+      tube_font[3] = time->month / 10;
+      tube_font[2] = time->month % 10;
+      //Day
+      tube_font[1] = time->day / 10;
+      tube_font[0] = time->day % 10;
+      break;
+
+    case TIME_MODE:  
+      //Hour
+      tube_font[7] = time->hour / 10;
+      tube_font[6] = time->hour % 10;
+      //Minute
+      tube_font[4] = time->minute / 10;
+      tube_font[3] = time->minute % 10;
+      //Second
+      tube_font[1] = time->second / 10;
+      tube_font[0] = time->second % 10;
+      //Empty
+      tube_font[5] = EMPTY_FONT;
+      tube_font[2] = EMPTY_FONT;
+      break;
+  }
 }
