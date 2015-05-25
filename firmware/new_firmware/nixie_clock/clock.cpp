@@ -20,9 +20,7 @@ void clock_display()
 
     time_digit_sort(tube, &time);
 
-    //FIXME
-    if(tube_index != 2 && tube_index != 5)
-      tube_control(tube_index, tube[tube_index]); 
+    tube_control(tube_index, tube[tube_index]); 
 
     tube_index++;
   
