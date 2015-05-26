@@ -12,20 +12,14 @@ ClockMode clock_mode = TIME_MODE;
 
 void clock_display()
 {
-  int tube_index = 0;
-
-  while(1) {
+  int tube_index;
+  for(tube_index = 0; tube_index < 8; tube_index++) {
 
     RTC_read_time(&time);
 
     tube_digit_sort(tube, &time, clock_mode);
 
     tube_control(tube_index, tube[tube_index]); 
-
-    tube_index++;
-  
-    if(tube_index > 7)
-      tube_index = 0;
   
     delay(1);
   }
