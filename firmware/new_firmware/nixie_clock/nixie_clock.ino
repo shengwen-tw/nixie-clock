@@ -27,10 +27,6 @@ void setup()
   pinMode(pin_brightness, OUTPUT);
   
   RTC_init();
-  
-  RTC_set_time(2015, 5, 24, 23, 11, 0);
-  
-  set_tube_brightness(100);
 }
 
 
