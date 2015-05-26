@@ -13,17 +13,29 @@ void RTC_init()
 
 void RTC_set_time(int year, int month, int day, int hour, int minute, int second)
 {
-  setTime(hour, minute, second, day, month, year);
+  tmElements_t tm;
+  tm.Year = year;
+  tm.Month = month;
+  tm.Day = day;
+  tm.Hour = hour;
+  tm.Minute = minute;
+  tm.Second = second;
+  
+  RTC.write(tm);
 }
 
 void RTC_read_time(rtc_time_t *time)
 {
-  time->year = year();
-  time->month = month();
-  time->day = day();
-  time->hour = hour();
-  time->minute = minute();
-  time->second = second(); 
+  tmElements_t tm;
+  
+  RTC.read(tm);
+  
+  time->year = tm.Year;
+  time->month = tm.Month;
+  time->day = tm.Day;
+  time->hour = tm.Hour;
+  time->minute = tm.Minute;
+  time->second = tm.Second;
 }
 
 void print_time()
