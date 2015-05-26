@@ -11,4 +11,7 @@ extern int pin_tube_select_a0, pin_tube_select_a1, pin_tube_select_a2, pin_tube_
 
 extern int pin_brightness;
 
+//Buttons
+extern int pin_search_button, pin_adjust_button, pin_mode_button;
+
 #endif

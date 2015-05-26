@@ -11,3 +11,6 @@ int pin_font_left_dot = A1, pin_font_right_dot = A0;
 int pin_tube_select_a0 = 8, pin_tube_select_a1 = 7, pin_tube_select_a2 = 6, pin_tube_select_a3 = 5;
 
 int pin_brightness = 9;
+
+//Buttons
+int pin_search_button = 4, pin_adjust_button = 3, pin_mode_button = 2;

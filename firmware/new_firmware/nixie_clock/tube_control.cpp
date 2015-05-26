@@ -57,7 +57,7 @@ void set_tube_brightness(int brightness) /* brightness value should between 0 to
   digitalWrite(pin_brightness, HIGH);
 }
 
-void tube_digit_sort(int tube_font[8], rtc_time_t *time, ClockMode clock_mode)
+void tube_digit_sort(int tube_font[8], rtc_time_t *time, int clock_mode)
 {
   switch(clock_mode) {
     case DATE_MODE:

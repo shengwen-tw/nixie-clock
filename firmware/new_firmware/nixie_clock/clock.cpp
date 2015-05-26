@@ -8,7 +8,7 @@
 rtc_time_t time; //DS1307 time data
 int tube[8]; //This array record the data of all tubes
 
-ClockMode clock_mode = TIME_MODE;
+int clock_mode = TIME_MODE;
 
 void clock_display()
 {

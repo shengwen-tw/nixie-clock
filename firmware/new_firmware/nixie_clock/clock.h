@@ -1,11 +1,12 @@
 #ifndef __CLOCK_H
 #define __CLOCK_H
 
-typedef enum{
+enum{
   TIME_MODE,
   DATE_MODE,
-  ALARM_MODE
-}ClockMode;
+  //ALARM_MODE,
+  MODE_COUNT
+};
 
 void clock_display();
 

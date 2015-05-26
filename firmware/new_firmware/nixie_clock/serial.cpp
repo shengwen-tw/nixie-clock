@@ -18,7 +18,7 @@ void serialEvent()
     }
     
     parse_time_setting_command(buff);
-  }
+  }else {print_time();}
 }
 
 static void parse_time_setting_command(char *command)

@@ -14,7 +14,7 @@ void RTC_init()
 void RTC_set_time(int year, int month, int day, int hour, int minute, int second)
 {
   tmElements_t tm;
-  tm.Year = year;
+  tm.Year = year - 1970;
   tm.Month = month;
   tm.Day = day;
   tm.Hour = hour;
@@ -30,7 +30,7 @@ void RTC_read_time(rtc_time_t *time)
   
   RTC.read(tm);
   
-  time->year = tm.Year;
+  time->year = tm.Year + 1970;
   time->month = tm.Month;
   time->day = tm.Day;
   time->hour = tm.Hour;

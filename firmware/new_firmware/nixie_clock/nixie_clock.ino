@@ -6,6 +6,7 @@
 #include "tube_control.h"
 #include "RTC.h"
 #include "clock.h"
+#include "button.h"
 
 void setup()
 {
@@ -24,7 +25,9 @@ void setup()
   pinMode(pin_tube_select_a2, OUTPUT);
   pinMode(pin_tube_select_a3, OUTPUT);
   
-  pinMode(pin_brightness, OUTPUT);
+  pinMode(pin_search_button, INPUT);
+  pinMode(pin_adjust_button, INPUT);
+  pinMode(pin_mode_button, INPUT);
   
   RTC_init();
 }
@@ -32,5 +35,7 @@ void setup()
 
 void loop()
 {
-  clock_display(); //Loop forever inside the function
+  clock_display();
+  
+  button_status_check();
 }
