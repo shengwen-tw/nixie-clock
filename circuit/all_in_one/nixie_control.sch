@@ -44,10 +44,657 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 2000 1500 0    98   Input ~ 0
+Text HLabel 3300 6450 0    98   Input ~ 0
 170V
-Text HLabel 2000 1750 0    98   Input ~ 0
+Text HLabel 7700 1450 0    98   Input ~ 0
 5V
-Text HLabel 2000 2000 0    98   Input ~ 0
+Text HLabel 7700 3550 0    98   Input ~ 0
 GND
+$Comp
+L ATMEGA328P-A IC?
+U 1 1 5646C06F
+P 8850 2550
+F 0 "IC?" H 8100 3800 40  0000 L BNN
+F 1 "ATMEGA328P-A" H 9250 1150 40  0000 L BNN
+F 2 "TQFP32" H 8850 2550 30  0000 C CIN
+F 3 "" H 8850 2550 60  0000 C CNN
+	1    8850 2550
+	1    0    0    -1  
+$EndComp
+Text HLabel 9500 4600 2    98   Input ~ 0
+5V
+$Comp
+L R R?
+U 1 1 5646C2E9
+P 9200 4600
+F 0 "R?" V 9280 4600 50  0000 C CNN
+F 1 "R" V 9200 4600 50  0000 C CNN
+F 2 "" V 9130 4600 30  0000 C CNN
+F 3 "" H 9200 4600 30  0000 C CNN
+	1    9200 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SW_PUSH SW?
+U 1 1 5646C38C
+P 8550 4600
+F 0 "SW?" H 8700 4710 50  0000 C CNN
+F 1 "SW_PUSH" H 8550 4520 50  0000 C CNN
+F 2 "" H 8550 4600 60  0000 C CNN
+F 3 "" H 8550 4600 60  0000 C CNN
+	1    8550 4600
+	1    0    0    -1  
+$EndComp
+Text HLabel 8150 4600 0    98   Input ~ 0
+GND
+Text GLabel 9500 4350 2    60   UnSpc ~ 0
+Reset
+Text GLabel 10000 2900 2    55   UnSpc ~ 0
+Reset
+$Comp
+L C C?
+U 1 1 5646C6D0
+P 9100 5200
+F 0 "C?" H 9125 5300 50  0000 L CNN
+F 1 "C" H 9125 5100 50  0000 L CNN
+F 2 "" H 9138 5050 30  0000 C CNN
+F 3 "" H 9100 5200 60  0000 C CNN
+	1    9100 5200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 5646C741
+P 9100 5700
+F 0 "C?" H 9125 5800 50  0000 L CNN
+F 1 "C" H 9125 5600 50  0000 L CNN
+F 2 "" H 9138 5550 30  0000 C CNN
+F 3 "" H 9100 5700 60  0000 C CNN
+	1    9100 5700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Crystal Y?
+U 1 1 5646C7E1
+P 8650 5450
+F 0 "Y?" H 8650 5600 50  0000 C CNN
+F 1 "Crystal" H 8650 5300 50  0000 C CNN
+F 2 "" H 8650 5450 60  0000 C CNN
+F 3 "" H 8650 5450 60  0000 C CNN
+	1    8650 5450
+	0    1    1    0   
+$EndComp
+Text HLabel 9700 5450 2    98   Input ~ 0
+GND
+Text GLabel 8400 5200 0    60   UnSpc ~ 0
+Crystal1
+Text GLabel 8400 5700 0    60   UnSpc ~ 0
+Ctystal2
+Text GLabel 10000 2050 2    55   UnSpc ~ 0
+Crystal1
+Text GLabel 10000 2150 2    55   UnSpc ~ 0
+Ctystal2
+$Comp
+L K155ID1 U?
+U 1 1 5646D245
+P 5350 1750
+F 0 "U?" H 5350 2500 60  0000 C CNN
+F 1 "K155ID1" V 5350 1800 60  0000 C CNN
+F 2 "" H 5350 2500 60  0000 C CNN
+F 3 "" H 5350 2500 60  0000 C CNN
+	1    5350 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L HEF4028 U?
+U 1 1 5646D789
+P 5250 4300
+F 0 "U?" H 5250 5000 60  0000 C CNN
+F 1 "HEF4028" V 5250 4350 60  0000 C CNN
+F 2 "" H 5250 5000 60  0000 C CNN
+F 3 "" H 5250 5000 60  0000 C CNN
+	1    5250 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L TLP521 U?
+U 1 1 5646D9AA
+P 4850 5800
+F 0 "U?" H 4850 6200 60  0000 C CNN
+F 1 "TLP521" V 4850 5850 60  0000 C CNN
+F 2 "" H 4850 6200 60  0000 C CNN
+F 3 "" H 4850 6200 60  0000 C CNN
+	1    4850 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L TLP521 U?
+U 1 1 5646DC40
+P 4100 5800
+F 0 "U?" H 4100 6200 60  0000 C CNN
+F 1 "TLP521" V 4100 5850 60  0000 C CNN
+F 2 "" H 4100 6200 60  0000 C CNN
+F 3 "" H 4100 6200 60  0000 C CNN
+	1    4100 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L TLP521 U?
+U 1 1 5646DD0A
+P 6350 5800
+F 0 "U?" H 6350 6200 60  0000 C CNN
+F 1 "TLP521" V 6350 5850 60  0000 C CNN
+F 2 "" H 6350 6200 60  0000 C CNN
+F 3 "" H 6350 6200 60  0000 C CNN
+	1    6350 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L TLP521 U?
+U 1 1 5646DD10
+P 5600 5800
+F 0 "U?" H 5600 6200 60  0000 C CNN
+F 1 "TLP521" V 5600 5850 60  0000 C CNN
+F 2 "" H 5600 6200 60  0000 C CNN
+F 3 "" H 5600 6200 60  0000 C CNN
+	1    5600 5800
+	0    1    1    0   
+$EndComp
+Text HLabel 4600 3750 0    98   Input ~ 0
+5V
+Text HLabel 4600 3900 0    98   Input ~ 0
+GND
+NoConn ~ 5750 4650
+NoConn ~ 5750 4800
+Text GLabel 4600 4050 0    60   UnSpc ~ 0
+Digit_A0
+Text GLabel 4600 4200 0    60   UnSpc ~ 0
+Digit_A1
+Text GLabel 4600 4350 0    60   UnSpc ~ 0
+Digit_A2
+Text GLabel 4600 4500 0    60   UnSpc ~ 0
+Digit_A3
+$Comp
+L R R?
+U 1 1 564700B5
+P 3600 6450
+F 0 "R?" V 3680 6450 50  0000 C CNN
+F 1 "R" V 3600 6450 50  0000 C CNN
+F 2 "" V 3530 6450 30  0000 C CNN
+F 3 "" H 3600 6450 30  0000 C CNN
+	1    3600 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L CONN_01X08 P?
+U 1 1 564704DB
+P 5200 7100
+F 0 "P?" H 5200 7550 50  0000 C CNN
+F 1 "CONN_01X08" V 5300 7100 50  0000 C CNN
+F 2 "" H 5200 7100 60  0000 C CNN
+F 3 "" H 5200 7100 60  0000 C CNN
+	1    5200 7100
+	0    1    1    0   
+$EndComp
+Text HLabel 4650 1200 0    98   Input ~ 0
+5V
+Text HLabel 4650 1350 0    98   Input ~ 0
+GND
+Text GLabel 4650 1500 0    60   UnSpc ~ 0
+Font_A
+Text GLabel 4650 1650 0    60   UnSpc ~ 0
+Font_B
+Text GLabel 4650 1800 0    60   UnSpc ~ 0
+Font_C
+Text GLabel 4650 1950 0    60   UnSpc ~ 0
+Font_D
+$Comp
+L CONN_01X12 P?
+U 1 1 56472490
+P 5300 3050
+F 0 "P?" H 5300 3700 50  0000 C CNN
+F 1 "CONN_01X12" V 5400 3050 50  0000 C CNN
+F 2 "" H 5300 3050 60  0000 C CNN
+F 3 "" H 5300 3050 60  0000 C CNN
+	1    5300 3050
+	0    -1   1    0   
+$EndComp
+Text GLabel 10000 1450 2    55   UnSpc ~ 0
+Digit_A0
+Text GLabel 10000 3750 2    55   UnSpc ~ 0
+Digit_A1
+Text GLabel 10000 3650 2    55   UnSpc ~ 0
+Digit_A2
+Text GLabel 10000 3550 2    55   UnSpc ~ 0
+Digit_A3
+Text GLabel 10000 1950 2    55   UnSpc ~ 0
+Font_A
+Text GLabel 10000 1850 2    55   UnSpc ~ 0
+Font_B
+Text GLabel 10000 1750 2    55   UnSpc ~ 0
+Font_C
+Text GLabel 10000 1650 2    55   UnSpc ~ 0
+Font_D
+Wire Wire Line
+	7700 1450 7950 1450
+Wire Wire Line
+	7800 1550 7950 1550
+Connection ~ 7800 1450
+Wire Wire Line
+	7800 1750 7950 1750
+Connection ~ 7800 1550
+Wire Wire Line
+	7700 3550 7950 3550
+Connection ~ 7800 1750
+Wire Wire Line
+	7800 1450 7800 2050
+Wire Wire Line
+	7800 3550 7800 3750
+Wire Wire Line
+	7800 3750 7950 3750
+Connection ~ 7800 3550
+Wire Wire Line
+	7950 3650 7800 3650
+Connection ~ 7800 3650
+Wire Wire Line
+	8150 4600 8250 4600
+Wire Wire Line
+	8850 4600 9050 4600
+Wire Wire Line
+	9350 4600 9500 4600
+Wire Wire Line
+	8950 4350 8950 4600
+Wire Wire Line
+	8950 4350 9500 4350
+Connection ~ 8950 4600
+Wire Wire Line
+	9850 2900 10000 2900
+Wire Wire Line
+	8650 5300 8650 5200
+Wire Wire Line
+	8400 5200 8950 5200
+Wire Wire Line
+	8400 5700 8950 5700
+Wire Wire Line
+	8650 5700 8650 5600
+Wire Wire Line
+	9250 5200 9600 5200
+Wire Wire Line
+	9600 5200 9600 5700
+Wire Wire Line
+	9600 5700 9250 5700
+Wire Wire Line
+	9700 5450 9600 5450
+Connection ~ 9600 5450
+Connection ~ 8650 5200
+Connection ~ 8650 5700
+Wire Wire Line
+	9850 2050 10000 2050
+Wire Wire Line
+	9850 2150 10000 2150
+Wire Wire Line
+	7800 2050 7950 2050
+Wire Wire Line
+	4600 3750 4700 3750
+Wire Wire Line
+	4600 3900 4700 3900
+Wire Wire Line
+	3900 5350 3900 5200
+Wire Wire Line
+	3900 5200 6450 5200
+Wire Wire Line
+	6450 5200 6450 5350
+Wire Wire Line
+	6150 5350 6150 5200
+Connection ~ 6150 5200
+Wire Wire Line
+	5400 5200 5400 5350
+Connection ~ 5400 5200
+Wire Wire Line
+	5700 5350 5700 5200
+Connection ~ 5700 5200
+Wire Wire Line
+	4950 5350 4950 5200
+Connection ~ 4950 5200
+Wire Wire Line
+	4650 5350 4650 5200
+Connection ~ 4650 5200
+Wire Wire Line
+	4200 5350 4200 5200
+Connection ~ 4200 5200
+Wire Wire Line
+	4050 6250 4050 6450
+Wire Wire Line
+	3750 6450 6600 6450
+Wire Wire Line
+	6600 6450 6600 6250
+Wire Wire Line
+	6300 6250 6300 6450
+Connection ~ 6300 6450
+Wire Wire Line
+	5850 6250 5850 6450
+Connection ~ 5850 6450
+Wire Wire Line
+	5550 6250 5550 6450
+Connection ~ 5550 6450
+Wire Wire Line
+	5100 6250 5100 6450
+Connection ~ 5100 6450
+Wire Wire Line
+	4800 6250 4800 6450
+Connection ~ 4800 6450
+Wire Wire Line
+	4350 6250 4350 6450
+Connection ~ 4350 6450
+Wire Wire Line
+	4600 4050 4700 4050
+Wire Wire Line
+	4600 4200 4700 4200
+Wire Wire Line
+	4700 4350 4600 4350
+Wire Wire Line
+	4600 4500 4700 4500
+Wire Wire Line
+	4700 4650 4050 4650
+Wire Wire Line
+	4050 4650 4050 5350
+Wire Wire Line
+	4700 4800 4350 4800
+Wire Wire Line
+	4350 4800 4350 5350
+Wire Wire Line
+	4800 5350 4800 5100
+Wire Wire Line
+	4800 5100 5850 5100
+Wire Wire Line
+	5850 5100 5850 3750
+Wire Wire Line
+	5850 3750 5750 3750
+Wire Wire Line
+	5100 5350 5100 5050
+Wire Wire Line
+	5100 5050 5900 5050
+Wire Wire Line
+	5900 5050 5900 3900
+Wire Wire Line
+	5900 3900 5750 3900
+Wire Wire Line
+	5950 4050 5950 5000
+Wire Wire Line
+	5950 5000 5550 5000
+Wire Wire Line
+	5550 5000 5550 5350
+Wire Wire Line
+	5750 4050 5950 4050
+Wire Wire Line
+	5750 4200 6000 4200
+Wire Wire Line
+	6000 4200 6000 5150
+Wire Wire Line
+	6000 5150 5850 5150
+Wire Wire Line
+	5850 5150 5850 5350
+Wire Wire Line
+	5750 4350 6300 4350
+Wire Wire Line
+	6300 4350 6300 5350
+Wire Wire Line
+	5750 4500 6600 4500
+Wire Wire Line
+	6600 4500 6600 5350
+Connection ~ 4050 6450
+Wire Wire Line
+	3300 6450 3450 6450
+Wire Wire Line
+	3900 6250 3900 6800
+Wire Wire Line
+	3900 6800 4850 6800
+Wire Wire Line
+	4850 6800 4850 6900
+Wire Wire Line
+	4200 6250 4200 6750
+Wire Wire Line
+	4200 6750 4950 6750
+Wire Wire Line
+	4950 6750 4950 6900
+Wire Wire Line
+	4650 6250 4650 6700
+Wire Wire Line
+	4650 6700 5050 6700
+Wire Wire Line
+	5050 6700 5050 6900
+Wire Wire Line
+	4950 6250 4950 6650
+Wire Wire Line
+	4950 6650 5150 6650
+Wire Wire Line
+	5150 6650 5150 6900
+Wire Wire Line
+	5400 6250 5400 6650
+Wire Wire Line
+	5400 6650 5250 6650
+Wire Wire Line
+	5250 6650 5250 6900
+Wire Wire Line
+	5700 6250 5700 6700
+Wire Wire Line
+	5700 6700 5350 6700
+Wire Wire Line
+	5350 6700 5350 6900
+Wire Wire Line
+	6150 6250 6150 6750
+Wire Wire Line
+	6150 6750 5450 6750
+Wire Wire Line
+	5450 6750 5450 6900
+Wire Wire Line
+	6450 6250 6450 6800
+Wire Wire Line
+	6450 6800 5550 6800
+Wire Wire Line
+	5550 6800 5550 6900
+Wire Wire Line
+	4650 1200 4800 1200
+Wire Wire Line
+	4650 1350 4800 1350
+Wire Wire Line
+	4650 1500 4800 1500
+Wire Wire Line
+	4650 1650 4800 1650
+Wire Wire Line
+	4650 1800 4800 1800
+Wire Wire Line
+	4650 1950 4800 1950
+Wire Wire Line
+	4800 2100 4650 2100
+Wire Wire Line
+	4650 2100 4650 2750
+Wire Wire Line
+	4650 2750 4750 2750
+Wire Wire Line
+	4750 2750 4750 2850
+Wire Wire Line
+	4750 2700 4850 2700
+Wire Wire Line
+	4850 2700 4850 2850
+Wire Wire Line
+	5850 1200 5950 1200
+Wire Wire Line
+	5950 1200 5950 2400
+Wire Wire Line
+	5950 2400 4950 2400
+Wire Wire Line
+	4950 2400 4950 2850
+Wire Wire Line
+	5050 2850 5050 2450
+Wire Wire Line
+	5050 2450 6000 2450
+Wire Wire Line
+	6000 2450 6000 1350
+Wire Wire Line
+	6000 1350 5850 1350
+Wire Wire Line
+	5850 1500 6050 1500
+Wire Wire Line
+	6050 1500 6050 2500
+Wire Wire Line
+	6050 2500 5150 2500
+Wire Wire Line
+	5150 2500 5150 2850
+Wire Wire Line
+	5850 1650 6100 1650
+Wire Wire Line
+	6100 1650 6100 2550
+Wire Wire Line
+	6100 2550 5250 2550
+Wire Wire Line
+	5250 2550 5250 2850
+Wire Wire Line
+	5850 1800 6150 1800
+Wire Wire Line
+	6150 1800 6150 2600
+Wire Wire Line
+	6150 2600 5350 2600
+Wire Wire Line
+	5350 2600 5350 2850
+Wire Wire Line
+	5850 1950 6200 1950
+Wire Wire Line
+	6200 1950 6200 2650
+Wire Wire Line
+	6200 2650 5450 2650
+Wire Wire Line
+	5450 2650 5450 2850
+Wire Wire Line
+	5850 2100 6250 2100
+Wire Wire Line
+	6250 2100 6250 2700
+Wire Wire Line
+	6250 2700 5550 2700
+Wire Wire Line
+	5550 2700 5550 2850
+Wire Wire Line
+	5650 2850 5650 2750
+Wire Wire Line
+	5650 2750 6300 2750
+Wire Wire Line
+	6300 2750 6300 2250
+Wire Wire Line
+	6300 2250 5850 2250
+Wire Wire Line
+	4800 2250 4750 2250
+Wire Wire Line
+	4750 2250 4750 2700
+Wire Wire Line
+	9850 1450 10000 1450
+Wire Wire Line
+	9850 1650 10000 1650
+Wire Wire Line
+	9850 3550 10000 3550
+Wire Wire Line
+	9850 3650 10000 3650
+Wire Wire Line
+	10000 3750 9850 3750
+Text HLabel 10000 2800 2    60   Input ~ 0
+I2C_SCL
+Text HLabel 10000 2700 2    60   Input ~ 0
+I2C_SDA
+Wire Wire Line
+	9850 2700 10000 2700
+Wire Wire Line
+	10000 2800 9850 2800
+Text GLabel 10000 3050 2    55   UnSpc ~ 0
+USART_RX
+Text GLabel 10000 3150 2    55   UnSpc ~ 0
+USART_TX
+Wire Wire Line
+	9850 3050 10000 3050
+Wire Wire Line
+	9850 3150 10000 3150
+$Comp
+L CONN_02X04 P?
+U 1 1 56476352
+P 2200 1550
+F 0 "P?" H 2200 1800 50  0000 C CNN
+F 1 "CONN_02X04" H 2200 1300 50  0000 C CNN
+F 2 "" H 2200 350 60  0000 C CNN
+F 3 "" H 2200 350 60  0000 C CNN
+	1    2200 1550
+	1    0    0    -1  
+$EndComp
+Text HLabel 1850 1600 0    67   Input ~ 0
+5V
+Text HLabel 1850 1700 0    67   Input ~ 0
+GND
+Wire Wire Line
+	1850 1600 1950 1600
+Text HLabel 2550 1600 2    67   Input ~ 0
+5V
+Text HLabel 2550 1700 2    67   Input ~ 0
+GND
+Wire Wire Line
+	2450 1600 2550 1600
+Text GLabel 1850 1400 0    55   UnSpc ~ 0
+USART_RX
+Text GLabel 1850 1500 0    55   UnSpc ~ 0
+USART_TX
+Text GLabel 2550 1400 2    55   UnSpc ~ 0
+USART_RX
+Text GLabel 2550 1500 2    55   UnSpc ~ 0
+USART_TX
+Wire Wire Line
+	1850 1400 1950 1400
+Wire Wire Line
+	1850 1500 1950 1500
+Wire Wire Line
+	2450 1400 2550 1400
+Wire Wire Line
+	2550 1500 2450 1500
+Wire Wire Line
+	2550 1700 2450 1700
+Wire Wire Line
+	1850 1700 1950 1700
+Text GLabel 10000 3250 2    55   UnSpc ~ 0
+Mode_button
+Wire Wire Line
+	10000 3250 9850 3250
+Text HLabel 1400 2600 0    98   Input ~ 0
+5V
+$Comp
+L SW_PUSH SW?
+U 1 1 56478717
+P 1850 2600
+F 0 "SW?" H 2000 2710 50  0000 C CNN
+F 1 "SW_PUSH" H 1850 2520 50  0000 C CNN
+F 2 "" H 1850 2600 60  0000 C CNN
+F 3 "" H 1850 2600 60  0000 C CNN
+	1    1850 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 5647877C
+P 2550 2600
+F 0 "R?" V 2630 2600 50  0000 C CNN
+F 1 "R" V 2550 2600 50  0000 C CNN
+F 2 "" V 2480 2600 30  0000 C CNN
+F 3 "" H 2550 2600 30  0000 C CNN
+	1    2550 2600
+	0    1    1    0   
+$EndComp
+Text HLabel 2850 2600 2    98   Input ~ 0
+GND
+Wire Wire Line
+	2700 2600 2850 2600
+Wire Wire Line
+	2150 2600 2400 2600
+Wire Wire Line
+	1400 2600 1550 2600
+Text GLabel 2650 2350 2    60   UnSpc ~ 0
+Mode_button
+Wire Wire Line
+	2300 2600 2300 2350
+Wire Wire Line
+	2300 2350 2650 2350
+Connection ~ 2300 2600
 $EndSCHEMATC

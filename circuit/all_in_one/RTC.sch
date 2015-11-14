@@ -34,7 +34,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 6
+Sheet 4 6
 Title ""
 Date ""
 Rev ""
@@ -44,4 +44,12 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text HLabel 1800 1150 2    60   Input ~ 0
+I2C_SCL
+Text HLabel 1800 1350 2    60   Input ~ 0
+I2C_SDA
+Text HLabel 1800 1550 2    60   Input ~ 0
+5V
+Text HLabel 1800 1750 2    60   Input ~ 0
+GND
 $EndSCHEMATC
