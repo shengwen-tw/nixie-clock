@@ -47,7 +47,7 @@ $EndDescr
 $Sheet
 S 3950 3300 950  800 
 U 5645F24C
-F0 "Sheet5645F24B" 60
+F0 "power_supply" 60
 F1 "power_supply.sch" 60
 F2 "170V" O R 4900 3600 60 
 F3 "5V" O R 4900 3800 60 
