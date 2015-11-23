@@ -82,6 +82,8 @@ F21 "Tube_Cathode_6" I R 6900 4100 60
 F22 "Tube_Cathode_7" I R 6900 4200 60 
 F23 "Tube_Cathode_8" I R 6900 4300 60 
 F24 "Tube_Cathode_9" I R 6900 4400 60 
+F25 "Tube_Cathode_Comma_Left" I R 6900 4700 60 
+F26 "Tube_Cathode_Comma_Right" I R 6900 4800 60 
 $EndSheet
 $Comp
 L CONN_01X02 P1
@@ -219,4 +221,8 @@ Wire Wire Line
 	4800 3200 4800 4400
 Wire Wire Line
 	4800 4400 4200 4400
+Wire Wire Line
+	7300 4700 6900 4700
+Wire Wire Line
+	7300 4800 6900 4800
 $EndSCHEMATC

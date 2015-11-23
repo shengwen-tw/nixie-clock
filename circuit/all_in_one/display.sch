@@ -227,8 +227,6 @@ Wire Wire Line
 Wire Wire Line
 	700  1900 700  5850
 Wire Wire Line
-	700  3100 8550 3100
-Wire Wire Line
 	3350 1900 3350 3700
 Wire Wire Line
 	3350 1900 3600 1900
@@ -680,4 +678,6 @@ Wire Wire Line
 	8300 3500 8050 3500
 Wire Wire Line
 	8350 3400 8050 3400
+Wire Wire Line
+	700  3100 8550 3100
 $EndSCHEMATC

@@ -538,7 +538,7 @@ Wire Wire Line
 Wire Wire Line
 	6550 2200 6900 2200
 Wire Wire Line
-	6800 2200 6800 2900
+	6900 2200 6900 2900
 Wire Wire Line
 	6900 2900 6150 2900
 Wire Wire Line
@@ -546,7 +546,7 @@ Wire Wire Line
 Wire Wire Line
 	6550 2350 6950 2350
 Wire Wire Line
-	6850 2350 6850 2950
+	6950 2350 6950 2950
 Wire Wire Line
 	6950 2950 6250 2950
 Wire Wire Line
@@ -556,7 +556,7 @@ Wire Wire Line
 Wire Wire Line
 	6350 3000 7000 3000
 Wire Wire Line
-	6900 3000 6900 2500
+	7000 3000 7000 2500
 Wire Wire Line
 	7000 2500 6550 2500
 Wire Wire Line
@@ -675,7 +675,6 @@ Wire Wire Line
 Wire Wire Line
 	6200 5750 6550 5750
 Connection ~ 6200 6000
-NoConn ~ 6950 3000
 $Comp
 L R R10
 U 1 1 56483273
@@ -732,4 +731,72 @@ Text HLabel 6250 3100 3    60   Input ~ 0
 Tube_Cathode_9
 Text HLabel 6350 3100 3    60   Input ~ 0
 Tube_Cathode_0
+$Comp
+L Q_NPN_EBC Q?
+U 1 1 56531503
+P 3500 5650
+F 0 "Q?" H 3800 5700 50  0000 R CNN
+F 1 "Q_NPN_EBC" H 4100 5600 50  0000 R CNN
+F 2 "" H 3700 5750 29  0000 C CNN
+F 3 "" H 3500 5650 60  0000 C CNN
+	1    3500 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_NPN_EBC Q?
+U 1 1 56531680
+P 3500 6450
+F 0 "Q?" H 3800 6500 50  0000 R CNN
+F 1 "Q_NPN_EBC" H 4100 6400 50  0000 R CNN
+F 2 "" H 3700 6550 29  0000 C CNN
+F 3 "" H 3500 6450 60  0000 C CNN
+	1    3500 6450
+	1    0    0    -1  
+$EndComp
+Text HLabel 3550 5300 0    60   Input ~ 0
+Tube_Cathode_Comma_Left
+Text HLabel 3550 6100 0    60   Input ~ 0
+Tube_Cathode_Comma_Right
+Wire Wire Line
+	3550 5300 3600 5300
+Wire Wire Line
+	3600 5300 3600 5450
+Wire Wire Line
+	3550 6100 3600 6100
+Wire Wire Line
+	3600 6100 3600 6250
+Text HLabel 3550 5950 0    98   Input ~ 0
+GND
+Text HLabel 3550 6750 0    98   Input ~ 0
+GND
+Wire Wire Line
+	3550 5950 3600 5950
+Wire Wire Line
+	3600 5950 3600 5850
+Wire Wire Line
+	3550 6750 3600 6750
+Wire Wire Line
+	3600 6750 3600 6650
+Text GLabel 3200 6450 0    60   UnSpc ~ 0
+right_comma
+Text GLabel 3200 5650 0    60   UnSpc ~ 0
+left_comma
+Wire Wire Line
+	3200 5650 3300 5650
+Wire Wire Line
+	3200 6450 3300 6450
+Text GLabel 10000 2300 2    55   UnSpc ~ 0
+right_comma
+Text GLabel 10000 2400 2    55   UnSpc ~ 0
+left_comma
+Wire Wire Line
+	9850 2300 10000 2300
+Wire Wire Line
+	9850 2400 10000 2400
+Wire Wire Line
+	9850 1750 10000 1750
+Wire Wire Line
+	9850 1850 10000 1850
+Wire Wire Line
+	9850 1950 10000 1950
 $EndSCHEMATC
