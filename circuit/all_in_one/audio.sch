@@ -44,4 +44,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text HLabel 3500 2450 2    60   Input ~ 0
+MCU_MP3_TX
+Text HLabel 3500 2600 2    60   Input ~ 0
+MCU_MP3_RX
 $EndSCHEMATC
