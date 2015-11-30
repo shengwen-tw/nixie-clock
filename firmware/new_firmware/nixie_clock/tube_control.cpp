@@ -17,27 +17,12 @@ int font_table[10][4] = {{LOW, LOW, LOW, LOW}, {HIGH, LOW, LOW, LOW},
 
 void tube_control(int tube_number, int tube_font)
 { 
-  if(tube_font == EMPTY_FONT) {
-    //Enable Y8 pin of HEF4208 (Dummy output)
-    digitalWrite(pin_tube_select_a0, LOW);
-    digitalWrite(pin_tube_select_a1, LOW);
-    digitalWrite(pin_tube_select_a2, LOW);
-    digitalWrite(pin_tube_select_a3, HIGH);
-  } else {
-    digitalWrite(pin_tube_select_a0, tube_select_table[tube_number][0]);
-    digitalWrite(pin_tube_select_a1, tube_select_table[tube_number][1]);
-    digitalWrite(pin_tube_select_a2, tube_select_table[tube_number][2]);
-    digitalWrite(pin_tube_select_a3, tube_select_table[tube_number][3]);
-  }
+  digitalWrite(pin_tube_select_a0, tube_select_table[tube_number][0]);
+  digitalWrite(pin_tube_select_a1, tube_select_table[tube_number][1]);
+  digitalWrite(pin_tube_select_a2, tube_select_table[tube_number][2]);
+  digitalWrite(pin_tube_select_a3, tube_select_table[tube_number][3]);
   
-  if(tube_font == LEFT_DOT) {
-    digitalWrite(pin_font_left_dot, HIGH);
-    digitalWrite(pin_font_right_dot, LOW);
-  } else if(tube_font == RIGHT_DOT) {
-    digitalWrite(pin_font_left_dot, LOW);
-    digitalWrite(pin_font_right_dot, HIGH);
-  } else if(tube_font == EMPTY_FONT) {
-    
+  if(tube_font == EMPTY_FONT) {
     //Let K155ID1 input over range (Always off)
     digitalWrite(pin_font_a, LOW);
     digitalWrite(pin_font_b, HIGH);

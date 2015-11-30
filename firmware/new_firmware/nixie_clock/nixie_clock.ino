@@ -34,7 +34,7 @@ void setup()
 
 
 void loop()
-{
+{ 
   clock_display();
   
   button_status_check();
