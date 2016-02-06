@@ -34,7 +34,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 6
+Sheet 4 5
 Title ""
 Date ""
 Rev ""
@@ -136,10 +136,10 @@ GND
 Wire Wire Line
 	4200 4200 4350 4200
 $Comp
-L R R14
+L R R17
 U 1 1 5647E0E9
 P 7050 4150
-F 0 "R14" V 7130 4150 50  0000 C CNN
+F 0 "R17" V 7130 4150 50  0000 C CNN
 F 1 "4.7k ohm" V 7050 4150 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6980 4150 30  0001 C CNN
 F 3 "" H 7050 4150 30  0000 C CNN
@@ -153,14 +153,16 @@ Wire Wire Line
 	7050 4300 7050 4350
 Connection ~ 7050 4350
 $Comp
-L R R13
+L R R16
 U 1 1 5647E182
 P 6450 4050
-F 0 "R13" V 6530 4050 50  0000 C CNN
+F 0 "R16" V 6530 4050 50  0000 C CNN
 F 1 "4.7k ohm" V 6450 4050 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6380 4050 30  0001 C CNN
 F 3 "" H 6450 4050 30  0000 C CNN
 	1    6450 4050
 	1    0    0    -1  
 $EndComp
+Connection ~ 6450 3900
+Connection ~ 6450 4200
 $EndSCHEMATC

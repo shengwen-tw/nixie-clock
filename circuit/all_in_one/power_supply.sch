@@ -34,7 +34,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 6
+Sheet 2 5
 Title ""
 Date ""
 Rev ""
@@ -46,23 +46,6 @@ Comment4 ""
 $EndDescr
 Text HLabel 8500 3950 2    98   Output ~ 0
 170V
-Text HLabel 4450 1700 2    98   Output ~ 0
-5V
-Text HLabel 2500 1700 0    98   Input ~ 0
-12V
-Text HLabel 2500 2500 0    98   Input ~ 0
-GND
-$Comp
-L LM7805 U1
-U 1 1 56462C05
-P 3600 1750
-F 0 "U1" H 3750 1554 60  0000 C CNN
-F 1 "LM7805" H 3600 1950 60  0000 C CNN
-F 2 "Transistors_SMD:sot404" H 3600 1750 60  0001 C CNN
-F 3 "" H 3600 1750 60  0000 C CNN
-	1    3600 1750
-	1    0    0    -1  
-$EndComp
 $Comp
 L C C1
 U 1 1 56462C7B
@@ -96,32 +79,6 @@ F 3 "" H 4000 2100 60  0000 C CNN
 	1    4000 2100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3200 2500 3200 2250
-Wire Wire Line
-	2500 2500 4000 2500
-Wire Wire Line
-	4000 2500 4000 2250
-Wire Wire Line
-	4000 1950 4000 1700
-Wire Wire Line
-	3200 1700 3200 1950
-Wire Wire Line
-	3600 2000 3600 2500
-Connection ~ 3600 2500
-Wire Wire Line
-	4000 1700 4450 1700
-Wire Wire Line
-	2500 1700 3200 1700
-Connection ~ 3200 2500
-Wire Wire Line
-	2750 2250 2750 2500
-Connection ~ 2750 2500
-Wire Wire Line
-	2750 1950 2750 1700
-Wire Wire Line
-	2750 1700 2700 1700
-Connection ~ 2700 1700
 $Comp
 L MC34063A U2
 U 1 1 564633D2
@@ -233,10 +190,10 @@ F 3 "" H 7200 4400 30  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R8
+L R R7
 U 1 1 56463951
 P 7200 5350
-F 0 "R8" V 7280 5350 50  0000 C CNN
+F 0 "R7" V 7280 5350 50  0000 C CNN
 F 1 "760 ohm" V 7200 5350 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 7130 5350 30  0001 C CNN
 F 3 "" H 7200 5350 30  0000 C CNN
@@ -265,6 +222,108 @@ F 3 "" H 5750 4700 60  0000 C CNN
 	1    5750 4700
 	-1   0    0    1   
 $EndComp
+$Comp
+L R R3
+U 1 1 5646515D
+P 3650 5650
+F 0 "R3" V 3730 5650 50  0000 C CNN
+F 1 "1k ohm" V 3650 5650 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3580 5650 30  0001 C CNN
+F 3 "" H 3650 5650 30  0000 C CNN
+	1    3650 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L L_Small L1
+U 1 1 564660D5
+P 5650 3950
+F 0 "L1" V 5800 4050 50  0000 L CNN
+F 1 "220uh" V 5800 3700 50  0000 L CNN
+F 2 "Inductors:INDUCTOR_V" H 5650 3950 60  0001 C CNN
+F 3 "" H 5650 3950 60  0000 C CNN
+	1    5650 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L L_Small L2
+U 1 1 56466786
+P 7900 3950
+F 0 "L2" V 8050 4050 50  0000 L CNN
+F 1 "22uh" V 8050 3700 50  0000 L CNN
+F 2 "Inductors:INDUCTOR_V" H 7900 3950 60  0001 C CNN
+F 3 "" H 7900 3950 60  0000 C CNN
+	1    7900 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Q_PNP_ECB Q1
+U 1 1 56466938
+P 5950 5450
+F 0 "Q1" H 6250 5500 50  0000 R CNN
+F 1 "2SB647" H 6550 5400 50  0000 R CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 6150 5550 29  0001 C CNN
+F 3 "" H 5950 5450 60  0000 C CNN
+	1    5950 5450
+	1    0    0    1   
+$EndComp
+$Comp
+L Q_NMOS_GDS Q2
+U 1 1 56466AEF
+P 6400 4700
+F 0 "Q2" H 6700 4750 50  0000 R CNN
+F 1 "2SK2611" H 7050 4650 50  0000 R CNN
+F 2 "TO_SOT_Packages_THT:TO-247_Vertical_Neutral123" H 6600 4800 29  0001 C CNN
+F 3 "" H 6400 4700 60  0000 C CNN
+	1    6400 4700
+	1    0    0    -1  
+$EndComp
+Text HLabel 2550 3950 0    98   Input ~ 0
+12V
+Text HLabel 2500 1700 0    98   Input ~ 0
+12V
+Text HLabel 4450 1700 2    98   Output ~ 0
+5V
+Text HLabel 2550 6000 0    98   Input ~ 0
+GND
+Text HLabel 2500 2500 0    98   Input ~ 0
+GND
+$Comp
+L SMD_7805 U1
+U 1 1 56A86285
+P 3050 1250
+F 0 "U1" H 3400 1350 60  0000 C CNN
+F 1 "SMD_7805" H 3800 1350 60  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:TO-252-2Lead" H 3800 1250 60  0001 C CNN
+F 3 "" H 3800 1250 60  0000 C CNN
+	1    3050 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 2500 3200 2250
+Wire Wire Line
+	2500 2500 4000 2500
+Wire Wire Line
+	4000 2500 4000 2250
+Wire Wire Line
+	4000 1950 4000 1700
+Wire Wire Line
+	3200 1700 3200 1950
+Wire Wire Line
+	3600 2000 3600 2500
+Connection ~ 3600 2500
+Wire Wire Line
+	4000 1700 4450 1700
+Wire Wire Line
+	2500 1700 3200 1700
+Connection ~ 3200 2500
+Wire Wire Line
+	2750 2250 2750 2500
+Connection ~ 2750 2500
+Wire Wire Line
+	2750 1950 2750 1700
+Wire Wire Line
+	2750 1700 2700 1700
+Connection ~ 2700 1700
 Wire Wire Line
 	3550 3950 5550 3950
 Wire Wire Line
@@ -289,10 +348,6 @@ Wire Wire Line
 	5400 3750 2900 3750
 Wire Wire Line
 	2900 3750 2900 4750
-Text HLabel 2550 3950 0    98   Input ~ 0
-12V
-Text HLabel 2550 6000 0    98   Input ~ 0
-GND
 Wire Wire Line
 	2550 3950 3250 3950
 Connection ~ 2900 3950
@@ -303,17 +358,6 @@ Wire Wire Line
 	2550 6000 8200 6000
 Wire Wire Line
 	3900 5250 3900 6000
-$Comp
-L R R3
-U 1 1 5646515D
-P 3650 5650
-F 0 "R3" V 3730 5650 50  0000 C CNN
-F 1 "1k ohm" V 3650 5650 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3580 5650 30  0001 C CNN
-F 3 "" H 3650 5650 30  0000 C CNN
-	1    3650 5650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3350 5400 3350 6000
 Wire Wire Line
@@ -324,51 +368,7 @@ Wire Wire Line
 	3650 4850 3900 4850
 Wire Wire Line
 	3350 5050 3900 5050
-$Comp
-L L_Small L1
-U 1 1 564660D5
-P 5650 3950
-F 0 "L1" V 5800 4050 50  0000 L CNN
-F 1 "220uh" V 5800 3700 50  0000 L CNN
-F 2 "Inductors:INDUCTOR_V" H 5650 3950 60  0001 C CNN
-F 3 "" H 5650 3950 60  0000 C CNN
-	1    5650 3950
-	0    -1   -1   0   
-$EndComp
-$Comp
-L L_Small L2
-U 1 1 56466786
-P 7900 3950
-F 0 "L2" V 8050 4050 50  0000 L CNN
-F 1 "22uh" V 8050 3700 50  0000 L CNN
-F 2 "Inductors:INDUCTOR_V" H 7900 3950 60  0001 C CNN
-F 3 "" H 7900 3950 60  0000 C CNN
-	1    7900 3950
-	0    -1   -1   0   
-$EndComp
 Connection ~ 5250 3950
-$Comp
-L Q_PNP_ECB Q1
-U 1 1 56466938
-P 5950 5450
-F 0 "Q1" H 6250 5500 50  0000 R CNN
-F 1 "2SB647" H 6550 5400 50  0000 R CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 6150 5550 29  0001 C CNN
-F 3 "" H 5950 5450 60  0000 C CNN
-	1    5950 5450
-	1    0    0    1   
-$EndComp
-$Comp
-L Q_NMOS_GDS Q2
-U 1 1 56466AEF
-P 6400 4700
-F 0 "Q2" H 6700 4750 50  0000 R CNN
-F 1 "2SK2611" H 7050 4650 50  0000 R CNN
-F 2 "TO_SOT_Packages_THT:TO-220_Neutral123_PadsOnly" H 6600 4800 29  0001 C CNN
-F 3 "" H 6400 4700 60  0000 C CNN
-	1    6400 4700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5600 4700 5600 5450
 Wire Wire Line
@@ -430,15 +430,11 @@ Wire Wire Line
 	8200 6000 8200 5000
 Connection ~ 7600 6000
 Connection ~ 8200 3950
-$Comp
-L R R7
-U 1 1 56481750
-P 7200 4400
-F 0 "R7" V 7280 4400 50  0000 C CNN
-F 1 "R" V 7200 4400 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 7130 4400 30  0001 C CNN
-F 3 "" H 7200 4400 30  0000 C CNN
-	1    7200 4400
-	1    0    0    -1  
-$EndComp
+Connection ~ 3600 2000
+Wire Wire Line
+	3050 1350 3050 1700
+Connection ~ 3050 1700
+Wire Wire Line
+	4150 1350 4150 1700
+Connection ~ 4150 1700
 $EndSCHEMATC

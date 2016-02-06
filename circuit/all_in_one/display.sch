@@ -34,7 +34,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 6 5
 Title ""
 Date ""
 Rev ""
@@ -539,8 +539,6 @@ Wire Wire Line
 Wire Wire Line
 	3150 5250 3150 4000
 Wire Wire Line
-	3150 4000 10950 4000
-Wire Wire Line
 	5750 4000 5750 5250
 Wire Wire Line
 	5750 5250 5500 5250
@@ -584,68 +582,40 @@ Connection ~ 950  5400
 Connection ~ 950  2850
 Wire Wire Line
 	3600 1750 3600 1200
-Text HLabel 3650 1200 2    60   Input ~ 0
-Anode_2
 Wire Wire Line
 	3600 1200 3650 1200
 Wire Wire Line
 	1000 1750 1000 1200
-Text HLabel 1050 1200 2    60   Input ~ 0
-Anode_1
 Wire Wire Line
 	1000 1200 1050 1200
 Wire Wire Line
 	6200 1750 6200 1200
-Text HLabel 6250 1200 2    60   Input ~ 0
-Anode_3
 Wire Wire Line
 	6200 1200 6250 1200
 Wire Wire Line
 	8800 1750 8800 1200
-Text HLabel 8850 1200 2    60   Input ~ 0
-Anode_4
 Wire Wire Line
 	8800 1200 8850 1200
 Wire Wire Line
 	1000 4500 1000 3950
-Text HLabel 1050 3950 2    60   Input ~ 0
-Anode_5
 Wire Wire Line
 	1000 3950 1050 3950
 Wire Wire Line
 	3600 4500 3600 3950
-Text HLabel 3650 3950 2    60   Input ~ 0
-Anode_6
 Wire Wire Line
 	3600 3950 3650 3950
 Wire Wire Line
 	6200 4500 6200 3950
-Text HLabel 6250 3950 2    60   Input ~ 0
-Anode_7
 Wire Wire Line
 	6200 3950 6250 3950
 Wire Wire Line
 	8800 4500 8800 3950
-Text HLabel 8850 3950 2    60   Input ~ 0
-Anode_8
 Wire Wire Line
 	8800 3950 8850 3950
-Text HLabel 3650 3200 2    60   Input ~ 0
-Cathode_4
-Text HLabel 3650 3300 2    60   Input ~ 0
-Cathode_3
 Wire Wire Line
 	3600 3200 3650 3200
 Wire Wire Line
 	3550 3300 3650 3300
-Text HLabel 3650 3400 2    60   Input ~ 0
-Cathode_2
-Text HLabel 3650 3500 2    60   Input ~ 0
-Cathode_1
-Text HLabel 3650 3600 2    60   Input ~ 0
-Cathode_Comma_Right
-Text HLabel 3650 3700 2    60   Input ~ 0
-Cathode_Comma_Left
 Wire Wire Line
 	3500 3400 3650 3400
 Wire Wire Line
@@ -654,18 +624,6 @@ Wire Wire Line
 	3400 3600 3650 3600
 Wire Wire Line
 	3350 3700 3650 3700
-Text HLabel 8050 3900 0    60   Input ~ 0
-Cathode_5
-Text HLabel 8050 3800 0    60   Input ~ 0
-Cathode_6
-Text HLabel 8050 3700 0    60   Input ~ 0
-Cathode_7
-Text HLabel 8050 3600 0    60   Input ~ 0
-Cathode_8
-Text HLabel 8050 3500 0    60   Input ~ 0
-Cathode_9
-Text HLabel 8050 3400 0    60   Input ~ 0
-Cathode_0
 Wire Wire Line
 	8100 3900 8050 3900
 Wire Wire Line
@@ -680,4 +638,108 @@ Wire Wire Line
 	8350 3400 8050 3400
 Wire Wire Line
 	700  3100 8550 3100
+Text GLabel 1050 1200 2    60   UnSpc ~ 0
+anode1
+Text GLabel 3650 1200 2    60   UnSpc ~ 0
+anode2
+Text GLabel 6250 1200 2    60   UnSpc ~ 0
+anode3
+Text GLabel 8850 1200 2    60   UnSpc ~ 0
+anode4
+Text GLabel 1050 3950 2    60   UnSpc ~ 0
+anode5
+Text GLabel 3650 3950 2    60   UnSpc ~ 0
+anode6
+Text GLabel 6250 3950 2    60   UnSpc ~ 0
+anode7
+Text GLabel 8850 3950 2    60   UnSpc ~ 0
+anode8
+Wire Wire Line
+	3150 4000 10950 4000
+$Comp
+L CONN_01X08 P5
+U 1 1 56A3C4CF
+P 1100 6700
+F 0 "P5" H 1100 7150 50  0000 C CNN
+F 1 "CONN_01X08" V 1200 6700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08" H 1100 6700 50  0001 C CNN
+F 3 "" H 1100 6700 50  0000 C CNN
+	1    1100 6700
+	-1   0    0    1   
+$EndComp
+Text GLabel 1300 6350 2    55   UnSpc ~ 0
+anode1
+Text GLabel 1300 6450 2    55   UnSpc ~ 0
+anode2
+Text GLabel 1300 6550 2    55   UnSpc ~ 0
+anode3
+Text GLabel 1300 6650 2    55   UnSpc ~ 0
+anode4
+Text GLabel 1300 6750 2    55   UnSpc ~ 0
+anode5
+Text GLabel 1300 6850 2    55   UnSpc ~ 0
+anode6
+Text GLabel 1300 6950 2    55   UnSpc ~ 0
+anode7
+Text GLabel 1300 7050 2    55   UnSpc ~ 0
+anode8
+Text GLabel 8050 3400 0    60   UnSpc ~ 0
+cathode0
+Text GLabel 8050 3500 0    60   UnSpc ~ 0
+cathode9
+Text GLabel 8050 3600 0    60   UnSpc ~ 0
+cathode8
+Text GLabel 8050 3700 0    60   UnSpc ~ 0
+cathode7
+Text GLabel 8050 3800 0    60   UnSpc ~ 0
+cathode6
+Text GLabel 8050 3900 0    60   UnSpc ~ 0
+cathode5
+Text GLabel 3650 3200 2    60   UnSpc ~ 0
+cathode4
+Text GLabel 3650 3300 2    60   UnSpc ~ 0
+cathode3
+Text GLabel 3650 3400 2    60   UnSpc ~ 0
+cathode2
+Text GLabel 3650 3500 2    60   UnSpc ~ 0
+cathode1
+Text GLabel 3650 3600 2    60   UnSpc ~ 0
+cathode_comma_right
+Text GLabel 3650 3700 2    60   UnSpc ~ 0
+cathode_comma_left
+$Comp
+L CONN_01X12 P6
+U 1 1 56A3E427
+P 1950 6700
+F 0 "P6" H 1950 7350 50  0000 C CNN
+F 1 "CONN_01X12" V 2050 6700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x12" H 1950 6700 50  0001 C CNN
+F 3 "" H 1950 6700 50  0000 C CNN
+	1    1950 6700
+	-1   0    0    1   
+$EndComp
+Text GLabel 2150 7250 2    60   UnSpc ~ 0
+cathode0
+Text GLabel 2150 7150 2    60   UnSpc ~ 0
+cathode9
+Text GLabel 2150 7050 2    60   UnSpc ~ 0
+cathode8
+Text GLabel 2150 6950 2    60   UnSpc ~ 0
+cathode7
+Text GLabel 2150 6850 2    60   UnSpc ~ 0
+cathode6
+Text GLabel 2150 6750 2    60   UnSpc ~ 0
+cathode5
+Text GLabel 2150 6650 2    60   UnSpc ~ 0
+cathode4
+Text GLabel 2150 6550 2    60   UnSpc ~ 0
+cathode3
+Text GLabel 2150 6450 2    60   UnSpc ~ 0
+cathode2
+Text GLabel 2150 6350 2    60   UnSpc ~ 0
+cathode1
+Text GLabel 2150 6250 2    60   UnSpc ~ 0
+cathode_comma_left
+Text GLabel 2150 6150 2    60   UnSpc ~ 0
+cathode_comma_right
 $EndSCHEMATC
