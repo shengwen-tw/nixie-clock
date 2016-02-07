@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board.sch)
-    (date "2016年02月06日 (週六) 14時24分10秒")
+    (date "2016年02月07日 (週日) 13時07分01秒")
     (tool "Eeschema 4.0.1-3.201512221402+6198~38~ubuntu14.04.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -391,7 +391,7 @@
       (tstamp 5647DAEC))
     (comp (ref BT1)
       (value CR1220)
-      (footprint Connect:CR2032H)
+      (footprint cr1220_smd:cr1220smd)
       (libsource (lib device) (part Battery))
       (sheetpath (names /RTC/) (tstamps /5646A754/))
       (tstamp 5647DBD2))
@@ -856,10 +856,10 @@
         (pin (num 7) (name E) (type input))
         (pin (num 8) (name C) (type input)))))
   (libraries
-    (library (logical nixie_control_board-cache)
-      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board-cache.lib))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
+    (library (logical nixie_control_board-cache)
+      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board-cache.lib))
     (library (logical costom)
       (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/costom.lib))
     (library (logical atmel)
