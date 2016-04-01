@@ -51,7 +51,7 @@ L C C1
 U 1 1 56462C7B
 P 2750 2100
 F 0 "C1" H 2775 2200 50  0000 L CNN
-F 1 "100uf" H 2775 2000 50  0000 L CNN
+F 1 "100uf/16v" H 2775 2000 50  0000 L CNN
 F 2 "Capacitors_Tantalum_SMD:TantalC_SizeC_EIA-6032_HandSoldering" H 2788 1950 30  0001 C CNN
 F 3 "" H 2750 2100 60  0000 C CNN
 	1    2750 2100
@@ -95,7 +95,7 @@ L C C4
 U 1 1 5646359C
 P 3350 5250
 F 0 "C4" H 3375 5350 50  0000 L CNN
-F 1 "1500pf" H 3375 5150 50  0000 L CNN
+F 1 "1000pf" H 3375 5150 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3388 5100 30  0001 C CNN
 F 3 "" H 3350 5250 60  0000 C CNN
 	1    3350 5250
@@ -107,7 +107,7 @@ U 1 1 56463665
 P 3400 3950
 F 0 "R1" V 3480 3950 50  0000 C CNN
 F 1 "0.5ohm" V 3400 3950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3330 3950 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3330 3950 30  0001 C CNN
 F 3 "" H 3400 3950 30  0000 C CNN
 	1    3400 3950
 	0    -1   -1   0   
@@ -118,7 +118,7 @@ U 1 1 564636F4
 P 3400 4150
 F 0 "R2" V 3480 4150 50  0000 C CNN
 F 1 "0.5ohm" V 3400 4150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3330 4150 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3330 4150 30  0001 C CNN
 F 3 "" H 3400 4150 30  0000 C CNN
 	1    3400 4150
 	0    -1   -1   0   
@@ -129,7 +129,7 @@ U 1 1 56463737
 P 3900 4100
 F 0 "R4" V 3980 4100 50  0000 C CNN
 F 1 "1k ohm" V 3900 4100 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3830 4100 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3830 4100 30  0001 C CNN
 F 3 "" H 3900 4100 30  0000 C CNN
 	1    3900 4100
 	1    0    0    -1  
@@ -140,7 +140,7 @@ U 1 1 56463766
 P 5050 4100
 F 0 "R5" V 5130 4100 50  0000 C CNN
 F 1 "620ohm" V 5050 4100 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 4980 4100 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 4980 4100 30  0001 C CNN
 F 3 "" H 5050 4100 30  0000 C CNN
 	1    5050 4100
 	1    0    0    -1  
@@ -148,12 +148,12 @@ $EndComp
 $Comp
 L CP1 C2
 U 1 1 564637A1
-P 2900 4900
-F 0 "C2" H 2925 5000 50  0000 L CNN
-F 1 "100uf/16v" H 2925 4800 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:TantalC_SizeC_EIA-6032_HandSoldering" H 2900 4900 60  0001 C CNN
-F 3 "" H 2900 4900 60  0000 C CNN
-	1    2900 4900
+P 2550 4900
+F 0 "C2" H 2575 5000 50  0000 L CNN
+F 1 "100uf/16v" H 2575 4800 50  0000 L CNN
+F 2 "Capacitors_Tantalum_SMD:TantalC_SizeC_EIA-6032_HandSoldering" H 2550 4900 60  0001 C CNN
+F 3 "" H 2550 4900 60  0000 C CNN
+	1    2550 4900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -184,7 +184,7 @@ U 1 1 56463908
 P 7200 4400
 F 0 "R6" V 7280 4400 50  0000 C CNN
 F 1 "100k ohm" V 7200 4400 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 7130 4400 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 7130 4400 30  0001 C CNN
 F 3 "" H 7200 4400 30  0000 C CNN
 	1    7200 4400
 	1    0    0    -1  
@@ -195,7 +195,7 @@ U 1 1 56463951
 P 7200 5350
 F 0 "R7" V 7280 5350 50  0000 C CNN
 F 1 "760 ohm" V 7200 5350 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 7130 5350 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 7130 5350 30  0001 C CNN
 F 3 "" H 7200 5350 30  0000 C CNN
 	1    7200 5350
 	1    0    0    -1  
@@ -228,7 +228,7 @@ U 1 1 5646515D
 P 3650 5650
 F 0 "R3" V 3730 5650 50  0000 C CNN
 F 1 "1k ohm" V 3650 5650 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 3580 5650 30  0001 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3580 5650 30  0001 C CNN
 F 3 "" H 3650 5650 30  0000 C CNN
 	1    3650 5650
 	1    0    0    -1  
@@ -277,13 +277,13 @@ F 3 "" H 6400 4700 60  0000 C CNN
 	1    6400 4700
 	1    0    0    -1  
 $EndComp
-Text HLabel 2550 3950 0    98   Input ~ 0
+Text HLabel 2300 3950 0    98   Input ~ 0
 12V
 Text HLabel 2500 1700 0    98   Input ~ 0
 12V
 Text HLabel 4450 1700 2    98   Output ~ 0
 5V
-Text HLabel 2550 6000 0    98   Input ~ 0
+Text HLabel 2300 6000 0    98   Input ~ 0
 GND
 Text HLabel 2500 2500 0    98   Input ~ 0
 GND
@@ -345,17 +345,11 @@ Wire Wire Line
 Wire Wire Line
 	5400 5050 5400 3750
 Wire Wire Line
-	5400 3750 2900 3750
+	5400 3750 2550 3750
 Wire Wire Line
-	2900 3750 2900 4750
+	2300 3950 3250 3950
 Wire Wire Line
-	2550 3950 3250 3950
-Connection ~ 2900 3950
-Wire Wire Line
-	2900 5050 2900 6000
-Connection ~ 2900 6000
-Wire Wire Line
-	2550 6000 8200 6000
+	2300 6000 8200 6000
 Wire Wire Line
 	3900 5250 3900 6000
 Wire Wire Line
@@ -367,7 +361,7 @@ Wire Wire Line
 Wire Wire Line
 	3650 4850 3900 4850
 Wire Wire Line
-	3350 5050 3900 5050
+	3000 5050 3900 5050
 Connection ~ 5250 3950
 Wire Wire Line
 	5600 4700 5600 5450
@@ -437,4 +431,40 @@ Connection ~ 3050 1700
 Wire Wire Line
 	4150 1350 4150 1700
 Connection ~ 4150 1700
+Wire Wire Line
+	2550 3750 2550 4750
+Connection ~ 2550 3950
+Wire Wire Line
+	2550 5050 2550 6000
+Connection ~ 2550 6000
+$Comp
+L C C11
+U 1 1 56FE36ED
+P 3000 5250
+F 0 "C11" H 3025 5350 50  0000 L CNN
+F 1 "1000pf" H 3025 5150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3038 5100 30  0001 C CNN
+F 3 "" H 3000 5250 60  0000 C CNN
+	1    3000 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C12
+U 1 1 56FE375C
+P 3000 5700
+F 0 "C12" H 3025 5800 50  0000 L CNN
+F 1 "1000pf" H 3025 5600 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3038 5550 30  0001 C CNN
+F 3 "" H 3000 5700 60  0000 C CNN
+	1    3000 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 5100 3000 5050
+Connection ~ 3350 5050
+Wire Wire Line
+	3000 5400 3000 5550
+Wire Wire Line
+	3000 5850 3000 6000
+Connection ~ 3000 6000
 $EndSCHEMATC
