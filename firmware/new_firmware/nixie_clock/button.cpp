@@ -14,8 +14,7 @@ void button_status_check()
     mode_button_trigger = 1;
    
   if(digitalRead(pin_mode_button) == LOW && mode_button_trigger == 1) {
-    clock_mode++;
-    clock_mode %= MODE_COUNT;
+    clock_mode = (clock_mode + 1 ) % MODE_COUNT;
       
     mode_button_trigger = 0;
   }

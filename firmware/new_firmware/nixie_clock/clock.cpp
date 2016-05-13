@@ -14,7 +14,6 @@ void clock_display()
 {
   int tube_index;
   for(tube_index = 0; tube_index < 8; tube_index++) {
-
     RTC_read_time(&time);
 
     tube_digit_sort(tube, &time, clock_mode);
@@ -30,13 +29,13 @@ void clock_display()
       }
     } else if(clock_mode == DATE_MODE) {
       /* Light the right dot of tube 2 and 4 */
-      if(tube_index == 2 || tube_index == 4) { 
+      if(tube_index == 2 || tube_index == 4) {
         digitalWrite(pin_font_right_dot, HIGH);
       } else {
         digitalWrite(pin_font_right_dot, LOW);
       }
     }
-  
-    delay(1);
+    
+    delayMicroseconds(500);
   }
 }
