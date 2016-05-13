@@ -2,6 +2,8 @@
 #include <Time.h>
 #include <DS1307RTC.h>
 #include <EEPROM.h>
+#include <SoftwareSerial.h>
+#include <DFPlayer_Mini_Mp3.h>
 
 #include "pindef.h" 
 #include "tube_control.h"
@@ -9,11 +11,23 @@
 #include "clock.h"
 #include "button.h"
 #include "alarm.h"
+#include "mp3.h"
+
+SoftwareSerial mp3_serial(mp3_rx, mp3_tx);
+
+void play_music(int index)
+{
+  mp3_play(index);
+}
 
 void setup()
 {
   Serial.begin(9600);
-  
+  mp3_serial.begin(9600);
+  mp3_set_serial(mp3_serial);
+
+  read_alarm_setting();
+
   pinMode(pin_font_a, OUTPUT);
   pinMode(pin_font_b, OUTPUT);
   pinMode(pin_font_c, OUTPUT);
@@ -32,8 +46,6 @@ void setup()
   pinMode(pin_mode_button, INPUT);
   
   RTC_init();
-  
-  read_alarm_setting();
 }
 
 

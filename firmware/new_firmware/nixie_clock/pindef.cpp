@@ -14,3 +14,6 @@ int pin_brightness = 9;
 
 //Buttons
 int pin_search_button = 4, pin_adjust_button = 3, pin_mode_button = 2;
+
+//MP3
+int mp3_rx = A3, mp3_tx = A2;

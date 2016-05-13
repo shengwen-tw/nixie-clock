@@ -24,4 +24,6 @@ void read_alarm_setting();
 void add_new_alarm_setting(int _hour, int _minute, int song);
 void set_alarm_setting(int index, int _hour, int _minute, int song);
 
+void print_alarm_setting(int index);
+
 #endif

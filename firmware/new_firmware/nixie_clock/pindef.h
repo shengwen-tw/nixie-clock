@@ -14,4 +14,7 @@ extern int pin_brightness;
 //Buttons
 extern int pin_search_button, pin_adjust_button, pin_mode_button;
 
+//MP3
+extern int mp3_rx, mp3_tx;
+
 #endif

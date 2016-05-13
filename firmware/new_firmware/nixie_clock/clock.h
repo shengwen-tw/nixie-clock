@@ -9,5 +9,6 @@ enum{
 };
 
 void clock_display();
+void mp3_init();
 
 #endif

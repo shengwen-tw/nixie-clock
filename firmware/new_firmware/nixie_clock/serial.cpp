@@ -6,6 +6,7 @@
 static void parse_time_setting_command(char *command);
 static void parse_add_alarm_command(char *command);
 static void parse_set_alarm_command(char *command);
+static void parse_print_alarm_setting(char *command);
 
 void my_printf(const char *fmt, ...)
 {
@@ -24,6 +25,8 @@ void serial_read(char *buff, int count)
       buff[i] = Serial.read();
       Serial.print(buff[i]);
     }
+    
+    Serial.println("");
 }
 
 void serialEvent()
@@ -39,10 +42,16 @@ void serialEvent()
   
   } else if(command == '#') {
     serial_read(buff, 8); //#07250001 (hour 7, minute 25, song 0001)
-  
+    parse_add_alarm_command(buff);
+    
   } else if(command == '$') {
     serial_read(buff, 10); //#0307250001 (item 3, hour 7, minute 25, song 0001)
-    
+    parse_set_alarm_command(buff);
+
+  } else if(command == '&') {
+    serial_read(buff, 2);
+    parse_print_alarm_setting(buff);
+
   } else {
     my_printf("error:UNKNOWN_COMMAND\n");
     print_time();
@@ -66,12 +75,13 @@ static void parse_time_setting_command(char *command)
 }
 
 static void parse_add_alarm_command(char *command)
-{
+{//07250001
   int hour = command[0] * 10 + command[1];
   int minute = command[2] * 10 + command[3];
   int song = command[4] * 1000 + command[5] * 100 + command[6] * 10 + command[7];
   
-  add_new_alarm_setting(hour, minute, song);
+  add_new_alarm_setting(7, 25, 1);
+  //  add_new_alarm_setting(hour, minute, song);
 }
 
 static void parse_set_alarm_command(char *command)
@@ -82,4 +92,11 @@ static void parse_set_alarm_command(char *command)
   int song = command[6] * 1000 + command[7] * 100 + command[8] * 10 + command[9];
   
   set_alarm_setting(index, hour, minute, song);
+}
+
+static void parse_print_alarm_setting(char *command)
+{
+  int index = command[0] * 10 + command[1];
+  
+  print_alarm_setting(index);
 }
