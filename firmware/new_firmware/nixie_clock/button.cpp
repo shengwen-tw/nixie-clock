@@ -3,7 +3,6 @@
 #include "pindef.h"
 #include "clock.h"
 
-
 extern int clock_mode;
 
 int mode_button_trigger = 0;

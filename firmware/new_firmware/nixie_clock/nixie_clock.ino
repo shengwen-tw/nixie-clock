@@ -1,12 +1,14 @@
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
+#include <EEPROM.h>
 
 #include "pindef.h" 
 #include "tube_control.h"
 #include "RTC.h"
 #include "clock.h"
 #include "button.h"
+#include "alarm.h"
 
 void setup()
 {
@@ -30,6 +32,8 @@ void setup()
   pinMode(pin_mode_button, INPUT);
   
   RTC_init();
+  
+  read_alarm_setting();
 }
 
 

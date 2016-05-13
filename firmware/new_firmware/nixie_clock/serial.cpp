@@ -1,24 +1,52 @@
 #include <Arduino.h>
 
 #include "RTC.h"
+#include "alarm.h"
 
 static void parse_time_setting_command(char *command);
+static void parse_add_alarm_command(char *command);
+static void parse_set_alarm_command(char *command);
+
+void my_printf(const char *fmt, ...)
+{
+    char tmp[128]; // resulting string limited to 128 chars
+    va_list args;
+    va_start (args, fmt );
+    vsnprintf(tmp, 128, fmt, args);
+    va_end (args);
+    Serial.print(tmp);
+}
+
+void serial_read(char *buff, int count)
+{
+    for(int i = 0; i < count; i++) {
+      while(Serial.available() == 0);
+      buff[i] = Serial.read();
+      Serial.print(buff[i]);
+    }
+}
 
 void serialEvent()
 {
   char buff[14] = {0};
   
+  char command = Serial.read();
+  
   //Wait for start byte
-  if(Serial.read() == '@') {
-    int i;
-    for(i = 0; i < 14; i++) {
-      while(Serial.available() == 0);
-      buff[i] = Serial.read();
-      Serial.print(buff[i]);
-    }
-    
+  if(command == '@') {
+    serial_read(buff, 14); //@20160512112800
     parse_time_setting_command(buff);
-  }else {print_time();}
+  
+  } else if(command == '#') {
+    serial_read(buff, 8); //#07250001 (hour 7, minute 25, song 0001)
+  
+  } else if(command == '$') {
+    serial_read(buff, 10); //#0307250001 (item 3, hour 7, minute 25, song 0001)
+    
+  } else {
+    my_printf("error:UNKNOWN_COMMAND\n");
+    print_time();
+  }
 }
 
 static void parse_time_setting_command(char *command)
@@ -35,4 +63,23 @@ static void parse_time_setting_command(char *command)
   int second = command[12] * 10 + command[13];
   
   RTC_set_time(year, month, day, hour, minute, second);
+}
+
+static void parse_add_alarm_command(char *command)
+{
+  int hour = command[0] * 10 + command[1];
+  int minute = command[2] * 10 + command[3];
+  int song = command[4] * 1000 + command[5] * 100 + command[6] * 10 + command[7];
+  
+  add_new_alarm_setting(hour, minute, song);
+}
+
+static void parse_set_alarm_command(char *command)
+{
+  int index = command[0] * 10 + command[1];
+  int hour = command[2] * 10 + command[3];
+  int minute = command[4] * 10 + command[5];
+  int song = command[6] * 1000 + command[7] * 100 + command[8] * 10 + command[9];
+  
+  set_alarm_setting(index, hour, minute, song);
 }
