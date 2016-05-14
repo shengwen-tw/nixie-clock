@@ -60,9 +60,9 @@ void serialEvent()
 
 static void parse_time_setting_command(char *command)
 {
-  int i;
-  for(i = 0; i < 14; i++)
+  for(int i = 0; i < 14; i++) {
     command[i] = command[i] - '0';
+  }
   
   int year = command[0] * 1000 + command[1] * 100 + command[2] * 10 + command[3];
   int month = command[4] * 10 + command[5];
@@ -75,17 +75,26 @@ static void parse_time_setting_command(char *command)
 }
 
 static void parse_add_alarm_command(char *command)
-{//07250001
+{
+  for(int i = 0; i < 8; i++) {
+    command[i] = command[i] - '0';
+  }
+  
   int hour = command[0] * 10 + command[1];
   int minute = command[2] * 10 + command[3];
   int song = command[4] * 1000 + command[5] * 100 + command[6] * 10 + command[7];
   
-  add_new_alarm_setting(7, 25, 1);
-  //  add_new_alarm_setting(hour, minute, song);
+  my_printf("%d:%d -> %d\n", hour, minute, song);
+  
+  add_new_alarm_setting(hour, minute, song);
 }
 
 static void parse_set_alarm_command(char *command)
 {
+  for(int i = 0; i < 10; i++) {
+    command[i] = command[i] - '0';
+  }
+  
   int index = command[0] * 10 + command[1];
   int hour = command[2] * 10 + command[3];
   int minute = command[4] * 10 + command[5];
@@ -96,6 +105,10 @@ static void parse_set_alarm_command(char *command)
 
 static void parse_print_alarm_setting(char *command)
 {
+  for(int i = 0; i < 2; i++) {
+    command[i] = command[i] - '0';
+  }
+  
   int index = command[0] * 10 + command[1];
   
   print_alarm_setting(index);

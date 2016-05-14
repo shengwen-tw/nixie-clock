@@ -14,6 +14,7 @@
 #include "mp3.h"
 
 SoftwareSerial mp3_serial(mp3_rx, mp3_tx);
+rtc_time_t time; //DS1307 time data
 
 void play_music(int index)
 {
@@ -51,7 +52,11 @@ void setup()
 
 void loop()
 { 
-  clock_display();
+  RTC_read_time(&time);
+  
+  clock_display(&time);
+  
+  check_alarm(&time);
   
   button_status_check();
 }
