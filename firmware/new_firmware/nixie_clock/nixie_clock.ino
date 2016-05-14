@@ -3,7 +3,6 @@
 #include <DS1307RTC.h>
 #include <EEPROM.h>
 #include <SoftwareSerial.h>
-#include <DFPlayer_Mini_Mp3.h>
 
 #include "pindef.h" 
 #include "tube_control.h"
@@ -13,19 +12,13 @@
 #include "alarm.h"
 #include "mp3.h"
 
-SoftwareSerial mp3_serial(mp3_rx, mp3_tx);
 rtc_time_t time; //DS1307 time data
-
-void play_music(int index)
-{
-  mp3_play(index);
-}
 
 void setup()
 {
   Serial.begin(9600);
-  mp3_serial.begin(9600);
-  mp3_set_serial(mp3_serial);
+
+  mp3_init();
 
   read_alarm_setting();
 

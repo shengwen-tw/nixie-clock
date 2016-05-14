@@ -4,6 +4,7 @@
 #include "RTC.h"
 #include "alarm.h"
 #include "serial.h"
+#include "mp3.h"
 
 alarm_time_t alarm_time[ALARM_SETTING_MAX] = {0};
 int alarm_setting_count = 0;
@@ -201,6 +202,7 @@ void check_alarm(rtc_time_t *current_time)
         alarm_time[i].timeup = 1;
         
         //TODO:Play music & blink
+        play_music(alarm_time[i].song);
       }
     }
   }
@@ -223,6 +225,8 @@ void clear_alarm_timeup_state()
     if(alarm_time[i].timeup == 1) {
       alarm_time[i].timeup = 0;
       alarm_time[i].off = 1;
+
+      stop_music();
     }
   }
 }

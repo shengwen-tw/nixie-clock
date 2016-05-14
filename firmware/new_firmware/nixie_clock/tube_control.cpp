@@ -75,3 +75,23 @@ void tube_digit_sort(int tube_font[8], rtc_time_t *time, int clock_mode)
       break;
   }
 }
+
+void sort_tube_digit_for_music(int tube_font[8], int song)
+{
+  tube_font[7] = 0;
+  tube_font[6] = 0;
+  tube_font[5] = 0;
+  tube_font[4] = 0;
+  
+  tube_font[3] = song / 1000;
+  song %= 1000;
+  
+  tube_font[2] = song / 100;
+  song %= 100;
+  
+  tube_font[1] = song / 10;
+  song %= 10;
+
+  tube_font[0] = song;
+}
+
