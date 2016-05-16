@@ -3,6 +3,8 @@
 
 #include "RTC.h"
 
+extern int clock_mode;
+
 enum{
   TIME_MODE,
   DATE_MODE,

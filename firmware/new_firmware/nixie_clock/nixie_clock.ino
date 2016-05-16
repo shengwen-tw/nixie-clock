@@ -18,9 +18,8 @@ void setup()
 {
   Serial.begin(9600);
 
-  mp3_init();
-
   read_alarm_setting();
+  mp3_init();
 
   pinMode(pin_font_a, OUTPUT);
   pinMode(pin_font_b, OUTPUT);
@@ -35,7 +34,7 @@ void setup()
   pinMode(pin_tube_select_a2, OUTPUT);
   pinMode(pin_tube_select_a3, OUTPUT);
   
-  pinMode(pin_search_button, INPUT);
+  pinMode(pin_play_button, INPUT);
   pinMode(pin_adjust_button, INPUT);
   pinMode(pin_mode_button, INPUT);
   
@@ -44,7 +43,7 @@ void setup()
 
 
 void loop()
-{ 
+{
   RTC_read_time(&time);
   
   clock_display(&time);

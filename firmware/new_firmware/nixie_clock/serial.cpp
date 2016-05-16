@@ -41,11 +41,11 @@ void serialEvent()
     parse_time_setting_command(buff);
   
   } else if(command == '#') {
-    serial_read(buff, 8); //#07250001 (hour 7, minute 25, song 0001)
+    serial_read(buff, 11); //#07250001151 (hour 7, minute 25, song 0001, volume 15, alarm 1)
     parse_add_alarm_command(buff);
     
   } else if(command == '$') {
-    serial_read(buff, 10); //#0307250001 (item 3, hour 7, minute 25, song 0001)
+    serial_read(buff, 13); //#030725000115 (item 3, hour 7, minute 25, song 0001, volume 15, alarm 1)
     parse_set_alarm_command(buff);
 
   } else if(command == '&') {
@@ -53,8 +53,8 @@ void serialEvent()
     parse_print_alarm_setting(buff);
 
   } else {
-    my_printf("error:UNKNOWN_COMMAND\n");
-    print_time();
+    //my_printf("error:UNKNOWN_COMMAND\n");
+    //print_time();
   }
 }
 
@@ -70,28 +70,30 @@ static void parse_time_setting_command(char *command)
   int hour = command[8] * 10 + command[9];
   int minute = command[10] * 10 + command[11];
   int second = command[12] * 10 + command[13];
-  
+
   RTC_set_time(year, month, day, hour, minute, second);
 }
 
 static void parse_add_alarm_command(char *command)
 {
-  for(int i = 0; i < 8; i++) {
+  for(int i = 0; i < 11; i++) {
     command[i] = command[i] - '0';
   }
   
   int hour = command[0] * 10 + command[1];
   int minute = command[2] * 10 + command[3];
   int song = command[4] * 1000 + command[5] * 100 + command[6] * 10 + command[7];
+  int volume = command[8] * 10 + command[9];
+  int alarm_on = command[10];
   
-  my_printf("%d:%d -> %d\n", hour, minute, song);
+  my_printf("%d:%d -> song:%d volume:%d\n", hour, minute, song, volume);
   
-  add_new_alarm_setting(hour, minute, song);
+  add_new_alarm_setting(hour, minute, song, volume, alarm_on);
 }
 
 static void parse_set_alarm_command(char *command)
 {
-  for(int i = 0; i < 10; i++) {
+  for(int i = 0; i < 13; i++) {
     command[i] = command[i] - '0';
   }
   
@@ -99,8 +101,10 @@ static void parse_set_alarm_command(char *command)
   int hour = command[2] * 10 + command[3];
   int minute = command[4] * 10 + command[5];
   int song = command[6] * 1000 + command[7] * 100 + command[8] * 10 + command[9];
+  int volume = command[10] * 10 + command[11];
+  int alarm_on = command[12];
   
-  set_alarm_setting(index, hour, minute, song);
+  set_alarm_setting(index, hour, minute, song, volume, alarm_on);
 }
 
 static void parse_print_alarm_setting(char *command)
