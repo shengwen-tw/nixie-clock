@@ -4,4 +4,6 @@
   (lib (name cr1220_smd)(type KiCad)(uri "$(KIPRJMOD)/cr1220_smd.pretty")(options "")(descr ""))
   (lib (name SMD_PIN_2_BY_4)(type KiCad)(uri "$(KIPRJMOD)/SMD_PIN_2_BY_4.pretty")(options "")(descr ""))
   (lib (name SMD_PIN_2_BY_6)(type KiCad)(uri "$(KIPRJMOD)/SMD_PIN_2_BY_6.pretty")(options "")(descr ""))
+  (lib (name SMD_PIN_2_BY_3)(type KiCad)(uri "$(KIPRJMOD)/SMD_PIN_2_BY_3.pretty")(options "")(descr ""))
+  (lib (name warning)(type KiCad)(uri "$(KIPRJMOD)/warning.pretty")(options "")(descr ""))
 )
