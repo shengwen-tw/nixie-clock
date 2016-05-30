@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/shengwen/workspace/project/nixie-clock/circuit/nixie_tube_board/nixie_control_board.sch)
-    (date "Thu 19 May 2016 10:48:51 AM CST")
+    (date "Mon 30 May 2016 11:49:11 PM CST")
     (tool "Eeschema 4.0.2-4+6225~38~ubuntu14.04.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -197,12 +197,12 @@
         (pin (num 1) (name 1) (type passive))
         (pin (num 2) (name 2) (type passive)))))
   (libraries
+    (library (logical device)
+      (uri /usr/share/kicad/library/device.lib))
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
     (library (logical nixie_control_board-cache)
-      (uri /home/shengwen/workspace/project/nixie-clock/circuit/nixie_tube_board/nixie_control_board-cache.lib))
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib)))
+      (uri /home/shengwen/workspace/project/nixie-clock/circuit/nixie_tube_board/nixie_control_board-cache.lib)))
   (nets
     (net (code 1) (name anode7)
       (node (ref U15) (pin 1))

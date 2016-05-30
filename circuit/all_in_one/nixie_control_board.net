@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board.sch)
-    (date "Mon 30 May 2016 03:54:02 PM CST")
+    (date "Mon 30 May 2016 11:50:01 PM CST")
     (tool "Eeschema 4.0.2-4+6225~38~ubuntu14.04.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -839,16 +839,16 @@
         (pin (num 7) (name E) (type input))
         (pin (num 8) (name C) (type input)))))
   (libraries
+    (library (logical atmel)
+      (uri /usr/share/kicad/library/atmel.lib))
+    (library (logical costom)
+      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/costom.lib))
+    (library (logical nixie_control_board-cache)
+      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board-cache.lib))
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
     (library (logical device)
       (uri /usr/share/kicad/library/device.lib))
-    (library (logical atmel)
-      (uri /usr/share/kicad/library/atmel.lib))
-    (library (logical nixie_control_board-cache)
-      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/nixie_control_board-cache.lib))
-    (library (logical costom)
-      (uri /home/shengwen/workspace/project/nixie-clock/circuit/all_in_one/costom.lib))
     (library (logical regul)
       (uri /usr/share/kicad/library/regul.lib)))
   (nets
