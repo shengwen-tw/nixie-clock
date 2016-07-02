@@ -28,14 +28,19 @@ void RTC_read_time(rtc_time_t *time)
 {
   tmElements_t tm;
   
-  RTC.read(tm);
-  
-  time->year = tm.Year + 1970;
-  time->month = tm.Month;
-  time->day = tm.Day;
-  time->hour = tm.Hour;
-  time->minute = tm.Minute;
-  time->second = tm.Second;
+  if(RTC.read(tm)) {
+    time->year = tm.Year + 1970;
+    time->month = tm.Month;
+    time->day = tm.Day;
+    time->hour = tm.Hour;
+    time->minute = tm.Minute;
+    time->second = tm.Second;
+  } else {
+    if (RTC.chipPresent()) {
+    } else {
+      Serial.println("DS1307 failed");
+    }
+  }
 }
 
 void print_time()
