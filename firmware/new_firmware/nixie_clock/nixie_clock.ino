@@ -1,3 +1,5 @@
+#include <avr/io.h>
+#include <avr/wdt.h>
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
@@ -37,10 +39,11 @@ void setup()
   pinMode(pin_play_button, INPUT);
   pinMode(pin_adjust_button, INPUT);
   pinMode(pin_mode_button, INPUT);
+
+  wdt_enable(WDTO_30MS);
   
   RTC_init();
 }
-
 
 void loop()
 {
@@ -51,4 +54,6 @@ void loop()
   check_alarm(&time);
   
   button_status_check();
+
+  wdt_reset();
 }

@@ -9,6 +9,7 @@ void RTC_init()
 {
   while(!Serial);
   setSyncProvider(RTC.get);
+  setSyncInterval(300);
 }
 
 void RTC_set_time(int year, int month, int day, int hour, int minute, int second)
