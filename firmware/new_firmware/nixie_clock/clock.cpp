@@ -14,21 +14,24 @@ void display_time_mode(rtc_time_t *time)
 {
 
   for(int tube_index = 0; tube_index < 8; tube_index++) {
-    delay(1);
     
     tube_digit_sort(tube, time, clock_mode);
+
+    /* Light the right dot of tube 2 and 5 */
+    if(tube_index != 2 && tube_index != 5) { 
+      digitalWrite(pin_font_right_dot, LOW);
+      //delayMicroseconds(500);
+    }
 
     tube_control(tube_index, tube[tube_index]);
 
     /* Light the right dot of tube 2 and 5 */
     if(tube_index == 2 || tube_index == 5) { 
       digitalWrite(pin_font_right_dot, HIGH);
-    } else {
-      digitalWrite(pin_font_right_dot, LOW);
-      delay(1);
+      //delayMicroseconds(500);
     }
     
-    delayMicroseconds(1);
+    delayMicroseconds(1000);
   }
 }
 
@@ -79,7 +82,7 @@ void clock_display(rtc_time_t *time)
     if(clock_mode == TIME_MODE) {
       display_time_mode(time);
     } else if(clock_mode == DATE_MODE) {
-      display_time_mode(time);
+      display_date_mode(time);
     } else if(clock_mode == MP3_MODE) {
       display_music_mode();
     }

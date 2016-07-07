@@ -9,6 +9,7 @@ void RTC_init()
 {
   while(!Serial);
   setSyncProvider(RTC.get);
+  setSyncInterval(300);
 }
 
 void RTC_set_time(int year, int month, int day, int hour, int minute, int second)
@@ -22,20 +23,17 @@ void RTC_set_time(int year, int month, int day, int hour, int minute, int second
   tm.Second = second;
   
   RTC.write(tm);
+  setSyncProvider(RTC.get);
 }
 
 void RTC_read_time(rtc_time_t *time)
 {
-  tmElements_t tm;
-  
-  RTC.read(tm);
-  
-  time->year = tm.Year + 1970;
-  time->month = tm.Month;
-  time->day = tm.Day;
-  time->hour = tm.Hour;
-  time->minute = tm.Minute;
-  time->second = tm.Second;
+    time->year = year();
+    time->month = month();
+    time->day = day();
+    time->hour = hour();
+    time->minute = minute();
+    time->second = second();
 }
 
 void print_time()
