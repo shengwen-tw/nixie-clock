@@ -8,8 +8,6 @@ extern int clock_mode;
 enum{
   TIME_MODE,
   DATE_MODE,
-  //ALARM_MODE,
-  MP3_MODE,
   MODE_COUNT
 };
 

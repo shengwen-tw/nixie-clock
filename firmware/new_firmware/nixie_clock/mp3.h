@@ -9,9 +9,8 @@ void play_alarm_music(int volume, int song);
 void play_music(int song);
 void stop_music();
 void pause_music();
-void unpuase_music();
-void display_next_select_music();
-void play_button_react();
+void unpause_music();
+void play_radom_music();
 
 int volume_inc();
 int volume_dec();

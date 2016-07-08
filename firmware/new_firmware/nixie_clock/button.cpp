@@ -39,11 +39,6 @@ void check_adjust_button()
   }
    
   if(digitalRead(pin_adjust_button) == LOW && adjust_button_trigger == 1) {
-    if(clock_mode == MP3_MODE) {
-      display_next_select_music();
-    } else {
-      my_printf("Volume:%d", volume_inc());
-    }
     
     adjust_button_trigger = 0;
   }
@@ -58,12 +53,6 @@ void check_play_button()
   }
    
   if(digitalRead(pin_play_button) == LOW && play_button_trigger == 1) {
-    play_button_react();
-
-    if(clock_mode == MP3_MODE) {
-    } else {
-      my_printf("Volume:%d", volume_dec());
-    }
     
     play_button_trigger = 0;
   }

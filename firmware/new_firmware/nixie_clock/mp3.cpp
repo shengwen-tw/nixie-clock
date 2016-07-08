@@ -1,49 +1,44 @@
 #include <DFPlayer.h>
+#include <Time.h>
 
 #include "pindef.h"
 #include "serial.h"
 #include "clock.h"
 #include "alarm.h"
+#include "mp3.h" 
 
 DFPlayer *dfplayer;
 
 int music_count = 0;
-int music_current_select = 1;
-
-int playing_song = 0;
-int pause_song = 0;
-int volume = 15;
+int volume = 30;
 
 void mp3_init()
 {
   dfplayer = new DFPlayer(SM_Software, mp3_rx, mp3_tx);
-  delay(10);
+  delay(1);
 
   dfplayer->stop();
-  delay(10);
+  delay(1);
 
   music_count = dfplayer->get_tracks();
-  delay(10);
+  delay(1);
 
   dfplayer->set_volume(volume);
-
+  delay(1);
+  
   my_printf("MP3 songs:%d\n", music_count);
 }
 
 void play_alarm_music(int volume, int song)
 {
   dfplayer->set_volume(volume);
-  delay(10);
+  delay(1);
   
   dfplayer->play_root(song);
 }
 
 int volume_inc()
 {
-  if(playing_song == 0) {
-    return volume;
-  }
-  
   if(volume <= 25) {
     volume += 5;
     dfplayer->set_volume(volume);
@@ -55,10 +50,6 @@ int volume_inc()
 
 int volume_dec()
 {
-  if(playing_song == 0) {
-    return volume;
-  }
-  
   if(volume >= 5) {
     volume -= 5;
     dfplayer->set_volume(volume);
@@ -76,53 +67,38 @@ void set_music_volume(int _volume)
 void play_music(int song)
 {
   dfplayer->set_volume(volume);
-  delay(10);
+  delay(1);
   
   dfplayer->play_root(song);
-  
-  playing_song = song;
+  delay(1);
 }
 
 void stop_music()
 {
   dfplayer->stop();
+  delay(1);
 }
 
 void pause_music()
 {
   dfplayer->pause();
-  pause_song = playing_song;
-  playing_song = 0;
+  delay(1);
 }
 
-void unpuase_music()
+void unpause_music()
 {
   dfplayer->unpause();
-  playing_song = pause_song;
-  pause_song = 0;
+  delay(1);
 }
 
-void display_next_select_music()
+void play_radom_music()
 {
-  if(music_current_select == music_count) {
-   music_current_select = 1;
-  } else {
-   music_current_select++;
-  }
-}
-
-void play_button_react()
-{
-  if(clock_mode != MP3_MODE) {
-    return;
-  }
-  
-  if(playing_song == music_current_select) {
-    pause_music();
-  } else if(pause_song == music_current_select) {
-    unpuase_music();
-  } else {
-    play_music(music_current_select);
+  if(music_count >= 1) {
+    int random_number = year()  + month() * music_count + day() * music_count  + hour() + minute() + second();
+    int random_song = random_number % music_count + 1;
+        
+    dfplayer->play_root(random_song);
+    delay(1);
   }
 }
 

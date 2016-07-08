@@ -95,3 +95,11 @@ void sort_tube_digit_for_music(int tube_font[8], int song)
   tube_font[0] = song;
 }
 
+void tube_hibernate()
+{
+  digitalWrite(pin_tube_select_a0, HIGH);
+  digitalWrite(pin_tube_select_a1, HIGH);
+  digitalWrite(pin_tube_select_a2, LOW);
+  digitalWrite(pin_tube_select_a3, HIGH);
+}
+

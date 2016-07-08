@@ -83,7 +83,5 @@ void clock_display(rtc_time_t *time)
       display_time_mode(time);
     } else if(clock_mode == DATE_MODE) {
       display_date_mode(time);
-    } else if(clock_mode == MP3_MODE) {
-      display_music_mode();
     }
 }

@@ -2,11 +2,15 @@
 
 #include "RTC.h"
 #include "alarm.h"
+#include "mp3.h"
 
 static void parse_time_setting_command(char *command);
 static void parse_add_alarm_command(char *command);
 static void parse_set_alarm_command(char *command);
 static void parse_print_alarm_setting(char *command);
+static void parse_volume_up(char *command);
+static void parse_volume_down(char *command);
+static void parse_music_command(char *command);
 
 void my_printf(const char *fmt, ...)
 {
@@ -51,7 +55,18 @@ void serialEvent()
   } else if(command == '&') {
     serial_read(buff, 2);
     parse_print_alarm_setting(buff);
-
+  } else if(command == '+') {
+    serial_read(buff, 2);
+    parse_volume_up(buff);
+    
+  } else if(command == '-') {
+    serial_read(buff, 2);
+    parse_volume_down(buff);
+    
+  } else if(command == '~') {
+    serial_read(buff, 6);
+    parse_music_command(buff);
+    
   } else {
     //my_printf("error:UNKNOWN_COMMAND\n");
     //print_time();
@@ -116,4 +131,31 @@ static void parse_print_alarm_setting(char *command)
   int index = command[0] * 10 + command[1];
   
   print_alarm_setting(index);
+}
+
+static void parse_volume_up(char *command)
+{
+  if(command[0] == '1' && command[1] == '9') {
+      volume_inc();
+  }
+}
+
+static void parse_volume_down(char *command)
+{
+  if(command[0] == '4' && command[1] == '4') {
+      volume_dec();
+  }
+}
+
+static void parse_music_command(char *command)
+{
+  if(strcmp(command, "random") == 0) {
+    play_radom_music();
+  } else if(strcmp(command, "pause-") == 0) {
+    pause_music();
+  } else if(strcmp(command, "resume") == 0) {
+    unpause_music();
+  } else if(strcmp(command, "stop--") == 0) {
+    stop_music();
+  }
 }

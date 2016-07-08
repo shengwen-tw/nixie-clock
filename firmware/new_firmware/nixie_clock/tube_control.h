@@ -13,5 +13,6 @@ void tube_control(int tube_number, int tube_font);
 void set_tube_brightness(int brightness);
 void tube_digit_sort(int tube_font[8], rtc_time_t *time, int clock_mode);
 void sort_tube_digit_for_music(int tube_font[8], int song);
+void tube_hibernate();
 
 #endif

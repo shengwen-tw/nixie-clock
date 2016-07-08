@@ -20,6 +20,8 @@ void setup()
 {
   Serial.begin(9600);
 
+  RTC_init();
+
   read_alarm_setting();
   mp3_init();
 
@@ -40,9 +42,7 @@ void setup()
   pinMode(pin_adjust_button, INPUT);
   pinMode(pin_mode_button, INPUT);
 
-  wdt_enable(WDTO_30MS);
-  
-  RTC_init();
+  wdt_enable(WDTO_2S);
 }
 
 void loop()
