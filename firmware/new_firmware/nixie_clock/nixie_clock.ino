@@ -14,6 +14,7 @@
 #include "alarm.h"
 #include "mp3.h"
 
+extern int tube[8]; //This array records the data of all tubes
 rtc_time_t time; //DS1307 time data
 
 void setup()
@@ -42,6 +43,8 @@ void setup()
   pinMode(pin_adjust_button, INPUT);
   pinMode(pin_mode_button, INPUT);
 
+  enable_timer2();
+    
   wdt_enable(WDTO_2S);
 }
 
@@ -49,7 +52,7 @@ void loop()
 {
   RTC_read_time(&time);
   
-  clock_display(&time);
+  tube_digit_sort(tube, &time, clock_mode);
   
   check_alarm(&time);
   

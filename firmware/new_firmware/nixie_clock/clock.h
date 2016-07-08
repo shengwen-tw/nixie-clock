@@ -11,7 +11,8 @@ enum{
   MODE_COUNT
 };
 
-void clock_display(rtc_time_t *time);
+void clock_display();
 void mp3_init();
+void enable_timer2();
 
 #endif

@@ -5,7 +5,6 @@
 #include "RTC.h"
 #include "clock.h"
 
-
 int tube_select_table[8][4] = {{LOW, LOW, LOW, LOW}, {HIGH, LOW, LOW, LOW},
       {LOW, HIGH, LOW, LOW}, {HIGH, HIGH, LOW, LOW}, {LOW, LOW, HIGH, LOW},
       {HIGH, LOW, HIGH, LOW}, {LOW, HIGH, HIGH, LOW}, {HIGH, HIGH, HIGH, LOW}};
