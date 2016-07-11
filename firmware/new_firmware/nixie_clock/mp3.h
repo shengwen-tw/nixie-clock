@@ -10,7 +10,7 @@ void play_music(int song);
 void stop_music();
 void pause_music();
 void unpause_music();
-void play_radom_music();
+void play_radom_music(int volume);
 
 int volume_inc();
 int volume_dec();

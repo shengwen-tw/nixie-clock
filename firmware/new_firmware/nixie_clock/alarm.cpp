@@ -8,6 +8,7 @@
 
 alarm_time_t alarm_time[ALARM_SETTING_MAX] = {0};
 int alarm_setting_count = 0;
+int alarm_music_volume = 20;
 
 void eeprom_clear()
 {
@@ -15,6 +16,9 @@ void eeprom_clear()
     EEPROM.write(i, 0);
   }
 
+  //Reset parameters
+  EEPROM.write(EEPROM_MP3_VOLUME_ADDRESS, 20);
+  EEPROM.write(EEPROM_ALARM_VOLUME_ADDRESS, 25);
   EEPROM.write(EEPROM_VERIFY_ADDRESS, EEPROM_VERIFY_CODE);
 }
 
@@ -49,10 +53,15 @@ void read_alarm_setting()
     return;
   }
 
+  //Set music volume
   int music_volume = EEPROM.read(EEPROM_MP3_VOLUME_ADDRESS);
   set_music_volume(music_volume);
+
+  //Set alarm volume
+  alarm_music_volume = EEPROM.read(EEPROM_ALARM_VOLUME_ADDRESS);
   
   my_printf("ALARM COUNT: %d\n", alarm_setting_count);
+  my_printf("ALARM VOLUME: %d\n", alarm_music_volume);
   my_printf("MUSIC VOLUME: %d\n", music_volume);
   
   if(!alarm_setting_count) return; //If there is no alarm setting
@@ -66,10 +75,8 @@ void read_alarm_setting()
     /* Read alarm setting from EEPROM */
     checksum_arr[0] = alarm_time[i].hour = EEPROM.read(address);
     checksum_arr[1] = alarm_time[i].minute = EEPROM.read(address + 1);
-    checksum_arr[2] = alarm_time[i].song = EEPROM.read(address + 2);
-    checksum_arr[3] = alarm_time[i].music_volume = EEPROM.read(address + 3);
-    checksum_arr[4] = alarm_time[i].alarm_on = EEPROM.read(address + 4);
-    checksum = alarm_time[i].checksum = EEPROM.read(address + 5);
+    checksum_arr[2] = alarm_time[i].alarm_on = EEPROM.read(address + 2);
+    checksum = alarm_time[i].checksum = EEPROM.read(address + 3);
 
     /* Checksum test */
     if(checksum_calc(checksum_arr, CHECKSUM_ARRAY_SIZE) != checksum) {
@@ -86,12 +93,10 @@ void read_alarm_setting()
       return;
     }
     
-    my_printf("[Read %d]%d:%d song:%d volume:%d alarm_on:%d Checksum %d\n",
+    my_printf("[Read %d]%d:%d alarm_on:%d Checksum %d\n",
       i,
       alarm_time[i].hour,
       alarm_time[i].minute,
-      alarm_time[i].song,
-      alarm_time[i].music_volume,
       alarm_time[i].alarm_on,
       alarm_time[i].checksum
     );
@@ -100,7 +105,7 @@ void read_alarm_setting()
   }
 }
 
-void add_new_alarm_setting(int _hour, int _minute, int song, int volume, int alarm_on)
+void add_new_alarm_setting(int _hour, int _minute, int alarm_on)
 {
   if(alarm_setting_count >= ALARM_SETTING_MAX) {
     my_printf("error:MAX_ALARM_SETTING\n");
@@ -111,17 +116,13 @@ void add_new_alarm_setting(int _hour, int _minute, int song, int volume, int ala
   
   checksum_arr[0] = alarm_time[alarm_setting_count].hour = _hour;
   checksum_arr[1] = alarm_time[alarm_setting_count].minute = _minute;
-  checksum_arr[2] = alarm_time[alarm_setting_count].song = song;
-  checksum_arr[3] = alarm_time[alarm_setting_count].music_volume = volume;
-  checksum_arr[4] = alarm_time[alarm_setting_count].alarm_on = alarm_on;
+  checksum_arr[2] = alarm_time[alarm_setting_count].alarm_on = alarm_on;
   alarm_time[alarm_setting_count].checksum = checksum_calc(checksum_arr, CHECKSUM_ARRAY_SIZE);
   
-  my_printf("[Save %d]%d:%d song:%d volume:%d alarm_on:%d Checksum %d\n",
+  my_printf("[Save %d]%d:%d alarm_on:%d Checksum %d\n",
     alarm_setting_count,
     alarm_time[alarm_setting_count].hour,
     alarm_time[alarm_setting_count].minute,
-    alarm_time[alarm_setting_count].song,
-    alarm_time[alarm_setting_count].music_volume,
     alarm_time[alarm_setting_count].alarm_on,
     alarm_time[alarm_setting_count].checksum
   );
@@ -131,17 +132,15 @@ void add_new_alarm_setting(int _hour, int _minute, int song, int volume, int ala
   
   EEPROM.write(address, _hour);
   EEPROM.write(address + 1, _minute);
-  EEPROM.write(address + 2, song);
-  EEPROM.write(address + 3, volume);
-  EEPROM.write(address + 4, alarm_on);
-  EEPROM.write(address + 5, alarm_time[alarm_setting_count].checksum);
+  EEPROM.write(address + 2, alarm_on);
+  EEPROM.write(address + 3, alarm_time[alarm_setting_count].checksum);
   
   alarm_setting_count++;
   
   EEPROM.write(EEPROM_ALARM_CNT_ADDRESS, alarm_setting_count);
 }
 
-void set_alarm_setting(int index, int _hour, int _minute, int song, int volume, int alarm_on)
+void set_alarm_setting(int index, int _hour, int _minute, int alarm_on)
 {
   if(index >= alarm_setting_count) {
     my_printf("error:ALARM_INDEX_ERROR\n");
@@ -149,12 +148,12 @@ void set_alarm_setting(int index, int _hour, int _minute, int song, int volume, 
   }
   
   int checksum_arr[CHECKSUM_ARRAY_SIZE];
+
+  alarm_time[index].off = 0;
   
   checksum_arr[0] = alarm_time[index].hour = _hour;
   checksum_arr[1] = alarm_time[index].minute = _minute;
-  checksum_arr[2] = alarm_time[index].song = song;
-  checksum_arr[3] = alarm_time[index].music_volume = volume;
-  checksum_arr[4] = alarm_time[index].alarm_on = alarm_on;
+  checksum_arr[2] = alarm_time[index].alarm_on = alarm_on;
   alarm_time[index].checksum = checksum_calc(checksum_arr, CHECKSUM_ARRAY_SIZE);
   
   /* Save setting into EEPROM */
@@ -162,17 +161,13 @@ void set_alarm_setting(int index, int _hour, int _minute, int song, int volume, 
   
   EEPROM.write(address, _hour);
   EEPROM.write(address + 1, _minute);
-  EEPROM.write(address + 2, song);
-  EEPROM.write(address + 3, volume);
-  EEPROM.write(address + 4, alarm_on);
-  EEPROM.write(address + 5, alarm_time[index].checksum);
+  EEPROM.write(address + 2, alarm_on);
+  EEPROM.write(address + 3, alarm_time[index].checksum);
 
-  my_printf("[Modify %d]%d:%d song:%d volume:%d alarm_on:%d Checksum %d\n",
+  my_printf("[Modify %d]%d:%d alarm_on:%d Checksum %d\n",
     index,
     alarm_time[index].hour,
     alarm_time[index].minute,
-    alarm_time[index].song,
-    alarm_time[index].music_volume,
     alarm_time[index].alarm_on,
     alarm_time[index].checksum
   );
@@ -187,12 +182,10 @@ void clear_alarm_setting()
 void print_alarm_setting(int index)
 {
   if(index < alarm_setting_count) {
-    my_printf("[ALARM%d]%d:%d song:%d volume:%d alarm_on:%d\n",
+    my_printf("[ALARM%d]%d:%d alarm_on:%d\n",
       index,
       alarm_time[index].hour,
       alarm_time[index].minute,
-      alarm_time[index].song,
-      alarm_time[index].music_volume,
       alarm_time[index].alarm_on
     );
   } else {
@@ -232,7 +225,7 @@ void check_alarm(rtc_time_t *current_time)
         alarm_time[i].timeup = 1;
         
         //TODO:Play music & blink
-        play_alarm_music(alarm_time[i].music_volume, alarm_time[i].song);
+        play_radom_music(alarm_music_volume);
       }
     }
   }

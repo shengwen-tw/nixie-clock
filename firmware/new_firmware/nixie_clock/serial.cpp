@@ -4,6 +4,8 @@
 #include "alarm.h"
 #include "mp3.h"
 
+extern int music_volume;
+
 static void parse_time_setting_command(char *command);
 static void parse_add_alarm_command(char *command);
 static void parse_set_alarm_command(char *command);
@@ -11,6 +13,7 @@ static void parse_print_alarm_setting(char *command);
 static void parse_volume_up(char *command);
 static void parse_volume_down(char *command);
 static void parse_music_command(char *command);
+static void parse_eeprom_command(char *command);
 
 void my_printf(const char *fmt, ...)
 {
@@ -45,11 +48,11 @@ void serialEvent()
     parse_time_setting_command(buff);
   
   } else if(command == '#') {
-    serial_read(buff, 11); //#07250001151 (hour 7, minute 25, song 0001, volume 15, alarm 1)
+    serial_read(buff, 5); //#07251 (hour 7, minute 25, alarm 1)
     parse_add_alarm_command(buff);
     
   } else if(command == '$') {
-    serial_read(buff, 13); //#030725000115 (item 3, hour 7, minute 25, song 0001, volume 15, alarm 1)
+    serial_read(buff, 7); //$0307251 (item 3, hour 7, minute 25, alarm 1)
     parse_set_alarm_command(buff);
 
   } else if(command == '&') {
@@ -66,7 +69,11 @@ void serialEvent()
   } else if(command == '~') {
     serial_read(buff, 6);
     parse_music_command(buff);
-    
+
+  } else if(command == ';') {
+    serial_read(buff, 5);
+
+    parse_eeprom_command(buff);
   } else {
     //my_printf("error:UNKNOWN_COMMAND\n");
     //print_time();
@@ -97,13 +104,11 @@ static void parse_add_alarm_command(char *command)
   
   int hour = command[0] * 10 + command[1];
   int minute = command[2] * 10 + command[3];
-  int song = command[4] * 1000 + command[5] * 100 + command[6] * 10 + command[7];
-  int volume = command[8] * 10 + command[9];
-  int alarm_on = command[10];
+  int alarm_on = command[4];
   
-  my_printf("%d:%d -> song:%d volume:%d\n", hour, minute, song, volume);
+  my_printf("[ADD_ALARM]%d:%d\n", hour, minute);
   
-  add_new_alarm_setting(hour, minute, song, volume, alarm_on);
+  add_new_alarm_setting(hour, minute, alarm_on);
 }
 
 static void parse_set_alarm_command(char *command)
@@ -115,11 +120,11 @@ static void parse_set_alarm_command(char *command)
   int index = command[0] * 10 + command[1];
   int hour = command[2] * 10 + command[3];
   int minute = command[4] * 10 + command[5];
-  int song = command[6] * 1000 + command[7] * 100 + command[8] * 10 + command[9];
-  int volume = command[10] * 10 + command[11];
-  int alarm_on = command[12];
+  int alarm_on = command[6];
+
+  my_printf("[EDIT_ALARM]%d:%d\n", hour, minute);
   
-  set_alarm_setting(index, hour, minute, song, volume, alarm_on);
+  set_alarm_setting(index, hour, minute, alarm_on);
 }
 
 static void parse_print_alarm_setting(char *command)
@@ -150,12 +155,19 @@ static void parse_volume_down(char *command)
 static void parse_music_command(char *command)
 {
   if(strcmp(command, "random") == 0) {
-    play_radom_music();
+    play_radom_music(music_volume);
   } else if(strcmp(command, "pause-") == 0) {
     pause_music();
   } else if(strcmp(command, "resume") == 0) {
     unpause_music();
   } else if(strcmp(command, "stop--") == 0) {
     stop_music();
+  }
+}
+
+static void parse_eeprom_command(char *command)
+{
+  if(strcmp(command, "clear") == 0) {
+    eeprom_clear();
   }
 }

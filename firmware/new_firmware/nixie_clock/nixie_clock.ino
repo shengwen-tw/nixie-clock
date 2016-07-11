@@ -44,8 +44,6 @@ void setup()
   pinMode(pin_mode_button, INPUT);
 
   enable_timer2();
-    
-  wdt_enable(WDTO_2S);
 }
 
 void loop()
@@ -57,6 +55,4 @@ void loop()
   check_alarm(&time);
   
   button_status_check();
-
-  wdt_reset();
 }
