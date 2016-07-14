@@ -14,19 +14,29 @@ int mode_button_trigger = 0;
 int adjust_button_trigger = 0;
 int play_button_trigger = 0;
 
+int last_debounce_time;
+
 void check_mode_button()
 {
-  if(digitalRead(pin_mode_button) == HIGH) {
+  if ((millis() - last_debounce_time) < 100) {
+    return;
+  }
+  
+  int button_state = digitalRead(pin_mode_button);
+
+  last_debounce_time = millis();
+  
+  if(button_state == HIGH) {
+    mode_button_trigger = 1;
+  }
+   
+  if(button_state == LOW && mode_button_trigger == 1) {
     if(check_alarm_timeup_state() == 1) {
       clear_alarm_timeup_state();
       Serial.println("Clear alarm state");
     } else {
-      mode_button_trigger = 1;
+      clock_mode = (clock_mode + 1 ) % MODE_COUNT;
     }
-  }
-   
-  if(digitalRead(pin_mode_button) == LOW && mode_button_trigger == 1) {
-    clock_mode = (clock_mode + 1 ) % MODE_COUNT;
     
     mode_button_trigger = 0;
   }

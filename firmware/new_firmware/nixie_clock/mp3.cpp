@@ -29,28 +29,6 @@ void mp3_init()
   my_printf("MP3 songs:%d\n", music_count);
 }
 
-int volume_inc()
-{
-  if(music_volume <= 25) {
-    music_volume += 5;
-    dfplayer->set_volume(music_volume);
-    save_music_volume_setting(music_volume);
-  }
-
-  return music_volume;
-}
-
-int volume_dec()
-{
-  if(music_volume >= 5) {
-    music_volume -= 5;
-    dfplayer->set_volume(music_volume);
-    save_music_volume_setting(music_volume);
-  }
-
-  return music_volume;
-}
-
 void set_music_volume(int _volume)
 {
   if(_volume > 30 || _volume < 0) {
@@ -86,6 +64,23 @@ void unpause_music()
   delay(5);
 }
 
+void next_music()
+{
+  dfplayer->play_next();
+  delay(5);
+}
+
+void previous_music()
+{
+  dfplayer->play_previous();
+  delay(5);
+}
+
+int get_mp3_volume()
+{
+  return music_volume;
+}
+
 void play_radom_music(int _volume)
 {
   if(music_count >= 1) {
@@ -93,10 +88,10 @@ void play_radom_music(int _volume)
     int random_song = random_number % music_count + 1;
 
     dfplayer->set_volume(_volume);
-    delay(5);
+    delay(10);
         
     dfplayer->play_root(random_song);
-    delay(5);
+    delay(10);
   }
 }
 

@@ -18,8 +18,18 @@ void eeprom_clear()
 
   //Reset parameters
   EEPROM.write(EEPROM_MP3_VOLUME_ADDRESS, 20);
+  EEPROM.write(EEPROM_ALARM_CNT_ADDRESS , ALARM_ITEM_CNT);
   EEPROM.write(EEPROM_ALARM_VOLUME_ADDRESS, 25);
   EEPROM.write(EEPROM_VERIFY_ADDRESS, EEPROM_VERIFY_CODE);
+
+  for(int i = 0; i < ALARM_ITEM_CNT; i++) {
+    int address = EEPROM_ALARM_START_ADDRESS + ALARM_ITEM_CNT * i;
+  
+    EEPROM.write(address, 0); //hour
+    EEPROM.write(address + 1, 0); //minute
+    EEPROM.write(address + 2, 0); //alarm on state
+    EEPROM.write(address + 3, EEPROM_VERIFY_CODE); //checksum
+  }
 }
 
 int checksum_calc(int *array, int arr_size)
@@ -260,3 +270,38 @@ void save_music_volume_setting(int music_volume)
   EEPROM.write(EEPROM_MP3_VOLUME_ADDRESS, music_volume);
 }
 
+int get_alarm_count()
+{
+  return alarm_setting_count;
+}
+
+int get_alarm_time_hour(int index)
+{
+  return alarm_time[index].hour;
+}
+
+int get_alarm_time_minute(int index)
+{
+  return alarm_time[index].minute;
+}
+
+bool get_alarm_on_state(int index)
+{
+  return alarm_time[index].alarm_on ? true : false;
+}
+
+void set_alarm_on_state(int index, int state)
+{
+  int address = EEPROM_ALARM_START_ADDRESS + ALARM_ITEM_CNT * index;
+  int checksum_arr[CHECKSUM_ARRAY_SIZE];
+
+  /* Calculate checksum and change the alarm state*/
+  checksum_arr[0] = alarm_time[index].hour;
+  checksum_arr[1] = alarm_time[index].minute;
+  checksum_arr[2] = alarm_time[index].alarm_on = state;
+  alarm_time[index].checksum = checksum_calc(checksum_arr, CHECKSUM_ARRAY_SIZE);
+
+  /* Save alarm state and checksum into EEPROM */
+  EEPROM.write(address + 2, state);
+  EEPROM.write(address + 3, alarm_time[index].checksum);
+}

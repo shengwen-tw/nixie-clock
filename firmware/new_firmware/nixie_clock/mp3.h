@@ -11,9 +11,12 @@ void stop_music();
 void pause_music();
 void unpause_music();
 void play_radom_music(int volume);
+void next_music();
+void previous_music();
 
-int volume_inc();
-int volume_dec();
+
+int get_mp3_volume();
+
 void set_music_volume(int _volume);
 
 #endif

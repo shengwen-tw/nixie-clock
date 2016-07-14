@@ -2,7 +2,7 @@
 #define __ALARM_H
 
 #define UNO_EEPROM_LEN 1024
-#define ALARM_SETTING_MAX 5
+#define ALARM_SETTING_MAX 4
 
 #define EEPROM_VERIFY_ADDRESS 0
 #define EEPROM_ALARM_CNT_ADDRESS 1
@@ -36,5 +36,11 @@ int check_alarm_timeup_state();
 void clear_alarm_timeup_state();
 void print_alarm_setting(int index);
 void save_music_volume_setting(int music_volume);
+
+int get_alarm_count();
+int get_alarm_time_hour(int index);
+int get_alarm_time_minute(int index);
+bool get_alarm_on_state(int index);
+void set_alarm_on_state(int index, int state);
 
 #endif

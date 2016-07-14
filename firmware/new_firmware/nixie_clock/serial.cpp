@@ -1,19 +1,24 @@
 #include <Arduino.h>
+#include <DFPlayer.h>
 
 #include "RTC.h"
 #include "alarm.h"
 #include "mp3.h"
 
 extern int music_volume;
+extern DFPlayer *dfplayer;
 
 static void parse_time_setting_command(char *command);
 static void parse_add_alarm_command(char *command);
 static void parse_set_alarm_command(char *command);
+static void parse_set_alarm_state_command(char *command);
 static void parse_print_alarm_setting(char *command);
-static void parse_volume_up(char *command);
-static void parse_volume_down(char *command);
+static void parse_set_volume(char *command);
 static void parse_music_command(char *command);
 static void parse_eeprom_command(char *command);
+static void parse_sync_command(char *command);
+static void parse_alarm_time_request_command(char *command);
+
 
 void my_printf(const char *fmt, ...)
 {
@@ -30,10 +35,10 @@ void serial_read(char *buff, int count)
     for(int i = 0; i < count; i++) {
       while(Serial.available() == 0);
       buff[i] = Serial.read();
-      Serial.print(buff[i]);
+      //Serial.print(buff[i]);
     }
     
-    Serial.println("");
+    //Serial.println("");
 }
 
 void serialEvent()
@@ -54,17 +59,17 @@ void serialEvent()
   } else if(command == '$') {
     serial_read(buff, 7); //$0307251 (item 3, hour 7, minute 25, alarm 1)
     parse_set_alarm_command(buff);
+    
+  } else if(command == '+') {
+    serial_read(buff, 2);
+    parse_set_alarm_state_command(buff);
 
   } else if(command == '&') {
     serial_read(buff, 2);
     parse_print_alarm_setting(buff);
-  } else if(command == '+') {
+  } else if(command == '{') {
     serial_read(buff, 2);
-    parse_volume_up(buff);
-    
-  } else if(command == '-') {
-    serial_read(buff, 2);
-    parse_volume_down(buff);
+    parse_set_volume(buff);
     
   } else if(command == '~') {
     serial_read(buff, 6);
@@ -74,6 +79,16 @@ void serialEvent()
     serial_read(buff, 5);
 
     parse_eeprom_command(buff);
+    
+  } else if(command == '!') {
+    serial_read(buff, 11);
+    
+    parse_sync_command(buff);
+ 
+   } else if(command == '*') {
+    serial_read(buff, 3);
+    
+    parse_alarm_time_request_command(buff);
   } else {
     //my_printf("error:UNKNOWN_COMMAND\n");
     //print_time();
@@ -138,18 +153,15 @@ static void parse_print_alarm_setting(char *command)
   print_alarm_setting(index);
 }
 
-static void parse_volume_up(char *command)
+static void parse_set_volume(char *command)
 {
-  if(command[0] == '1' && command[1] == '9') {
-      volume_inc();
+  for(int i = 0; i < 2; i++) {
+    command[i] = command[i] - '0';
   }
-}
+  
+  int volume = command[0] * 10 + command[1];
 
-static void parse_volume_down(char *command)
-{
-  if(command[0] == '4' && command[1] == '4') {
-      volume_dec();
-  }
+  dfplayer->set_volume(volume);
 }
 
 static void parse_music_command(char *command)
@@ -162,6 +174,10 @@ static void parse_music_command(char *command)
     unpause_music();
   } else if(strcmp(command, "stop--") == 0) {
     stop_music();
+  } else if(strcmp(command, "next--") == 0) {
+    next_music();    
+  } else if(strcmp(command, "last--") == 0) {
+    previous_music();
   }
 }
 
@@ -171,3 +187,45 @@ static void parse_eeprom_command(char *command)
     eeprom_clear();
   }
 }
+
+static void parse_sync_command(char *command)
+{
+  if(strcmp(command, "mp3-volume-") == 0) {
+    Serial.print(get_mp3_volume());
+    
+  } else if(strcmp(command, "clock-sound") == 0) {
+    
+  } else if(strcmp(command, "clock-count") == 0) {
+    Serial.print(get_alarm_count());
+    
+  }
+}
+
+static void parse_alarm_time_request_command(char *command)
+{
+  int index = command[2] - '0';
+  int digit[2];
+    
+  if(command[0] == '1' && command[1] == '9') {
+    digit[0] = get_alarm_time_hour(index) / 10;
+    digit[1] = get_alarm_time_hour(index) % 10;
+    Serial.print(digit[0]);
+    Serial.print(digit[1]);
+  } else if(command[0] == '4' && command[1] == '4') {
+    digit[0] = get_alarm_time_minute(index) / 10;
+    digit[1] = get_alarm_time_minute(index) % 10;
+    Serial.print(digit[0]);
+    Serial.print(digit[1]);
+  } else if(command[0] == '1' && command[1] == '7') {
+    get_alarm_on_state(index) ? Serial.print(1) : Serial.print(0);
+  }
+}
+
+static void parse_set_alarm_state_command(char *command)
+{
+  int index = command[0] - '0';
+  int state = command[1] - '0';
+
+  set_alarm_on_state(index, state);
+}
+
