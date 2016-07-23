@@ -57,6 +57,7 @@ void check_mp3_state()
 void set_mp3_loop_play_state(bool state)
 {
   loop_song = state;
+  eeprom_save_mp3_loop_setting();
 }
 
 int get_mp3_loop_play_state()
@@ -64,15 +65,26 @@ int get_mp3_loop_play_state()
   return loop_song ? 1 : 0;
 }
 
-void set_music_volume(int _volume)
+//Do not mix this function with set_music_volume() !
+void load_music_volume_from_eeprom(int _volume)
 {
   if(_volume > 30 || _volume < 0) {
     return;
   }
   
   music_volume = _volume;
+}
 
-  save_music_volume_setting(music_volume);
+void set_music_volume(int _volume)
+{
+  if(_volume > 30 || _volume < 0) {
+    return;
+  }
+
+  dfplayer->set_volume(_volume);
+  delay(DFPLAYER_DELAY_TIME);
+  
+  music_volume = _volume;
 }
 
 void play_music(int song)

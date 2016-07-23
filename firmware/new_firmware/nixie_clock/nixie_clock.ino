@@ -58,4 +58,6 @@ void loop()
   check_mp3_state();
 
   button_status_check();
+
+  eeprom_hack_save();
 }

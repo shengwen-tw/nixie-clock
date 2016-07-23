@@ -127,7 +127,10 @@ static void parse_set_volume(char *command)
   
   int volume = command[0] * 10 + command[1];
 
-  dfplayer->set_volume(volume);
+  set_music_volume(volume);
+
+  //XXX:Hack save
+  trigger_mp3_hack_save();
 }
 
 static void parse_music_command(char *command)
@@ -161,8 +164,9 @@ static void parse_eeprom_command(char *command)
 static void parse_sync_command(char *command)
 {
   if(strcmp(command, "mp3-volume-") == 0) {
-    Serial.print(get_mp3_volume());
-    
+    int mp3_volume = get_mp3_volume();
+    Serial.print(mp3_volume / 10);
+    Serial.print(mp3_volume % 10);
   } else if(strcmp(command, "music-loop-") == 0) {
     get_mp3_loop_play_state() ? Serial.print(1) : Serial.print(0);
   } else if(strcmp(command, "clock-sound") == 0) {

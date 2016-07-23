@@ -10,6 +10,12 @@ alarm_time_t alarm_time[ALARM_SETTING_MAX] = {0};
 int alarm_setting_count = 0;
 int alarm_music_volume = 20;
 
+/* Hacking for AI2 */
+bool prepare_alarm_hack_save = false;
+bool prepare_mp3_hack_save = false;
+unsigned long previous_time_alarm_volume;
+unsigned long previous_time_mp3_volume;
+
 void eeprom_clear()
 {
   for (int i = 0 ;i < UNO_EEPROM_LEN; i++) {
@@ -65,11 +71,15 @@ void read_alarm_setting()
 
   //Set music volume
   int music_volume = EEPROM.read(EEPROM_MP3_VOLUME_ADDRESS);
-  set_music_volume(music_volume);
+  load_music_volume_from_eeprom(music_volume);
+
+  //Set mp3 loop state
+  bool mp3_loop = EEPROM.read(EEPROM_MP3_LOOP_PLAY_ADDRESS);
+  set_mp3_loop_play_state(mp3_loop);
 
   //Set alarm volume
   alarm_music_volume = EEPROM.read(EEPROM_ALARM_VOLUME_ADDRESS);
-  
+
   DEBUG_PRINTF("ALARM COUNT: %d\n", alarm_setting_count);
   DEBUG_PRINTF("ALARM VOLUME: %d\n", alarm_music_volume);
   DEBUG_PRINTF("MUSIC VOLUME: %d\n", music_volume);
@@ -266,12 +276,6 @@ void clear_alarm_timeup_state()
   }
 }
 
-void save_music_volume_setting(int music_volume)
-{
-  DEBUG_PRINTF("[Save volume]%d\n", music_volume);
-  EEPROM.write(EEPROM_MP3_VOLUME_ADDRESS, music_volume);
-}
-
 int get_alarm_count()
 {
   return alarm_setting_count;
@@ -307,3 +311,56 @@ void set_alarm_on_state(int index, int state)
   EEPROM.write(address + 2, state);
   EEPROM.write(address + 3, alarm_time[index].checksum);
 }
+
+
+/************************
+ * EEPROM Save Function *
+ ************************/
+void eeprom_save_alarm_volume_setting(int alarm_volume)
+{
+  DEBUG_PRINTF("[Save alarm volume]%d\n", alarm_volume);
+  EEPROM.write(EEPROM_ALARM_VOLUME_ADDRESS, alarm_volume);
+}
+
+void eeprom_save_music_volume_setting(int music_volume)
+{
+  DEBUG_PRINTF("[Save mp3 volume]%d\n", music_volume);
+  EEPROM.write(EEPROM_MP3_VOLUME_ADDRESS, music_volume);
+}
+
+void eeprom_save_mp3_loop_setting()
+{
+  EEPROM.write(EEPROM_MP3_LOOP_PLAY_ADDRESS, get_mp3_loop_play_state()); 
+}
+
+/************************
+ * AI2 EEPROM Hack Save *
+ ************************/
+void trigger_alarm_hack_save()
+{
+  prepare_alarm_hack_save = true;
+  previous_time_alarm_volume = millis();
+}
+
+void trigger_mp3_hack_save()
+{
+  prepare_mp3_hack_save = true;
+  previous_time_mp3_volume = millis();
+}
+
+void eeprom_hack_save()
+{
+    /* Wait 1 second until AI2 slider lost focus */
+    if(prepare_alarm_hack_save == true && (millis() - previous_time_alarm_volume) > 1000) {
+        DEBUG_PRINTF("[EEPROM HACK SAVE]Alarm volume: %d\n", alarm_music_volume);
+        eeprom_save_alarm_volume_setting(alarm_music_volume);
+        prepare_alarm_hack_save = false;
+    }
+    
+    if(prepare_mp3_hack_save == true && (millis() - previous_time_mp3_volume) > 1000) {
+      DEBUG_PRINTF("[EEPROM HACK SAVE]MP3 volume: %d\n", get_mp3_volume());
+      eeprom_save_music_volume_setting(get_mp3_volume());
+      prepare_mp3_hack_save = false;
+    }
+}
+
