@@ -1,8 +1,14 @@
 #ifndef __MP3_H
 #define __MP3_H
 
+#define DFPLAYER_DELAY_TIME 20
+
 extern int music_current_select;
 extern int music_count;
+
+void check_mp3_state();
+void set_mp3_loop_play_state(bool state);
+int get_mp3_loop_play_state();
 
 void mp3_init();
 void play_alarm_music(int volume, int song);

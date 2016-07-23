@@ -18,7 +18,7 @@ int last_debounce_time;
 
 void check_mode_button()
 {
-  if ((millis() - last_debounce_time) < 100) {
+  if ((millis() - last_debounce_time) < 120) {
     return;
   }
   
@@ -37,7 +37,8 @@ void check_mode_button()
     } else {
       clock_mode = (clock_mode + 1 ) % MODE_COUNT;
     }
-    
+
+    last_debounce_time = 0;
     mode_button_trigger = 0;
   }
 }

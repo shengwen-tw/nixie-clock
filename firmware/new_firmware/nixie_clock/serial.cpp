@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <DFPlayer.h>
 
+#include "serial.h"
 #include "RTC.h"
 #include "alarm.h"
 #include "mp3.h"
@@ -19,7 +20,6 @@ static void parse_eeprom_command(char *command);
 static void parse_sync_command(char *command);
 static void parse_alarm_time_request_command(char *command);
 
-
 void my_printf(const char *fmt, ...)
 {
     char tmp[128]; // resulting string limited to 128 chars
@@ -34,65 +34,31 @@ void serial_read(char *buff, int count)
 {
     for(int i = 0; i < count; i++) {
       while(Serial.available() == 0);
-      buff[i] = Serial.read();
-      //Serial.print(buff[i]);
+      buff[i] = Serial.read();      
+      //DEBUG_PRINTF("%d ", buff[i]);
     }
     
-    //Serial.println("");
+    //DEBUG_PRINTF("\n");
 }
 
 void serialEvent()
 {
   char buff[14] = {0};
-  
   char command = Serial.read();
   
-  //Wait for start byte
-  if(command == '@') {
-    serial_read(buff, 14); //@20160512112800
-    parse_time_setting_command(buff);
-  
-  } else if(command == '#') {
-    serial_read(buff, 5); //#07251 (hour 7, minute 25, alarm 1)
-    parse_add_alarm_command(buff);
-    
-  } else if(command == '$') {
-    serial_read(buff, 7); //$0307251 (item 3, hour 7, minute 25, alarm 1)
-    parse_set_alarm_command(buff);
-    
-  } else if(command == '+') {
-    serial_read(buff, 2);
-    parse_set_alarm_state_command(buff);
-
-  } else if(command == '&') {
-    serial_read(buff, 2);
-    parse_print_alarm_setting(buff);
-  } else if(command == '{') {
-    serial_read(buff, 2);
-    parse_set_volume(buff);
-    
-  } else if(command == '~') {
-    serial_read(buff, 6);
-    parse_music_command(buff);
-
-  } else if(command == ';') {
-    serial_read(buff, 5);
-
-    parse_eeprom_command(buff);
-    
-  } else if(command == '!') {
-    serial_read(buff, 11);
-    
-    parse_sync_command(buff);
- 
-   } else if(command == '*') {
-    serial_read(buff, 3);
-    
-    parse_alarm_time_request_command(buff);
-  } else {
-    //my_printf("error:UNKNOWN_COMMAND\n");
-    //print_time();
-  }
+  //Register bluetooth command and its handle at here
+  REGISTER_NEW_CMD_START('@', 14, parse_time_setting_command);
+  REGISTER_NEW_CMD('#', 5, parse_add_alarm_command);
+  REGISTER_NEW_CMD('$', 7, parse_set_alarm_command); //$0307251 (item 3, hour 7, minute 25, alarm 1)
+  REGISTER_NEW_CMD('+', 2, parse_set_alarm_state_command);
+  REGISTER_NEW_CMD('&', 2, parse_print_alarm_setting);
+  REGISTER_NEW_CMD('{', 2, parse_set_volume);
+  REGISTER_NEW_CMD('~', 6, parse_music_command);
+  REGISTER_NEW_CMD(';', 5, parse_eeprom_command);
+  REGISTER_NEW_CMD('!', 11, parse_sync_command);
+  REGISTER_NEW_CMD('*', 3, parse_alarm_time_request_command);
+  //REGISTER_EXCEPTION(print_error_message); //"error:UNKNOWN_COMMAND\n time: hh:mm:ss"
+  REGISTER_NEW_CMD_END();
 }
 
 static void parse_time_setting_command(char *command)
@@ -178,6 +144,10 @@ static void parse_music_command(char *command)
     next_music();    
   } else if(strcmp(command, "last--") == 0) {
     previous_music();
+  } else if(strcmp(command, "loop-o") == 0) {
+    set_mp3_loop_play_state(true);
+  } else if(strcmp(command, "loop-x") == 0) {
+    set_mp3_loop_play_state(false);
   }
 }
 
@@ -193,6 +163,8 @@ static void parse_sync_command(char *command)
   if(strcmp(command, "mp3-volume-") == 0) {
     Serial.print(get_mp3_volume());
     
+  } else if(strcmp(command, "music-loop-") == 0) {
+    get_mp3_loop_play_state() ? Serial.print(1) : Serial.print(0);
   } else if(strcmp(command, "clock-sound") == 0) {
     
   } else if(strcmp(command, "clock-count") == 0) {

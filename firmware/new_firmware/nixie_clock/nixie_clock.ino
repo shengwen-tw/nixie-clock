@@ -8,6 +8,7 @@
 
 #include "pindef.h" 
 #include "tube_control.h"
+
 #include "RTC.h"
 #include "clock.h"
 #include "button.h"
@@ -53,6 +54,8 @@ void loop()
   tube_digit_sort(tube, &time, clock_mode);
   
   check_alarm(&time);
-  
+
+  check_mp3_state();
+
   button_status_check();
 }

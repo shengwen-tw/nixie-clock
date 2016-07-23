@@ -21,7 +21,8 @@ typedef struct {
   int alarm_on;
   int checksum;
   
-  int off;
+  int notify_times;
+  bool alarm_cleared;
   int timeup;
   int timeup_time;
 } alarm_time_t;
