@@ -203,5 +203,6 @@ static void parse_set_alarm_state_command(char *command)
   int state = command[1] - '0';
 
   set_alarm_on_state(index, state);
+  DEBUG_PRINTF("[Set alarm %d state]%d\n", index, state);
 }
 
