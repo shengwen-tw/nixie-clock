@@ -5,6 +5,7 @@
 #include "alarm.h"
 #include "serial.h"
 #include "mp3.h"
+#include "clock.h"
 
 alarm_time_t alarm_time[ALARM_SETTING_MAX] = {0};
 int alarm_setting_count = 0;
@@ -79,6 +80,14 @@ void read_alarm_setting()
 
   //Set alarm volume
   alarm_music_volume = EEPROM.read(EEPROM_ALARM_VOLUME_ADDRESS);
+
+  //Set display hibernation
+  int hib_hour_start = EEPROM.read(EEPROM_HIBERNATE_HOUR_START_ADDRESS);
+  int hib_minute_start = EEPROM.read(EEPROM_HIBERNATE_MINUTE_START_ADDRESS);
+  int hib_hour_end = EEPROM.read(EEPROM_HIBERNATE_HOUR_END_ADDRESS);
+  int hib_minute_end = EEPROM.read(EEPROM_HIBERNATE_MINUTE_END_ADDRESS);
+  bool hib_enabled = EEPROM.read(EEPROM_HIBERNATE_ENABLED_ADDRESS);
+  load_display_hibernation_from_eeprom(hib_hour_start, hib_minute_start, hib_hour_end, hib_minute_end, hib_enabled);
 
   DEBUG_PRINTF("ALARM COUNT: %d\n", alarm_setting_count);
   DEBUG_PRINTF("ALARM VOLUME: %d\n", alarm_music_volume);
@@ -312,6 +321,18 @@ void set_alarm_on_state(int index, int state)
   EEPROM.write(address + 3, alarm_time[index].checksum);
 }
 
+void set_alarm_volume(int volume)
+{
+  if(volume >= 0 && volume <= 30) {
+    alarm_music_volume = volume;
+    apply_alarm_volume(volume);
+  }
+}
+
+int get_alarm_volume()
+{
+  return alarm_music_volume;
+}
 
 /************************
  * EEPROM Save Function *
@@ -331,6 +352,17 @@ void eeprom_save_music_volume_setting(int music_volume)
 void eeprom_save_mp3_loop_setting()
 {
   EEPROM.write(EEPROM_MP3_LOOP_PLAY_ADDRESS, get_mp3_loop_play_state()); 
+}
+
+
+void eeprom_save_display_hibernation(int hour_start, int minute_start, int hour_end,
+  int minute_end, bool enabled)
+{
+  EEPROM.write(EEPROM_HIBERNATE_HOUR_START_ADDRESS, hour_start);
+  EEPROM.write(EEPROM_HIBERNATE_MINUTE_START_ADDRESS, minute_start);
+  EEPROM.write(EEPROM_HIBERNATE_HOUR_END_ADDRESS, hour_end);
+  EEPROM.write(EEPROM_HIBERNATE_MINUTE_END_ADDRESS, minute_end);
+  EEPROM.write(EEPROM_HIBERNATE_ENABLED_ADDRESS, enabled);
 }
 
 /************************

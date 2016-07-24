@@ -5,11 +5,15 @@
 #include "RTC.h"
 #include "clock.h"
 #include "mp3.h"
+#include "serial.h"
+#include "alarm.h"
 
 int tube[8]; //This array records the data of all tubes
 int tube_index = 0;
 
 int clock_mode = TIME_MODE;
+hibernate_setting_t hibernate_setting;
+bool enable_hibernate = false;
 
 void enable_timer2()
 {
@@ -62,9 +66,65 @@ void display_date_mode()
 
 void clock_display()
 {
+    if(enable_hibernate == true) {
+      tube_hibernate();
+      return;
+    }
+  
     if(clock_mode == TIME_MODE) {
       display_time_mode();
     } else if(clock_mode == DATE_MODE) {
       display_date_mode();
     }
 }
+
+void load_display_hibernation_from_eeprom(int hour_start, int minute_start, int hour_end,
+  int minute_end, bool enabled)
+{
+  DEBUG_PRINTF("[Load clock display hibernation]%d:%d ~ %d:%d enabled:%s\n",
+    hour_start,
+    minute_start,
+    hour_end,
+    minute_end,
+    enabled ? "on" : "off"
+  );
+  
+  hibernate_setting.hour_start = hour_start;
+  hibernate_setting.minute_start = minute_start;
+  hibernate_setting.hour_end = hour_end;
+  hibernate_setting.minute_end = minute_end;
+  hibernate_setting.enabled = enabled;
+}
+
+void set_display_hibernation(int hour_start, int minute_start, int hour_end, int minute_end, bool enabled)
+{
+  DEBUG_PRINTF("[Set clock display hibernation]%d:%d ~ %d:%d enabled:%s\n",
+    hour_start,
+    minute_start,
+    hour_end,
+    minute_end,
+    enabled ? "on" : "off"
+  );
+
+  hibernate_setting.hour_start = hour_start;
+  hibernate_setting.minute_start = minute_start;
+  hibernate_setting.hour_end = hour_end;
+  hibernate_setting.minute_end = minute_end;
+  hibernate_setting.enabled = enabled;
+
+  eeprom_save_display_hibernation(hour_start, minute_start, hour_end, minute_end, enabled);
+}
+
+void send_hibernate_command()
+{
+ Serial.print(hibernate_setting.hour_start / 10);
+ Serial.print(hibernate_setting.hour_start % 10);
+ Serial.print(hibernate_setting.minute_start / 10);
+ Serial.print(hibernate_setting.minute_start % 10);
+ Serial.print(hibernate_setting.hour_end / 10);
+ Serial.print(hibernate_setting.hour_end % 10);
+ Serial.print(hibernate_setting.minute_end / 10);
+ Serial.print(hibernate_setting.minute_end % 10);
+ Serial.print(hibernate_setting.enabled ? 1 : 0); 
+}
+

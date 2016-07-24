@@ -5,6 +5,7 @@
 #include "RTC.h"
 #include "alarm.h"
 #include "mp3.h"
+#include "clock.h"
 
 extern int music_volume;
 extern DFPlayer *dfplayer;
@@ -14,11 +15,14 @@ static void parse_add_alarm_command(char *command);
 static void parse_set_alarm_command(char *command);
 static void parse_set_alarm_state_command(char *command);
 static void parse_print_alarm_setting(char *command);
-static void parse_set_volume(char *command);
+static void parse_set_mp3_volume(char *command);
+static void parse_set_alarm_volume(char *command);
 static void parse_music_command(char *command);
 static void parse_eeprom_command(char *command);
 static void parse_sync_command(char *command);
 static void parse_alarm_time_request_command(char *command);
+static void parse_set_hibernation_time_command(char *command);
+static void parse_test_alarm_volume_command(char *command);
 
 void my_printf(const char *fmt, ...)
 {
@@ -52,11 +56,13 @@ void serialEvent()
   REGISTER_NEW_CMD('$', 7, parse_set_alarm_command); //$0307251 (item 3, hour 7, minute 25, alarm 1)
   REGISTER_NEW_CMD('+', 2, parse_set_alarm_state_command);
   REGISTER_NEW_CMD('&', 2, parse_print_alarm_setting);
-  REGISTER_NEW_CMD('{', 2, parse_set_volume);
+  REGISTER_NEW_CMD('{', 2, parse_set_mp3_volume);
+  REGISTER_NEW_CMD('}', 2, parse_set_alarm_volume);
   REGISTER_NEW_CMD('~', 6, parse_music_command);
   REGISTER_NEW_CMD(';', 5, parse_eeprom_command);
   REGISTER_NEW_CMD('!', 11, parse_sync_command);
   REGISTER_NEW_CMD('*', 3, parse_alarm_time_request_command);
+  REGISTER_NEW_CMD('%', 9, parse_set_hibernation_time_command);
   //REGISTER_EXCEPTION(print_error_message); //"error:UNKNOWN_COMMAND\n time: hh:mm:ss"
   REGISTER_NEW_CMD_END();
 }
@@ -73,7 +79,7 @@ static void parse_time_setting_command(char *command)
   int hour = command[8] * 10 + command[9];
   int minute = command[10] * 10 + command[11];
   int second = command[12] * 10 + command[13];
-
+  
   RTC_set_time(year, month, day, hour, minute, second);
 }
 
@@ -119,18 +125,32 @@ static void parse_print_alarm_setting(char *command)
   print_alarm_setting(index);
 }
 
-static void parse_set_volume(char *command)
+static void parse_set_mp3_volume(char *command)
 {
   for(int i = 0; i < 2; i++) {
     command[i] = command[i] - '0';
   }
   
-  int volume = command[0] * 10 + command[1];
+  int mp3_volume = command[0] * 10 + command[1];
 
-  set_music_volume(volume);
+  set_music_volume(mp3_volume);
 
   //XXX:Hack save
   trigger_mp3_hack_save();
+}
+
+static void parse_set_alarm_volume(char *command)
+{
+  for(int i = 0; i < 2; i++) {
+    command[i] = command[i] - '0';
+  }
+  
+  int alarm_volume = command[0] * 10 + command[1];
+
+  set_alarm_volume(alarm_volume);
+
+  //XXX:Hack save
+  trigger_alarm_hack_save();
 }
 
 static void parse_music_command(char *command)
@@ -151,6 +171,8 @@ static void parse_music_command(char *command)
     set_mp3_loop_play_state(true);
   } else if(strcmp(command, "loop-x") == 0) {
     set_mp3_loop_play_state(false);
+  } else if(strcmp(command, "al-try") == 0) {
+    play_radom_music(get_alarm_volume());
   }
 }
 
@@ -167,13 +189,19 @@ static void parse_sync_command(char *command)
     int mp3_volume = get_mp3_volume();
     Serial.print(mp3_volume / 10);
     Serial.print(mp3_volume % 10);
+    
   } else if(strcmp(command, "music-loop-") == 0) {
     get_mp3_loop_play_state() ? Serial.print(1) : Serial.print(0);
-  } else if(strcmp(command, "clock-sound") == 0) {
+    
+  } else if(strcmp(command, "alarm-volum") == 0) {
+    Serial.print(get_alarm_volume() / 10);
+    Serial.print(get_alarm_volume() % 10);
     
   } else if(strcmp(command, "clock-count") == 0) {
     Serial.print(get_alarm_count());
     
+  } else if(strcmp(command, "hibernate--") == 0) {
+    send_hibernate_command();
   }
 }
 
@@ -204,5 +232,21 @@ static void parse_set_alarm_state_command(char *command)
 
   set_alarm_on_state(index, state);
   DEBUG_PRINTF("[Set alarm %d state]%d\n", index, state);
+}
+
+static void parse_set_hibernation_time_command(char *command)
+{
+  for(int i = 0; i < 9; i++) {
+    command[i] = command[i] - '0';
+  }
+
+  int hour_start = command[0] * 10 + command[1];
+  int minute_start = command[2] * 10 + command[3];
+  int hour_end = command[4] * 10 + command[5];
+  int minute_end = command[6] * 10 + command[7];
+
+  int enabled = command[8];
+
+  set_display_hibernation(hour_start, minute_start, hour_end, minute_end, enabled == 0 ? false : true);
 }
 

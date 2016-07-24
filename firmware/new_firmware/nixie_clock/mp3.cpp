@@ -87,6 +87,12 @@ void set_music_volume(int _volume)
   music_volume = _volume;
 }
 
+void apply_alarm_volume(int volume)
+{
+  dfplayer->set_volume(volume);
+  delay(DFPLAYER_DELAY_TIME);
+}
+
 void play_music(int song)
 { 
   dfplayer->play_root(song);

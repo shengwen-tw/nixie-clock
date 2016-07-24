@@ -22,7 +22,7 @@ void previous_music();
 
 
 int get_mp3_volume();
-
+void apply_alarm_volume(int volume);
 void load_music_volume_from_eeprom(int _volume);
 void set_music_volume(int _volume);
 
