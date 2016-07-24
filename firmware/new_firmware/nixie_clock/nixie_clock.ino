@@ -52,6 +52,8 @@ void loop()
   RTC_read_time(&time);
   
   tube_digit_sort(tube, &time, clock_mode);
+
+  check_hibernate_time(&time);
   
   check_alarm(&time);
 

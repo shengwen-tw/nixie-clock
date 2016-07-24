@@ -111,8 +111,26 @@ void set_display_hibernation(int hour_start, int minute_start, int hour_end, int
   hibernate_setting.hour_end = hour_end;
   hibernate_setting.minute_end = minute_end;
   hibernate_setting.enabled = enabled;
-
+  
   eeprom_save_display_hibernation(hour_start, minute_start, hour_end, minute_end, enabled);
+}
+
+void check_hibernate_time(rtc_time_t *current_time)
+{
+  if(hibernate_setting.enabled == false) {
+    enable_hibernate = false;
+    return;
+  }
+  
+  if(current_time->hour >= hibernate_setting.hour_start && 
+    current_time->minute >= hibernate_setting.minute_start &&
+    current_time->hour <= hibernate_setting.hour_end &&
+    current_time->minute <= hibernate_setting.minute_end) {
+      enable_hibernate = true;
+  } else {
+    enable_hibernate = false;
+  }
+  
 }
 
 void send_hibernate_command()

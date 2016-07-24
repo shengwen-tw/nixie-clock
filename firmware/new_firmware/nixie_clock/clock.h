@@ -29,5 +29,6 @@ void load_display_hibernation_from_eeprom(int hour_start, int minute_start, int 
 void set_display_hibernation(int hour_start, int minute_start, int hour_end, int minute_end, bool enabled);
 
 void send_hibernate_command();
+void check_hibernate_time(rtc_time_t *current_time);
 
 #endif
