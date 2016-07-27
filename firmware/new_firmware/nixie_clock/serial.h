@@ -2,8 +2,7 @@
 #define __SERIAL_H
 
 /* Debug printf option */
-#define ENABLE_DEBUG_PRINT 1
-
+#define ENABLE_DEBUG_PRINT 0
 #if ENABLE_DEBUG_PRINT == 1
   #define DEBUG_PRINTF my_printf
 #else

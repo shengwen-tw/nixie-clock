@@ -30,5 +30,10 @@ void set_display_hibernation(int hour_start, int minute_start, int hour_end, int
 
 void send_hibernate_command();
 void check_hibernate_time(rtc_time_t *current_time);
+void set_display_hibernation_state(bool state);
+bool get_display_hibernation_state();
+
+void turn_on_blink_display();
+void turn_off_blink_display();
 
 #endif

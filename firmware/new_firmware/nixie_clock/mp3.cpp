@@ -29,7 +29,7 @@ void mp3_init()
   delay(DFPLAYER_DELAY_TIME);
 
   dfplayer->set_volume(music_volume);
-  delay(DFPLAYER_DELAY_TIME);
+  delay(DFPLAYER_DELAY_TIME);  
   
   DEBUG_PRINTF("MP3 songs:%d\n", music_count);
 }
@@ -58,6 +58,10 @@ void set_mp3_loop_play_state(bool state)
 {
   loop_song = state;
   eeprom_save_mp3_loop_setting();
+
+  if(state == false) {
+    playing = false;
+  }
 }
 
 int get_mp3_loop_play_state()
@@ -73,6 +77,10 @@ void load_music_volume_from_eeprom(int _volume)
   }
   
   music_volume = _volume;
+
+  if(playing == true) {
+    
+  }
 }
 
 void set_music_volume(int _volume)
@@ -101,11 +109,13 @@ void play_music(int song)
 
 void stop_music()
 {
-  dfplayer->stop();
-  delay(DFPLAYER_DELAY_TIME);
+  if(check_alarm_timeup_state() != 1) {
+    dfplayer->stop();
+    delay(DFPLAYER_DELAY_TIME);
 
-  playing = false;
-  go_to_next = false;
+    playing = false;
+    go_to_next = false;
+  }
 }
 
 void pause_music()
@@ -143,6 +153,10 @@ int get_mp3_volume()
 
 void play_radom_music(int _volume)
 {
+  if(playing && check_alarm_timeup_state()) {
+    return;
+  }
+  
   if(music_count >= 1) {
     int random_number = year()  + month() * music_count + day() * music_count  + hour() + minute() + second();
     int random_song = random_number % music_count + 1;

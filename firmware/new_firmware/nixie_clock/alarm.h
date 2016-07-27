@@ -31,7 +31,6 @@ typedef struct {
   int alarm_on;
   int checksum;
   
-  int notify_times;
   bool alarm_cleared;
   int timeup;
   int timeup_time;

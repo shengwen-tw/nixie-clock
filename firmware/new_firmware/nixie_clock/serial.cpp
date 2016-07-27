@@ -22,6 +22,7 @@ static void parse_eeprom_command(char *command);
 static void parse_sync_command(char *command);
 static void parse_alarm_time_request_command(char *command);
 static void parse_set_hibernation_time_command(char *command);
+static void parse_set_hibernation_state_command(char *command);
 static void parse_test_alarm_volume_command(char *command);
 
 void my_printf(const char *fmt, ...)
@@ -38,8 +39,8 @@ void serial_read(char *buff, int count)
 {
     for(int i = 0; i < count; i++) {
       while(Serial.available() == 0);
-      buff[i] = Serial.read();      
-      //DEBUG_PRINTF("%d ", buff[i]);
+      buff[i] = Serial.read();
+      //DEBUG_PRINTF("%c", buff[i]);  
     }
     
     //DEBUG_PRINTF("\n");
@@ -63,6 +64,7 @@ void serialEvent()
   REGISTER_NEW_CMD('!', 11, parse_sync_command);
   REGISTER_NEW_CMD('*', 3, parse_alarm_time_request_command);
   REGISTER_NEW_CMD('%', 9, parse_set_hibernation_time_command);
+  REGISTER_NEW_CMD('^', 1, parse_set_hibernation_state_command);
   //REGISTER_EXCEPTION(print_error_message); //"error:UNKNOWN_COMMAND\n time: hh:mm:ss"
   REGISTER_NEW_CMD_END();
 }
@@ -192,7 +194,6 @@ static void parse_sync_command(char *command)
     
   } else if(strcmp(command, "music-loop-") == 0) {
     get_mp3_loop_play_state() ? Serial.print(1) : Serial.print(0);
-    
   } else if(strcmp(command, "alarm-volum") == 0) {
     Serial.print(get_alarm_volume() / 10);
     Serial.print(get_alarm_volume() % 10);
@@ -202,6 +203,9 @@ static void parse_sync_command(char *command)
     
   } else if(strcmp(command, "hibernate--") == 0) {
     send_hibernate_command();
+    
+  } else if(strcmp(command, "hib-enabled") == 0) {
+    get_display_hibernation_state() ? Serial.print(1) : Serial.print(0);
   }
 }
 
@@ -248,5 +252,13 @@ static void parse_set_hibernation_time_command(char *command)
   int enabled = command[8];
 
   set_display_hibernation(hour_start, minute_start, hour_end, minute_end, enabled == 0 ? false : true);
+}
+
+static void parse_set_hibernation_state_command(char *command)
+{
+  int state = command[0] - '0';
+
+  set_display_hibernation_state(state);
+  DEBUG_PRINTF("[Set hibernation %d state]%d\n", state);
 }
 

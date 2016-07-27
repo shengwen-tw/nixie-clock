@@ -14,11 +14,22 @@ int mode_button_trigger = 0;
 int adjust_button_trigger = 0;
 int play_button_trigger = 0;
 
-int last_debounce_time;
+unsigned long last_debounce_time;
+
+bool just_clear_alarm = false;
+unsigned long alarm_timer = 0;
 
 void check_mode_button()
 {
-  if ((millis() - last_debounce_time) < 120) {
+  if(just_clear_alarm) {
+    if(millis() - alarm_timer > 300) {
+      just_clear_alarm = false;
+    } else {
+      return;
+    }
+  }
+  
+  if ((millis() - last_debounce_time) < 50) {
     return;
   }
   
@@ -33,7 +44,10 @@ void check_mode_button()
   if(button_state == LOW && mode_button_trigger == 1) {
     if(check_alarm_timeup_state() == 1) {
       clear_alarm_timeup_state();
-      Serial.println("Clear alarm state");
+      DEBUG_PRINTF("Clear alarm state");
+
+      just_clear_alarm = true;
+      alarm_timer = millis();
     } else {
       clock_mode = (clock_mode + 1 ) % MODE_COUNT;
     }

@@ -92,6 +92,7 @@ void read_alarm_setting()
   DEBUG_PRINTF("ALARM COUNT: %d\n", alarm_setting_count);
   DEBUG_PRINTF("ALARM VOLUME: %d\n", alarm_music_volume);
   DEBUG_PRINTF("MUSIC VOLUME: %d\n", music_volume);
+  DEBUG_PRINTF("MP3 LOOP: %d\n", mp3_loop);
   
   if(!alarm_setting_count) return; //If there is no alarm setting
   
@@ -193,6 +194,7 @@ void set_alarm_setting(int index, int _hour, int _minute, int alarm_on)
   EEPROM.write(address + 2, alarm_on);
   EEPROM.write(address + 3, alarm_time[index].checksum);
 
+#if 0
   DEBUG_PRINTF("[Modify %d]%d:%d alarm_on:%d Checksum %d\n",
     index,
     alarm_time[index].hour,
@@ -200,6 +202,7 @@ void set_alarm_setting(int index, int _hour, int _minute, int alarm_on)
     alarm_time[index].alarm_on,
     alarm_time[index].checksum
   );
+#endif
 }
 
 void clear_alarm_setting()
@@ -231,32 +234,53 @@ int timeup(int hour_now, int minute_now, int hour_alarm, int minute_alarm)
   return 0;
 }
 
-static void turn_on_alarm()
-{
-  for(int i = 0; i < alarm_setting_count; i++) {
-    alarm_time[i].alarm_cleared = false;
-  }
-}
-
 void check_alarm(rtc_time_t *current_time)
 {
-  /* New day comes */
-  if(timeup(current_time->hour, current_time->minute, 0, 0)) {
-    turn_on_alarm();
-  }
-  
   for(int i = 0; i < alarm_setting_count; i++) {
+    if(alarm_time[i].alarm_on == 0) {
+      continue;
+    }
+    
     if(alarm_time[i].timeup == 1) {
+      /* Reset timeup flag after a while */
+      int interval;
+
+      //Calculate the time interval
+      if(current_time->hour < alarm_time[i].hour) {
+        //Time roll over
+        int roll_over_hour = current_time->hour + 24;
+        interval = (roll_over_hour - alarm_time[i].hour) * 60 + (current_time->minute - alarm_time[i].minute);
+      } else {
+        interval = (current_time->hour - alarm_time[i].hour) * 60 + (current_time->minute - alarm_time[i].minute);
+      }
+
+      //Over thirty minute, but still not reaction
+      if(interval > 30) {
+          alarm_time[i].timeup = 0;
+          stop_music();
+          turn_off_blink_display();
+          set_mp3_loop_play_state(false);
+
+          DEBUG_PRINTF("[Alarm %d]Automatic clear timeup flag\n", i);
+      }
       
     } else {
-      if(timeup(current_time->hour, current_time->minute, alarm_time[i].hour, alarm_time[i].minute) && 
-        (alarm_time[i].alarm_cleared == 0))
+      if(timeup(current_time->hour, current_time->minute, alarm_time[i].hour, alarm_time[i].minute))
       {
-        Serial.println("ALARM_TIMEUP");
-        alarm_time[i].timeup = 1;
+        if(alarm_time[i].alarm_cleared == false) {
+          Serial.println("ALARM_TIMEUP");
+          alarm_time[i].timeup = 1;
+
+          turn_on_blink_display();
         
-        //TODO:Play music & blink
-        play_radom_music(alarm_music_volume);
+          //TODO:Play music & blink
+          play_radom_music(alarm_music_volume);
+          set_mp3_loop_play_state(true);
+        }
+      } else {
+        
+        //Clear flag
+        alarm_time[i].alarm_cleared = false;
       }
     }
   }
@@ -275,13 +299,21 @@ int check_alarm_timeup_state()
 
 void clear_alarm_timeup_state()
 {
+  bool do_clear = false;
+  
   for(int i = 0; i < alarm_setting_count; i++) {
     if(alarm_time[i].timeup == 1) {
       alarm_time[i].timeup = 0;
       alarm_time[i].alarm_cleared = true;
 
-      stop_music();
+      do_clear = true;
     }
+  }
+
+  if(do_clear) {
+    stop_music();
+    turn_off_blink_display();
+    set_mp3_loop_play_state(false);
   }
 }
 
@@ -309,6 +341,8 @@ void set_alarm_on_state(int index, int state)
 {
   int address = EEPROM_ALARM_START_ADDRESS + ALARM_ITEM_CNT * index;
   int checksum_arr[CHECKSUM_ARRAY_SIZE];
+
+  alarm_time[index].alarm_cleared = false;
 
   /* Calculate checksum and change the alarm state*/
   checksum_arr[0] = alarm_time[index].hour;
@@ -383,13 +417,13 @@ void trigger_mp3_hack_save()
 void eeprom_hack_save()
 {
     /* Wait 1 second until AI2 slider lost focus */
-    if(prepare_alarm_hack_save == true && (millis() - previous_time_alarm_volume) > 1000) {
+    if(prepare_alarm_hack_save == true && (millis() - previous_time_alarm_volume) > 100) {
         DEBUG_PRINTF("[EEPROM HACK SAVE]Alarm volume: %d\n", alarm_music_volume);
         eeprom_save_alarm_volume_setting(alarm_music_volume);
         prepare_alarm_hack_save = false;
     }
     
-    if(prepare_mp3_hack_save == true && (millis() - previous_time_mp3_volume) > 1000) {
+    if(prepare_mp3_hack_save == true && (millis() - previous_time_mp3_volume) > 100) {
       DEBUG_PRINTF("[EEPROM HACK SAVE]MP3 volume: %d\n", get_mp3_volume());
       eeprom_save_music_volume_setting(get_mp3_volume());
       prepare_mp3_hack_save = false;
