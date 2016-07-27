@@ -11,10 +11,10 @@
 
 /* Bluetooth command register macro */
 #define REGISTER_NEW_CMD_START(header, msg_size, func)  if(command == header) { \
-                                                              serial_read(buff, msg_size); \
+                                                              if(serial_read(buff, msg_size)) {return;} \
                                                               func(buff);
 #define REGISTER_NEW_CMD(header, msg_size, func)        } else if(command == header) { \
-                                                              serial_read(buff, msg_size); \
+                                                              if(serial_read(buff, msg_size)) {return;} \
                                                               func(buff);
 #define REGISTER_NEW_CMD_END()                          }
 

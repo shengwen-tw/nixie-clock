@@ -35,15 +35,23 @@ void my_printf(const char *fmt, ...)
     Serial.print(tmp);
 }
 
-void serial_read(char *buff, int count)
+int serial_read(char *buff, int count)
 {
     for(int i = 0; i < count; i++) {
-      while(Serial.available() == 0);
+      unsigned long timeout = millis();
+      while(Serial.available() == 0) {
+        if((millis() - timeout) >= 100) {
+          DEBUG_PRINTF("USART Timeout!\n");
+          return 1;
+        }
+      }
+      
       buff[i] = Serial.read();
       //DEBUG_PRINTF("%c", buff[i]);  
     }
-    
     //DEBUG_PRINTF("\n");
+    
+    return 0;
 }
 
 void serialEvent()
