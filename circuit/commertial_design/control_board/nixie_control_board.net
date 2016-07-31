@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/control_board/nixie_control_board.sch)
-    (date "Sun 31 Jul 2016 12:14:17 AM CST")
+    (date "Sun 31 Jul 2016 09:33:59 PM CST")
     (tool "Eeschema 4.0.2+e4-6225~38~ubuntu14.04.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
