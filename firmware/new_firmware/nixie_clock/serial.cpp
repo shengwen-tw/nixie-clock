@@ -89,8 +89,10 @@ static void parse_time_setting_command(char *command)
   int hour = command[8] * 10 + command[9];
   int minute = command[10] * 10 + command[11];
   int second = command[12] * 10 + command[13];
-  
+
+#if ENABLE_TIME_TESTING == 0
   RTC_set_time(year, month, day, hour, minute, second);
+#endif
 }
 
 static void parse_add_alarm_command(char *command)
@@ -103,7 +105,7 @@ static void parse_add_alarm_command(char *command)
   int minute = command[2] * 10 + command[3];
   int alarm_on = command[4];
   
-  my_printf("[ADD_ALARM]%d:%d\n", hour, minute);
+  DEBUG_PRINTF("[ADD_ALARM]%d:%d\n", hour, minute);
   
   add_new_alarm_setting(hour, minute, alarm_on);
 }
@@ -119,7 +121,7 @@ static void parse_set_alarm_command(char *command)
   int minute = command[4] * 10 + command[5];
   int alarm_on = command[6];
 
-  my_printf("[EDIT_ALARM]%d:%d\n", hour, minute);
+  DEBUG_PRINTF("[EDIT_ALARM]%d:%d\n", hour, minute);
   
   set_alarm_setting(index, hour, minute, alarm_on);
 }
@@ -137,6 +139,10 @@ static void parse_print_alarm_setting(char *command)
 
 static void parse_set_mp3_volume(char *command)
 {
+  if(check_alarm_timeup_state()) {
+    return;
+  }
+  
   for(int i = 0; i < 2; i++) {
     command[i] = command[i] - '0';
   }
@@ -150,7 +156,7 @@ static void parse_set_mp3_volume(char *command)
 }
 
 static void parse_set_alarm_volume(char *command)
-{
+{  
   for(int i = 0; i < 2; i++) {
     command[i] = command[i] - '0';
   }
@@ -165,6 +171,19 @@ static void parse_set_alarm_volume(char *command)
 
 static void parse_music_command(char *command)
 {
+  if(strcmp(command, "loop-o") == 0) {
+    set_mp3_loop_play_state(true);
+    return;
+  } else if(strcmp(command, "loop-x") == 0) {
+    set_mp3_loop_play_state(false);
+    return;
+  }
+  
+  if(check_alarm_timeup_state()) {
+    return;
+  }
+
+  /* These commands have no effect while alarming */
   if(strcmp(command, "random") == 0) {
     play_radom_music(music_volume);
   } else if(strcmp(command, "pause-") == 0) {
@@ -177,10 +196,6 @@ static void parse_music_command(char *command)
     next_music();    
   } else if(strcmp(command, "last--") == 0) {
     previous_music();
-  } else if(strcmp(command, "loop-o") == 0) {
-    set_mp3_loop_play_state(true);
-  } else if(strcmp(command, "loop-x") == 0) {
-    set_mp3_loop_play_state(false);
   } else if(strcmp(command, "al-try") == 0) {
     play_radom_music(get_alarm_volume());
   }

@@ -63,7 +63,7 @@ void read_alarm_setting()
   alarm_setting_count = EEPROM.read(EEPROM_ALARM_CNT_ADDRESS);
   
   if(alarm_setting_count > ALARM_SETTING_MAX) {
-    Serial.println("error:EEPROM alarm count bigger than MAX value");
+    DEBUG_PRINTF("error:EEPROM alarm count bigger than MAX value\n");
     alarm_setting_count = 0;
     eeprom_clear();
 
@@ -178,8 +178,6 @@ void set_alarm_setting(int index, int _hour, int _minute, int alarm_on)
   }
   
   int checksum_arr[CHECKSUM_ARRAY_SIZE];
-
-  alarm_time[index].alarm_cleared = false;
   
   checksum_arr[0] = alarm_time[index].hour = _hour;
   checksum_arr[1] = alarm_time[index].minute = _minute;
@@ -188,7 +186,7 @@ void set_alarm_setting(int index, int _hour, int _minute, int alarm_on)
   
   /* Save setting into EEPROM */
   int address = EEPROM_ALARM_START_ADDRESS + ALARM_ITEM_CNT * index;
-  
+
   EEPROM.write(address, _hour);
   EEPROM.write(address + 1, _minute);
   EEPROM.write(address + 2, alarm_on);
@@ -221,7 +219,7 @@ void print_alarm_setting(int index)
       alarm_time[index].alarm_on
     );
   } else {
-    Serial.println("error:ALARM_NOT_SET");
+    DEBUG_PRINTF("error:ALARM_NOT_SET\n");
   }
 }
 
@@ -232,6 +230,29 @@ int timeup(int hour_now, int minute_now, int hour_alarm, int minute_alarm)
   }
   
   return 0;
+}
+
+static void clear_alarm_timeup(int index)
+{
+  if(alarm_time[index].timeup == 1) {
+    alarm_time[index].timeup = 0;
+  }
+
+  bool stop_alarm_music = true;
+
+  //Check timeup state of the alarm list
+  for(int i = 0; i < alarm_setting_count; i++) {
+    if(alarm_time[i].timeup == true && alarm_time[i].alarm_cleared == false) {
+      stop_alarm_music = false;
+    }
+  }
+
+  //Stop the music if every alarm's timeup state are cleared
+  if(stop_alarm_music == true) {
+    stop_music();
+    turn_off_blink_display();
+    set_alarm_loop_play_state(false);
+  }
 }
 
 void check_alarm(rtc_time_t *current_time)
@@ -256,11 +277,7 @@ void check_alarm(rtc_time_t *current_time)
 
       //Over thirty minute, but still not reaction
       if(interval > 30) {
-          alarm_time[i].timeup = 0;
-          stop_music();
-          turn_off_blink_display();
-          set_mp3_loop_play_state(false);
-
+          clear_alarm_timeup(i);
           DEBUG_PRINTF("[Alarm %d]Automatic clear timeup flag\n", i);
       }
       
@@ -268,14 +285,14 @@ void check_alarm(rtc_time_t *current_time)
       if(timeup(current_time->hour, current_time->minute, alarm_time[i].hour, alarm_time[i].minute))
       {
         if(alarm_time[i].alarm_cleared == false) {
-          Serial.println("ALARM_TIMEUP");
+          DEBUG_PRINTF("ALARM_TIMEUP\n");
           alarm_time[i].timeup = 1;
 
           turn_on_blink_display();
         
           //TODO:Play music & blink
           play_radom_music(alarm_music_volume);
-          set_mp3_loop_play_state(true);
+          set_alarm_loop_play_state(true);
         }
       } else {
         
@@ -313,7 +330,7 @@ void clear_alarm_timeup_state()
   if(do_clear) {
     stop_music();
     turn_off_blink_display();
-    set_mp3_loop_play_state(false);
+    set_alarm_loop_play_state(false);
   }
 }
 
@@ -337,12 +354,51 @@ bool get_alarm_on_state(int index)
   return alarm_time[index].alarm_on ? true : false;
 }
 
+static void turn_off_alarm(int index)
+{
+  alarm_time[index].alarm_on = 0;
+  
+  if( alarm_time[index].timeup == 1) {
+    alarm_time[index].timeup = 0;
+    alarm_time[index].alarm_cleared = true;
+  } else {
+    return;
+  }
+
+  bool stop_alarm_music = true;
+
+  //Check timeup state of the alarm list
+  for(int i = 0; i < alarm_setting_count; i++) {
+    if(alarm_time[i].timeup == true && alarm_time[i].alarm_cleared == false) {
+      stop_alarm_music = false;
+    }
+  }
+
+  //Stop the music if every alarm's timeup state are cleared
+  if(stop_alarm_music == true) {
+    stop_music();
+    turn_off_blink_display();
+    set_alarm_loop_play_state(false);
+  }
+}
+
+static void turn_on_alarm(int index)
+{
+  alarm_time[index].alarm_on = 1;
+  alarm_time[index].timeup = 0;
+  alarm_time[index].alarm_cleared = false;
+}
+
 void set_alarm_on_state(int index, int state)
 {
   int address = EEPROM_ALARM_START_ADDRESS + ALARM_ITEM_CNT * index;
   int checksum_arr[CHECKSUM_ARRAY_SIZE];
 
-  alarm_time[index].alarm_cleared = false;
+  if(state == 0) {
+    turn_off_alarm(index);
+  } else {
+    turn_on_alarm(index);
+  }
 
   /* Calculate checksum and change the alarm state*/
   checksum_arr[0] = alarm_time[index].hour;

@@ -14,7 +14,8 @@ int music_volume = 30;
 
 /* variable for song looping */
 bool playing = false;
-bool loop_song = false;
+bool mp3_loop_song = false;
+bool alarm_loop_song = false;
 bool go_to_next = false;
 
 void mp3_init()
@@ -36,7 +37,7 @@ void mp3_init()
 
 void check_mp3_state()
 {
-  if(loop_song == false || playing != true) {
+  if((mp3_loop_song == false && alarm_loop_song) || playing != true) {
     return;
   }
   
@@ -46,27 +47,33 @@ void check_mp3_state()
       next_music();
 
       go_to_next = false;
-      playing = false;
     }
   } else {
     go_to_next = true;
-    playing = true;
   }
 }
 
 void set_mp3_loop_play_state(bool state)
 {
-  loop_song = state;
+  mp3_loop_song = state;
   eeprom_save_mp3_loop_setting();
 
   if(state == false) {
     playing = false;
+  } else {
+    playing = true;
   }
+}
+
+
+void set_alarm_loop_play_state(bool state)
+{
+  alarm_loop_song = state;
 }
 
 int get_mp3_loop_play_state()
 {
-  return loop_song ? 1 : 0;
+  return mp3_loop_song ? 1 : 0;
 }
 
 //Do not mix this function with set_music_volume() !
@@ -77,10 +84,6 @@ void load_music_volume_from_eeprom(int _volume)
   }
   
   music_volume = _volume;
-
-  if(playing == true) {
-    
-  }
 }
 
 void set_music_volume(int _volume)
@@ -89,8 +92,11 @@ void set_music_volume(int _volume)
     return;
   }
 
-  dfplayer->set_volume(_volume);
-  delay(DFPLAYER_DELAY_TIME);
+  //No effect while alarming
+  if(!check_alarm_timeup_state()) {
+    dfplayer->set_volume(_volume);
+    delay(DFPLAYER_DELAY_TIME);
+  }
   
   music_volume = _volume;
 }

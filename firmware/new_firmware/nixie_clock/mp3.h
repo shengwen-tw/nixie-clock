@@ -9,6 +9,7 @@ extern int music_count;
 void check_mp3_state();
 void set_mp3_loop_play_state(bool state);
 int get_mp3_loop_play_state();
+void set_alarm_loop_play_state(bool state);
 
 void mp3_init();
 void play_alarm_music(int volume, int song);
