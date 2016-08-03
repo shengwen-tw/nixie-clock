@@ -36,4 +36,6 @@ bool get_display_hibernation_state();
 void turn_on_blink_display();
 void turn_off_blink_display();
 
+void clock_display();
+
 #endif

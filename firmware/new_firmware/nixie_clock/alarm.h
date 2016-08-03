@@ -58,7 +58,8 @@ void eeprom_save_mp3_loop_setting();
 void eeprom_save_music_volume_setting(int music_volume);
 void eeprom_save_display_hibernation(int hour_start, int minute_start, int hour_end,
   int minute_end, bool enabled);
-  
+void eeprom_save_display_hibernation_state(bool enabled);
+
 //Hack save
 void trigger_alarm_hack_save();
 void trigger_mp3_hack_save();

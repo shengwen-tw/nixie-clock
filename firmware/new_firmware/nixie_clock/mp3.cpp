@@ -21,6 +21,7 @@ bool go_to_next = false;
 void mp3_init()
 {
   dfplayer = new DFPlayer(SM_Software, mp3_rx, mp3_tx);
+
   delay(DFPLAYER_DELAY_TIME);
 
   music_count = dfplayer->get_tracks();
@@ -163,6 +164,22 @@ void play_radom_music(int _volume)
     return;
   }
   
+  if(music_count >= 1) {
+    int random_number = year()  + month() * music_count + day() * music_count  + hour() + minute() + second();
+    int random_song = random_number % music_count + 1;
+
+    dfplayer->set_volume(_volume);
+    delay(DFPLAYER_DELAY_TIME);
+
+    dfplayer->play_root(random_song);
+    delay(DFPLAYER_DELAY_TIME);
+
+    playing = true;
+  }
+}
+
+void play_alarm_music(int _volume)
+{
   if(music_count >= 1) {
     int random_number = year()  + month() * music_count + day() * music_count  + hour() + minute() + second();
     int random_song = random_number % music_count + 1;

@@ -139,10 +139,6 @@ static void parse_print_alarm_setting(char *command)
 
 static void parse_set_mp3_volume(char *command)
 {
-  if(check_alarm_timeup_state()) {
-    return;
-  }
-  
   for(int i = 0; i < 2; i++) {
     command[i] = command[i] - '0';
   }

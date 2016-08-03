@@ -13,6 +13,7 @@ void set_alarm_loop_play_state(bool state);
 
 void mp3_init();
 void play_alarm_music(int volume, int song);
+void play_alarm_music(int _volume);
 void play_music(int song);
 void stop_music();
 void pause_music();

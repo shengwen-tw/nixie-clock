@@ -291,7 +291,7 @@ void check_alarm(rtc_time_t *current_time)
           turn_on_blink_display();
         
           //TODO:Play music & blink
-          play_radom_music(alarm_music_volume);
+          play_alarm_music(alarm_music_volume);
           set_alarm_loop_play_state(true);
         }
       } else {
@@ -452,6 +452,11 @@ void eeprom_save_display_hibernation(int hour_start, int minute_start, int hour_
   EEPROM.write(EEPROM_HIBERNATE_MINUTE_START_ADDRESS, minute_start);
   EEPROM.write(EEPROM_HIBERNATE_HOUR_END_ADDRESS, hour_end);
   EEPROM.write(EEPROM_HIBERNATE_MINUTE_END_ADDRESS, minute_end);
+  EEPROM.write(EEPROM_HIBERNATE_ENABLED_ADDRESS, enabled);
+}
+
+void eeprom_save_display_hibernation_state(bool enabled)
+{
   EEPROM.write(EEPROM_HIBERNATE_ENABLED_ADDRESS, enabled);
 }
 

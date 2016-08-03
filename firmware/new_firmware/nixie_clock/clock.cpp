@@ -148,6 +148,7 @@ void load_display_hibernation_from_eeprom(int hour_start, int minute_start, int 
 void set_display_hibernation_state(bool state)
 {
   hibernate_setting.enabled = state;
+  eeprom_save_display_hibernation_state(state);
 }
 
 bool get_display_hibernation_state()
@@ -177,11 +178,14 @@ void set_display_hibernation(int hour_start, int minute_start, int hour_end, int
 static bool in_time_range(int now_hour, int now_minute, int start_hour,
   int start_minute, int end_hour, int end_minute)
 {
-  if(now_hour >= start_hour && now_minute >= start_minute &&
-     now_hour <= end_hour && now_minute <= end_minute) {
+  int start_time = start_hour * 60 + start_minute;
+  int end_time = end_hour * 60 + end_minute;
+  int now_time = now_hour * 60 + now_minute;
+
+  if(now_time >= start_time && now_time <= end_time) {
     return true;
   } else {
-    return  false;
+    return false;
   }
 }
 

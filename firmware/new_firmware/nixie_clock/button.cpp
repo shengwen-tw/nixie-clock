@@ -29,7 +29,7 @@ void check_mode_button()
     }
   }
   
-  if ((millis() - last_debounce_time) < 50) {
+  if ((millis() - last_debounce_time) < 100) {
     return;
   }
   
