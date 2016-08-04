@@ -1,6 +1,8 @@
 #ifndef __TUBE_CONTROL_H
 #define __TUBE_CONTROL_H
 
+#define USE_HACKED_FONT 0
+
 #include "RTC.h"
 #include "clock.h"
 

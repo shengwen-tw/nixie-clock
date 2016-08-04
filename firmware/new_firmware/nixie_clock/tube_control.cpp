@@ -9,10 +9,17 @@ int tube_select_table[8][4] = {{LOW, LOW, LOW, LOW}, {HIGH, LOW, LOW, LOW},
       {LOW, HIGH, LOW, LOW}, {HIGH, HIGH, LOW, LOW}, {LOW, LOW, HIGH, LOW},
       {HIGH, LOW, HIGH, LOW}, {LOW, HIGH, HIGH, LOW}, {HIGH, HIGH, HIGH, LOW}};
 
+#if USE_HACKED_FONT == 0
 int font_table[10][4] = {{LOW, LOW, LOW, LOW}, {HIGH, LOW, LOW, LOW},
       {LOW, HIGH, LOW, LOW}, {HIGH, HIGH, LOW, LOW}, {LOW, LOW, HIGH, LOW},
       {HIGH, LOW, HIGH, LOW}, {LOW, HIGH, HIGH, LOW}, {HIGH, HIGH, HIGH, LOW},
       {LOW, LOW, LOW, HIGH}, {HIGH, LOW, LOW, HIGH}};
+#else
+int font_table[10][4] = {{HIGH, LOW, LOW, HIGH}, {LOW, LOW, LOW, LOW},
+      {HIGH, LOW, LOW, LOW}, {LOW, HIGH, LOW, LOW}, {HIGH, HIGH, LOW, LOW},
+      {LOW, LOW, HIGH, LOW}, {HIGH, LOW, HIGH, LOW}, {LOW, HIGH, HIGH, LOW},
+      {HIGH, HIGH, HIGH, LOW}, {LOW, LOW, LOW, HIGH}};
+#endif
 
 void tube_control(int tube_number, int tube_font)
 { 
