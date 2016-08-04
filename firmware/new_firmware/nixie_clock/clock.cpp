@@ -197,8 +197,9 @@ void check_hibernate_time(rtc_time_t *current_time)
   }
 
   /* Hibernate in same day */
-  if(hibernate_setting.hour_start <= hibernate_setting.hour_end && 
-   hibernate_setting.minute_start <= hibernate_setting.minute_end) {
+  if(hibernate_setting.hour_start < hibernate_setting.hour_end ||
+   (hibernate_setting.hour_start == hibernate_setting.hour_end && 
+   hibernate_setting.minute_start <= hibernate_setting.minute_end)) {
     enable_hibernate = in_time_range(
       current_time->hour,
       current_time->minute,
