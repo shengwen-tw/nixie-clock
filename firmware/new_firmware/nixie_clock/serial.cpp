@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <DFPlayer.h>
+#include <DFPlayer_AltSerial.h>
 
 #include "serial.h"
 #include "RTC.h"

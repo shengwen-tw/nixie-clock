@@ -1,4 +1,4 @@
-#include <DFPlayer.h>
+#include <DFPlayer_AltSerial.h>
 #include <Time.h>
 
 #include "pindef.h"
