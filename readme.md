@@ -1,7 +1,7 @@
 #Information
 * Project name : Nixie Clock
 * Developer : Shengwen Cheng (shengwen1997.tw@gmail.com)
-* Thanks to : 楊宗凡, 施翰誠, Ming, JackABK, 陳冠宇 and those people who gave me the advice 
+* Thanks to : 張世昌, 楊宗凡, 施翰誠, Ming, JackABK, 陳冠宇 and those people who gave me the advice 
 * Microcontroller : ATMega328p-au with arduino nano bootloader
 
 #Introduction
