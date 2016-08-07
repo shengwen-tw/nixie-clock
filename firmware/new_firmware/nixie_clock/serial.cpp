@@ -176,11 +176,12 @@ static void parse_music_command(char *command)
     set_mp3_loop_play_state(false);
     return;
   }
-  
+
   if(check_alarm_timeup_state()) {
+    Serial.print(1);
     return;
   }
-
+  
   /* These commands have no effect while alarming */
   if(strcmp(command, "random") == 0) {
     play_radom_music(music_volume);
@@ -197,6 +198,8 @@ static void parse_music_command(char *command)
   } else if(strcmp(command, "al-try") == 0) {
     play_radom_music(get_alarm_volume());
   }
+
+  Serial.print(0);
 }
 
 static void parse_eeprom_command(char *command)
