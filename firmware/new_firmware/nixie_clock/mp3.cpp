@@ -38,7 +38,7 @@ void mp3_init()
 
 void check_mp3_state()
 {
-  if((mp3_loop_song == false && alarm_loop_song) || playing != true) {
+  if((mp3_loop_song == false && alarm_loop_song == false) || playing != true) {
     return;
   }
   

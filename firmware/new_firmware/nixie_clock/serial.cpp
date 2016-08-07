@@ -122,8 +122,10 @@ static void parse_set_alarm_command(char *command)
   int alarm_on = command[6];
 
   DEBUG_PRINTF("[EDIT_ALARM]%d:%d\n", hour, minute);
-  
+
+#if ENABLE_TIME_TESTING == 0
   set_alarm_setting(index, hour, minute, alarm_on);
+#endif
 }
 
 static void parse_print_alarm_setting(char *command)

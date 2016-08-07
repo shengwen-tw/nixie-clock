@@ -9,7 +9,7 @@
   #define DEBUG_PRINTF(...)
 #endif
 
-#define ENABLE_TIME_TESTING 1
+#define ENABLE_TIME_TESTING 0
 
 /* Bluetooth command register macro */
 #define REGISTER_NEW_CMD_START(header, msg_size, func)  if(command == header) { \
