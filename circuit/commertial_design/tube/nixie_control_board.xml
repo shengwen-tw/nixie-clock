@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/tube/nixie_control_board.sch</source>
+    <date>Tue 02 Aug 2016 03:27:36 PM CST</date>
+    <tool>Eeschema 4.0.2+e4-6225~38~ubuntu14.04.1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>nixie_control_board.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/display/" tstamps="/5646AE2C/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>display.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U10">
+      <value>IN-14</value>
+      <footprint>IN-14:IN-14</footprint>
+      <libsource lib="nixie_control_board-cache" part="IN-14"/>
+      <sheetpath names="/display/" tstamps="/5646AE2C/"/>
+      <tstamp>5649391C</tstamp>
+    </comp>
+    <comp ref="P3">
+      <value>CONN_01X05</value>
+      <libsource lib="conn" part="CONN_01X05"/>
+      <sheetpath names="/display/" tstamps="/5646AE2C/"/>
+      <tstamp>57A05282</tstamp>
+    </comp>
+    <comp ref="P1">
+      <value>CONN_01X04</value>
+      <libsource lib="conn" part="CONN_01X04"/>
+      <sheetpath names="/display/" tstamps="/5646AE2C/"/>
+      <tstamp>57A05D56</tstamp>
+    </comp>
+    <comp ref="P2">
+      <value>CONN_01X04</value>
+      <libsource lib="conn" part="CONN_01X04"/>
+      <sheetpath names="/display/" tstamps="/5646AE2C/"/>
+      <tstamp>57A05275</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="conn" part="CONN_01X04">
+      <description>Connector 01x04</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X04</fp>
+        <fp>Pin_Header_Angled_1X04</fp>
+        <fp>Socket_Strip_Straight_1X04</fp>
+        <fp>Socket_Strip_Angled_1X04</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="conn" part="CONN_01X05">
+      <description>Connector 01x05</description>
+      <footprints>
+        <fp>Pin_Header_Straight_1X05</fp>
+        <fp>Pin_Header_Angled_1X05</fp>
+        <fp>Socket_Strip_Straight_1X05</fp>
+        <fp>Socket_Strip_Angled_1X05</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONN_01X05</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="nixie_control_board-cache" part="IN-14">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IN-14</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Anode" type="input"/>
+        <pin num="2" name="Cathode_Comma_Left" type="input"/>
+        <pin num="3" name="Cathode_1" type="input"/>
+        <pin num="4" name="Cathode_2" type="input"/>
+        <pin num="5" name="Cathode_3" type="input"/>
+        <pin num="6" name="Cathode_4" type="input"/>
+        <pin num="7" name="Cathode_5" type="input"/>
+        <pin num="8" name="Cathode_6" type="input"/>
+        <pin num="9" name="Cathode_7" type="input"/>
+        <pin num="10" name="Cathode_8" type="input"/>
+        <pin num="11" name="Cathode_9" type="input"/>
+        <pin num="12" name="Cathode_0" type="input"/>
+        <pin num="13" name="Cathode_Camma_Right" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="conn">
+      <uri>/usr/share/kicad/library/conn.lib</uri>
+    </library>
+    <library logical="nixie_control_board-cache">
+      <uri>/home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/tube/nixie_control_board-cache.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="cathode6">
+      <node ref="P1" pin="1"/>
+    </net>
+    <net code="3" name="cathode9">
+      <node ref="P1" pin="4"/>
+    </net>
+    <net code="4" name="Net-(P2-Pad1)">
+      <node ref="P2" pin="1"/>
+    </net>
+    <net code="5" name="Net-(P2-Pad2)">
+      <node ref="P2" pin="2"/>
+    </net>
+    <net code="6" name="Net-(P2-Pad3)">
+      <node ref="P2" pin="3"/>
+    </net>
+    <net code="7" name="Net-(P2-Pad4)">
+      <node ref="P2" pin="4"/>
+    </net>
+    <net code="8" name="cathode7">
+      <node ref="P1" pin="2"/>
+    </net>
+    <net code="9" name="cathode8">
+      <node ref="P1" pin="3"/>
+    </net>
+    <net code="18" name="Net-(P3-Pad2)">
+      <node ref="P3" pin="2"/>
+    </net>
+    <net code="19" name="Net-(U10-Pad2)">
+      <node ref="U10" pin="2"/>
+    </net>
+    <net code="20" name="Net-(U10-Pad3)">
+      <node ref="U10" pin="3"/>
+    </net>
+    <net code="21" name="Net-(U10-Pad4)">
+      <node ref="U10" pin="4"/>
+    </net>
+    <net code="22" name="Net-(U10-Pad5)">
+      <node ref="U10" pin="5"/>
+    </net>
+    <net code="23" name="Net-(U10-Pad6)">
+      <node ref="U10" pin="6"/>
+    </net>
+    <net code="24" name="Net-(U10-Pad7)">
+      <node ref="U10" pin="7"/>
+    </net>
+    <net code="25" name="Net-(U10-Pad8)">
+      <node ref="U10" pin="8"/>
+    </net>
+    <net code="26" name="Net-(U10-Pad9)">
+      <node ref="U10" pin="9"/>
+    </net>
+    <net code="27" name="Net-(U10-Pad10)">
+      <node ref="U10" pin="10"/>
+    </net>
+    <net code="28" name="Net-(U10-Pad11)">
+      <node ref="U10" pin="11"/>
+    </net>
+    <net code="29" name="Net-(U10-Pad12)">
+      <node ref="U10" pin="12"/>
+    </net>
+    <net code="30" name="Net-(U10-Pad13)">
+      <node ref="U10" pin="13"/>
+    </net>
+    <net code="31" name="Net-(P3-Pad1)">
+      <node ref="P3" pin="1"/>
+    </net>
+    <net code="32" name="Net-(U10-Pad1)">
+      <node ref="U10" pin="1"/>
+    </net>
+    <net code="33" name="Net-(P3-Pad3)">
+      <node ref="P3" pin="3"/>
+    </net>
+    <net code="34" name="Net-(P3-Pad4)">
+      <node ref="P3" pin="4"/>
+    </net>
+    <net code="35" name="Net-(P3-Pad5)">
+      <node ref="P3" pin="5"/>
+    </net>
+  </nets>
+</export>

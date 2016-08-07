@@ -219,7 +219,7 @@ L R R9
 U 1 1 564700B5
 P 1400 3600
 F 0 "R9" V 1480 3600 50  0000 C CNN
-F 1 "18k ohm" V 1400 3600 50  0000 C CNN
+F 1 "5.1k ohm" V 1400 3600 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" V 1330 3600 30  0001 C CNN
 F 3 "" H 1400 3600 30  0000 C CNN
 	1    1400 3600
@@ -237,7 +237,7 @@ Text GLabel 5250 1650 0    60   UnSpc ~ 0
 Font_C
 Text GLabel 5250 1800 0    60   UnSpc ~ 0
 Font_D
-Text GLabel 10100 1250 2    55   UnSpc ~ 0
+Text GLabel 9900 2400 2    55   UnSpc ~ 0
 Digit_A0
 Text GLabel 9900 3550 2    55   UnSpc ~ 0
 Digit_A1
@@ -310,7 +310,7 @@ L Q_NPN_EBC Q3
 U 1 1 56531503
 P 3000 5050
 F 0 "Q3" H 3300 5100 50  0000 R CNN
-F 1 "Q_NPN_EBC" H 3600 5000 50  0000 R CNN
+F 1 "MPSA42" H 3600 5000 50  0000 R CNN
 F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 3200 5150 29  0001 C CNN
 F 3 "" H 3000 5050 60  0000 C CNN
 	1    3000 5050
@@ -321,7 +321,7 @@ L Q_NPN_EBC Q4
 U 1 1 56531680
 P 3000 5850
 F 0 "Q4" H 3300 5900 50  0000 R CNN
-F 1 "Q_NPN_EBC" H 3600 5800 50  0000 R CNN
+F 1 "MPSA42" H 3600 5800 50  0000 R CNN
 F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 3200 5950 29  0001 C CNN
 F 3 "" H 3000 5850 60  0000 C CNN
 	1    3000 5850
@@ -344,7 +344,7 @@ L R R10
 U 1 1 5656B24C
 P 2800 4700
 F 0 "R10" V 2880 4700 50  0000 C CNN
-F 1 "R" V 2800 4700 50  0000 C CNN
+F 1 "33K ohm" V 2800 4700 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" V 2730 4700 30  0001 C CNN
 F 3 "" H 2800 4700 30  0000 C CNN
 	1    2800 4700
@@ -355,7 +355,7 @@ L R R11
 U 1 1 5656B5EC
 P 2800 5500
 F 0 "R11" V 2880 5500 50  0000 C CNN
-F 1 "R" V 2800 5500 50  0000 C CNN
+F 1 "33k ohm" V 2800 5500 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" V 2730 5500 30  0001 C CNN
 F 3 "" H 2800 5500 30  0000 C CNN
 	1    2800 5500
@@ -392,51 +392,6 @@ _cathode_comma_right
 Text GLabel 5100 3300 2    60   UnSpc ~ 0
 _cathode_comma_left
 $Comp
-L CONN_02X03 P2
-U 1 1 56A879D5
-P 1650 7150
-F 0 "P2" H 1650 7350 50  0000 C CNN
-F 1 "CONN_02X03" H 1650 6950 50  0000 C CNN
-F 2 "SMD_PIN_2_BY_3_REVERSE:SMD_PIN_2_BY_3_REVERSE" H 1650 5950 50  0001 C CNN
-F 3 "" H 1650 5950 50  0000 C CNN
-	1    1650 7150
-	1    0    0    -1  
-$EndComp
-Text HLabel 1250 7150 0    98   Input ~ 0
-5V
-Text HLabel 1250 7250 0    98   Input ~ 0
-5V
-$Comp
-L R R13
-U 1 1 56A87DD8
-P 2300 7150
-F 0 "R13" V 2250 7350 50  0000 C CNN
-F 1 "330ohm" V 2300 7150 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" V 2230 7150 30  0001 C CNN
-F 3 "" H 2300 7150 30  0000 C CNN
-	1    2300 7150
-	0    1    1    0   
-$EndComp
-$Comp
-L R R14
-U 1 1 56A87E33
-P 2300 7250
-F 0 "R14" V 2250 7450 50  0000 C CNN
-F 1 "330ohm" V 2300 7250 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" V 2230 7250 30  0001 C CNN
-F 3 "" H 2300 7250 30  0000 C CNN
-	1    2300 7250
-	0    1    1    0   
-$EndComp
-Text GLabel 2400 6650 2    60   UnSpc ~ 0
-Adjust_button
-Text GLabel 2400 6500 2    60   UnSpc ~ 0
-Search_button
-Text GLabel 9900 3250 2    60   UnSpc ~ 0
-Adjust_button
-Text GLabel 9900 3150 2    60   UnSpc ~ 0
-Search_button
-$Comp
 L R R18
 U 1 1 56ACF8C9
 P 4350 6250
@@ -460,13 +415,13 @@ F 3 "" H 4350 6400 50  0000 C CNN
 $EndComp
 Text HLabel 4450 6100 0    67   Input ~ 0
 5V
-Text GLabel 9900 2300 2    55   UnSpc ~ 0
+Text GLabel 9900 1350 2    55   UnSpc ~ 0
 MP3_TX
-Text GLabel 9900 2400 2    55   UnSpc ~ 0
+Text GLabel 9900 1250 2    55   UnSpc ~ 0
 MP3_RX
-Text GLabel 4200 6400 0    55   UnSpc ~ 0
-MP3_TX
 Text GLabel 4200 6250 0    55   UnSpc ~ 0
+MP3_TX
+Text GLabel 4200 6400 0    55   UnSpc ~ 0
 MP3_RX
 $Comp
 L SPEAKER SP1
@@ -531,20 +486,12 @@ F 3 "" H 6550 4350 50  0000 C CNN
 	1    6500 4350
 	1    0    0    -1  
 $EndComp
-Text GLabel 9900 1350 2    55   UnSpc ~ 0
+Text GLabel 9900 3150 2    55   UnSpc ~ 0
 dfplayer_state
 Text GLabel 5900 6100 2    55   UnSpc ~ 0
 dfplayer_state
 Text HLabel 5900 7000 2    98   Input ~ 0
 GND
-Text GLabel 7750 2600 0    55   UnSpc ~ 0
-dfplayer_pre
-Text GLabel 7750 2700 0    55   UnSpc ~ 0
-dfplayer_next
-Text GLabel 5900 6850 2    55   UnSpc ~ 0
-dfplayer_pre
-Text GLabel 5900 7150 2    55   UnSpc ~ 0
-dfplayer_next
 $Comp
 L C C15
 U 1 1 57908CAE
@@ -621,14 +568,6 @@ Wire Wire Line
 	4550 5900 4550 6100
 Connection ~ 7700 1850
 Wire Wire Line
-	5750 7150 5900 7150
-Wire Wire Line
-	5750 6850 5900 6850
-Wire Wire Line
-	7750 2700 7850 2700
-Wire Wire Line
-	7750 2600 7850 2600
-Wire Wire Line
 	5750 7000 5900 7000
 Wire Wire Line
 	5750 6100 5900 6100
@@ -669,35 +608,7 @@ Wire Wire Line
 Wire Wire Line
 	4500 6250 4600 6250
 Wire Wire Line
-	9750 3250 9900 3250
-Wire Wire Line
 	9750 3150 9900 3150
-Connection ~ 2050 7250
-Wire Wire Line
-	2050 6500 2400 6500
-Wire Wire Line
-	2050 7250 2050 6500
-Connection ~ 2000 7150
-Wire Wire Line
-	2000 6650 2000 7150
-Wire Wire Line
-	2400 6650 2000 6650
-Connection ~ 2700 7150
-Wire Wire Line
-	2700 7250 2450 7250
-Connection ~ 2700 7050
-Wire Wire Line
-	2700 7050 2700 7250
-Wire Wire Line
-	2450 7150 2700 7150
-Wire Wire Line
-	1900 7250 2150 7250
-Wire Wire Line
-	1900 7150 2150 7150
-Wire Wire Line
-	1400 7250 1250 7250
-Wire Wire Line
-	1250 7150 1400 7150
 Wire Wire Line
 	7700 1250 7700 1900
 Wire Wire Line
@@ -718,8 +629,6 @@ Wire Wire Line
 	5150 2650 5000 2650
 Wire Wire Line
 	9900 2400 9750 2400
-Wire Wire Line
-	9750 2300 9900 2300
 Wire Wire Line
 	2550 5500 2650 5500
 Wire Wire Line
@@ -806,8 +715,6 @@ Wire Wire Line
 	9750 3350 9900 3350
 Wire Wire Line
 	9750 1450 9900 1450
-Wire Wire Line
-	9750 1250 10100 1250
 Wire Wire Line
 	5350 2100 5350 2300
 Wire Wire Line
@@ -1136,4 +1043,23 @@ Wire Wire Line
 	8800 4350 8950 4350
 Wire Wire Line
 	8800 4250 8950 4250
+Wire Wire Line
+	9750 1250 9900 1250
+$Comp
+L CONN_02X01 P2
+U 1 1 57A4962D
+P 1650 7050
+F 0 "P2" H 1650 7150 50  0000 C CNN
+F 1 "CONN_02X01" H 1650 6950 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x01" H 1650 5850 50  0001 C CNN
+F 3 "" H 1650 5850 50  0000 C CNN
+	1    1650 7050
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5750 6850
+NoConn ~ 5750 7150
+NoConn ~ 9750 3250
+NoConn ~ 9750 2300
+NoConn ~ 7850 2600
+NoConn ~ 7850 2700
 $EndSCHEMATC

@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name button)(type KiCad)(uri "$(KIPRJMOD)/button.pretty")(options "")(descr ""))
+  (lib (name IN-14-board)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/libraries/IN-14-board.pretty)(options "")(descr ""))
 )
