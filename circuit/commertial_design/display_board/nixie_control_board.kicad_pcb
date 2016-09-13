@@ -3,7 +3,7 @@
   (general
     (links 108)
     (no_connects 0)
-    (area 51.994999 70.493439 252.145001 133.643441)
+    (area 51.523353 70.493439 252.145001 133.643441)
     (thickness 1.6)
     (drawings 26)
     (tracks 629)
@@ -37,7 +37,7 @@
   )
 
   (setup
-    (last_trace_width 0.7)
+    (last_trace_width 0.25)
     (user_trace_width 0.55)
     (user_trace_width 0.6)
     (user_trace_width 0.7)
@@ -96,7 +96,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ./Geber))
+      (outputdirectory 2016_9_13_DISPLAY_BRD/))
   )
 
   (net 0 "")

@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.2+e4-6225~38~ubuntu14.04.1-stable)
+(kicad_pcb (version 4) (host pcbnew 4.0.4+e1-6308~48~ubuntu16.04.1-stable)
 
   (general
     (links 13)
     (no_connects 0)
-    (area -13.075001 -9.778601 13.075001 13.071401)
+    (area -13.333333 -12.405 13.333334 13.333333)
     (thickness 1.6)
     (drawings 4)
     (tracks 31)
@@ -37,7 +37,7 @@
   )
 
   (setup
-    (last_trace_width 0.7)
+    (last_trace_width 0.25)
     (user_trace_width 0.55)
     (user_trace_width 0.6)
     (user_trace_width 0.7)
@@ -96,7 +96,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ./Geber))
+      (outputdirectory 2016_9_13_TUBE/))
   )
 
   (net 0 "")
@@ -317,14 +317,14 @@
   (segment (start -7.752393 0.33528) (end -5.375248 -2.041865) (width 0.7) (layer F.Cu) (net 7) (tstamp 57A0B087))
   (segment (start -8.3 2.87528) (end -7.892848 2.87528) (width 0.7) (layer F.Cu) (net 8))
   (segment (start -7.892848 2.87528) (end -5.708355 0.690787) (width 0.7) (layer F.Cu) (net 8) (tstamp 57A0B08A))
-  (segment (start -4.733034 3.265102) (end -4.733034 7.953034) (width 0.7) (layer F.Cu) (net 9) (status C00000))
-  (segment (start -4.733034 7.953034) (end -5.08 8.3) (width 0.7) (layer F.Cu) (net 9) (tstamp 57A0B0D3) (status C00000))
-  (segment (start -2.672842 5.091013) (end -2.672842 8.167158) (width 0.7) (layer F.Cu) (net 10) (status C00000))
-  (segment (start -2.672842 8.167158) (end -2.54 8.3) (width 0.7) (layer F.Cu) (net 10) (tstamp 57A0B0D0) (status C00000))
+  (segment (start -4.733034 3.265102) (end -4.733034 7.953034) (width 0.7) (layer F.Cu) (net 9))
+  (segment (start -4.733034 7.953034) (end -5.08 8.3) (width 0.7) (layer F.Cu) (net 9) (tstamp 57A0B0D3))
+  (segment (start -2.672842 5.091013) (end -2.672842 8.167158) (width 0.7) (layer F.Cu) (net 10))
+  (segment (start -2.672842 8.167158) (end -2.54 8.3) (width 0.7) (layer F.Cu) (net 10) (tstamp 57A0B0D0))
   (segment (start 0 5.75) (end 0 8.3) (width 0.7) (layer F.Cu) (net 11))
   (segment (start 2.663952 5.095671) (end 2.663952 8.176048) (width 0.7) (layer F.Cu) (net 12))
   (segment (start 2.663952 8.176048) (end 2.54 8.3) (width 0.7) (layer F.Cu) (net 12) (tstamp 57A0B0C9))
-  (segment (start 4.727328 3.273357) (end 4.727328 7.947328) (width 0.7) (layer F.Cu) (net 13) (status C00000))
-  (segment (start 4.727328 7.947328) (end 5.08 8.3) (width 0.7) (layer F.Cu) (net 13) (tstamp 57A0B0D6) (status C00000))
+  (segment (start 4.727328 3.273357) (end 4.727328 7.947328) (width 0.7) (layer F.Cu) (net 13))
+  (segment (start 4.727328 7.947328) (end 5.08 8.3) (width 0.7) (layer F.Cu) (net 13) (tstamp 57A0B0D6))
 
 )
