@@ -1,7 +1,7 @@
 #Information
 * Project name : Nixie Clock
 * Developer : Shengwen Cheng (shengwen1997.tw@gmail.com)
-* Thanks to : 張世昌, 楊宗凡, 施翰誠, Ming, JackABK, 陳冠宇 and those people who gave me the advice 
+* Thanks to : 張世昌, 楊宗凡, 施翰誠, Ming, JackABK, 陳冠宇 and those people who gave me advice
 * Microcontroller : ATMega328p-au with arduino nano bootloader
 
 #Introduction
@@ -33,6 +33,12 @@ Here provide a better way to print out the circuit (print with pdf format):
 * Now, you can convert the file with command:
 
   **rsvg-convert -f pdf -o output.pdf input.svg**
+
+#Burn the bootloader
+
+```
+avrdude -c avrisp2 -P usb -u -p atmega328p -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0x05:m
+```
 
 #Pinout
 
