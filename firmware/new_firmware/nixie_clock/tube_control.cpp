@@ -49,35 +49,35 @@ void set_tube_brightness(int brightness) /* brightness value should between 0 to
 }
 
 void tube_digit_sort(int tube_font[8], rtc_time_t *time, int clock_mode)
-{
+{ 
   switch(clock_mode) {
     case DATE_MODE:
       //Year
-      tube_font[7] = time->year / 1000;
-      tube_font[6] = (time->year / 100) % 10;
-      tube_font[5] = (time->year / 10) % 100;
-      tube_font[4] = time->year % 10;
+      tube_font[TUBE_7] = time->year / 1000;
+      tube_font[TUBE_6] = (time->year / 100) % 10;
+      tube_font[TUBE_5] = (time->year / 10) % 100;
+      tube_font[TUBE_4] = time->year % 10;
       //Month
-      tube_font[3] = time->month / 10;
-      tube_font[2] = time->month % 10;
+      tube_font[TUBE_3] = time->month / 10;
+      tube_font[TUBE_2] = time->month % 10;
       //Day
-      tube_font[1] = time->day / 10;
-      tube_font[0] = time->day % 10;
+      tube_font[TUBE_1] = time->day / 10;
+      tube_font[TUBE_0] = time->day % 10;
       break;
 
     case TIME_MODE:  
       //Hour
-      tube_font[7] = time->hour / 10;
-      tube_font[6] = time->hour % 10;
+      tube_font[TUBE_7] = time->hour / 10;
+      tube_font[TUBE_6] = time->hour % 10;
       //Minute
-      tube_font[4] = time->minute / 10;
-      tube_font[3] = time->minute % 10;
+      tube_font[TUBE_4] = time->minute / 10;
+      tube_font[TUBE_3] = time->minute % 10;
       //Second
-      tube_font[1] = time->second / 10;
-      tube_font[0] = time->second % 10;
+      tube_font[TUBE_1] = time->second / 10;
+      tube_font[TUBE_0] = time->second % 10;
       //Empty
-      tube_font[5] = EMPTY_FONT;
-      tube_font[2] = EMPTY_FONT;
+      tube_font[TUBE_5] = EMPTY_FONT;
+      tube_font[TUBE_2] = EMPTY_FONT;
       break;
   }
 }

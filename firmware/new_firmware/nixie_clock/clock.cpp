@@ -55,9 +55,9 @@ void display_time_mode()
   tube_control(tube_index, tube[tube_index]);
 
   /* Light the right dot of tube 2 and 5 */
-  if(tube_index != 2 && tube_index != 5) { 
+  if(tube_index != TUBE_2 && tube_index != TUBE_5) { 
     digitalWrite(pin_font_right_dot, LOW);
-  } else if(tube_index == 2 || tube_index == 5) { 
+  } else if(tube_index == TUBE_2 || tube_index == TUBE_5) { 
     digitalWrite(pin_font_right_dot, HIGH);
     //delayMicroseconds(500);
   }
@@ -71,7 +71,7 @@ void display_date_mode()
   tube_control(tube_index, tube[tube_index]);
 
   /* Light the right dot of tube 2 and 4 */
-  if(tube_index == 2 || tube_index == 4) {
+  if(tube_index == TUBE_2 || tube_index == TUBE_4) {
     digitalWrite(pin_font_right_dot, HIGH);
   } else {
     digitalWrite(pin_font_right_dot, LOW);
