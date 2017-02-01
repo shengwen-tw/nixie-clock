@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/display_board/nixie_control_board.sch)
-    (date "Fri 05 Aug 2016 06:43:23 PM CST")
-    (tool "Eeschema 4.0.2+e4-6225~38~ubuntu14.04.1-stable")
+    (date "Wed 01 Feb 2017 11:19:51 PM CST")
+    (tool "Eeschema 4.0.5-e0-6337~49~ubuntu16.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -88,8 +88,8 @@
       (tstamp 56A3E427))
     (comp (ref SW3)
       (value SW_PUSH)
-      (footprint Buttons_Switches_ThroughHole:SW_PUSH-12mm)
-      (libsource (lib device) (part SW_PUSH))
+      (footprint button:SW_PUSH-12mm)
+      (libsource (lib nixie_control_board-cache) (part SW_PUSH))
       (sheetpath (names /display/) (tstamps /5646AE2C/))
       (tstamp 573D2843))
     (comp (ref P1)
@@ -100,7 +100,7 @@
       (tstamp 57A4B8DF)))
   (libparts
     (libpart (lib conn) (part CONN_01X08)
-      (description "Connector 01x08")
+      (description "Connector, single row, 01x08")
       (footprints
         (fp Pin_Header_Straight_1X08)
         (fp Pin_Header_Angled_1X08)
@@ -119,7 +119,7 @@
         (pin (num 7) (name P7) (type passive))
         (pin (num 8) (name P8) (type passive))))
     (libpart (lib conn) (part CONN_01X12)
-      (description "Connector 01x12")
+      (description "Connector, single row, 01x12")
       (footprints
         (fp Pin_Header_Straight_1X12)
         (fp Pin_Header_Angled_1X12)
@@ -142,7 +142,7 @@
         (pin (num 11) (name P11) (type passive))
         (pin (num 12) (name P12) (type passive))))
     (libpart (lib conn) (part CONN_02X01)
-      (description "Connector 02x01")
+      (description "Connector, double row, 02x01")
       (footprints
         (fp Pin_Header_Straight_2X01)
         (fp Pin_Header_Angled_2X01)
@@ -172,8 +172,7 @@
         (pin (num 11) (name Cathode_9) (type input))
         (pin (num 12) (name Cathode_0) (type input))
         (pin (num 13) (name Cathode_Camma_Right) (type input))))
-    (libpart (lib device) (part SW_PUSH)
-      (description Button)
+    (libpart (lib nixie_control_board-cache) (part SW_PUSH)
       (fields
         (field (name Reference) SW)
         (field (name Value) SW_PUSH))
@@ -184,9 +183,7 @@
     (library (logical conn)
       (uri /usr/share/kicad/library/conn.lib))
     (library (logical nixie_control_board-cache)
-      (uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/display_board/nixie_control_board-cache.lib))
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib)))
+      (uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/display_board/nixie_control_board-cache.lib)))
   (nets
     (net (code 1) (name cathode8)
       (node (ref U13) (pin 10))

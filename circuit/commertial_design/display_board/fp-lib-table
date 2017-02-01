@@ -2,4 +2,5 @@
   (lib (name button)(type KiCad)(uri "$(KIPRJMOD)/button.pretty")(options "")(descr ""))
   (lib (name IN-14-board)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/libraries/IN-14-board.pretty)(options "")(descr ""))
   (lib (name warning)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/libraries/warning.pretty)(options "")(descr ""))
+  (lib (name SW_PUSH)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/libraries/SW_PUSH.pretty)(options "")(descr ""))
 )
