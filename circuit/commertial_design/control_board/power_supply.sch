@@ -229,17 +229,6 @@ Text HLabel 7700 1800 2    98   Output ~ 0
 Text HLabel 1950 3850 0    98   Input ~ 0
 12V
 $Comp
-L C C11
-U 1 1 573F0108
-P 4400 5350
-F 0 "C11" H 4425 5450 50  0000 L CNN
-F 1 "330pf" H 4300 5250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4438 5200 30  0001 C CNN
-F 3 "" H 4400 5350 60  0000 C CNN
-	1    4400 5350
-	1    0    0    -1  
-$EndComp
-$Comp
 L R R22
 U 1 1 578D039C
 P 5800 2200
@@ -377,8 +366,8 @@ F 3 "" H 8050 3850 50  0000 C CNN
 $EndComp
 Text Notes 3300 3350 0    60   ~ 0
 190pf -> switching frequency = 100khz (use 182pf  instead) 
-Text Notes 4400 6200 0    60   ~ 0
-375pf -> switching frequency = 100khz (use 330pf instead)\n* Alternate capacitor is used when circuit 1 is not using
+Text Notes 3250 6150 0    60   ~ 0
+375pf -> switching frequency = 100khz (use 330pf instead)
 $Comp
 L C C12
 U 1 1 579C8704
@@ -404,34 +393,34 @@ $EndComp
 $Comp
 L BC557 Q5
 U 1 1 57D6CA32
-P 3650 5250
-F 0 "Q5" H 3550 5400 50  0000 L CNN
-F 1 "BC557" H 3800 4900 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 3800 5000 50  0000 L CIN
-F 3 "" H 3650 5250 50  0000 L CNN
-	1    3650 5250
+P 3850 5250
+F 0 "Q5" H 3750 5400 50  0000 L CNN
+F 1 "BC557" H 4000 4900 50  0000 L CNN
+F 2 "TO-92_" H 3350 5650 50  0001 L CIN
+F 3 "" H 3850 5250 50  0000 L CNN
+	1    3850 5250
 	-1   0    0    1   
 $EndComp
 $Comp
 L D_Schottky D4
 U 1 1 57D6CACB
-P 3900 4950
-F 0 "D4" H 3900 5050 50  0000 C CNN
-F 1 "D_Schottky" H 3900 4850 50  0000 C CNN
-F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 3900 4950 50  0001 C CNN
-F 3 "" H 3900 4950 50  0000 C CNN
-	1    3900 4950
+P 4150 4950
+F 0 "D4" H 4150 5050 50  0000 C CNN
+F 1 "D_Schottky" H 4150 4850 50  0000 C CNN
+F 2 "Diodes_ThroughHole:Diode_DO-35_SOD27_Horizontal_RM10" H 4150 4950 50  0001 C CNN
+F 3 "" H 4150 4950 50  0000 C CNN
+	1    4150 4950
 	1    0    0    1   
 $EndComp
 $Comp
 L C C14
 U 1 1 57D6CE9A
-P 3200 5250
-F 0 "C14" H 3225 5350 50  0000 L CNN
-F 1 "330pf" H 3100 5150 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3238 5100 30  0001 C CNN
-F 3 "" H 3200 5250 60  0000 C CNN
-	1    3200 5250
+P 3500 5250
+F 0 "C14" H 3525 5350 50  0000 L CNN
+F 1 "330pf" H 3400 5150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3538 5100 30  0001 C CNN
+F 3 "" H 3500 5250 60  0000 C CNN
+	1    3500 5250
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
@@ -518,10 +507,10 @@ Wire Wire Line
 	4750 3850 7050 3850
 Connection ~ 2600 3850
 Wire Wire Line
-	2600 4950 2600 5900
+	2600 5900 2600 4950
 Connection ~ 2600 5900
 Wire Wire Line
-	2150 3850 4450 3850
+	1950 3850 4450 3850
 Wire Wire Line
 	7100 4800 7400 4800
 Wire Wire Line
@@ -611,14 +600,7 @@ Connection ~ 6900 3200
 Wire Wire Line
 	7250 3850 7900 3850
 Wire Wire Line
-	2150 5900 9400 5900
-Wire Wire Line
-	4400 5200 4400 4950
-Wire Wire Line
-	4400 5500 4400 5900
-Connection ~ 4400 5900
-Wire Wire Line
-	4050 4950 5100 4950
+	1950 5900 9400 5900
 Wire Wire Line
 	3650 2550 3650 2700
 Wire Wire Line
@@ -636,43 +618,35 @@ Wire Wire Line
 	2150 4950 2150 5900
 Connection ~ 2150 5900
 Wire Wire Line
-	3750 4950 3200 4950
+	3500 4950 4000 4950
 Wire Wire Line
-	3550 4950 3550 5050
+	3750 4950 3750 5050
 Wire Wire Line
-	3850 5250 4050 5250
+	4050 5250 4350 5250
 Wire Wire Line
-	4050 5250 4050 4950
+	3500 4950 3500 5100
+Connection ~ 3750 4950
 Wire Wire Line
-	3200 4950 3200 5100
-Connection ~ 3550 4950
+	3750 5450 3750 5500
 Wire Wire Line
-	3550 5450 3550 5550
+	3750 5500 3500 5500
 Wire Wire Line
-	3550 5550 3200 5550
+	3500 5400 3500 5900
+Connection ~ 3500 5900
+Connection ~ 3500 5500
+Wire Notes Line
+	3300 4800 4400 4800
+Wire Notes Line
+	4400 4800 4400 6000
+Wire Notes Line
+	4400 6000 3300 6000
+Wire Notes Line
+	3300 6000 3300 4800
 Wire Wire Line
-	3200 5400 3200 5900
-Connection ~ 4400 4950
-Connection ~ 3200 5900
-Connection ~ 3200 5550
-Text Notes 2850 4700 0    60   ~ 0
-1.Ratio extended circuit
-Wire Notes Line
-	3050 4800 4150 4800
-Wire Notes Line
-	4150 4800 4150 6000
-Wire Notes Line
-	4150 6000 3050 6000
-Wire Notes Line
-	3050 6000 3050 4800
-Wire Notes Line
-	4250 5150 4600 5150
-Wire Notes Line
-	4600 5150 4600 5550
-Wire Notes Line
-	4600 5550 4250 5550
-Wire Notes Line
-	4250 5550 4250 5150
-Text Notes 4100 4700 0    60   ~ 0
-2.Alternate Capacitor
+	4300 4950 5100 4950
+Wire Wire Line
+	4350 5250 4350 4950
+Connection ~ 4350 4950
+Text Notes 3300 4750 0    60   ~ 0
+Ratio extended circuit
 $EndSCHEMATC
