@@ -59,7 +59,7 @@ void set_mp3_loop_play_state(bool state)
   mp3_loop_song = state;
   eeprom_save_mp3_loop_setting();
 
-  if(state == false) {
+  if(state == false && alarm_loop_song == false) {
     playing = false;
   } else {
     playing = true;
