@@ -29,12 +29,13 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:costom
+LIBS:hc06
 LIBS:nixie_control_board-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 4
+Sheet 2 4
 Title ""
 Date ""
 Rev ""
@@ -261,17 +262,15 @@ Text GLabel 9900 2850 2    55   UnSpc ~ 0
 USART_RX
 Text GLabel 9900 2950 2    55   UnSpc ~ 0
 USART_TX
-Text HLabel 5850 4300 0    67   Input ~ 0
+Text HLabel 7150 4500 2    67   Input ~ 0
 GND
-Text HLabel 5750 5300 2    67   Input ~ 0
-GND
-Text GLabel 5850 4200 0    55   UnSpc ~ 0
+Text GLabel 4850 3900 0    55   UnSpc ~ 0
 USART_RX
-Text GLabel 5850 4100 0    55   UnSpc ~ 0
+Text GLabel 4850 4000 0    55   UnSpc ~ 0
 USART_TX
-Text GLabel 5750 5200 2    55   UnSpc ~ 0
+Text GLabel 7150 4400 2    55   UnSpc ~ 0
 USART_RX
-Text GLabel 5750 5100 2    55   UnSpc ~ 0
+Text GLabel 7150 4300 2    55   UnSpc ~ 0
 USART_TX
 Text GLabel 9900 3050 2    55   UnSpc ~ 0
 Mode_button
@@ -456,35 +455,13 @@ NoConn ~ 5750 6250
 $Comp
 L CONN_01X04 P4
 U 1 1 57408260
-P 5450 5250
-F 0 "P4" H 5450 5500 50  0000 C CNN
-F 1 "CONN_01X04" V 5550 5250 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04" H 5450 5250 50  0001 C CNN
-F 3 "" H 5450 5250 50  0000 C CNN
-	1    5450 5250
+P 6850 4450
+F 0 "P4" H 6850 4700 50  0000 C CNN
+F 1 "CONN_01X04" V 6950 4450 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04" H 6850 4450 50  0001 C CNN
+F 3 "" H 6850 4450 50  0000 C CNN
+	1    6850 4450
 	-1   0    0    1   
-$EndComp
-$Comp
-L SPST SW2
-U 1 1 57408470
-P 5600 4500
-F 0 "SW2" H 5600 4600 50  0000 C CNN
-F 1 "SPST" H 5600 4400 50  0000 C CNN
-F 2 "SMD_SOLD_BRIDGE:SMD_BRIDGE" H 5600 4500 50  0001 C CNN
-F 3 "" H 5600 4500 50  0000 C CNN
-	1    5600 4500
-	1    0    0    -1  
-$EndComp
-$Comp
-L BLUETOOTH_SJ P5
-U 1 1 574BA9A7
-P 6500 4350
-F 0 "P5" H 6500 4650 50  0000 C CNN
-F 1 "BLUETOOTH_SJ" H 6750 4000 50  0000 C CNN
-F 2 "HC06:HC06" H 6550 4350 50  0001 C CNN
-F 3 "" H 6550 4350 50  0000 C CNN
-	1    6500 4350
-	1    0    0    -1  
 $EndComp
 Text GLabel 9900 3150 2    55   UnSpc ~ 0
 dfplayer_state
@@ -505,8 +482,6 @@ F 3 "" H 7700 2050 50  0000 C CNN
 $EndComp
 Text HLabel 7600 2350 0    98   Input ~ 0
 GND
-Text HLabel 5000 4500 0    98   Input ~ 0
-5V
 $Comp
 L C C13
 U 1 1 5790A71F
@@ -520,7 +495,7 @@ F 3 "" H 4550 5750 50  0000 C CNN
 $EndComp
 Text HLabel 4450 5600 0    67   Input ~ 0
 GND
-NoConn ~ 5750 5400
+NoConn ~ 7150 4600
 $Comp
 L CONN_02X03 P6
 U 1 1 579BFF5D
@@ -573,18 +548,6 @@ Wire Wire Line
 	5750 6100 5900 6100
 Wire Wire Line
 	9750 1350 9900 1350
-Wire Wire Line
-	6300 4100 6300 4200
-Wire Wire Line
-	6250 4300 6300 4300
-Wire Wire Line
-	6250 4200 6250 4300
-Wire Wire Line
-	6200 4400 6300 4400
-Wire Wire Line
-	6200 4300 6200 4400
-Wire Wire Line
-	6100 4500 6300 4500
 Wire Wire Line
 	7700 1850 7850 1850
 Wire Wire Line
@@ -684,21 +647,13 @@ Wire Wire Line
 Wire Wire Line
 	9900 3050 9750 3050
 Wire Wire Line
-	5000 4500 5100 4500
+	7150 4600 7050 4600
 Wire Wire Line
-	5750 5400 5650 5400
+	7150 4400 7050 4400
 Wire Wire Line
-	5750 5200 5650 5200
+	7050 4300 7150 4300
 Wire Wire Line
-	5650 5100 5750 5100
-Wire Wire Line
-	5850 4200 6250 4200
-Wire Wire Line
-	5850 4100 6300 4100
-Wire Wire Line
-	5650 5300 5750 5300
-Wire Wire Line
-	5850 4300 6200 4300
+	7050 4500 7150 4500
 Wire Wire Line
 	9750 2950 9900 2950
 Wire Wire Line
@@ -1062,4 +1017,64 @@ NoConn ~ 9750 3250
 NoConn ~ 9750 2300
 NoConn ~ 7850 2600
 NoConn ~ 7850 2700
+NoConn ~ 6300 3900
+NoConn ~ 6300 4000
+NoConn ~ 6300 4100
+NoConn ~ 6300 4200
+NoConn ~ 6300 4300
+NoConn ~ 6300 4400
+NoConn ~ 6300 4500
+NoConn ~ 6300 4600
+NoConn ~ 6300 4700
+NoConn ~ 6300 4800
+NoConn ~ 6300 4900
+NoConn ~ 6300 5000
+NoConn ~ 5950 5550
+NoConn ~ 5850 5550
+NoConn ~ 5750 5550
+NoConn ~ 5650 5550
+NoConn ~ 5550 5550
+NoConn ~ 5450 5550
+NoConn ~ 5350 5550
+NoConn ~ 5250 5550
+NoConn ~ 4900 4100
+NoConn ~ 4900 4200
+NoConn ~ 4900 4300
+NoConn ~ 4900 4400
+NoConn ~ 4900 4500
+NoConn ~ 4900 4600
+NoConn ~ 4900 4700
+NoConn ~ 4900 4800
+NoConn ~ 4900 4900
+Text HLabel 6450 5100 2    98   Input ~ 0
+GND
+Wire Wire Line
+	6300 5100 6450 5100
+Text HLabel 4750 5150 0    98   Input ~ 0
+GND
+Wire Wire Line
+	4800 5150 4800 5100
+Wire Wire Line
+	4800 5100 4900 5100
+Wire Wire Line
+	4750 5150 4800 5150
+Wire Wire Line
+	4850 3900 4900 3900
+Wire Wire Line
+	4900 4000 4850 4000
+$Comp
+L hc06 U11
+U 1 1 58930ADF
+P 5600 4450
+F 0 "U11" H 6000 5250 60  0000 C CNN
+F 1 "hc06" H 5200 5250 60  0000 C CNN
+F 2 "hc06:hc06" H 5300 5150 60  0001 C CNN
+F 3 "" H 5300 5150 60  0001 C CNN
+	1    5600 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 5000 4900 5000
+Text HLabel 4750 5000 0    98   Input ~ 0
+3V3
 $EndSCHEMATC

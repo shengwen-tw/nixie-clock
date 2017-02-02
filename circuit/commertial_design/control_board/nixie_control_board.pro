@@ -1,4 +1,4 @@
-update=Wed 01 Feb 2017 09:32:51 PM CST
+update=Thu 02 Feb 2017 01:49:13 AM CST
 version=1
 last_client=kicad
 [pcbnew]
@@ -70,3 +70,4 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=costom
+LibName32=hc06

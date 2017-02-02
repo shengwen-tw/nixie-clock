@@ -29,6 +29,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:costom
+LIBS:hc06
 LIBS:nixie_control_board-cache
 EELAYER 25 0
 EELAYER END

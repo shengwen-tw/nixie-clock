@@ -1,0 +1,86 @@
+* /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/control_board/nixie_control_board.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Thu 02 Feb 2017 04:54:33 PM CST
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+CON1  /power_supply/12V /RTC/GND /RTC/GND BARREL_JACK		
+* Sheet Name: /nixie_control/
+IC1  dfplayer_state ? /RTC/GND /RTC/5V /RTC/GND /RTC/5V Crystal1 Ctystal2 Digit_A3 Digit_A2 Digit_A1 MP3_RX MP3_TX Font_D Font_C Font_B Font_A /RTC/5V ? /RTC/5V /RTC/GND ? right_comma left_comma ? Digit_A0 /RTC/I2C_SDA /RTC/I2C_SCL Reset USART_RX USART_TX Mode_button ATMEGA328P-A		
+R15  Reset /RTC/5V 10k ohm		
+SW1  /RTC/GND Reset SW_PUSH		
+C8  Crystal1 /RTC/GND 22pf		
+C9  Ctystal2 /RTC/GND 22pf		
+Y1  Crystal1 Ctystal2 16MHZ		
+U8  Net-_P3-Pad2_ Net-_P3-Pad1_ Font_A Font_D /RTC/5V Font_B Font_C Net-_P3-Pad8_ Net-_P3-Pad7_ Net-_P3-Pad3_ Net-_P3-Pad4_ /RTC/GND Net-_P3-Pad6_ Net-_P3-Pad5_ Net-_P3-Pad9_ Net-_P3-Pad10_ 74L147		
+U5  Net-_U5-Pad1_ Net-_U4-Pad3_ Net-_U3-Pad3_ Net-_U5-Pad4_ ? Net-_U5-Pad6_ Net-_U5-Pad7_ /RTC/GND ? Digit_A0 Digit_A3 Digit_A2 Digit_A1 Net-_U3-Pad1_ Net-_U4-Pad1_ /RTC/5V HEF4028		
+U4  Net-_U4-Pad1_ Net-_R8-Pad2_ Net-_U4-Pad3_ Net-_R8-Pad2_ Net-_P1-Pad6_ Net-_R9-Pad1_ Net-_P1-Pad5_ Net-_R9-Pad1_ TLP521		
+U3  Net-_U3-Pad1_ Net-_R8-Pad2_ Net-_U3-Pad3_ Net-_R8-Pad2_ Net-_P1-Pad8_ Net-_R9-Pad1_ Net-_P1-Pad7_ Net-_R9-Pad1_ TLP521		
+U7  Net-_U5-Pad4_ Net-_R8-Pad2_ Net-_U5-Pad7_ Net-_R8-Pad2_ Net-_P1-Pad2_ Net-_R9-Pad1_ Net-_P1-Pad1_ Net-_R9-Pad1_ TLP521		
+U6  Net-_U5-Pad6_ Net-_R8-Pad2_ Net-_U5-Pad1_ Net-_R8-Pad2_ Net-_P1-Pad4_ Net-_R9-Pad1_ Net-_P1-Pad3_ Net-_R9-Pad1_ TLP521		
+R9  Net-_R9-Pad1_ /nixie_control/170V 5.1k ohm		
+R12  /RTC/GND Mode_button 330ohm		
+R8  /RTC/GND Net-_R8-Pad2_ 330ohm		
+Q3  /RTC/GND left_comma Net-_Q3-Pad3_ MPSA42		
+Q4  /RTC/GND right_comma Net-_Q4-Pad3_ MPSA42		
+R10  Net-_Q3-Pad3_ _cathode_comma_left 33K ohm		
+R11  Net-_Q4-Pad3_ _cathode_comma_right 33k ohm		
+P1  Net-_P1-Pad1_ Net-_P1-Pad2_ Net-_P1-Pad3_ Net-_P1-Pad4_ Net-_P1-Pad5_ Net-_P1-Pad6_ Net-_P1-Pad7_ Net-_P1-Pad8_ CONN_01X08		
+P3  Net-_P3-Pad1_ Net-_P3-Pad2_ Net-_P3-Pad3_ Net-_P3-Pad4_ Net-_P3-Pad5_ Net-_P3-Pad6_ Net-_P3-Pad7_ Net-_P3-Pad8_ Net-_P3-Pad9_ Net-_P3-Pad10_ _cathode_comma_left _cathode_comma_right CONN_01X12		
+R18  Net-_R18-Pad1_ MP3_TX 1K ohm		
+R19  Net-_R19-Pad1_ MP3_RX 1k ohm		
+SP1  Net-_SP1-Pad1_ Net-_SP1-Pad2_ SPEAKER		
+U18  /RTC/5V Net-_R18-Pad1_ Net-_R19-Pad1_ ? ? Net-_SP1-Pad2_ /RTC/GND Net-_SP1-Pad1_ ? /RTC/GND ? ? ? ? ? dfplayer_state DFPlayer		
+P4  ? /RTC/GND USART_RX USART_TX CONN_01X04		
+C15  /RTC/5V /RTC/GND 0.1uf		
+C13  /RTC/GND /RTC/5V 0.1uf		
+P6  Font_B /RTC/5V Font_A Font_C Reset /RTC/GND CONN_02X03		
+P2  /RTC/5V Mode_button CONN_02X01		
+U11  USART_RX USART_TX ? ? ? ? ? ? ? ? ? ? /RTC/GND ? ? ? ? ? ? ? ? /RTC/GND ? ? ? ? ? ? ? ? ? ? ? ? hc06		
+* Sheet Name: /RTC/
+U9  ? /RTC/5V ? ? /RTC/GND /RTC/GND /RTC/GND /RTC/GND /RTC/GND /RTC/GND /RTC/GND /RTC/GND /RTC/GND Net-_BT1-Pad1_ /RTC/I2C_SDA /RTC/I2C_SCL DS3231		
+BT1  Net-_BT1-Pad1_ /RTC/GND CR2032		
+R17  /RTC/5V /RTC/I2C_SCL 4.7k ohm		
+R16  /RTC/5V /RTC/I2C_SDA 4.7k ohm		
+C4  /RTC/5V /RTC/GND 0.1uf		
+* Sheet Name: /power_supply/
+U2  Net-_R4-Pad2_ Net-_D1-Pad2_ Net-_D4-Pad2_ /RTC/GND Net-_R6-Pad2_ /power_supply/12V Net-_L1-Pad1_ Net-_R5-Pad2_ MC34063A		
+R1  /power_supply/12V Net-_L1-Pad1_ 0.5ohm		
+R2  /power_supply/12V Net-_L1-Pad1_ 0.5ohm		
+R4  Net-_L1-Pad1_ Net-_R4-Pad2_ 1k ohm		
+R5  Net-_L1-Pad1_ Net-_R5-Pad2_ 620ohm		
+C2  /power_supply/12V /RTC/GND 100uf/16v		
+C6  Net-_C6-Pad1_ /RTC/GND 33uf/250v		
+C7  /nixie_control/170V /RTC/GND 33uf/250v		
+R6  Net-_C6-Pad1_ Net-_R6-Pad2_ 100k ohm		
+R7  Net-_R6-Pad2_ /RTC/GND 750 ohm		
+D1  Net-_D1-Pad1_ Net-_D1-Pad2_ 1N4148		
+R3  Net-_D1-Pad2_ /RTC/GND 1k ohm		
+L1  Net-_L1-Pad1_ Net-_D3-Pad2_ 220uh		
+L2  Net-_C6-Pad1_ /nixie_control/170V 22uh		
+Q1  Net-_D1-Pad1_ /RTC/GND Net-_D1-Pad2_ 2SB647		
+Q2  Net-_D1-Pad1_ Net-_D3-Pad2_ /RTC/GND 2SK3611		
+R22  Net-_R22-Pad1_ Net-_C3-Pad1_ 3k ohm		
+R23  Net-_R22-Pad1_ /RTC/GND 1k ohm		
+D2  Net-_D2-Pad1_ /RTC/GND 1N5819		
+U1  Net-_R20-Pad2_ Net-_D2-Pad1_ Net-_C1-Pad1_ /RTC/GND Net-_R22-Pad1_ /power_supply/12V Net-_R20-Pad2_ Net-_R20-Pad2_ MC34063A		
+L3  Net-_D2-Pad1_ Net-_C3-Pad1_ 220uh		
+C1  Net-_C1-Pad1_ /RTC/GND 182p		
+R20  /power_supply/12V Net-_R20-Pad2_ 0.5ohm		
+R21  /power_supply/12V Net-_R20-Pad2_ 0.5ohm		
+C3  Net-_C3-Pad1_ /RTC/GND 680uf/16v		
+L4  Net-_C3-Pad1_ /RTC/5V 1uh		
+C5  /RTC/5V /RTC/GND 680uf/16v		
+D3  Net-_C6-Pad1_ Net-_D3-Pad2_ FR154		
+C12  /RTC/5V /RTC/GND 0.1uf		
+C10  /power_supply/12V /RTC/GND 0.1uf		
+Q5  /RTC/GND Net-_D4-Pad2_ Net-_C14-Pad1_ BC557		
+D4  Net-_C14-Pad1_ Net-_D4-Pad2_ D_Schottky		
+C14  Net-_C14-Pad1_ /RTC/GND 330pf		
+U10  /RTC/GND /power_supply/3V3 /RTC/5V /power_supply/3V3 LM1117-3.3		
+C11  /RTC/5V /RTC/GND 10uf		
+C16  /power_supply/3V3 /RTC/GND 10uf		
+
+.end

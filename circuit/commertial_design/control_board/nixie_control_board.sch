@@ -29,6 +29,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:costom
+LIBS:hc06
 LIBS:nixie_control_board-cache
 EELAYER 25 0
 EELAYER END
@@ -45,25 +46,16 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 4450 2450 950  800 
-U 5645F24C
-F0 "power_supply" 60
-F1 "power_supply.sch" 60
-F2 "170V" O R 5400 2750 60 
-F3 "5V" O R 5400 2950 60 
-F4 "12V" I L 4450 2750 60 
-F5 "GND" I L 4450 2950 60 
-$EndSheet
-$Sheet
 S 6050 2600 2050 2950
 U 5645F2A4
 F0 "nixie_control" 60
 F1 "nixie_control.sch" 60
 F2 "170V" I L 6050 2750 60 
 F3 "5V" I L 6050 2850 60 
-F4 "GND" I L 6050 2950 60 
-F5 "I2C_SCL" I L 6050 3250 60 
-F6 "I2C_SDA" I L 6050 3150 60 
+F4 "GND" I L 6050 3100 60 
+F5 "I2C_SCL" I L 6050 3450 60 
+F6 "I2C_SDA" I L 6050 3300 60 
+F7 "3V3" I L 6050 2950 60 
 $EndSheet
 $Sheet
 S 4450 3650 950  1000
@@ -95,17 +87,9 @@ Wire Wire Line
 Wire Wire Line
 	5400 2750 6050 2750
 Wire Wire Line
-	5400 2950 5500 2950
-Wire Wire Line
-	5500 2950 5500 2850
-Wire Wire Line
-	5500 2850 6050 2850
+	5450 2850 6050 2850
 Wire Wire Line
 	4300 3450 5550 3450
-Wire Wire Line
-	5550 2950 5550 3850
-Wire Wire Line
-	5550 2950 6050 2950
 Connection ~ 4300 2950
 Wire Wire Line
 	5800 2850 5800 4050
@@ -118,15 +102,40 @@ Connection ~ 5550 3450
 Wire Wire Line
 	5400 4250 5900 4250
 Wire Wire Line
-	5900 4250 5900 3150
-Wire Wire Line
-	5900 3150 6050 3150
-Wire Wire Line
-	6050 3250 6000 3250
-Wire Wire Line
-	6000 3250 6000 4450
-Wire Wire Line
 	6000 4450 5400 4450
 Wire Wire Line
 	4150 2850 4150 2950
+Wire Wire Line
+	5900 4250 5900 3300
+Wire Wire Line
+	5900 3300 6050 3300
+Wire Wire Line
+	6000 4450 6000 3450
+Wire Wire Line
+	6000 3450 6050 3450
+Wire Wire Line
+	6050 3100 5550 3100
+Wire Wire Line
+	5550 3100 5550 3850
+Wire Wire Line
+	5500 2950 6050 2950
+Wire Wire Line
+	5400 3150 5500 3150
+$Sheet
+S 4450 2450 950  800 
+U 5645F24C
+F0 "power_supply" 60
+F1 "power_supply.sch" 60
+F2 "170V" O R 5400 2750 60 
+F3 "5V" O R 5400 2950 60 
+F4 "12V" I L 4450 2750 60 
+F5 "GND" I L 4450 2950 60 
+F6 "3V3" O R 5400 3150 60 
+$EndSheet
+Wire Wire Line
+	5450 2850 5450 2950
+Wire Wire Line
+	5450 2950 5400 2950
+Wire Wire Line
+	5500 3150 5500 2950
 $EndSCHEMATC

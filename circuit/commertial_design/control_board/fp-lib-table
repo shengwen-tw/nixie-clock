@@ -11,7 +11,7 @@
   (lib (name SMD_PIN_2_BY_6_REVERSE)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/new_design/libraries/SMD_PIN_2_BY_6_REVERSE.pretty)(options "")(descr ""))
   (lib (name warning)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/new_design/libraries/warning.pretty)(options "")(descr ""))
   (lib (name CR2032H)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/new_design/libraries/CR2032H.pretty)(options "")(descr ""))
-  (lib (name HC06)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/new_design/libraries/HC06.pretty)(options "")(descr ""))
   (lib (name FIXED_POWER_JACK)(type KiCad)(uri "$(KIPRJMOD)/FIXED_POWER_JACK.pretty")(options "")(descr ""))
   (lib (name SMD_SOLD_BRIDGE)(type KiCad)(uri "$(KIPRJMOD)/SMD_SOLD_BRIDGE.pretty")(options "")(descr ""))
+  (lib (name hc06)(type KiCad)(uri /home/shengwen/workspace/project/nixie-clock/circuit/commertial_design/libraries/hc06.pretty)(options "")(descr ""))
 )
