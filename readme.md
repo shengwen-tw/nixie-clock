@@ -7,7 +7,7 @@
 
 A Russian IN-14 Nixie tube clock which support time display, alram and mp3 playing function 
 
-<img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo2.jpg?raw=true" width="50%" height="50%">
+<img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo3.jpg?raw=true" width="50%" height="50%">
 
 <img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo1.jpg?raw=true" width="50%" height="50%">
 
