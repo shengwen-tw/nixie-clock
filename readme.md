@@ -1,6 +1,6 @@
 ## Nixie Clock
 * Author : Shengwen Cheng (shengwen1997.tw@gmail.com)
-* Special thanks : 張世昌, 楊宗凡, 施翰誠, Ming, JackABK, 陳冠宇
+* Special thanks : 張世昌, 楊宗凡, 施翰誠, 周明哲, 王尹辰, 陳冠宇
 * Microcontroller : Arduino (ATMega328p-au)
 
 ## Introduction
@@ -9,9 +9,11 @@ A Russian IN-14 Nixie tube clock which support time display, alram and mp3 playi
 
 <img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo3.jpg?raw=true" width="50%" height="50%">
 
+<img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo4.jpg?raw=true" width="50%" height="50%">
+
 <img src="https://github.com/shengwen1997/nixie-clock/blob/master/material/demo1.jpg?raw=true" width="50%" height="50%">
 
-<img src="https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/tube.jpg" width="324px" height="216px">
+<img src="https://raw.githubusercontent.com/shengwen1997/Nixie-Clock/master/material/tube.jpg" width="50%" height="50%">
 
 ## Firmware dependencies
 
