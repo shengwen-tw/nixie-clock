@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
+#include <TimeLib.h>
 
 #include "RTC.h"
 
