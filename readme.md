@@ -22,6 +22,18 @@ You must install the following arduino libraries before compiling the firmware (
 * DFPlayer driver (a modified version of AltSoftwareSerial)
 * RTC and Time library
 
+## USBasp driver
+
+1. Download Zadig
+
+2. Select **Options/List All Devices**
+
+3. Select **USBasp**
+
+4. Select **libusbK**
+
+5. Click **Replace Driver**
+
 ## Circuit files
 
 The hardware was designed under Kicad 4, any previous version may not work properly.
